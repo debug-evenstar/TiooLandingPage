@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SignupIndex from './pages/auth/SignupIndex';
 import SchoolSignupIndex from './pages/auth/school';
 import LoginScreen from './pages/auth/Login';
+import ParentSignupIndex from './pages/auth/parent';
+import FreelanceSignupIndex from './pages/auth/freelancer';
 
 function App() {
   return (
@@ -13,8 +15,8 @@ function App() {
         <Route path="/" element={<SignupIndex/>}/>
         <Route path='/login' element={<LoginScreen/>}/>
         <Route path='/school' element={<SchoolSignupIndex/>}/>
-        <Route path='/freelancer' element={'freelance'}/>
-        <Route path='/parent' element={'parent'}/>
+        <Route path='/freelancer' element={<FreelanceSignupIndex/>}/>
+        <Route path='/parent' element={<ParentSignupIndex/>}/>
       </Routes>
     </BrowserRouter>
   );
