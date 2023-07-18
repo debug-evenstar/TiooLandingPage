@@ -5,7 +5,7 @@ import SchoolTypeScreen from "./SchoolType";
 import NamingTypeScreen from "./NamingType";
 
 const SchoolSignupIndex = () => {
-  const [open, setOpen] = useState(1);
+  const [open, setOpen] = useState(3);
 
   const handleOpen = (value: number) => {
     setOpen(open === value ? value : value);

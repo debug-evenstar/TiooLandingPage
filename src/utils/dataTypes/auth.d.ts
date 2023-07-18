@@ -60,3 +60,17 @@ export interface CustomInput {
     type: string,
     naming: string,
 }
+
+export interface SetupSlicePayload {
+    naming: CustomInput[],
+  types: string[]
+}
+
+export interface ForgetPasswordInput {
+    email: string
+}
+
+export interface ResetPasswordInput {
+    email: string | undefined
+    password: string
+}

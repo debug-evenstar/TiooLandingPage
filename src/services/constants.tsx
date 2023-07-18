@@ -24,6 +24,8 @@ export const REQUEST_NEW_OTP = 'new/account/send_otp'
 export const REQUEST_OTP = 'account/send_otp'
 export const VERIFY_NEW_OTP = 'new/account/verify'
 export const VERIFY_OTP = 'account/send_otp'
+export const FORGET_PASSWORD = 'account/resetpassword'
+export const RESET_PASSWORD = 'account/change_password'
 
 // Setup school
 export const SCHOOL_SETUP = 'school/setup'

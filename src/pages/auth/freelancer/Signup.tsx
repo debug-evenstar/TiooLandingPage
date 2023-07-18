@@ -7,12 +7,19 @@ import "react-phone-number-input/style.css";
 import TextInput, { InputType } from "../../../components/Ui/TextInput";
 import Button from "../../../components/Ui/Button";
 import { HashSpinner } from "../../../components/Ui/Loading";
+import { useAppDispatch } from "../../../redux/store";
+import { useLazyRegisterSchoolQuery, useLazySendOtpQuery } from "../../../services/api/authSlice";
+import { saveUser } from "../../../redux/reducers/userReducer";
+import { toast } from "react-toastify";
 
 interface Props {
   openNext: (value: number) => void;
 }
 const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
-  const [isBusy, setIsBusy] = useState()
+  const [isBusy, setIsBusy] = useState(false);
+  const dispatch = useAppDispatch()
+  const [register] = useLazyRegisterSchoolQuery()
+  const [sendOtp] = useLazySendOtpQuery()
   const {
     control,
     handleSubmit,
@@ -25,9 +32,39 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
       email: "",
       password: "",
       phone: "",
-      institution: ""
+      school: "",
+      account_type: "freelancer"
     },
   });
+  const onSubmit = async (data:any) => {
+    setIsBusy(true);
+    await register(data)
+      .then((res:any) => {
+        if (res.isSuccess) {
+            dispatch(saveUser({
+                name: data.name,
+                email: data.email,
+                account_type: "freelancer",
+                phone: data.phone
+            }))
+          toast.success(res.data.message)
+          const payload = {
+            email: data.email
+          }
+          sendOtp(payload).then((res:any) => {
+            if(res.isSuccess){toast.success(res.data.message)}
+          }).catch((err) => {})
+          openNext(2)
+        }else {
+          toast.error(res?.error?.data.message);
+          setIsBusy(false);
+        }
+      })
+      .catch((err) => {
+        toast.error(err?.error?.data?.message);
+        setIsBusy(false);
+      });
+  };
   return (
     <>
       <AuthLayout type="register">
@@ -42,7 +79,7 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
             </p>
           </div>
           <div className="lg:px-12 mt-7">
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <Controller
                   name="name"
@@ -89,7 +126,7 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
               </div>
               <div className="mt-5">
                 <Controller
-                  name="institution"
+                  name="school"
                   control={control}
                   rules={{
                     required: {

@@ -2,6 +2,11 @@ import React, { useState, FC } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
 import useModal from "../../../hooks/useModal";
 import CustomNamingModal from "../../../components/auth/customNaming";
+import { useAppSelector } from "../../../redux/store";
+import { useLazySetupSchoolQuery } from "../../../services/api/authSlice";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { HashSpinner } from "../../../components/Ui/Loading";
 
 interface Props {
   openNext: (value: number) => void;
@@ -14,34 +19,58 @@ interface namingItem {
 }
 const NamingTypeScreen: FC<Props> = ({ openNext }) => {
   const [namingType, setNamingType] = useState<string>();
+  const [isBusy, setIsBusy] = useState(false);
   const { Modal, setShowModal } = useModal();
-  const gotoRegister = () => {
-    if (namingType) {
-      //   navigate(`/${namingType}`);
-    }
+  const user = useAppSelector((state) => state.user.user);
+  const sch = useAppSelector((state) => state.setup);
+  const [update] = useLazySetupSchoolQuery();
+  const navigate = useNavigate()
+
+  const openModal = (item: namingItem) => {
+    setNamingType(item.param);
+    setShowModal(true);
   };
-  const openModal = (item:namingItem) => {
-    setNamingType(item.param)
-    setShowModal(true)
+
+  const updateSchool = async () => {
+    setIsBusy(true)
+    const payload = {
+      email: user.email,
+      school_types: sch.types,
+      naming_types: namingType ? namingType : "",
+      ...(namingType === "C" && { class_naming: sch.naming }),
+    };
+    await update(payload)
+    .then((res:any) => {
+      if (res.isSuccess) {
+        toast.success(res.data.message);
+        setIsBusy(false);
+        navigate('/login')
+      } else {
+        toast.error(res?.error?.data?.message);
+      }
+    })
+    .catch((err) => {
+      toast.error(err?.error?.data?.message);
+      setIsBusy(false);
+    });
   };
-  const selectNamingType = () => {};
   const namingTypes = [
     {
       name: "Grade 1 - 12",
-      param: "gd",
+      param: "G",
       desc: "Use key stage system of grade 1-12",
       id: "1",
     },
     {
       name: "Primary 1-6 & JSS1-SS3",
-      param: "ps",
+      param: "NS",
       desc: "Use the Nigerian class naming style",
       id: "2",
     },
     {
       name: "Custom",
       desc: "Set your own school naming style",
-      param: "cs",
+      param: "C",
       id: "3",
     },
   ];
@@ -50,9 +79,9 @@ const NamingTypeScreen: FC<Props> = ({ openNext }) => {
       <AuthLayout type="schtype">
         <div>
           <div className="text-center w-7/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
-            <p className="text-primary text-2xl fw-600">Select School Type</p>
+            <p className="text-primary text-2xl fw-600">Naming Type</p>
             <div className="mt-3 mb-3 text-center">
-              <p>What type of school do you run</p>
+              <p>Choose your school’s naming style</p>
             </div>
             <p className="absolute right-10 top-8 fw-600 fs-700">2 of 2</p>
           </div>
@@ -65,16 +94,17 @@ const NamingTypeScreen: FC<Props> = ({ openNext }) => {
                     : "bg-white"
                 }`}
                 onClick={
-                  item.param === "cs"
+                  item.param === "C"
                     ? () => openModal(item)
                     : () => setNamingType(item.param)
                 }
+                key={item.param}
               >
                 <p className="fw-600 text-lg">{item.name}</p>
                 <p
-                  className={`mt-4 fs-400 ${
+                  className={`fs-400  ${
                     namingType === item.param ? "text-white" : "text-[#87909E]"
-                  }`}
+                  } ${item.param === "ps" ? "mt-1" : "mt-4"}`}
                 >
                   {item.desc}
                 </p>
@@ -83,17 +113,17 @@ const NamingTypeScreen: FC<Props> = ({ openNext }) => {
           </div>
           <div className="flex justify-center mt-10">
             <div
-              className={`py-[10px] cursor-pointer btn-shade rounded-t-[8px] rounded-bl-[8px] border border-[#312ECB33] w-5/12 bg-[#E3E2FF] text-[#87909EBD] text-center ${
+              className={`py-[10px] cursor-pointer btn-shade rounded-t-[8px] rounded-bl-[8px] border border-[#312ECB33] w-5/12 flex justify-center bg-[#E3E2FF] text-[#87909EBD] text-center ${
                 namingType && "!bg-[#4F46E5] text-white"
               }`}
-              onClick={gotoRegister}
+              onClick={namingType? updateSchool : () => false}
             >
-              Next
+              {isBusy? <HashSpinner size={20} color="white"/> : "Continue"}
             </div>
           </div>
         </div>
         <Modal title="Add Your School Naming Style" sidebar>
-          <CustomNamingModal/>
+          <CustomNamingModal close={() => setShowModal(false)} />
         </Modal>
       </AuthLayout>
     </>

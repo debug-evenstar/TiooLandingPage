@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 import TextInput, { InputType } from "../../../components/Ui/TextInput";
 import Button from "../../../components/Ui/Button";
 import { HashSpinner } from "../../../components/Ui/Loading";
+import { toast } from "react-toastify";
 
-const CompleteSignupScreen = () => {
-  const [isBusy, setIsBusy] = useState()
+interface Props {
+  openNext: (value: number) => void;
+}
+const CompleteSignupScreen:FC<Props> = ({openNext}) => {
+  const [isBusy, setIsBusy] = useState(false)
+  const navigate = useNavigate()
   const {
     control,
     handleSubmit,
@@ -22,6 +27,22 @@ const CompleteSignupScreen = () => {
       age: "",
     },
   });
+  // const onSubmit = async (data:any) => {
+  //   await update(data)
+  //   .then((res:any) => {
+  //     if (res.isSuccess) {
+  //       toast.success(res.data.message);
+  //       setIsBusy(false);
+  //       navigate('/login')
+  //     } else {
+  //       toast.error(res?.error?.data?.message);
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     toast.error(err?.error?.data?.message);
+  //     setIsBusy(false);
+  //   });
+  // };
   return (
     <>
       <AuthLayout type="complete">
