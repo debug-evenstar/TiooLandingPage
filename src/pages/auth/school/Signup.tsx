@@ -9,15 +9,15 @@ import { HashSpinner } from "../../../components/Ui/Loading";
 import Button from "../../../components/Ui/Button";
 import { useLazyRegisterSchoolQuery, useLazySendOtpQuery } from "../../../services/api/authSlice";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
 import { saveUser } from "../../../redux/reducers/userReducer";
+import { useAppDispatch } from "../../../redux/store";
 
 interface Props {
   openNext: (value: number) => void;
 }
 const SchoolSignup: FC<Props> = ({ openNext }) => {
   const [isBusy, setIsBusy] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const [register] = useLazyRegisterSchoolQuery()
   const [sendOtp] = useLazySendOtpQuery()
   const {

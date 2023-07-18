@@ -1,14 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import AuthLayout from '../../components/layouts/AuthLayout'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Controller, useForm } from "react-hook-form";
 import TextInput, { InputType } from '../../components/Ui/TextInput';
+import { HashSpinner } from '../../components/Ui/Loading';
+import Button from '../../components/Ui/Button';
+import { toast } from 'react-toastify';
+import { useResetPasswordMutation } from '../../services/api/authSlice';
 
 const ResetPasswordScreen = () => {
+  const { id, email } = useParams();
+  const navigate = useNavigate();
+  const [isBusy, setIsBusy] = useState(false)
+  const [reset] = useResetPasswordMutation()
   const {
     control,
     handleSubmit,
-    setError,
     watch,
     formState: { errors, isValid },
   } = useForm({
@@ -18,6 +25,28 @@ const ResetPasswordScreen = () => {
       password2: "",
     },
   });
+  const onSubmit = async (data:any) => {
+    setIsBusy(true)
+    const payload = {
+      email: email,
+      password: data.password
+    }
+    await reset(payload)
+    .then((res:any) => {
+      if (res.data) {
+        toast.success(res.data.response);
+        setIsBusy(false);
+        navigate('/login')
+      } else {
+        toast.error(res?.error?.data?.message);
+        setIsBusy(false);
+      }
+    })
+    .catch((err) => {
+      toast.error(err?.error?.data?.message);
+      setIsBusy(false);
+    });
+  };
   return (
     <>
       <AuthLayout>
@@ -26,8 +55,8 @@ const ResetPasswordScreen = () => {
             <p className='text-primary text-2xl fw-600'>Create New Password</p>
             <p className='mt-1 fw-500'>Enter new password</p>
           </div>
-          <div className='lg:px-12 mt-6'>
-            <form>
+          <div className='lg:px-12 mt-6 lg:mt-12'>
+            <form onSubmit={handleSubmit(onSubmit)}>
             <div>
             <Controller
             name="password"
@@ -74,7 +103,7 @@ const ResetPasswordScreen = () => {
                 label="Confirm new password"
                 labelClassName="text-[#4A5568] mb-2 fw-500"
                 placeholder="*********"
-                error={errors.password?.message}
+                error={errors.password2?.message}
                 type={InputType.password}
                 {...field}
               />
@@ -82,8 +111,7 @@ const ResetPasswordScreen = () => {
           />
         </div>
         <div className="mt-8">
-          {/* <Button title={isBusy ? <ScaleSpinner size={14} color="white"/> : "Continue"} disabled={!isValid} /> */}
-          <Link to='/dashboard' className="btn-like block text-center w-10/12 mx-auto lg:py-4">Continue</Link>
+          <Button title={isBusy ? <HashSpinner size={20} color="white"/> : "Reset Password"} disabled={!isValid} />
         </div>
             </form>
             <div className='text-center mt-4'>

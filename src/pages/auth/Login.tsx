@@ -6,7 +6,6 @@ import TextInput, { InputType } from "../../components/Ui/TextInput";
 import Button from "../../components/Ui/Button";
 import { HashSpinner } from "../../components/Ui/Loading";
 import { useLazyLoginQuery } from "../../services/api/authSlice";
-import { useAppDispatch } from "../../redux/store";
 import { toast } from "react-toastify";
 
 const LoginScreen = () => {
@@ -17,7 +16,6 @@ const LoginScreen = () => {
   const {
     control,
     handleSubmit,
-    setError,
     formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
@@ -119,7 +117,7 @@ const LoginScreen = () => {
                       isBusy ? (
                         <HashSpinner size={20} color="white" />
                       ) : (
-                        "Sign Up"
+                        "Login"
                       )
                     }
                     disabled={!isValid}
@@ -129,7 +127,7 @@ const LoginScreen = () => {
             </form>
             <div className="text-center mt-4">
               Don’t have an account?{" "}
-              <Link to="/register" className="text-primary fw-500">
+              <Link to="/" className="text-primary fw-500">
                 Sign Up
               </Link>
             </div>

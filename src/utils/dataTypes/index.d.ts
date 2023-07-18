@@ -1,6 +1,7 @@
 export interface BaseResult {
     error: boolean
     message: string
+    response?: string
 }
 
 export interface ErrorResult {

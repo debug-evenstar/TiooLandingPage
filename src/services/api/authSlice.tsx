@@ -2,7 +2,7 @@
 import { apiSlice } from "../apiSlice";
 
 import * as ENDPOINT from "../constants";
-import { LoginInput, RequestOtp, SetupSchoolCustomInput, SetupSchoolInput, SetupSchoolResult, StudentLoginResult, TeacherSignup, VerifyOtp } from "../../utils/dataTypes/auth";
+import { ForgetPasswordInput, LoginInput, RequestOtp, ResetPasswordInput, SetupSchoolCustomInput, SetupSchoolInput, SetupSchoolResult, StudentLoginResult, TeacherSignup, VerifyOtp } from "../../utils/dataTypes/auth";
 import { BaseResult, ErrorResult } from "../../utils/dataTypes";
 
 export const authApiSlice = apiSlice.injectEndpoints({
@@ -43,13 +43,29 @@ export const authApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
 
-    setupSchool: builder.query<SetupSchoolResult | SetupSchoolCustomInput | ErrorResult, SetupSchoolInput>({
+    setupSchool: builder.query<SetupSchoolResult | ErrorResult, SetupSchoolInput | SetupSchoolCustomInput>({
       query: (payload) => ({
         url: `${ENDPOINT.SCHOOL_SETUP}`,
         method: ENDPOINT.HTTP_METHODS.POST,
         body: payload,
       }),
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
+    }),
+
+    forgetPassword: builder.mutation<BaseResult | ErrorResult, ForgetPasswordInput>({
+      query: (payload) => ({
+        url: `${ENDPOINT.FORGET_PASSWORD}`,
+        method: ENDPOINT.HTTP_METHODS.POST,
+        body: payload,
+      }),
+    }),
+
+    resetPassword: builder.mutation<BaseResult | ErrorResult, ResetPasswordInput>({
+      query: (payload) => ({
+        url: `${ENDPOINT.RESET_PASSWORD}`,
+        method: ENDPOINT.HTTP_METHODS.POST,
+        body: payload,
+      }),
     }),
   }),
   overrideExisting: true,
@@ -61,5 +77,7 @@ export const {
   useSendOtpQuery,
   useLazySendOtpQuery,
   useLazyVerifyOtpQuery,
-  useLazySetupSchoolQuery
+  useLazySetupSchoolQuery,
+  useForgetPasswordMutation,
+  useResetPasswordMutation
 } = authApiSlice;

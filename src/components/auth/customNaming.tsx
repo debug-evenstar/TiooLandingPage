@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, {FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import TextInput, { InputType } from "../Ui/TextInput";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { MdAddCircleOutline } from "react-icons/md"
 import Button from "../Ui/Button";
+import { useAppDispatch } from "../../redux/store";
+import { saveNaming } from "../../redux/reducers/setupReducer";
+import { toast } from "react-toastify";
 
-const CustomNamingModal = () => {
+interface Props {
+  close: () => void
+}
+const CustomNamingModal:FC<Props> = ({close}) => {
     const inputs = {
       value: "",
     }
+    const dispatch = useAppDispatch()
   const [inputFields, setInputFields] = useState<any[]>([inputs]);
 
   const addMoreField = () => {
@@ -22,21 +29,29 @@ const CustomNamingModal = () => {
   const {
     control,
     handleSubmit,
-    setError,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm({
     mode: "onChange",
   });
+  const onSubmit = (data:any) => {
+    const inputValues = Object.keys(data).map((key) => ({
+      type: key,
+      naming: data[key],
+    }));
+    dispatch(saveNaming(inputValues))
+    close()
+    toast.success("Custom Naming type saved")
+  }
   return (
     <>
       <div className="h-[80vh] grid content-between">
         <div>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           {inputFields.map((item, index) => (
-            <div className="flex items-center">
+            <div className="flex items-center" key={index}>
               <div className="w-full">
               <Controller
-                name={item.value}
+                name={`Level ${index + 1}`}
                 control={control}
                 rules={{
                   required: {
@@ -46,7 +61,7 @@ const CustomNamingModal = () => {
                 }}
                 render={({ field }) => (
                   <TextInput
-                    label={`Level ${index + 1}`}
+                    label='Name'
                     labelClassName="text-[#4A5568] mb-2 fw-500"
                     placeholder="Enter custom name"
                     error={errors.email?.message}
@@ -67,7 +82,9 @@ const CustomNamingModal = () => {
             <p className="fw-500 fs-500">Add Another Name</p>
         </div>
         </div>
-        <Button title="Save"/>
+        {
+          inputFields.length > 1 ? <Button title="Save" onClick={handleSubmit(onSubmit)}/> : <Button title="Save" disabled/>
+        }
       </div>
     </>
   );

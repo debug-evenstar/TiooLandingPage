@@ -1,35 +1,49 @@
 import React, { useState, FC } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
+import { useAppDispatch } from "../../../redux/store";
+import { saveTypes } from "../../../redux/reducers/setupReducer";
+import { toast } from "react-toastify";
 
 interface Props {
-    openNext: (value: number) => void;
-  }
-const SchoolTypeScreen:FC<Props> = ({openNext}) => {
-    const [schoolType, setSchoolType] = useState<string>();
-  const gotoRegister = () => {
-    if (schoolType) {
-    //   navigate(`/${schoolType}`);
+  openNext: (value: number) => void;
+}
+const SchoolTypeScreen: FC<Props> = ({ openNext }) => {
+  const [typeValue, setTypeValue] = useState<string[]>([]);
+  const dispatch = useAppDispatch();
+  const gotoNaming = () => {
+    if (!!typeValue?.length) {
+      dispatch(saveTypes(typeValue));
+      toast.success("School type saved");
+      openNext(4);
+    } else {
+      toast.error("Please check a school type");
     }
   };
-  const selectSchoolType = () => {
-
-  }
+  const selectSchoolType = (e: any) => {
+    let sch = [...typeValue];
+    if (e.target.checked) {
+      sch = [...typeValue, e.target.value];
+    } else {
+      sch.splice(typeValue.indexOf(e.target.value), 1);
+    }
+    setTypeValue(sch);
+  };
   const schoolTypes = [
     {
       name: "Nusery School",
-      param: "ns",
+      param: "nursery",
       id: "1",
     },
     {
-        name: "Primary School",
-        param: "ps",
-        id: "2",
-      },
-      {
-        name: "Secondary School",
-        param: "ss",
-        id: "3",
-      },
+      name: "Primary School",
+      param: "primary",
+      id: "2",
+    },
+    {
+      name: "Secondary School",
+      param: "secondary",
+      id: "3",
+    },
   ];
   return (
     <>
@@ -46,23 +60,34 @@ const SchoolTypeScreen:FC<Props> = ({openNext}) => {
             {schoolTypes.map((item) => (
               <div
                 className={`types h-28 relative px-4 py-6 cursor-pointer ${
-                  schoolType === item.param ? "bg-[#4F46E5] !text-white" : "bg-white"
+                  typeValue.indexOf(item.param) !== -1
+                    ? "bg-[#4F46E5] outline-[#4F46E5] !text-white"
+                    : "bg-white"
                 }`}
+                key={item.param}
               >
-                <input type="checkbox" className="h-4 w-4 absolute top-3 left-3" disabled={item.param === "ss" && true} onChange={() => setSchoolType(item.param)}/>
+                <input
+                  type="checkbox"
+                  value={item.param}
+                  className="h-4 w-4 absolute top-3 left-3"
+                  disabled={item.param === "secondary" && true}
+                  onChange={(e) => selectSchoolType(e)}
+                />
                 <p className="fw-500 text-lg pt-5">{item.name}</p>
-                {
-                    item.param === "ss" && <p className="text-[#FF006E] fw-500 fs-300 absolute top-2 right-3">Coming Soon</p>
-                }
+                {item.param === "secondary" && (
+                  <p className="text-[#FF006E] fw-500 fs-300 absolute top-2 right-3">
+                    Coming Soon
+                  </p>
+                )}
               </div>
             ))}
           </div>
           <div className="flex justify-center mt-10">
             <div
               className={`py-[10px] cursor-pointer btn-shade rounded-t-[8px] rounded-bl-[8px] border border-[#312ECB33] w-5/12 bg-[#E3E2FF] text-[#87909EBD] text-center ${
-                schoolType && "!bg-[#4F46E5] text-white"
+                !!typeValue.length && "!bg-[#4F46E5] text-white"
               }`}
-              onClick={gotoRegister}
+              onClick={gotoNaming}
             >
               Next
             </div>

@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CustomInput } from "../../utils/dataTypes/auth";
+import { CustomInput, SetupSlicePayload } from "../../utils/dataTypes/auth";
 
 const initialState = {
   naming: [] as CustomInput[],
   types: [] as string[]
-};
+} as SetupSlicePayload
 
 export const setupSlice = createSlice({
   name: "setup",
