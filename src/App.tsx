@@ -8,6 +8,8 @@ import ParentSignupIndex from './pages/auth/parent';
 import FreelanceSignupIndex from './pages/auth/freelancer';
 import ForgetPasswordScreen from './pages/auth/ForgetPass';
 import ResetPasswordScreen from './pages/auth/ResetPass';
+import StudentSignup from './pages/auth/student/Signup';
+import TeacherSignup from './pages/auth/teacher/Signup';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path='/parent' element={<ParentSignupIndex/>}/>
         <Route path='/forget' element={<ForgetPasswordScreen/>}/>
         <Route path='/new-password/:id/:email' element={<ResetPasswordScreen/>}/>
+        <Route path='/student/:id' element={<StudentSignup/>}/>
+        <Route path='/teacher/:id' element={<TeacherSignup/>}/>
       </Routes>
     </BrowserRouter>
   );

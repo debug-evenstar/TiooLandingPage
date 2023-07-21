@@ -4,7 +4,7 @@ import VerifyEmailScreen from "./VerifyEmail";
 import NamingTypeScreen from "./NamingType";
 
 const FreelanceSignupIndex = () => {
-  const [open, setOpen] = useState(3);
+  const [open, setOpen] = useState(1);
 
   const handleOpen = (value: number) => {
     setOpen(open === value ? value : value);
