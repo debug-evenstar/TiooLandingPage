@@ -29,3 +29,13 @@ export const RESET_PASSWORD = 'account/change_password'
 
 // Setup school
 export const SCHOOL_SETUP = 'school/setup'
+
+// routine
+export const GET_INVITED_STUDENT = 'student/invited'
+export const GET_INVITED_STUDENT_INFO = 'invites/student/info'
+export const ACCEPT_STUDENT_MAGIC = 'invites/student/accept'
+export const ACCEPT_STUDENT_INVITE = 'student/invite/accept'
+export const ACCEPT_TEACHER_INVITE = 'teacher/invite/accept'
+export const ACCEPT_TEACHER_MAGIC = 'invites/teacher/accept'
+export const GET_INVITED_TEACHER = 'student/invited'
+export const GET_INVITED_TEACHER_INFO = 'invites/student/info'

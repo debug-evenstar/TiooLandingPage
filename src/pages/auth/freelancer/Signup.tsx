@@ -52,9 +52,8 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
             email: data.email
           }
           sendOtp(payload).then((res:any) => {
-            if(res.isSuccess){toast.success(res.data.message)}
+            if(res.isSuccess){toast.success(res.data.message); openNext(2)}
           }).catch((err) => {})
-          openNext(2)
         }else {
           toast.error(res?.error?.data.message);
           setIsBusy(false);
@@ -139,8 +138,8 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
                       label="Institution Name (Optional)"
                       labelClassName="text-[#4A5568] mb-2 fw-500"
                       placeholder="Enter your email address"
-                      error={errors.email?.message}
-                      type={InputType.email}
+                      error={errors.school?.message}
+                      type={InputType.text}
                       {...field}
                     />
                   )}

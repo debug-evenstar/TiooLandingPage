@@ -16,6 +16,14 @@ export interface UserProfile {
     password?: string
 }
 
+export interface StudentSignupInput {
+    name: string
+    email: string
+    phone: string
+    account_type: string
+    password: string
+}
+
 export interface TeacherSignup {
     name: string
     email: string

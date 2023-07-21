@@ -104,7 +104,7 @@ const VerifyEmailScreen: FC<Props> = ({openNext}) => {
                   <Button
                     title={
                       isBusy ? (
-                        <HashSpinner size={14} color="white" />
+                        <HashSpinner size={20} color="white" />
                       ) : (
                         "Continue"
                       )
@@ -121,7 +121,7 @@ const VerifyEmailScreen: FC<Props> = ({openNext}) => {
                   <PulseSpinner color="#4f46e5" />
                 ) : (
                   <span
-                    className="text-primary fw-500 underline"
+                    className="text-primary fw-500 cursor-pointer underline"
                     onClick={resendOtp}
                   >
                     Resend code

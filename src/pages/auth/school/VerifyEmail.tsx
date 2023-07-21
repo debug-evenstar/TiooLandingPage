@@ -121,7 +121,7 @@ const VerifyEmailScreen: FC<Props> = ({openNext}) => {
                   <PulseSpinner color="#4f46e5" />
                 ) : (
                   <span
-                    className="text-primary fw-500 underline"
+                    className="text-primary fw-500 cursor-pointer underline"
                     onClick={resendOtp}
                   >
                     Resend code
