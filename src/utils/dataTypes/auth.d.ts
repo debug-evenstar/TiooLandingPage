@@ -37,8 +37,7 @@ export interface RequestOtp {
 }
 
 export interface VerifyOtp {
-    email: string
-    otp:string
+    token: string
 }
 
 export interface SetupSchoolInput {
@@ -81,4 +80,14 @@ export interface ForgetPasswordInput {
 export interface ResetPasswordInput {
     email: string | undefined
     password: string
+    token: string | undefined
+}
+
+export interface UserOtp {
+        email:string
+}
+export interface UserMain {
+    user: UserProfile
+    otp: UserOtp
+    parent: any
 }
