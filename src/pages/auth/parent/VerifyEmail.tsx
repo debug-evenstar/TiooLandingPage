@@ -17,7 +17,7 @@ const VerifyEmailScreen: FC<Props> = ({openNext}) => {
   const [isSending, setIsSending] = useState(false);
   const [sendOtp] = useLazySendOtpQuery();
   const [verify] = useLazyVerifyOtpQuery();
-  const email = useAppSelector((state) => state.user.user.email);
+  const email = useAppSelector((state) => state.user.parent.email);
   const {
     control,
     handleSubmit,

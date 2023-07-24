@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { UserProfile } from "../../utils/dataTypes/auth";
+import { UserMain, UserOtp, UserProfile } from "../../utils/dataTypes/auth";
 
 const initialState = {
   user: {
@@ -9,7 +9,11 @@ const initialState = {
     phone: "",
     account_type: "",
   } as UserProfile,
-};
+  otp: {
+    email: ""
+  },
+  parent: {}
+} as UserMain
 
 export const userSlice = createSlice({
   name: "user",
@@ -18,13 +22,19 @@ export const userSlice = createSlice({
     saveUser: (state, action: PayloadAction<UserProfile>) => {
       state.user = action.payload;
     },
+    saveEmail: (state, action: PayloadAction<UserOtp>) => {
+      state.otp = action.payload;
+    },
+    saveParent: (state, action: PayloadAction<any>) => {
+      state.parent = action.payload;
+    },
     resetUser: (state) => {
       state.user = initialState.user;
     },
   },
 });
 
-export const { saveUser, resetUser } = userSlice.actions;
+export const { saveUser, resetUser, saveEmail, saveParent } = userSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;
 

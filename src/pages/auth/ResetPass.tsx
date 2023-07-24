@@ -29,7 +29,8 @@ const ResetPasswordScreen = () => {
     setIsBusy(true)
     const payload = {
       email: email,
-      password: data.password
+      password: data.password,
+      token: id
     }
     await reset(payload)
     .then((res:any) => {

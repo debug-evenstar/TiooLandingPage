@@ -24,6 +24,7 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
     control,
     handleSubmit,
     setError,
+    watch,
     formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
@@ -31,6 +32,7 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
       name: "",
       email: "",
       password: "",
+      confirm_password: "",
       phone: "",
       school: "",
       account_type: "freelancer"
@@ -189,16 +191,17 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
                   )}
                 />
                 <Controller
-                  name="password"
+                  name="confirm_password"
                   control={control}
                   rules={{
                     required: {
                       value: true,
                       message: "Password is required",
                     },
-                    minLength: {
-                      value: 6,
-                      message: "Password is too short",
+                    validate: (val) => {
+                      if (watch('password') !== val) {
+                        return "Your passwords do no match";
+                      }
                     },
                   }}
                   render={({ field }) => (
@@ -206,7 +209,7 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
                       label="Confirm Password"
                       labelClassName="text-[#4A5568] mb-2 fw-500"
                       placeholder="*********"
-                      error={errors.password?.message}
+                      error={errors.confirm_password?.message}
                       type={InputType.password}
                       {...field}
                     />

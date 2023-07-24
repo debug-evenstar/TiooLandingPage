@@ -9,6 +9,9 @@ import { HashSpinner } from "../../../components/Ui/Loading";
 import Button from "../../../components/Ui/Button";
 import { toast } from "react-toastify";
 import { useLazyAcceptTeachInviteQuery, useLazyAcceptTeachMagicQuery, useLazyGetTeacherInviteInfoQuery, useLazyGetTeacherInviteQuery } from "../../../services/api/routineSlice";
+import { saveEmail } from "../../../redux/reducers/userReducer";
+import { useAppDispatch } from "../../../redux/store";
+import { useLazySendOtpQuery } from "../../../services/api/authSlice";
 
 const TeacherSignup = () => {
   const [isBusy, setIsBusy] = useState(false);
@@ -17,6 +20,8 @@ const TeacherSignup = () => {
   const [fetchDetails] = useLazyGetTeacherInviteInfoQuery();
   const [acceptInvite] = useLazyAcceptTeachInviteQuery()
   const [acceptMagic] = useLazyAcceptTeachMagicQuery()
+  const [sendOtp] = useLazySendOtpQuery();
+  const dispatch = useAppDispatch()
   const { id } = useParams();
   const navigate = useNavigate();
   const isMagic = () => {
@@ -46,7 +51,7 @@ const TeacherSignup = () => {
     },
   });
   useEffect(() => {
-    fetchStudentDetail(id)
+    fetchTeacherDetail(id)
     // eslint-disable-next-line
   }, [id])
   useEffect(() => {
@@ -65,9 +70,10 @@ const TeacherSignup = () => {
         : userData?.account.account_type,
       ...(isMagic()
         ? {
-            schoolId: userData?.data?.data.schoolId,
-            subjects: userData?.data?.data.subjects,
-            classes: userData?.data?.data.classes,
+            schoolId: userData?.schoolId,
+            subjects: userData?.Subjects,
+            classes: userData?.classes
+            .map((el: any) => el.id)
           }
         : {
             accountId: id,
@@ -76,19 +82,54 @@ const TeacherSignup = () => {
     // eslint-disable-next-line
   }, [userData]);
 
-  const fetchStudentDetail = async (id: any) => {
-    await isMagic()? fetchDetails(id) : fetchDetail(id)
+  
+
+  const fetchTeacherDetail = async (id: any) => {
+    isMagic()?( await fetchDetails(id)
       .then((res: any) => {
         if (res.isSuccess) {
           setUserData(res.data.data);
-        }
+        }else{toast.error('Failed to fetch invite info')}
       })
-      .catch((err) => {});
+      .catch((err) => {}))
+      : (await fetchDetail(id).then((res: any) => {
+        if (res.isSuccess) {
+          setUserData(res.data.data);
+        }else{toast.error('Failed to fetch invite info')}
+      })
+      .catch((err) => {
+        toast.error(err.data.message)
+      }))
   };
   const onSubmit = async (data: any) => {
     setIsBusy(true);
-    await isMagic()? acceptMagic(data) : acceptInvite(data)
+    isMagic()? (await acceptMagic(data)
       .then((res: any) => {
+        if (res.isSuccess) {
+          toast.success(res.data.message);
+          const payload = {
+            email: data.email,
+          };
+          sendOtp(payload)
+            .then((res: any) => {
+              if (res.isSuccess) {
+                toast.success(res.data.message);
+              }
+            })
+            .catch((err) => {});
+          dispatch(saveEmail({
+            email: data.email
+          }))
+          navigate("/verify-email");
+        } else {
+          toast.error(res?.error?.data.message);
+          setIsBusy(false);
+        }
+      })
+      .catch((err) => {
+        toast.error(err?.error?.data?.message);
+        setIsBusy(false);
+      }))  : (await acceptInvite(data).then((res: any) => {
         if (res.isSuccess) {
           toast.success(res.data.message);
           navigate("/login");
@@ -100,7 +141,7 @@ const TeacherSignup = () => {
       .catch((err) => {
         toast.error(err?.error?.data?.message);
         setIsBusy(false);
-      });
+      }))
   };
   return (
     <AuthLayout type="register">
@@ -134,6 +175,7 @@ const TeacherSignup = () => {
                     error={errors.name?.message}
                     type={InputType.text}
                     {...field}
+                    disabled={isMagic() ? false : true}
                   />
                 )}
               />
@@ -156,6 +198,7 @@ const TeacherSignup = () => {
                     error={errors.email?.message}
                     type={InputType.email}
                     {...field}
+                    disabled={isMagic() ? false : true}
                   />
                 )}
               />
@@ -177,6 +220,7 @@ const TeacherSignup = () => {
                     error={errors.school?.message}
                     type={InputType.text}
                     {...field}
+                    disabled
                   />
                 )}
               />

@@ -14,6 +14,7 @@ const ForgetPasswordScreen = () => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
@@ -28,6 +29,7 @@ const ForgetPasswordScreen = () => {
       if (res.data) {
         toast.success(res.data.response);
         setIsBusy(false);
+        reset()
       } else {
         toast.error(res?.error?.data?.message);
         setIsBusy(false);

@@ -4,7 +4,7 @@ import TextInput, { InputType } from "../Ui/TextInput";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { MdAddCircleOutline } from "react-icons/md"
 import Button from "../Ui/Button";
-import { useAppDispatch } from "../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { saveNaming } from "../../redux/reducers/setupReducer";
 import { toast } from "react-toastify";
 
@@ -12,11 +12,12 @@ interface Props {
   close: () => void
 }
 const CustomNamingModal:FC<Props> = ({close}) => {
-    const inputs = {
-      value: "",
-    }
+    const inputs = ""
+    const prevInput = useAppSelector((state) => state.setup.naming)
+    const arrPrev = prevInput.map((item) => (item))
     const dispatch = useAppDispatch()
-  const [inputFields, setInputFields] = useState<any[]>([inputs]);
+  const [inputFields, setInputFields] = useState<any[]>([...arrPrev, inputs]);
+  
 
   const addMoreField = () => {
     setInputFields([...inputFields, inputs])
@@ -53,6 +54,7 @@ const CustomNamingModal:FC<Props> = ({close}) => {
               <Controller
                 name={`Level ${index + 1}`}
                 control={control}
+                defaultValue={item.naming}
                 rules={{
                   required: {
                     value: true,

@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, useEffect } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
 import useModal from "../../../hooks/useModal";
 import CustomNamingModal from "../../../components/auth/customNaming";
@@ -20,7 +20,7 @@ interface namingItem {
 const NamingTypeScreen: FC<Props> = ({ openNext }) => {
   const [namingType, setNamingType] = useState<string>();
   const [isBusy, setIsBusy] = useState(false);
-  const { Modal, setShowModal } = useModal();
+  const { Modal, showModal, setShowModal } = useModal();
   const user = useAppSelector((state) => state.user.user);
   const sch = useAppSelector((state) => state.setup);
   const [update] = useLazySetupSchoolQuery();
@@ -30,7 +30,11 @@ const NamingTypeScreen: FC<Props> = ({ openNext }) => {
     setNamingType(item.param);
     setShowModal(true);
   };
-
+  useEffect(() => {
+    if(namingType === "C" && !sch.naming.length && !showModal){
+      setNamingType('')
+    }
+  }, [setShowModal])
   const updateSchool = async () => {
     setIsBusy(true)
     const payload = {

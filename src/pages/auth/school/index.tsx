@@ -12,8 +12,8 @@ const SchoolSignupIndex = () => {
   };
   return( 
   <>
-    {open === 1? <SchoolSignup openNext={handleOpen}/> : ""}
-    {open === 2? <VerifyEmailScreen openNext={handleOpen}/> : ""}
+    {/* {open === 1? <SchoolSignup openNext={handleOpen}/> : ""}
+    {open === 2? <VerifyEmailScreen openNext={handleOpen}/> : ""} */}
     {open === 3? <SchoolTypeScreen openNext={handleOpen}/> : ""}
     {open === 4? <NamingTypeScreen openNext={handleOpen}/> : ""}
   </>

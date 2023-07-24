@@ -19,14 +19,24 @@ const SchoolTypeScreen: FC<Props> = ({ openNext }) => {
       toast.error("Please check a school type");
     }
   };
-  const selectSchoolType = (e: any) => {
+  const selectSchoolType = (item:any) => {
     let sch = [...typeValue];
-    if (e.target.checked) {
-      sch = [...typeValue, e.target.value];
-    } else {
-      sch.splice(typeValue.indexOf(e.target.value), 1);
-    }
+    const index = ["nursery", "primary"]
+    if (item.param == "nursery" || item.param == "primary") {
+      if(index.some(i => typeValue.includes(i))){
+        sch.splice(typeValue.indexOf("nursery"));
+        sch.splice(typeValue.indexOf("primary"));
+      } else
+      sch = [...typeValue, "nursery", "primary"];
+    } else if(item.param == "secondary") {
+      if(typeValue.includes("secondary")){
+        sch.splice(typeValue.indexOf("secondary"), 1);
+      }else
+      sch = [...typeValue, "secondary"];
+    }else {}
     setTypeValue(sch);
+    console.log(typeValue);
+    
   };
   const schoolTypes = [
     {
@@ -64,15 +74,9 @@ const SchoolTypeScreen: FC<Props> = ({ openNext }) => {
                     ? "bg-[#4F46E5] outline-[#4F46E5] !text-white"
                     : "bg-white"
                 }`}
+                onClick={item.param == "secondary"? () => false : () => selectSchoolType(item)}
                 key={item.param}
               >
-                <input
-                  type="checkbox"
-                  value={item.param}
-                  className="h-4 w-4 absolute top-3 left-3"
-                  disabled={item.param === "secondary" && true}
-                  onChange={(e) => selectSchoolType(e)}
-                />
                 <p className="fw-500 text-lg pt-5">{item.name}</p>
                 {item.param === "secondary" && (
                   <p className="text-[#FF006E] fw-500 fs-300 absolute top-2 right-3">

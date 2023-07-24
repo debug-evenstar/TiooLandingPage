@@ -1,11 +1,12 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
+import { ThreeCircles } from "react-loader-spinner";
 import { HashLoader, PulseLoader } from "react-spinners";
 
-interface Props{
-    size: number
-    color: string
+interface Props {
+  size: number;
+  color: string;
 }
-export const HashSpinner:FC<Props> = ({ size, color }) => {
+export const HashSpinner: FC<Props> = ({ size, color }) => {
   return (
     <HashLoader
       color={color}
@@ -15,8 +16,13 @@ export const HashSpinner:FC<Props> = ({ size, color }) => {
     />
   );
 };
-export const PulseSpinner = ({ size, color }:{size?:number, color:string}) => {
-  
+export const PulseSpinner = ({
+  size,
+  color,
+}: {
+  size?: number;
+  color: string;
+}) => {
   return (
     <PulseLoader
       color={color}
@@ -25,4 +31,27 @@ export const PulseSpinner = ({ size, color }:{size?:number, color:string}) => {
       data-testid="loader"
     />
   );
-  };
+};
+
+export const ThreeCirclesLoading = ({
+  size,
+  color,
+}: {
+  size: string;
+  color: string;
+}) => {
+  return (
+    <ThreeCircles
+      height={size}
+      width={size}
+      color={color}
+      wrapperStyle={{}}
+      wrapperClass=""
+      visible={true}
+      ariaLabel="three-circles-rotating"
+      outerCircleColor=""
+      innerCircleColor=""
+      middleCircleColor=""
+    />
+  );
+};

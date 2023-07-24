@@ -8,21 +8,31 @@ import "react-phone-number-input/style.css";
 import { HashSpinner } from "../../../components/Ui/Loading";
 import Button from "../../../components/Ui/Button";
 import { toast } from "react-toastify";
-import { useLazyAcceptStudInviteQuery, useLazyAcceptStudMagicQuery, useLazyGetStudentInviteInfoQuery, useLazyGetStudentInviteQuery } from "../../../services/api/routineSlice";
+import {
+  useLazyAcceptStudInviteQuery,
+  useLazyAcceptStudMagicQuery,
+  useLazyGetStudentInviteInfoQuery,
+  useLazyGetStudentInviteQuery,
+} from "../../../services/api/routineSlice";
+import { saveEmail } from "../../../redux/reducers/userReducer";
+import { useAppDispatch } from "../../../redux/store";
+import { useLazySendOtpQuery } from "../../../services/api/authSlice";
 
 const StudentSignup = () => {
   const [isBusy, setIsBusy] = useState(false);
   const [userData, setUserData] = useState<any>();
   const [fetchDetail] = useLazyGetStudentInviteQuery();
   const [fetchDetails] = useLazyGetStudentInviteInfoQuery();
-  const [acceptInvite] = useLazyAcceptStudInviteQuery()
-  const [acceptMagic] = useLazyAcceptStudMagicQuery()
+  const [acceptInvite] = useLazyAcceptStudInviteQuery();
+  const [acceptMagic] = useLazyAcceptStudMagicQuery();
+  const [sendOtp] = useLazySendOtpQuery();
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const isMagic = () => {
     return id && id.length < 15;
   };
-  console.log(isMagic())
+  console.log(isMagic());
   const {
     control,
     handleSubmit,
@@ -45,25 +55,19 @@ const StudentSignup = () => {
     },
   });
   useEffect(() => {
-    fetchStudentDetail(id)
+    fetchStudentDetail(id);
     // eslint-disable-next-line
-  }, [id])
+  }, [id]);
   useEffect(() => {
     reset({
-      name: isMagic()
-        ? userData?.data?.data.name
-        : userData?.account.name,
-      email: isMagic()
-        ? userData?.data.data.email
-        : userData?.account.email,
-      class: isMagic()
-        ? userData?.data?.data.arm?.naming
-        : userData?.class_arm?.naming,
+      name: isMagic() ? userData?.name : userData?.account?.name,
+      email: isMagic() ? userData?.email : userData?.account?.email,
+      class: isMagic() ? userData?.arm?.naming : userData?.class_arm?.naming,
       ...(isMagic()
         ? {
-            schoolId: userData?.data?.data.schoolId,
+            schoolId: userData?.schoolId,
             account_type: "student",
-            arm: userData?.data?.data.arm.id,
+            arm: userData?.arm?.id,
           }
         : {
             accountId: id,
@@ -73,30 +77,77 @@ const StudentSignup = () => {
   }, [userData]);
 
   const fetchStudentDetail = async (id: any) => {
-    await isMagic()? fetchDetails(id) : fetchDetail(id)
-      .then((res: any) => {
-        if (res.isSuccess) {
-          setUserData(res.data.data);
-        }
-      })
-      .catch((err) => {});
+    isMagic()
+      ? await fetchDetails(id)
+          .then((res: any) => {
+            if (res.isSuccess) {
+              setUserData(res.data.data);
+            } else {
+              toast.error("Failed to fetch invite info");
+            }
+          })
+          .catch((err) => {})
+      : await fetchDetail(id)
+          .then((res: any) => {
+            if (res.isSuccess) {
+              setUserData(res.data.data);
+            } else {
+              toast.error("Failed to fetch invite info");
+            }
+          })
+          .catch((err) => {});
   };
   const onSubmit = async (data: any) => {
     setIsBusy(true);
-    await isMagic()? acceptMagic(data) : acceptInvite(data)
-      .then((res: any) => {
-        if (res.isSuccess) {
-          toast.success(res.data.message);
-          navigate("/login");
-        } else {
-          toast.error(res?.error?.data.message);
-          setIsBusy(false);
-        }
-      })
-      .catch((err) => {
-        toast.error(err?.error?.data?.message);
-        setIsBusy(false);
-      });
+    isMagic()
+      ? await acceptMagic(data)
+          .then((res: any) => {
+            if (res.isSuccess) {
+              toast.success(res.data.message);
+              dispatch(
+                saveEmail({
+                  email: data.email,
+                })
+              );
+              const payload = {
+                email: data.email,
+              };
+              sendOtp(payload)
+                .then((res: any) => {
+                  if (res.isSuccess) {
+                    toast.success(res.data.message);
+                  }
+                })
+                .catch((err) => {});
+              dispatch(
+                saveEmail({
+                  email: data.email,
+                })
+              );
+              navigate("/email-verify");
+            } else {
+              toast.error(res?.error?.data.message);
+              setIsBusy(false);
+            }
+          })
+          .catch((err) => {
+            toast.error(err?.error?.data?.message);
+            setIsBusy(false);
+          })
+      : await acceptInvite(data)
+          .then((res: any) => {
+            if (res.isSuccess) {
+              toast.success(res.data.message);
+              navigate("/login");
+            } else {
+              toast.error(res?.error?.data.message);
+              setIsBusy(false);
+            }
+          })
+          .catch((err) => {
+            toast.error(err?.error?.data?.message);
+            setIsBusy(false);
+          });
   };
   return (
     <AuthLayout type="register">
@@ -130,7 +181,7 @@ const StudentSignup = () => {
                     error={errors.name?.message}
                     type={InputType.text}
                     {...field}
-                    disabled
+                    disabled={isMagic() ? false : true}
                   />
                 )}
               />
@@ -153,7 +204,7 @@ const StudentSignup = () => {
                     error={errors.email?.message}
                     type={InputType.email}
                     {...field}
-                    disabled
+                    disabled={isMagic() ? false : true}
                   />
                 )}
               />
