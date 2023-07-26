@@ -44,7 +44,7 @@ const ForgetPasswordScreen = () => {
     <>
       <AuthLayout>
         <div>
-          <div className="text-center w-7/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
+          <div className="text-center lg:w-7/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
             <p className="text-primary text-2xl fw-600">Forgot Password</p>
           </div>
           <div className="mt-6 lg:px-12 text-center">

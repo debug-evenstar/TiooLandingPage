@@ -27,7 +27,7 @@ const useModal = () => {
             <div
               className={`${
                 sidebar
-                  ? "relative transform overflow-hidden overflow-y-auto lg:max-h-full bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:p-6 h-screen w-4/12"
+                  ? "relative transform overflow-hidden overflow-y-auto lg:max-h-full bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:p-6 h-screen lg:w-4/12"
                   : "w-11/12  p-4 lg:px-8 rounded shade bg-white"
               } ${
                 noHead ? "md:w-6/12 lg:w-96" : noHeadWide? "md:w-6/12 lg:w-4/12" : "md:w-8/12 lg:w-5/12 xl:w-4/12 "

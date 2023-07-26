@@ -60,7 +60,7 @@ const SignupIndex = () => {
           </div>
           <div className="flex justify-center mt-10">
             <div
-              className={`py-[10px] cursor-pointer btn-shade rounded-t-[8px] rounded-bl-[8px] border border-[#312ECB33] w-5/12 bg-[#E3E2FF] text-[#87909EBD] text-center ${
+              className={`py-[10px] cursor-pointer btn-shade rounded-t-[8px] rounded-bl-[8px] border border-[#312ECB33] w-10/12 lg:w-5/12 bg-[#E3E2FF] text-[#87909EBD] text-center ${
                 route && "!bg-[#4F46E5] text-white"
               }`}
               onClick={gotoRegister}
