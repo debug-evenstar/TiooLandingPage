@@ -32,6 +32,18 @@ export interface TeacherSignup {
     password: string
 }
 
+export interface ParentSignup {
+    name: string
+    email: string
+    phone: string
+    password:string
+    account_type: string
+    parent: string
+    class: string
+    school: string
+    age: string
+}
+
 export interface RequestOtp {
     email: string
 }
@@ -42,13 +54,13 @@ export interface VerifyOtp {
 
 export interface SetupSchoolInput {
     email: string
-    school_types: string[]
+    school_types?: string[]
     naming_types: string
 }
 
 export interface SetupSchoolResult extends BaseResult{
     data: {
-        school_types: string[]
+        school_types?: string[]
         pepStatus: boolean
         id: number
         naming_types: string
@@ -85,6 +97,7 @@ export interface ResetPasswordInput {
 
 export interface UserOtp {
         email:string
+        token?: string | undefined
 }
 export interface UserMain {
     user: UserProfile

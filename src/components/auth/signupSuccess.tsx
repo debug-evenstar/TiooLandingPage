@@ -30,7 +30,7 @@ const SignupSuccessModal = ({ email }: { email: string }) => {
   return (
     <>
       <div>
-        <p className="text-3xl fw-500 text-center">
+        <p className="text-2xl fw-500 text-center">
           Account Created Successfully
         </p>
         <div className="mt-8 text-center">
@@ -44,6 +44,7 @@ const SignupSuccessModal = ({ email }: { email: string }) => {
             Check your email & click on the link to activate your account
           </p>
           <div className="flex justify-center mt-6 gap-x-5">
+            <div className="w-5/12">
             <Button
               title={
                 isBusy ? (
@@ -53,12 +54,15 @@ const SignupSuccessModal = ({ email }: { email: string }) => {
                 )
               }
               onClick={ResendOtp}
-              altClassName="px-6 py-2 btn-like lg:w-52"
+              altClassName="px-6 py-2 btn-like"
             />
+            </div>
+            <div className="w-5/12">
             <Button
               title="Contact Support"
-              altClassName="px-6 py-2 border-2 lg:w-52 rounded-xl"
+              altClassName="px-6 py-2 border-2 rounded-xl"
             />
+            </div>
           </div>
         </div>
       </div>

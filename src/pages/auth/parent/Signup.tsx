@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, {useState } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
 import { Link } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
@@ -7,48 +7,59 @@ import "react-phone-number-input/style.css";
 import TextInput, { InputType } from "../../../components/Ui/TextInput";
 import Button from "../../../components/Ui/Button";
 import { HashSpinner } from "../../../components/Ui/Loading";
-import { useAppDispatch } from "../../../redux/store";
-import { saveParent } from "../../../redux/reducers/userReducer";
 import { toast } from "react-toastify";
-import { useLazySendOtpQuery } from "../../../services/api/authSlice";
+import { useLazyRegisterParentQuery } from "../../../services/api/authSlice";
+import useModal from "../../../hooks/useModal";
+import SignupSuccessModal from "../../../components/auth/signupSuccess";
 
-interface Props {
-  openNext: (value: number) => void;
-}
-const ParentSignupScreen: FC<Props> = ({ openNext }) => {
-  const [isBusy, setIsBusy] = useState();
-  const dispatch = useAppDispatch();
-  const [sendOtp] = useLazySendOtpQuery();
+const ParentSignupScreen = () => {
+  const [isBusy, setIsBusy] = useState(false);
+  const { Modal, setShowModal } = useModal();
+  const [email, setEmail] = useState("");
+  const [register] = useLazyRegisterParentQuery()
   const {
     control,
     handleSubmit,
     watch,
-    setError,
+    reset,
     formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
     defaultValues: {
-      parentName: "",
+      parent: "",
       email: "",
-      password: "",
       phone: "",
+      password: "",
+      school: "",
+      class: "",
+      age: "",
+      account_type: "parent",
       confirm_password: "",
     },
   });
 
   const onSave = (data: any) => {
-    dispatch(saveParent(data));
+    setIsBusy(true)
     const payload = {
-      email: data.email,
+      ...data,
+      name: data.parent,
     };
-    sendOtp(payload)
+    register(payload)
       .then((res: any) => {
         if (res.isSuccess) {
-          toast.success(res.data.message);
-          openNext(2)
+          setEmail(data.email);
+          setIsBusy(false);
+          setShowModal(true);
+          reset()
+        }else {
+          toast.error(res?.error?.data.message);
+          setIsBusy(false);
         }
       })
-      .catch((err) => {});
+      .catch((err) => {
+        toast.error(err?.error?.data?.message);
+        setIsBusy(false);
+      });
   };
   return (
     <>
@@ -67,7 +78,7 @@ const ParentSignupScreen: FC<Props> = ({ openNext }) => {
             <form onSubmit={handleSubmit(onSave)}>
               <div>
                 <Controller
-                  name="parentName"
+                  name="parent"
                   control={control}
                   rules={{
                     required: {
@@ -80,7 +91,7 @@ const ParentSignupScreen: FC<Props> = ({ openNext }) => {
                       label="Full Name"
                       labelClassName="text-[#4A5568] mb-2 fw-500"
                       placeholder="Enter your full name"
-                      error={errors.parentName?.message}
+                      error={errors.parent?.message}
                       type={InputType.text}
                       {...field}
                     />
@@ -202,6 +213,9 @@ const ParentSignupScreen: FC<Props> = ({ openNext }) => {
           </div>
         </div>
       </AuthLayout>
+      <Modal title="" noHeadWide>
+        <SignupSuccessModal email={email} />
+      </Modal>
     </>
   );
 };

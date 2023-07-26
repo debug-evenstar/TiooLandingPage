@@ -25,6 +25,24 @@ export const authApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
 
+    registerParent: builder.query<BaseResult | ErrorResult, TeacherSignup>({
+      query: (payload) => ({
+        url: `${ENDPOINT.PARENT_REGISTER}`,
+        method: ENDPOINT.HTTP_METHODS.POST,
+        body: payload,
+      }),
+      keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
+    }),
+
+    completeRegisterParent: builder.query<BaseResult | ErrorResult, TeacherSignup>({
+      query: (payload) => ({
+        url: `${ENDPOINT.PARENT_REGISTER_SECOND}`,
+        method: ENDPOINT.HTTP_METHODS.POST,
+        body: payload,
+      }),
+      keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
+    }),
+
     sendOtp: builder.query<BaseResult | ErrorResult, RequestOtp>({
       query: (payload) => ({
         url: `${ENDPOINT.REQUEST_NEW_OTP}`,
@@ -74,6 +92,8 @@ export const authApiSlice = apiSlice.injectEndpoints({
 export const {
   useLazyLoginQuery,
   useLazyRegisterSchoolQuery,
+  useLazyRegisterParentQuery,
+  useLazyCompleteRegisterParentQuery,
   useSendOtpQuery,
   useLazySendOtpQuery,
   useLazyVerifyOtpQuery,

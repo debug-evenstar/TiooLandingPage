@@ -11,16 +11,18 @@ import { toast } from "react-toastify";
 import { useLazyAcceptTeachInviteQuery, useLazyAcceptTeachMagicQuery, useLazyGetTeacherInviteInfoQuery, useLazyGetTeacherInviteQuery } from "../../../services/api/routineSlice";
 import { saveEmail } from "../../../redux/reducers/userReducer";
 import { useAppDispatch } from "../../../redux/store";
-import { useLazySendOtpQuery } from "../../../services/api/authSlice";
+import useModal from "../../../hooks/useModal";
+import SignupSuccessModal from "../../../components/auth/signupSuccess";
 
 const TeacherSignup = () => {
   const [isBusy, setIsBusy] = useState(false);
   const [userData, setUserData] = useState<any>();
+  const [email, setEmail] = useState('')
+  const {Modal, setShowModal} = useModal()
   const [fetchDetail] = useLazyGetTeacherInviteQuery();
   const [fetchDetails] = useLazyGetTeacherInviteInfoQuery();
   const [acceptInvite] = useLazyAcceptTeachInviteQuery()
   const [acceptMagic] = useLazyAcceptTeachMagicQuery()
-  const [sendOtp] = useLazySendOtpQuery();
   const dispatch = useAppDispatch()
   const { id } = useParams();
   const navigate = useNavigate();
@@ -107,20 +109,12 @@ const TeacherSignup = () => {
       .then((res: any) => {
         if (res.isSuccess) {
           toast.success(res.data.message);
-          const payload = {
-            email: data.email,
-          };
-          sendOtp(payload)
-            .then((res: any) => {
-              if (res.isSuccess) {
-                toast.success(res.data.message);
-              }
-            })
-            .catch((err) => {});
+          setEmail(data.email)
+          setShowModal(true)
           dispatch(saveEmail({
             email: data.email
           }))
-          navigate("/verify-email");
+          setIsBusy(false)
         } else {
           toast.error(res?.error?.data.message);
           setIsBusy(false);
@@ -144,7 +138,8 @@ const TeacherSignup = () => {
       }))
   };
   return (
-    <AuthLayout type="register">
+    <>
+      <AuthLayout type="register">
       <div>
         <div className="text-center lg:w-9/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
           <p className="text-primary text-2xl fw-600">Teacher Sign Up</p>
@@ -312,6 +307,10 @@ const TeacherSignup = () => {
         </div>
       </div>
     </AuthLayout>
+    <Modal title="" noHeadWide>
+    <SignupSuccessModal email={email} />
+  </Modal>
+    </>
   );
 };
 

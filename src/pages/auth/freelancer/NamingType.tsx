@@ -1,4 +1,4 @@
-import React, { useState, FC, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
 import useModal from "../../../hooks/useModal";
 import CustomNamingModal from "../../../components/auth/customNaming";
@@ -8,16 +8,13 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { HashSpinner } from "../../../components/Ui/Loading";
 
-interface Props {
-  openNext: (value: number) => void;
-}
 interface namingItem {
   name: string;
   param: string;
   desc: string;
   id: string;
 }
-const NamingTypeScreen: FC<Props> = ({ openNext }) => {
+const FreelanceNamingTypeScreen = () => {
   const [namingType, setNamingType] = useState<string>();
   const [isBusy, setIsBusy] = useState(false);
   const { Modal, showModal, setShowModal } = useModal();
@@ -33,7 +30,7 @@ const NamingTypeScreen: FC<Props> = ({ openNext }) => {
   useEffect(() => {
     if(namingType === "C" && !sch.naming.length && !showModal){
       setNamingType('')
-    }
+    }// eslint-disable-next-line
   }, [setShowModal])
   const updateSchool = async () => {
     setIsBusy(true)
@@ -121,4 +118,4 @@ const NamingTypeScreen: FC<Props> = ({ openNext }) => {
   );
 };
 
-export default NamingTypeScreen;
+export default FreelanceNamingTypeScreen;

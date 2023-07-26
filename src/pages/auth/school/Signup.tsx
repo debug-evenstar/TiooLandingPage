@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
@@ -21,6 +21,7 @@ const SchoolSignup = () => {
     control,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
@@ -43,6 +44,7 @@ const SchoolSignup = () => {
           setEmail(data.email);
           setIsBusy(false);
           setShowModal(true);
+          reset()
         } else {
           toast.error(res?.error?.data.message);
           setIsBusy(false);
@@ -58,7 +60,7 @@ const SchoolSignup = () => {
       <AuthLayout type="register">
         <div>
           <div className="text-center lg:w-9/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
-            <p className="text-primary text-2xl fw-600" onClick={() => setShowModal(true)}>Sign Up</p>
+            <p className="text-primary text-2xl fw-600">Sign Up</p>
             <p className="mt-1 fw-500">
               Create an account to get started on
               <Link to={"/"} className="text-primary pl-1">

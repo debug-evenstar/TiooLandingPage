@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
 import { Link, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
@@ -6,43 +6,49 @@ import TextInput, { InputType } from "../../../components/Ui/TextInput";
 import Button from "../../../components/Ui/Button";
 import { HashSpinner } from "../../../components/Ui/Loading";
 import { toast } from "react-toastify";
+import { useLazyCompleteRegisterParentQuery } from "../../../services/api/authSlice";
+import { useAppSelector } from "../../../redux/store";
 
-interface Props {
-  openNext: (value: number) => void;
-}
-const CompleteSignupScreen:FC<Props> = ({openNext}) => {
+const ParentCompleteSignupScreen = () => {
   const [isBusy, setIsBusy] = useState(false)
   const navigate = useNavigate()
+  const [complete] = useLazyCompleteRegisterParentQuery()
+  const savedData = useAppSelector((state) => state.user.otp)
   const {
     control,
     handleSubmit,
-    setError,
     formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
     defaultValues: {
-      name: "",
+      token: "",
+      parent: "",
       school: "",
       class: "",
       age: "",
     },
   });
-  // const onSubmit = async (data:any) => {
-  //   await update(data)
-  //   .then((res:any) => {
-  //     if (res.isSuccess) {
-  //       toast.success(res.data.message);
-  //       setIsBusy(false);
-  //       navigate('/login')
-  //     } else {
-  //       toast.error(res?.error?.data?.message);
-  //     }
-  //   })
-  //   .catch((err) => {
-  //     toast.error(err?.error?.data?.message);
-  //     setIsBusy(false);
-  //   });
-  // };
+  const onSubmit = async (data:any) => {
+    setIsBusy(true)
+    const payload ={
+      ...data,
+      token: savedData.token
+    }
+    await complete(payload)
+    .then((res:any) => {
+      if (res.isSuccess) {
+        toast.success(res.data.message);
+        setIsBusy(false);
+        navigate('/login')
+      } else {
+        toast.error(res?.error?.data?.message);
+      }
+    })
+    .catch((err) => {
+      toast.error(err?.error?.data?.message);
+      setIsBusy(false);
+    });
+  };
   return (
     <>
       <AuthLayout type="complete">
@@ -57,10 +63,10 @@ const CompleteSignupScreen:FC<Props> = ({openNext}) => {
             </p>
           </div>
           <div className="lg:px-12 mt-7">
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <Controller
-                  name="name"
+                  name="parent"
                   control={control}
                   rules={{
                     required: {
@@ -73,7 +79,7 @@ const CompleteSignupScreen:FC<Props> = ({openNext}) => {
                       label="Child&apos;s Name"
                       labelClassName="text-[#4A5568] mb-2 fw-500"
                       placeholder="Enter child&apos;s full name"
-                      error={errors.name?.message}
+                      error={errors.parent?.message}
                       type={InputType.text}
                       {...field}
                     />
@@ -164,4 +170,4 @@ const CompleteSignupScreen:FC<Props> = ({openNext}) => {
   );
 };
 
-export default CompleteSignupScreen;
+export default ParentCompleteSignupScreen;

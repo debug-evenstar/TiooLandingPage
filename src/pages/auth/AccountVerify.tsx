@@ -6,7 +6,7 @@ import { ThreeCirclesLoading } from "../../components/Ui/Loading";
 import { FailureCheck, SuccessCheck } from "../../components/Ui/SuccessCheck";
 import Button from "../../components/Ui/Button";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { saveUser } from "../../redux/reducers/userReducer";
+import { saveEmail, saveUser } from "../../redux/reducers/userReducer";
 
 const AccountVerify = () => {
   const [isBusy, setIsBusy] = useState(false);
@@ -16,17 +16,21 @@ const AccountVerify = () => {
   const [verify] = useLazyVerifyOtpQuery();
   const navigate = useNavigate();
   const { id } = useParams();
-  const user = useAppSelector((state) => state.user.user)
+  const user = useAppSelector((state) => state.user.user);
   const handleNavigation = () => {
-    if(user.account_type === "school"){
-        navigate('/school-complete')
-    }else if(user.account_type === "freelancer"){
-        navigate('/freelancer-complete')
-    }else if(user.account_type === "parent"){
-        navigate('/parent-complete')
-    }
-    else toast.info('Cant resolve account type please contact the administrator')
-  }
+    if (user.account_type === "school") {
+      navigate("/school-complete");
+    } else if (user.account_type === "freelancer") {
+      navigate("/freelancer-complete");
+    } else if (user.account_type === "parent") {
+      navigate("/parent-complete");
+    } else if (user.account_type === "teacher") {
+      navigate("/login");
+    } else if (user.account_type === "student") {
+      navigate("/login");
+    } else
+      toast.info("Cant resolve account type please contact the administrator");
+  };
   const verifyOtp = async (data: any) => {
     const payload = {
       token: data,
@@ -44,18 +48,24 @@ const AccountVerify = () => {
             phone: res.data.data.phone,
           })
         );
+        dispatch(
+          saveEmail({
+            email: res.data.data.email,
+            token: id,
+          })
+        );
         setIsBusy(false);
       } else {
         toast.error(res?.error?.data.message);
         setIsBusy(false);
         setFailed(true);
       }
-    });
+    }).catch(() => {});
   };
   useEffect(() => {
     if (id) {
       verifyOtp(id);
-    }
+    } // eslint-disable-next-line
   }, [id]);
   return (
     <>
@@ -64,10 +74,12 @@ const AccountVerify = () => {
           <div className="">
             {isBusy && (
               <div className="">
-                <p className="text-2xl text-center fw-600 mb-7">Verifying Account Information...</p>
-                 <div className="flex justify-center">
-                <ThreeCirclesLoading size="200" color="#4f46e5" />
-                 </div>
+                <p className="text-2xl text-center fw-600 mb-7">
+                  Verifying Account Information...
+                </p>
+                <div className="flex justify-center">
+                  <ThreeCirclesLoading size="200" color="#4f46e5" />
+                </div>
               </div>
             )}
             {success && (
@@ -86,7 +98,10 @@ const AccountVerify = () => {
                     preffered options for profile setup.
                   </p>
                   <div className="lg:w-10/12 mt-8 mx-auto">
-                    <Button title="Click to continue" onClick={handleNavigation} />
+                    <Button
+                      title="Click to continue"
+                      onClick={handleNavigation}
+                    />
                   </div>
                 </div>
               </div>
