@@ -16,16 +16,18 @@ import {
 } from "../../../services/api/routineSlice";
 import { saveEmail } from "../../../redux/reducers/userReducer";
 import { useAppDispatch } from "../../../redux/store";
-import { useLazySendOtpQuery } from "../../../services/api/authSlice";
+import useModal from "../../../hooks/useModal";
+import SignupSuccessModal from "../../../components/auth/signupSuccess";
 
 const StudentSignup = () => {
   const [isBusy, setIsBusy] = useState(false);
   const [userData, setUserData] = useState<any>();
+  const [email, setEmail] = useState('')
+  const {Modal, setShowModal} = useModal()
   const [fetchDetail] = useLazyGetStudentInviteQuery();
   const [fetchDetails] = useLazyGetStudentInviteInfoQuery();
   const [acceptInvite] = useLazyAcceptStudInviteQuery();
   const [acceptMagic] = useLazyAcceptStudMagicQuery();
-  const [sendOtp] = useLazySendOtpQuery();
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -104,27 +106,12 @@ const StudentSignup = () => {
           .then((res: any) => {
             if (res.isSuccess) {
               toast.success(res.data.message);
-              dispatch(
-                saveEmail({
-                  email: data.email,
-                })
-              );
-              const payload = {
-                email: data.email,
-              };
-              sendOtp(payload)
-                .then((res: any) => {
-                  if (res.isSuccess) {
-                    toast.success(res.data.message);
-                  }
-                })
-                .catch((err) => {});
-              dispatch(
-                saveEmail({
-                  email: data.email,
-                })
-              );
-              navigate("/email-verify");
+              setEmail(data.email)
+              setShowModal(true)
+              dispatch(saveEmail({
+                email: data.email
+              }))
+              setIsBusy(false)
             } else {
               toast.error(res?.error?.data.message);
               setIsBusy(false);
@@ -150,7 +137,8 @@ const StudentSignup = () => {
           });
   };
   return (
-    <AuthLayout type="register">
+   <>
+     <AuthLayout type="register">
       <div>
         <div className="text-center lg:w-9/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
           <p className="text-primary text-2xl fw-600">Student Sign Up</p>
@@ -318,6 +306,10 @@ const StudentSignup = () => {
         </div>
       </div>
     </AuthLayout>
+    <Modal title="" noHeadWide>
+    <SignupSuccessModal email={email} />
+  </Modal>
+   </>
   );
 };
 

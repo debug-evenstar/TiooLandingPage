@@ -22,13 +22,13 @@ const SchoolTypeScreen: FC<Props> = ({ openNext }) => {
   const selectSchoolType = (item:any) => {
     let sch = [...typeValue];
     const index = ["nursery", "primary"]
-    if (item.param == "nursery" || item.param == "primary") {
+    if (item.param === "nursery" || item.param === "primary") {
       if(index.some(i => typeValue.includes(i))){
         sch.splice(typeValue.indexOf("nursery"));
         sch.splice(typeValue.indexOf("primary"));
       } else
       sch = [...typeValue, "nursery", "primary"];
-    } else if(item.param == "secondary") {
+    } else if(item.param === "secondary") {
       if(typeValue.includes("secondary")){
         sch.splice(typeValue.indexOf("secondary"), 1);
       }else
@@ -74,7 +74,7 @@ const SchoolTypeScreen: FC<Props> = ({ openNext }) => {
                     ? "bg-[#4F46E5] outline-[#4F46E5] !text-white"
                     : "bg-white"
                 }`}
-                onClick={item.param == "secondary"? () => false : () => selectSchoolType(item)}
+                onClick={item.param === "secondary"? () => false : () => selectSchoolType(item)}
                 key={item.param}
               >
                 <p className="fw-500 text-lg pt-5">{item.name}</p>

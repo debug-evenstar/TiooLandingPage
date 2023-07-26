@@ -34,7 +34,7 @@ const NamingTypeScreen: FC<Props> = ({ openNext }) => {
   useEffect(() => {
     if(namingType === "C" && !sch.naming.length && !showModal){
       setNamingType('')
-    }
+    }// eslint-disable-next-line
   }, [setShowModal])
 
   const updateSchool = async () => {

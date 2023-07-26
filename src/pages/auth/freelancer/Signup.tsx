@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
 import { Link } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
@@ -7,24 +7,22 @@ import "react-phone-number-input/style.css";
 import TextInput, { InputType } from "../../../components/Ui/TextInput";
 import Button from "../../../components/Ui/Button";
 import { HashSpinner } from "../../../components/Ui/Loading";
-import { useAppDispatch } from "../../../redux/store";
-import { useLazyRegisterSchoolQuery, useLazySendOtpQuery } from "../../../services/api/authSlice";
-import { saveUser } from "../../../redux/reducers/userReducer";
+import { useLazyRegisterSchoolQuery } from "../../../services/api/authSlice";
 import { toast } from "react-toastify";
+import useModal from "../../../hooks/useModal";
+import SignupSuccessModal from "../../../components/auth/signupSuccess";
 
-interface Props {
-  openNext: (value: number) => void;
-}
-const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
+
+const FreelanceSignupScreen = () => {
   const [isBusy, setIsBusy] = useState(false);
-  const dispatch = useAppDispatch()
+  const { Modal, setShowModal } = useModal();
+  const [email, setEmail] = useState("");
   const [register] = useLazyRegisterSchoolQuery()
-  const [sendOtp] = useLazySendOtpQuery()
   const {
     control,
     handleSubmit,
-    setError,
     watch,
+    reset,
     formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
@@ -43,19 +41,10 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
     await register(data)
       .then((res:any) => {
         if (res.isSuccess) {
-            dispatch(saveUser({
-                name: data.name,
-                email: data.email,
-                account_type: "freelancer",
-                phone: data.phone
-            }))
-          toast.success(res.data.message)
-          const payload = {
-            email: data.email
-          }
-          sendOtp(payload).then((res:any) => {
-            if(res.isSuccess){toast.success(res.data.message); openNext(2)}
-          }).catch((err) => {})
+          setEmail(data.email);
+          setIsBusy(false);
+          setShowModal(true);
+          reset()
         }else {
           toast.error(res?.error?.data.message);
           setIsBusy(false);
@@ -231,6 +220,9 @@ const FreelanceSignupScreen:FC<Props> = ({openNext}) => {
           </div>
         </div>
       </AuthLayout>
+      <Modal title="" noHeadWide>
+        <SignupSuccessModal email={email} />
+      </Modal>
     </>
   );
 };

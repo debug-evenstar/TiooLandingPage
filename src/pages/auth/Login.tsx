@@ -24,13 +24,43 @@ const LoginScreen = () => {
       password: "",
     },
   });
+  const navigateTo = (res:any) => {
+    console.log(res.data);
+    
+    if(res.data.profile.account_type === "school" || res.data.profile.account_type === "teacher"){
+      if(res.data.profile.flag === "active"){
+        // window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
+      }else if(res.data.profile.flag === "registered"){
+        navigate('/school-complete')
+      }else {
+        //
+      }
+    }if(res.data.profile.account_type === "freelancer"){
+      if(res.data.profile.flag === "active"){
+        // window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
+      }else if(res.data.profile.flag === "registered"){
+        navigate('/freelancer-complete')
+      }else {
+        //
+      }
+    }if(res.data.profile.account_type === "parent" || res.data.profile.account_type === "student"){
+      if(res.data.profile.flag === "active"){
+        // window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
+      }else if(res.data.profile.flag === "registered"){
+        navigate('/parent-complete')
+      }else {
+        //
+      }
+    }
+  }
   const onSubmit = async (data:any) => {
     setIsBusy(true);
     await login(data)
       .then((res:any) => {
         if (res.isSuccess) {
           toast.success(res.data.message)
-          navigate("/home")
+          navigateTo(res)
+          setIsBusy(false)
         }else {
           toast.error(res.error.data.message);
           setIsBusy(false);

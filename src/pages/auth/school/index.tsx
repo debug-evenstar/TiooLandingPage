@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import SchoolSignup from "./Signup";
-import VerifyEmailScreen from "./VerifyEmail";
 import SchoolTypeScreen from "./SchoolType";
 import NamingTypeScreen from "./NamingType";
 
@@ -12,8 +10,6 @@ const SchoolSignupIndex = () => {
   };
   return( 
   <>
-    {/* {open === 1? <SchoolSignup openNext={handleOpen}/> : ""}
-    {open === 2? <VerifyEmailScreen openNext={handleOpen}/> : ""} */}
     {open === 3? <SchoolTypeScreen openNext={handleOpen}/> : ""}
     {open === 4? <NamingTypeScreen openNext={handleOpen}/> : ""}
   </>

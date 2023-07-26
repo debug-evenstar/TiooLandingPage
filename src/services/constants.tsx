@@ -20,6 +20,8 @@ export enum CACHE_LIFETIME {
 
 export const USER_LOGIN = 'account/signin'
 export const SCHOOL_REGISTER = 'account/signup'
+export const PARENT_REGISTER = 'student/parent/signup_first'
+export const PARENT_REGISTER_SECOND = 'student/parent/signup_second'
 export const REQUEST_NEW_OTP = 'new/account/send_otp'
 export const REQUEST_OTP = 'account/send_otp'
 export const VERIFY_NEW_OTP = 'account/verify'

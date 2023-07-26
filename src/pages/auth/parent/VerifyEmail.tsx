@@ -21,7 +21,7 @@ const VerifyEmailScreen: FC<Props> = ({openNext}) => {
   const {
     control,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: {  isValid },
   } = useForm({
     mode: "onChange",
     defaultValues: {
