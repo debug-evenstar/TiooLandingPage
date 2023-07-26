@@ -75,7 +75,7 @@ const LoginScreen = () => {
     <>
       <AuthLayout>
         <div>
-          <div className="text-center w-7/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
+          <div className="text-center lg:w-7/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
             <p className="text-primary text-2xl fw-600">Log In</p>
             <p className="mt-1 fw-500">
               Securely Login to your{" "}
