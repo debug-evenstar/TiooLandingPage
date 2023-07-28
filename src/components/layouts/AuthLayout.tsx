@@ -8,14 +8,12 @@ interface AuthLayoutProps {
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children, type }) => {
   return (
     <div
-      className={`h-[100vh] px-2 fixed lg:grid place-content-center overflow-y-auto w-full bg-[#E3E2FF] ${
+      className={`h-[100vh] px-2 fixed lg:grid lg:place-content-center overflow-y-auto w-full bg-[#E3E2FF] ${
         type === "register" && "pb-16"
       }`}
     >
-      <div className="fixed">
-        <h3 className="font-semibold text-[22px] pt-4 lg:pt-10 lg:mx-12 mx-2">
-          Company's Logo
-        </h3>
+      <div className="fixed top-3 left-4">
+        <img src="logo.png" alt="logo" className="w-24"/>
       </div>
       <div
         className={`w-full bg-white min-h-[450px] relative round-box z-30 mt-24 lg:mt-0 ${
