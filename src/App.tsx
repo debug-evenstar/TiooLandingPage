@@ -14,13 +14,15 @@ import FreelanceSignupScreen from './pages/auth/freelancer/Signup';
 import FreelanceNamingTypeScreen from './pages/auth/freelancer/NamingType';
 import ParentSignupScreen from './pages/auth/parent/Signup';
 import ParentCompleteSignupScreen from './pages/auth/parent/CompleteSigup';
+import LandingPage from './pages';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+      <Route path="/" element={<LandingPage/>}/>
         {/* auth routes */}
-        <Route path="/" element={<SignupIndex/>}/>
+        <Route path="/signup" element={<SignupIndex/>}/>
         <Route path='/login' element={<LoginScreen/>}/>
         <Route path='/school' element={<SchoolSignup/>}/>
         <Route path='/school-complete' element={<SchoolSignupIndex/>}/>

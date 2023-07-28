@@ -92,7 +92,7 @@ export interface ForgetPasswordInput {
 export interface ResetPasswordInput {
     email: string | undefined
     password: string
-    token: string | undefined
+    code: string | undefined
 }
 
 export interface UserOtp {
