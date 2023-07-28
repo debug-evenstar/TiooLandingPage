@@ -25,11 +25,10 @@ const LoginScreen = () => {
     },
   });
   const navigateTo = (res:any) => {
-    console.log(res.data);
     
     if(res.data.profile.account_type === "school" || res.data.profile.account_type === "teacher"){
       if(res.data.profile.flag === "active"){
-        // window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
+        window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
       }else if(res.data.profile.flag === "registered"){
         navigate('/school-complete')
       }else {
@@ -37,7 +36,7 @@ const LoginScreen = () => {
       }
     }if(res.data.profile.account_type === "freelancer"){
       if(res.data.profile.flag === "active"){
-        // window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
+        window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
       }else if(res.data.profile.flag === "registered"){
         navigate('/freelancer-complete')
       }else {
@@ -45,7 +44,7 @@ const LoginScreen = () => {
       }
     }if(res.data.profile.account_type === "parent" || res.data.profile.account_type === "student"){
       if(res.data.profile.flag === "active"){
-        // window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
+        window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
       }else if(res.data.profile.flag === "registered"){
         navigate('/parent-complete')
       }else {
@@ -74,7 +73,7 @@ const LoginScreen = () => {
   return (
     <>
       <AuthLayout>
-        <div>
+        <div className="">
           <div className="text-center lg:w-7/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
             <p className="text-primary text-2xl fw-600">Log In</p>
             <p className="mt-1 fw-500">
