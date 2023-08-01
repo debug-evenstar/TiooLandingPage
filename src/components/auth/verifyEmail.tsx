@@ -43,7 +43,7 @@ const VerifyEmailModal = ({ email }: { email: string }) => {
             Click on the link to a neww verification mail to activate your account
           </p>
           <div className="flex justify-center mt-6 gap-x-5">
-            <div className="w-5/12">
+            <div className="w-6/12 xl:w-5/12">
             <Button
               title={
                 isBusy ? (
@@ -53,13 +53,13 @@ const VerifyEmailModal = ({ email }: { email: string }) => {
                 )
               }
               onClick={ResendOtp}
-              altClassName="py-2 btn-like"
+              altClassName="px-2 py-2 btn-like"
             />
             </div>
-            <div className="w-5/12">
+            <div className="w-6/12 xl:w-5/12">
             <Button
               title="Contact Support"
-              altClassName="py-2 border-2 rounded-xl"
+              altClassName="px-2 py-2 border-2 rounded-xl"
             />
             </div>
           </div>
