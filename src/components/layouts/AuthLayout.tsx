@@ -13,7 +13,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, type }) => {
       }`}
     >
       <div className="fixed top-3 left-4">
-        <img src="logo.png" alt="logo" className="w-24"/>
+        <img src="logo.png" alt="logo" className=" w-16 lg:w-24"/>
       </div>
       <div
         className={`w-full bg-white min-h-[450px] relative round-box z-30 mt-24 lg:mt-0 ${
