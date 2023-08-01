@@ -7,6 +7,7 @@ import { FailureCheck, SuccessCheck } from "../../components/Ui/SuccessCheck";
 import Button from "../../components/Ui/Button";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { saveEmail, saveUser } from "../../redux/reducers/userReducer";
+import logo from '../../images/tioologo.png'
 
 const AccountVerify = () => {
   const [isBusy, setIsBusy] = useState(false);
@@ -129,7 +130,7 @@ const AccountVerify = () => {
           </div>
         </div>
         <div className="fixed top-3 left-4">
-        <img src="logo.png" alt="logo" className=" w-16 lg:w-24"/>
+        <img src={logo} alt="logo" className=" w-16 lg:w-24"/>
       </div>
       </div>
     </>
