@@ -143,7 +143,7 @@ const LoginScreen = () => {
                 />
                 <div className="text-end">
                   <Link to="/forget" className="text-[#FF006E]">
-                    Forget Password
+                    Forgot Password?
                   </Link>
                 </div>
               </div>
