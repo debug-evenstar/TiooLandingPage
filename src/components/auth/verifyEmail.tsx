@@ -12,7 +12,6 @@ const VerifyEmailModal = ({ email }: { email: string }) => {
     const payload = {
       email: email,
     };
-    console.log(isBusy);
     
     sendOtp(payload)
       .then((res: any) => {
