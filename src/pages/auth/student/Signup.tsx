@@ -299,7 +299,7 @@ const StudentSignup = () => {
           </form>
           <div className="text-center mt-4">
             Already have an account?{" "}
-            <Link to="/" className="text-primary fw-500">
+            <Link to="/login" className="text-primary fw-500">
               Login
             </Link>
           </div>
