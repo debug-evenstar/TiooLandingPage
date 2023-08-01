@@ -54,13 +54,13 @@ const SignupSuccessModal = ({ email }: { email: string }) => {
                 )
               }
               onClick={ResendOtp}
-              altClassName="px-6 py-2 btn-like"
+              altClassName="py-2 btn-like"
             />
             </div>
             <div className="w-5/12">
             <Button
               title="Contact Support"
-              altClassName="px-6 py-2 border-2 rounded-xl"
+              altClassName="py-2 border-2 rounded-xl"
             />
             </div>
           </div>

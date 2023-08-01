@@ -2,6 +2,7 @@ export interface BaseResult {
     error: boolean
     message: string
     response?: string
+    action?:string
 }
 
 export interface ErrorResult {
