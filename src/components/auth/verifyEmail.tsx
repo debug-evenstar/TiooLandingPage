@@ -42,7 +42,7 @@ const VerifyEmailModal = ({ email }: { email: string }) => {
           <p className="text-gray-600">
             Click on the link to a neww verification mail to activate your account
           </p>
-          <div className="flex justify-center mt-6 gap-x-5">
+          <div className="flex justify-center mt-6 gap-x-3 xl:gap-x-5">
             <div className="w-6/12 xl:w-5/12">
             <Button
               title={
