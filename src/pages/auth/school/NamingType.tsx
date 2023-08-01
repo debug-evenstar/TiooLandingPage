@@ -43,7 +43,7 @@ const NamingTypeScreen: FC<Props> = ({ openNext }) => {
       email: user.email,
       school_types: sch.types,
       naming_types: namingType ? namingType : "",
-      ...(namingType === "C" && { class_naming: sch.naming }),
+      ...(namingType === "C" && { class_namings: sch.naming }),
     };
     await update(payload)
     .then((res:any) => {
