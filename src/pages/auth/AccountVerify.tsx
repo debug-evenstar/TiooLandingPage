@@ -128,11 +128,9 @@ const AccountVerify = () => {
             )}
           </div>
         </div>
-        <div className="fixed top-0 left-0">
-          <h3 className="font-semibold text-[22px] pt-4 lg:pt-10 lg:mx-12 mx-2">
-            Company's Logo
-          </h3>
-        </div>
+        <div className="fixed top-3 left-4">
+        <img src="logo.png" alt="logo" className=" w-16 lg:w-24"/>
+      </div>
       </div>
     </>
   );
