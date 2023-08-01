@@ -77,9 +77,9 @@ const LoginScreen = () => {
           <div className="text-center lg:w-7/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
             <p className="text-primary text-2xl fw-600">Log In</p>
             <p className="mt-1 fw-500">
-              Securely Login to your{" "}
+              Login to your{" "}
               <Link to={"/"} className="text-primary">
-                SabiKid
+                Tioo
               </Link>{" "}
               account
             </p>
@@ -156,7 +156,7 @@ const LoginScreen = () => {
             </form>
             <div className="text-center mt-4">
               Don’t have an account?{" "}
-              <Link to="/" className="text-primary fw-500">
+              <Link to="/signup" className="text-primary fw-500">
                 Sign Up
               </Link>
             </div>
