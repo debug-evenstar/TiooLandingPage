@@ -7,10 +7,14 @@ import Button from "../../components/Ui/Button";
 import { HashSpinner } from "../../components/Ui/Loading";
 import { useLazyLoginQuery } from "../../services/api/authSlice";
 import { toast } from "react-toastify";
+import useModal from "../../hooks/useModal";
+import VerifyEmailModal from "../../components/auth/verifyEmail";
 
 const LoginScreen = () => {
   
   const [isBusy, setIsBusy] = useState<boolean>(false);
+  const {Modal, setShowModal} = useModal()
+  const [email, setEmail] = useState('')
   const navigate = useNavigate()
   const [login] = useLazyLoginQuery()
   const {
@@ -62,6 +66,10 @@ const LoginScreen = () => {
           setIsBusy(false)
         }else {
           toast.error(res.error.data.message);
+          if(res.error.data.action === "verify"){
+            setEmail(data.email)
+            setShowModal(true)
+          }
           setIsBusy(false);
         }
       })
@@ -163,6 +171,9 @@ const LoginScreen = () => {
           </div>
         </div>
       </AuthLayout>
+      <Modal title="" noHeadWide>
+        <VerifyEmailModal email={email} />
+      </Modal>
     </>
   );
 };
