@@ -27,25 +27,25 @@ const LoginScreen = () => {
   const navigateTo = (res:any) => {
     
     if(res.data.profile.account_type === "school" || res.data.profile.account_type === "teacher"){
-      if(res.data.profile.flag === "active"){
+      if(res.data.profile.status === "active"){
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
-      }else if(res.data.profile.flag === "registered"){
+      }else if(res.data.profile.status === "verified"){
         navigate('/school-complete')
       }else {
         //
       }
     }if(res.data.profile.account_type === "freelancer"){
-      if(res.data.profile.flag === "active"){
+      if(res.data.profile.status === "active"){
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
-      }else if(res.data.profile.flag === "registered"){
+      }else if(res.data.profile.status === "verified"){
         navigate('/freelancer-complete')
       }else {
         //
       }
     }if(res.data.profile.account_type === "parent" || res.data.profile.account_type === "student"){
-      if(res.data.profile.flag === "active"){
+      if(res.data.profile.status === "active"){
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
-      }else if(res.data.profile.flag === "registered"){
+      }else if(res.data.profile.status === "verified"){
         navigate('/parent-complete')
       }else {
         //
