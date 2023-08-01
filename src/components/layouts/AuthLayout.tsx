@@ -16,7 +16,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, type }) => {
         <img src="logo.png" alt="logo" className=" w-16 lg:w-24"/>
       </div>
       <div
-        className={`w-full bg-white min-h-[450px] relative round-box z-30 mt-24 lg:mt-0 ${
+        className={`w-full lg:bg-white min-h-[450px] relative round-box z-30 mt-24 lg:mt-0 ${
           type === "signup" || type === "schtype"
             ? "lg:min-w-[850px]"
             : "lg:min-w-[650px]"
