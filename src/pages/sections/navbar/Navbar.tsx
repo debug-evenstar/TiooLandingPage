@@ -62,7 +62,7 @@ function Navbar() {
           ))}
         </div>
 
-        <div className=" absolute h-[40px] sm:h-[60px] w-[170px] sm:w-[210px] left-[70px] sm:right-[22px] top-[15px] sm:top-[6px] ">
+        <div className=" absolute h-[40px] sm:h-[60px] w-[170px] sm:w-[210px] right-[60px] lg:right-[22px] top-[15px] sm:top-[6px] ">
           <Button
             text1="Join Discount List"
             onclick={() => {
