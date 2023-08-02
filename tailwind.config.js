@@ -5,12 +5,27 @@ module.exports = withMT({
   theme: {
     extend: {
       backgroundImage: {
-        'home': "linear-gradient(to right, rgba(105, 76, 87, 1),rgba(0, 0, 0, 0.2))",
-        'dash': "url('https://res.cloudinary.com/dic7regoe/image/upload/v1689193391/praxeum/Frame_1000004421_aysm37.png')",
-        'frame': "url('https://res.cloudinary.com/dic7regoe/image/upload/v1689405515/praxeum/Frame_1000004193_io2u7f.png')",
+        home: "linear-gradient(to right, rgba(105, 76, 87, 1),rgba(0, 0, 0, 0.2))",
+        dash: "url('https://res.cloudinary.com/dic7regoe/image/upload/v1689193391/praxeum/Frame_1000004421_aysm37.png')",
+        frame:
+          "url('https://res.cloudinary.com/dic7regoe/image/upload/v1689405515/praxeum/Frame_1000004193_io2u7f.png')",
       },
+    },
+    fontFamily: {
+      primary: ["poppins"],
+      sans: ["Comic Sans MS", "sans-serif"],
+    },
+
+    screens: {
+      sm: "576px",
+      // => @media (min-width: 576px) { ... }
+
+      md: "960px",
+      // => @media (min-width: 960px) { ... }
+
+      lg: "1440px",
+      // => @media (min-width: 1440px) { ... }
     },
   },
   plugins: [],
 });
-
