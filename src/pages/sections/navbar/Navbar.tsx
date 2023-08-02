@@ -62,7 +62,7 @@ function Navbar() {
           ))}
         </div>
 
-        <div className=" absolute h-[40px] sm:h-[60px] w-[170px] sm:w-[210px] right-[130px] sm:right-[22px] top-[15px] sm:top-[6px] ">
+        <div className=" absolute h-[40px] sm:h-[60px] w-[170px] sm:w-[210px] right-[120px] sm:right-[22px] top-[15px] sm:top-[6px] ">
           <Button
             text1="Join Discount List"
             onclick={() => {
@@ -70,13 +70,6 @@ function Navbar() {
             }}
           />
         </div>
-        {/* <div>
-          {NavData?.map((item, ind) => (
-            <button
-              className={`h-2 w-2 mx-1 rounded-full transition-colors bg-[#4F46E5]`}
-            ></button>
-          ))}
-        </div> */}
       </div>
       <CenterModal
         // variant={large}
