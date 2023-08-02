@@ -6,7 +6,7 @@ interface Img {
   images: any[];
   autoplayInterval: number;
 }
-const images = [slide1, slide2];
+const images = [slide1, slide1];
 
 const Slider: React.FC<Img> = ({ images, autoplayInterval }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -54,9 +54,9 @@ const Slider: React.FC<Img> = ({ images, autoplayInterval }) => {
     //     ))}
     //   </div>
     // </div>
-    <div className="   w-full overflow-hidden sm:overflow-hidden">
+    <div className="   w-full overflow-hidden sm:overflow-hidden ">
       <div
-        className="flex transition-transform duration-500 ease-in-out  w-[672px]  sm:w-[990px] "
+        className="flex transition-transform duration-500 ease-in-out  w-[672px]  sm:w-[990px]  "
         style={{
           transform: `translateX(-${
             currentSlide == 0 ? currentSlide * 100 : currentSlide * 50
@@ -72,7 +72,7 @@ const Slider: React.FC<Img> = ({ images, autoplayInterval }) => {
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-auto"
+              className="w-full h-auto "
             />
           </div>
         ))}

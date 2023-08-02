@@ -1,4 +1,5 @@
 import React from "react";
+import img from "../../images/universe.png";
 import { BenefitData } from "../../../data/data";
 import BenefitCards from "./BenefitCards";
 import ButtonCustom from "../../../components/components/ButtonCustom";
@@ -16,7 +17,7 @@ function Benefits() {
         <h1 className="font-[poppins] font-[600] text-[24px] sm:text-[42px] text-[rgba(3, 0, 54, 0.74)] ">
           Why Tioo?
         </h1>
-        <p className="font-[poppins] font-[600] text-[12px] sm:text-[16px]">
+        <p className="font-[poppins] font-[600] text-[12px] sm:text-[14px] text-[#7C7B7B]">
           With Tioo, we take your child’s grades and productivity to the next
           level
         </p>
@@ -39,12 +40,12 @@ function Benefits() {
         </p>
         <img src={fire} />
       </div>
-      <div className="flex gap-4 sm:gap-10 h-[70px] sm:h-[90px] w-full ">
+      <div className="flex gap-4 sm:gap-10 h-[50px] sm:h-[60px] w-full ">
         <ButtonCustom
           height={25}
           width={220}
           image={play}
-          text1="Get app on"
+          // text1="Get app on"
           text2="Google play"
           bg={"2C2C30"}
           onclick={handleClick}
@@ -53,7 +54,7 @@ function Benefits() {
           image={apple}
           height={25}
           width={220}
-          text1="Get app on"
+          // text1="Get app on"
           text2="apple store"
           bg={"2C2C30"}
           onclick={handleClick}
