@@ -33,7 +33,7 @@ const ParentSignupScreen = () => {
       school: "",
       class: "",
       age: "",
-      account_type: "parent",
+      account_type: "student",
       confirm_password: "",
     },
   });

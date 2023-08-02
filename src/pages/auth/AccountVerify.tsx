@@ -23,12 +23,14 @@ const AccountVerify = () => {
       navigate("/school-complete");
     } else if (user.account_type === "freelancer") {
       navigate("/freelancer-complete");
-    } else if (user.account_type === "parent") {
-      navigate("/parent-complete");
-    } else if (user.account_type === "teacher") {
+    }else if (user.account_type === "teacher") {
       navigate("/login");
     } else if (user.account_type === "student") {
-      navigate("/login");
+      if(user.Student){
+        navigate("/login");
+      }else{
+        navigate("/parent-complete");
+      }
     } else
       toast.info("Cant resolve account type please contact the administrator");
   };
@@ -47,6 +49,7 @@ const AccountVerify = () => {
             email: res.data.data.email,
             account_type: res.data.data.account_type,
             phone: res.data.data.phone,
+            Student: res.data.data.Student
           })
         );
         dispatch(
