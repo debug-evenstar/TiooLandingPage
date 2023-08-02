@@ -5,12 +5,14 @@ import { GradeData, TopicsData } from "../../../data/data";
 import Slider from "../../../components/components/Slider";
 import slide1 from "../../../images/sliderimg/slide1.png";
 import slide2 from "../../../images/sliderimg/slide2.png";
+import { useNavigate } from "react-router-dom";
 
 const images = [slide1, slide1];
 
 function TopicsVariety() {
+  const navigate = useNavigate()
   const handleClick = () => {
-    console.log("Do something");
+    navigate('/login')
   };
   return (
     <div className="w-full relative px-5 sm:px-20 py-10">
