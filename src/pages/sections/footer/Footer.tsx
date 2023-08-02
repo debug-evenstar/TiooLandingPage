@@ -13,13 +13,13 @@ function Footer() {
   };
   return (
     <div className="bg-[#FAFAFA]  w-full relative  px-5sm:px-20 mt-12 mb-5   font-[poppins]  ">
-      <div className="flex flex-col sm:flex sm:flex-row border-b-2 border-[#CECDFD] w-full border">
+      <div className="flex flex-col sm:flex sm:flex-row border-b-2 border-[#CECDFD] w-full ">
         <div className=" w-[15%] ">
           <img
             className="w-[120px] sm:w-[160px] h-[100px] sm:h-[124px] absolute top-0 sm:top-9 left-5"
             src={logo}
           />
-          <h5 className="absolute left-[70px] sm:left-[90px] bottom-[180px] sm:bottom-[100px] font-[500] text-[12px] text-[#4F46E5]">
+          <h5 className="absolute left-[70px] sm:left-[90px] bottom-[180px] sm:bottom-[80px] font-[500] text-[12px] text-[#4F46E5]">
             By Praxeum
           </h5>
         </div>
@@ -36,21 +36,21 @@ function Footer() {
                 Terms
               </a>
             </div>
-            <div className="hidden sm:flex gap-10  h-[90px] w-full      ">
+            <div className="hidden sm:flex gap-10  h-[60px] w-full      ">
               <ButtonCustom
-                height={25}
+                height={15}
                 width={220}
                 image={play}
-                text1="Get app on"
+                // text1="Get app on"
                 text2="Google play"
                 bg={"2C2C30"}
                 onclick={handleClick}
               />
               <ButtonCustom
                 image={apple}
-                height={25}
+                height={15}
                 width={220}
-                text1="Get app on"
+                // text1="Get app on"
                 text2="apple store"
                 bg={"2C2C30"}
                 onclick={handleClick}
@@ -58,13 +58,13 @@ function Footer() {
             </div>
           </div>
           <div className="h-full w-full sm:w-[50%]  flex flex-col justify-center items-end pt-5 ">
-            <div className="absolute top-[50px] left-[140px] sm:static flex  gap-3 w-[130px] items-end justify-end">
+            <div className="absolute top-[50px] left-[140px] sm:static flex  gap-3 w-[130px] items-end justify-end sm:mr-10">
               <AiOutlineTwitter />
               <SlSocialLinkedin />
               <AiOutlineInstagram />
               <BsFacebook />
             </div>
-            <div className="w-full sm:w-[418px] flex items-start sm:items-end">
+            <div className="w-full sm:w-[418px] flex items-start sm:items-end mr-0 sm:mr-10 ">
               <p className=" pl-4 sm:p-0 font-[400] text-[12px] sm:text-[18px] text-left sm:text-right">
                 3 Atabara Street, off cairo street, Ademola Adetukonbo,
                 Crescent, Wuse 2, Abuja, FCT
