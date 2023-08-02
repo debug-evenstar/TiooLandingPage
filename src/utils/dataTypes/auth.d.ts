@@ -14,6 +14,7 @@ export interface UserProfile {
     phone: string
     account_type: string
     password?: string
+    Student?: any
 }
 
 export interface StudentSignupInput {
