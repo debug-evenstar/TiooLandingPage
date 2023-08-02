@@ -50,7 +50,7 @@ function HowItWorks() {
             Get access to school curriculum and co-curriculum contents
           </p>
         </div>
-        <div className="w-full sm:w-[400px] h-[40px]  sm:h-[121px]   relative  flex gap-5 items-center">
+        <div className="w-full sm:w-[400px] h-[40px]  sm:h-[121px]   relative  flex gap-3 sm:gap-5 items-center">
           <img
             className="h-[20px] sm:h-[40px] w-[20px] sm:w-[40px] absolute top-[-20px] left-[-19px]"
             src={four}
