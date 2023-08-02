@@ -22,7 +22,7 @@ const ParentCompleteSignupScreen = () => {
     mode: "onChange",
     defaultValues: {
       token: "",
-      parent: "",
+      name: "",
       school: "",
       class: "",
       age: "",
@@ -66,7 +66,7 @@ const ParentCompleteSignupScreen = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <Controller
-                  name="parent"
+                  name="name"
                   control={control}
                   rules={{
                     required: {
@@ -79,7 +79,7 @@ const ParentCompleteSignupScreen = () => {
                       label="Child&apos;s Name"
                       labelClassName="text-[#4A5568] mb-2 fw-500"
                       placeholder="Enter child&apos;s full name"
-                      error={errors.parent?.message}
+                      error={errors.name?.message}
                       type={InputType.text}
                       {...field}
                     />
