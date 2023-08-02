@@ -8,6 +8,7 @@ const initialState = {
     email: "",
     phone: "",
     account_type: "",
+    Student: {},
   } as UserProfile,
   otp: {
     email: ""
