@@ -39,7 +39,7 @@ const LoginScreen = () => {
         //
       }
     }if(res.data.profile.account_type === "teacher"){
-      if(res.data.profile.status === "verified"){
+      if(res.data.profile.status === "verified" || res.data.profile.status === "active"){
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
       }else {
         //
