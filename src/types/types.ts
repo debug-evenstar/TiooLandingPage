@@ -36,6 +36,12 @@ export interface GradeDataTypes {
 export interface NavDataTypes {
   id: number;
   text: string;
-  url?: string;
+  url?: any;
 }
 
+export interface OFFER {
+  id?: number;
+  title?: string;
+  desc?: string;
+  img?: string;
+}
