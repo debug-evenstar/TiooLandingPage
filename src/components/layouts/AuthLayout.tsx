@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import logo from '../../images/tioologo.png'
 
 interface AuthLayoutProps {
   children?: React.ReactNode;
@@ -15,7 +16,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, type }) => {
       }`}
     >
       <div className="fixed top-3 left-4">
-        <img src="logo.png" alt="logo" className=" w-16 lg:w-24" onClick={() => navigate('/')}/>
+        <img src={logo} alt="logo" className=" w-16 lg:w-24" onClick={() => navigate('/')}/>
       </div>
       <div
         className={`w-full lg:bg-white min-h-[450px] relative round-box z-30 mt-24 lg:mt-0 ${
