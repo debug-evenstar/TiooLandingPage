@@ -504,4 +504,15 @@ input[type="checkbox"]:checked {
   .image {
     animation: moveRight 2s ease-in-out infinite; /* CSS animation for intermittent movement */
   }
+  .gradientbg {
+    background: linear-gradient(225deg, #4f46e5 0%, #0e096c 100%);
+  }
+  .bgImage {
+    background: url(../src/pages/schools/sections/howitworks/image/bgimage.png);
+    background-size: cover;
+  }
+  .bgimagesmall {
+    background: url(../src/pages/schools/sections/howitworks/image/bgsmall.png)
+      no-repeat;
+  }
 }
