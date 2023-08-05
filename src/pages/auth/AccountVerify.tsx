@@ -125,7 +125,7 @@ const AccountVerify = () => {
                     again.
                   </p>
                   <div className="lg:w-10/12 mt-8 mx-auto">
-                    <Button title="Click to continue" />
+                    <Button title="Click to continue" onClick={() => navigate('/')}/>
                   </div>
                 </div>
               </div>
