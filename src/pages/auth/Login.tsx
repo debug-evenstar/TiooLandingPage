@@ -9,13 +9,17 @@ import { useLazyLoginQuery } from "../../services/api/authSlice";
 import { toast } from "react-toastify";
 import useModal from "../../hooks/useModal";
 import VerifyEmailModal from "../../components/auth/verifyEmail";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { saveEmail, saveUser } from "../../redux/reducers/userReducer";
 
 const LoginScreen = () => {
   
   const [isBusy, setIsBusy] = useState<boolean>(false);
   const {Modal, setShowModal} = useModal()
   const [email, setEmail] = useState('')
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
+  const user = useAppSelector((state) => state.user.user)
   const [login] = useLazyLoginQuery()
   const {
     control,
@@ -68,6 +72,21 @@ const LoginScreen = () => {
       .then((res:any) => {
         if (res.isSuccess) {
           toast.success(res.data.message)
+          dispatch(
+            saveUser({
+              ...user,
+              name: res.data.profile.name,
+              email: res.data.profile.email,
+              // account_type: res.data.data.account_type,
+              // phone: res.data.data.phone,
+              // Student: res.data.data.Student
+            })
+          );
+          dispatch(
+            saveEmail({
+              email: res.data.profile.email,
+              token: res.data.token,
+            }));
           navigateTo(res)
           setIsBusy(false)
         }else {
