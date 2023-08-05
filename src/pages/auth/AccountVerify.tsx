@@ -59,7 +59,7 @@ const AccountVerify = () => {
           })
         );
         setIsBusy(false);
-      } else {
+      } else {  
         toast.error(res?.error?.data.message);
         setIsBusy(false);
         setFailed(true);

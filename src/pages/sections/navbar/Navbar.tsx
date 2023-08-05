@@ -7,6 +7,7 @@ import { HiMenuAlt2 } from "react-icons/hi";
 import FlashButton from "../../../components/components/FlashBtn";
 import CenterModal from "../../../components/components/CenterModal";
 import DiscountModal from "../../../components/components/DiscountModals";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [active, setActive] = useState(false);
@@ -44,15 +45,15 @@ function Navbar() {
         <div className="hidden sm:flex pt-5 w-[650px] m-[auto] h-full  gap-[24px] items-center   ">
           {NavData?.map((item, ind) => (
             <div className="   h-full flex items-center flex-col ">
-              <a
-                href="#"
+              <Link
+                to={'/'}
                 className={`font-[600] font-[poppins] text-[18px] flex items-center ${
                   ind == 0 && `text-[#4F46E5] flex-col item-center`
                 }`}
               >
                 {item.text}
                 {ind === NavData.length - 1 && <AiOutlineDown />}
-              </a>
+              </Link>
               <button
                 className={`h-2 w-2 mx-1 rounded-full transition-colors bg-[#4F46E5] ${
                   ind !== 0 && `hidden`
