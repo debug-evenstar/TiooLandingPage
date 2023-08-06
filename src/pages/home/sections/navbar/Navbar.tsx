@@ -45,7 +45,7 @@ function Navbar() {
             >
               <Link
                 to={item.url}
-                className={`font-[600] font-[poppins] text-[18px] flex items-center ${
+                className={`font-[600] font-[poppins] text-[18px] flex items-center text-[#5c597d] ${
                   pathname == item.url && `text-[#4F46E5] flex-col item-center`
                 }`}
               >
