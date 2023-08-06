@@ -3,7 +3,7 @@ import { TIOOData } from "../../../../data/data";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 
 function Whytioo() {
-  const [activeright, setActiveright] = useState(false);
+  const [activeright, setActiveright] = useState(true);
   const [activeleft, setActiveleft] = useState(false);
   const [activeitem, setActiveitem] = useState(1);
   const toggleNav = (val: string) => {
