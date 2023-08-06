@@ -16,7 +16,7 @@ function Header() {
   };
   return (
     <>
-      <div className="flex-col pl-0 py-14 sm:flex-row sm:pl-20 sm:py-14 relative w-full h-[vh] flex  flex-wrap ">
+      <div className="flex-col pl-0 py-20 sm:flex-row sm:pl-20 sm:py-14 relative w-full h-[vh] flex  flex-wrap ">
         {/* <div className="w-[677px]     flex flex-col"> */}
         <div className="w-full sm:w-[55%] flex flex-col pt-2 sm:pt-10 ">
           <h3
