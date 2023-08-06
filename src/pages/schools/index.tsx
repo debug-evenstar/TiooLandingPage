@@ -16,6 +16,7 @@ import HowitWorks from "./sections/howitworks/HowitWorks";
 function Schools() {
   return (
     <div className="w-[100%] sm:max-w-[1440px] sm:min-w-[1024px] m-[auto] text-[#5c597d]">
+      <Navbar />
       <Header />
       <Offer />
       <Offer2 />

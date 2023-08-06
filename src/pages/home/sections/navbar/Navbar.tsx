@@ -27,10 +27,10 @@ function Navbar() {
   };
   return (
     <>
-      <div className=" w-full z-50 bg-[white] h-[70px] sm:h-[60px] fixed sm:relative">
+      <div className=" w-full z-50 bg-[white] h-[70px] sm:h-[90px] fixed top-0">
         <img
           src={logo}
-          className="absolute left-[2px] sm:left-[22px] top-[5px] w-[56px] sm:w-[130px] h-[46px] sm:h-[100px]"
+          className="absolute left-[2px] sm:left-[22px] top-[5px] w-[56px] sm:w-[100px] h-[46px] sm:h-[70px]"
         />
         <div className="block sm:hidden absolute top-[20px] right-[10px] w-[32px] h-[32px]">
           <HiMenuAlt2
@@ -38,7 +38,7 @@ function Navbar() {
             onClick={() => setMobilenav(true)}
           />
         </div>
-        <h5 className="absolute top-[50px] sm:top-[110px] left-[22px] sm:left-[65px] font-[600] text-[12px] sm:text-[18px] text-[#4F46E5]">
+        <h5 className="absolute top-[50px] sm:top-[65px] left-[22px] sm:left-[62px] font-[600] text-[12px] sm:text-[18px] text-[#4F46E5]">
           BETA
         </h5>
 
@@ -65,7 +65,7 @@ function Navbar() {
 
         {/* for mobile */}
         {mobilenav && (
-          <div className=" transition-transform duration-500 ease-in-out fixed flex flex-col sm:hidden pt-6 w-full h-[100vh] z-50 gap-[25px] bg-[#4F46E5] text-white border border-gray-500 ">
+          <div className=" transition-transform duration-500 ease-in-out fixed flex flex-col sm:hidden pt-6 w-full h-[100vh] z-50 gap-[25px] bg-[#4F46E5] text-white     ">
             <div className="flex items-center justify-between px-2 mb-4">
               <img className="w-[65px] h-[65px]" src={mobilelogo} alt="" />
               <LiaTimesSolid
