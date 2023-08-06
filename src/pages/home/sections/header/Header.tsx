@@ -66,7 +66,7 @@ function Header() {
           <div className="w-[192px] sm:w-[292px] h-[50px] sm:h-[80px] ml-[6rem] sm:ml-0">
             <Button
               hover={true}
-              text1="Join Discount List"
+              text1="Join Discount List."
               onclick={() => {
                 setActive(true);
               }}

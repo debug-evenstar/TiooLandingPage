@@ -22,7 +22,7 @@ const CenterModal: React.FC<CenterModalProps> = ({
 
   return (
     <>
-      <div className="backdrop flex justify-center">
+      <div className="flex justify-center backdrop">
         <div
           className="backdrop"
           style={{
@@ -32,10 +32,12 @@ const CenterModal: React.FC<CenterModalProps> = ({
           onClick={onClose}
         ></div>
         <Backdrop click={onClose} />
-        <div className="flex items-center justify-center z-50 ">
+        <div className="z-50 flex items-center justify-center ">
           <div
             className={`${
-              variant === `small` ? `w-[800px] h-[500px]` : `w-[660px]`
+              variant === `small`
+                ? `w-[380px] sm:w-[800px] h-[500px]`
+                : `w-[660px]`
             } bg-white rounded-[6px] shadow  modal-content`}
           >
             {children}
@@ -47,7 +49,7 @@ const CenterModal: React.FC<CenterModalProps> = ({
 };
 
 const Backdrop = (props: any) => (
-  <div onClick={props.click} className="backdrop cursor-pointer">
+  <div onClick={props.click} className="cursor-pointer backdrop">
     <style>{`
       .backdrop {
         position: fixed;
