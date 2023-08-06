@@ -41,7 +41,7 @@ const Getstarted: React.FC<DiscountModalprops> = ({
           onclick={handleDiscount}
         />
       </div> */}
-      <div className="h-[500px]  ">
+      <div className="h-[500px]    ">
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSeVBZRbLxQJ2S1tHnc4fBb6Rjt045cVDGg8nwGPVUlpwRchOQ/viewform?embedded=true"
           width="100%"
