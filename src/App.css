@@ -508,7 +508,8 @@ input[type="checkbox"]:checked {
     background: linear-gradient(225deg, #4f46e5 0%, #0e096c 100%);
   }
   .bgImage {
-    background: url(../src/pages/schools/sections/howitworks/image/bgimage.png);
+    background: url(../src/pages/schools/sections/howitworks/image/bgimage.png)
+      center;
     background-size: cover;
   }
   .bgimagesmall {

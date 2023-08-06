@@ -4,15 +4,19 @@ import Button from "../../../../components/components/Button";
 import logo from "../../../../images/tioologo.png";
 import { AiOutlineDown } from "react-icons/ai";
 import { HiMenuAlt2 } from "react-icons/hi";
+import { LiaTimesSolid } from "react-icons/lia";
 import FlashButton from "../../../../components/components/FlashBtn";
 import CenterModal from "../../../../components/components/CenterModal";
 import DiscountModal from "../../../../components/components/DiscountModals";
 import { Link, NavLink, useLocation, useRoutes } from "react-router-dom";
+import mobilelogo from "./images/mobilelogo.png";
 // import { Link } from "react-router-dom";
 
 function Navbar() {
+  const more = ["Pricing", "Referrals", "Testimonials", "Blog"];
   const [active, setActive] = useState(false);
   const [activenav, setActivenav] = useState(1);
+  const [mobilenav, setMobilenav] = useState(false);
 
   const handleClick = () => {
     console.log("Do something");
@@ -23,13 +27,16 @@ function Navbar() {
   };
   return (
     <>
-      <div className=" w-full relative h-[60px] ">
+      <div className=" w-full z-50 bg-[white] h-[70px] sm:h-[60px] fixed sm:relative">
         <img
           src={logo}
           className="absolute left-[2px] sm:left-[22px] top-[5px] w-[56px] sm:w-[130px] h-[46px] sm:h-[100px]"
         />
         <div className="block sm:hidden absolute top-[20px] right-[10px] w-[32px] h-[32px]">
-          <HiMenuAlt2 className="w-full h-full" />
+          <HiMenuAlt2
+            className="w-full h-full"
+            onClick={() => setMobilenav(true)}
+          />
         </div>
         <h5 className="absolute top-[50px] sm:top-[110px] left-[22px] sm:left-[65px] font-[600] text-[12px] sm:text-[18px] text-[#4F46E5]">
           BETA
@@ -37,12 +44,7 @@ function Navbar() {
 
         <div className="hidden sm:flex pt-5 w-[650px] m-[auto] h-full  gap-[24px] items-center   ">
           {NavData?.map((item, ind) => (
-            <div
-              className="flex flex-col items-center h-full"
-              // onClick={() => {
-              //   toggleurl(ind + 1);
-              // }}
-            >
+            <div className="flex flex-col items-center h-full">
               <Link
                 to={item.url}
                 className={`font-[600] font-[poppins] text-[18px] flex items-center text-[#5c597d] ${
@@ -61,6 +63,46 @@ function Navbar() {
           ))}
         </div>
 
+        {/* for mobile */}
+        {mobilenav && (
+          <div className=" transition-transform duration-500 ease-in-out fixed flex flex-col sm:hidden pt-6 w-full h-[100vh] z-50 gap-[25px] bg-[#4F46E5] text-white border border-gray-500 ">
+            <div className="flex items-center justify-between px-2 mb-4">
+              <img className="w-[65px] h-[65px]" src={mobilelogo} alt="" />
+              <LiaTimesSolid
+                className="w-[48px] h-[48px]"
+                onClick={() => setMobilenav(false)}
+              />
+              <h3 className="absolute left-[35px] top-[75px]">BETA</h3>
+            </div>
+
+            {NavData?.map((item, ind) => (
+              <div
+                className="flex flex-col px-4"
+                onClick={() => setMobilenav(false)}
+              >
+                {item.text !== "More" && (
+                  <Link
+                    to={item.url}
+                    className={`font-[600] font-[poppins] text-[18px] flex items-center text-[white] `}
+                  >
+                    {item.text}
+                  </Link>
+                )}
+              </div>
+            ))}
+            <hr />
+            {/* {more?.map((item, ind) => (
+              <div className="flex flex-col px-4">
+                <Link
+                  to={"/"}
+                  className={`font-[500] font-[poppins] text-[16px] flex items-center text-[#E4E1E1] `}
+                >
+                  {item}
+                </Link>
+              </div>
+            ))} */}
+          </div>
+        )}
         <div className=" absolute h-[40px] sm:h-[60px] w-[170px] sm:w-[210px] right-[120px] sm:right-[22px] top-[15px] sm:top-[6px] ">
           <Button
             text1="Join Discount List"
