@@ -5,10 +5,10 @@ import offerimg from "./image/offerimg.png";
 function Offer2() {
   const handleclick = () => {};
   return (
-    <div className="flex-col pl-0 py-0 sm:flex-row sm:p-20 sm:py-14 relative w-full h-[vh] flex  flex-wrap gap-8 mt-0 sm:mt-32">
-      <div className="hidden sm:block    w-[40%] h-[400px] relative">
+    <div className="flex-col pl-0 py-0 sm:flex-row sm:p-20 sm:py-14 relative w-full h-[vh] flex  flex-wrap gap-6 mt-0 sm:mt-32">
+      <div className="hidden sm:block    w-[40%] h-[400px] relative    ">
         <img
-          className=" absolute left-0 top-0 w-[90%] h-[90%] rounded-[10px]"
+          className=" absolute left-0 top-0 w-full h-[90%] rounded-[10px]"
           src={offerimg}
           alt=""
         />

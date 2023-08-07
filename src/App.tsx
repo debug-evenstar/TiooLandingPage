@@ -22,7 +22,6 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/schools" element={<Schools />} />

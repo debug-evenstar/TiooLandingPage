@@ -7,7 +7,7 @@ function Grades() {
       <h1 className="font-[poppins] font-[600] text-[24px] sm:text-[56px] text-center mb-6">
         We cover different Grades
       </h1>
-      <div className="flex flex-col gap-5 sm:flex sm:flex-row justify-center sm:justify-between  sm:gap-10 ">
+      <div className="flex flex-col justify-center gap-5 sm:flex sm:flex-row sm:justify-between sm:gap-6">
         {GradeData?.map((item, ind) => (
           <div
             className={`h-[412px] sm:h-[462px] w-full sm:w-[375px] rounded-[16px] p-[11px] shadow-md bg-[#FFF] border-solid border-1 border-black ${

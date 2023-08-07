@@ -23,16 +23,17 @@ function Header() {
         </div>
         <div className="  w-full sm:w-[57%] flex flex-col gap-4 ">
           <div className="w-full p-3">
-            <h3 className="font-[600] text-[30px] sm:text-[47px] text-center sm:text-left">
+            <h3 className="font-[600] text-[30px] sm:text-[47px] text-center sm:text-left text-[#45426a] leading-[130%]">
               Transform Your School With Our{" "}
-              <span className="text-[#EC2958] font-[600] text-[30px] sm:text-[47px] ml-3">
+              <span className="text-[#EC2958] font-[600] text-[30px] sm:text-[47px] ml-3 ">
                 AI-Powered Resource Centre
               </span>
             </h3>
-            <p className="font-[400] text-[18px] mt-2 text-center sm:text-left">
+            <p className="font-[400] text-[18px] mt-2 text-center sm:text-left text-[#45426a]">
               Generate lesson notes, class activities, and assessment questions
-              in seconds! Level up your institution's education with our
-              cutting-edge smart resource centre fuelled by AI.s
+              in seconds with the option of sharing them with students! Level up
+              your institution's education with our cutting-edge smart resource
+              centre fuelled by AI.
             </p>
           </div>
           <div className="flex justify-center w-full sm:block">
