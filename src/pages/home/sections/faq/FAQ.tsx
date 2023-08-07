@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineRight, AiOutlineDown } from "react-icons/ai";
+import { BsWhatsapp } from "react-icons/bs";
 
 const itemfordrop = [
   {
@@ -100,16 +101,24 @@ function FAQ() {
             heading={el.heading}
           />
         ))}
-        <div className="w-full  text-center mt-7">
+        <div className="w-full text-center mt-7">
           <p className="text-[13px] sm:text-[18px] font-[400]">
             Other questions?
           </p>
+        </div>
+        <div className="flex flex-col  sm:flex-row gap-0 sm:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
           <p className="text-[13px] sm:text-[18px] font-[400]">
             Email{" "}
-            <a className="text-[#4F46E5]" href="#">
-              support@praxeum.ai
+            <a className="text-[#4F46E5]" href="mailto:support@hellotioo.com">
+              support@hellotioo.com
             </a>{" "}
-            or text +234 701 848 1060
+          </p>
+          <p className="text-[13px] sm:text-[18px] font-[400]">
+            or
+            <BsWhatsapp className="inline ml-2 mr-2" />
+            <a className="text-[#4F46E5]" href="tel:+2347018481060">
+              +234 701 848 106022
+            </a>
           </p>
         </div>
       </div>

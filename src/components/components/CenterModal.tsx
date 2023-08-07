@@ -22,7 +22,7 @@ const CenterModal: React.FC<CenterModalProps> = ({
 
   return (
     <>
-      <div className="flex justify-center backdrop">
+      <div className="flex justify-center mt-8 backdrop">
         <div
           className="backdrop"
           style={{
