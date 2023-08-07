@@ -279,8 +279,8 @@ export const WHYTIOOData: OFFER[] = [
   },
   {
     id: 3,
-    title: "Virtual Tutors",
-    desc: "virtual tutors have been integrated into the learning platform to answer students' questions, provide explanations, and offer additional support during the pre-class preparation phase.",
+    title: "Virtual Tutor",
+    desc: "An AI tutor has been integrated into the learning platform to answer students' questions, provide explanations, and offer additional support during the pre-class preparation phase.",
     img: whytioo3,
   },
   {
