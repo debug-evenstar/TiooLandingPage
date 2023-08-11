@@ -514,6 +514,7 @@ input[type="checkbox"]:checked {
   }
   .bgimagesmall {
     background: url(../src/pages/schools/sections/howitworks/image/bgsmall.png)
-      no-repeat;
+      center no-repeat;
+    /* background-size: cover; */
   }
 }

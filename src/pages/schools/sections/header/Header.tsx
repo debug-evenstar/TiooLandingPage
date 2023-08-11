@@ -12,7 +12,7 @@ function Header() {
   };
   return (
     <>
-      <div className="flex-col pl-0 py-24 sm:flex-row  sm:py-14 relative w-full h-[vh] flex  flex-wrap gap-8 mt-0 sm:mt-10 sm:px-20  ">
+      <div className="flex-col pl-0 py-24 sm:flex-row  sm:py-14 relative w-full h-[vh] flex  flex-wrap gap-8 mt-0 sm:mt-16 sm:px-20  ">
         <div className=" hidden sm:block   w-[40%] h-[440px] relative">
           <div className="absolute rounded-[10px] w-[90%] h-[90%] right-0 bottom-0 gradientbg  "></div>
           <img
