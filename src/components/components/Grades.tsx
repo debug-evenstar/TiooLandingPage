@@ -15,7 +15,7 @@ function Grades() {
             }`}
           >
             <div className="h-[284px] w-full  rounded-[8px]">
-              <img className="w-full h-full" src={item.img} />
+              <img className="object-cover w-full h-full" src={item.img} />
               <h1 className="text[18px] sm:text-[24px] font-[600] my-3">
                 {item.heading}
               </h1>

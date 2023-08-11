@@ -33,14 +33,14 @@ function Whytioo() {
       <div className="flex mb-5">
         <div className=" w-[50%]">
           <h3 className="text-[30px] sm:text-[56px] font-[600]">Why Tioo?</h3>
-          <p className="text-[12px] sm:text-[16px] font-[500]">
+          <p className="text-[10px] sm:text-[16px] font-[500]">
             With Tioo, we take your school and teacher’s productivity to the
             next level
           </p>
         </div>
-        <div className=" w-[50%] flex gap-[20px] justify-end">
+        <div className=" w-[50%] flex gap-[20px] justify-end  items-end">
           <div
-            className={`w-[48px] h-[48px] rounded-[44px] border border-[#b5b1b8] flex items-center justify-center text-[#b5b1b8] ${
+            className={`  w-[48px] h-[48px] rounded-[44px] border border-[#b5b1b8] flex items-center justify-center text-[#b5b1b8] ${
               activeleft && `bg-[#4F46E5]  text-[white]`
             }  text-[white]`}
             onClick={() => toggleNav("l")}
