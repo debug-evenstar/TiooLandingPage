@@ -9,7 +9,9 @@ const Button: React.FC<button> = ({ height, width, text1, onclick, hover }) => {
         text1 == "Join Discount List"
           ? `bg-[#FFF] border border-[#4F46E5] text-[#4F46E5]`
           : `bg-[#4F46E5] text-[#FFF]`
-      } ] rounded-[16px] cursor-pointer ${hover && `hover:bg-[#EC2958]`}`}
+      } ] rounded-[10px] sm:rounded-[10px] cursor-pointer ${
+        hover && `hover:bg-[#EC2958]`
+      }`}
       onClick={onclick}
     >
       <p
