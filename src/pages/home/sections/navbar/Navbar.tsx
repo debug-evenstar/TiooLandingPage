@@ -30,7 +30,7 @@ function Navbar() {
       <div className=" w-full z-50 bg-[white] h-[70px] sm:h-[90px] fixed top-0">
         <img
           src={logo}
-          className="absolute left-[2px] sm:left-[22px] top-[5px] w-[56px] sm:w-[100px] h-[46px] sm:h-[70px]"
+          className="absolute left-[2px] sm:left-[22px] top-[5px] w-[56px] sm:w-[70px] h-[46px] sm:h-[65px]"
         />
         <div className="block sm:hidden absolute top-[20px] right-[10px] w-[32px] h-[32px]">
           <HiMenuAlt2
@@ -38,7 +38,7 @@ function Navbar() {
             onClick={() => setMobilenav(true)}
           />
         </div>
-        <h5 className="absolute top-[50px] sm:top-[65px] left-[22px] sm:left-[62px] font-[600] text-[12px] sm:text-[18px] text-[#4F46E5]">
+        <h5 className="absolute top-[50px] sm:top-[66px] left-[22px] sm:left-[50px] font-[600] text-[12px] sm:text-[18px] text-[#4F46E5]">
           BETA
         </h5>
 
@@ -47,8 +47,8 @@ function Navbar() {
             <div className="flex flex-col items-center h-full">
               <Link
                 to={item.url}
-                className={`font-[600] font-[poppins] text-[18px] flex items-center text-[#5c597d] ${
-                  pathname == item.url && `text-[#4F46E5] flex-col item-center`
+                className={`font-[600] font-[poppins] text-[18px] flex items-center   ${
+                  pathname == item.url ? `text-[#4F46E5]` : `text-[#5c597d]`
                 }`}
               >
                 {item.text}
@@ -103,7 +103,7 @@ function Navbar() {
             ))} */}
           </div>
         )}
-        <div className=" sm:p-0 pt-5 static sm:absolute h-[40px] sm:h-[60px] w-[170px] sm:w-[210px] m-[auto]  sm:right-[22px] top-[15px] sm:top-[6px] ">
+        <div className=" sm:p-0 pt-5 static sm:absolute h-[60px] sm:h-[60px] w-[170px] sm:w-[210px] m-[auto]  sm:right-[22px] top-[15px] sm:top-[6px] ">
           <Button
             text1="Join Discount List"
             onclick={() => {

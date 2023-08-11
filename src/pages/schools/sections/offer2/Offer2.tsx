@@ -8,33 +8,33 @@ function Offer2() {
     <div className="flex-col pl-0 py-0 sm:flex-row sm:p-20 sm:py-14 relative w-full h-[vh] flex  flex-wrap gap-6 mt-0 sm:mt-32">
       <div className="hidden sm:block    w-[40%] h-[400px] relative    ">
         <img
-          className=" absolute left-0 top-0 w-full h-[90%] rounded-[10px]"
+          className=" absolute left-0 top-0 w-full h-[90%] object-cover rounded-[10px]"
           src={offerimg}
           alt=""
         />
       </div>
       <div className="   w-full sm:w-[57%] flex flex-col gap-2">
         <div className="w-full px-4 sm:px-0">
-          <h3 className="font-[600] text-[29px] sm:text-[47px]">
+          <h3 className="font-[600] text-[29px] sm:text-[56px] text-center sm:text-left mt-0 pt-0">
             What We Offer
             <span className="text-[#EC2958] font-[600] ml-3 text-[28px] sm:text-[47px]">
               Schools
             </span>
           </h3>
-          <p className="font-[400] text-[18px] sm:text-[18px] mt-2">
+          <p className="font-[400] text-[14px] sm:text-[18px] ">
             Our platform offer schools and teachers the comfort of curating and
             organizing lesson contents in seconds! Also, with our AI, teachers
             can access instructions and varying ways to teach a lesson. Lessons
             can also be generated based on any curricula (British, American or
             Nigerian)
           </p>
-          <p className="font-[400] text-[18px] sm:text-[18px] mt-2">
+          <p className="font-[400] text-[14px] sm:text-[18px] mt-2">
             And what's more? With our platform, teachers have the option of
             printing these classroom activities or sharing them with students
             who now access these lessons in a gamified and interactive format.
           </p>
         </div>
-        <div className="w-full px-4 sm:px-0">
+        <div className="flex justify-center w-full px-4 sm:px-0 sm:justify-start">
           <div className="w-[212px]">
             <Button text1="Get Started" hover={false} onclick={handleclick} />
           </div>
