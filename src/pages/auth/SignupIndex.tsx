@@ -13,7 +13,7 @@ const SignupIndex = () => {
   const userTypes = [
     {
       name: "School",
-      desc: "Educationaal Institution",
+      desc: "Educational Institution",
       id: "1",
       route: "school",
     },

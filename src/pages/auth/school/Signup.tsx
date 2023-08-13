@@ -64,7 +64,7 @@ const SchoolSignup = () => {
             <p className="mt-1 fw-500">
               Create an account to get started on
               <Link to={"/"} className="text-primary pl-1">
-                SabiKid
+                Tioo
               </Link>
             </p>
           </div>
