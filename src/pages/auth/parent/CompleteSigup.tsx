@@ -10,10 +10,12 @@ import { useLazyCompleteRegisterParentQuery } from "../../../services/api/authSl
 import { useAppSelector } from "../../../redux/store";
 import dropdown from '../../../images/drop.svg'
 import { BsInfoCircle } from "react-icons/bs";
+import { useGetTioClassesQuery } from "../../../services/api/routineSlice";
 
 const ParentCompleteSignupScreen = () => {
   const [isBusy, setIsBusy] = useState(false)
   const [toolTip, setTooltip] = useState(false);
+  const {data:grade, isLoading} = useGetTioClassesQuery()
   const navigate = useNavigate()
   const [complete] = useLazyCompleteRegisterParentQuery()
   const savedData = useAppSelector((state) => state.user.otp)
@@ -134,22 +136,13 @@ const ParentCompleteSignupScreen = () => {
                     },
                   }}
                   render={({ field }) => (
-                    // <TextInput
-                    //   label="Child&apos;s Class"
-                    //   labelClassName="text-[#4A5568] mb-2 fw-500"
-                    //   placeholder="Primary 1"
-                    //   error={errors.class?.message}
-                    //   type={InputType.text}
-                    //   {...field}
-                    // />
                     <select className="w-full p-2 outline-none border-2 border-[#DA70D65E] rounded-[4px]" {...field}>
                       <option></option>
-                      <option value={'Grade 1'}>Grade 1</option>
-                      <option value={'Grade 2'}>Grade 2</option>
-                      <option value={'Grade 3'}>Grade 3</option>
-                      <option value={'Grade 4'}>Grade 4</option>
-                      <option value={'Grade 5'}>Grade 5</option>
-                      <option value={'Grade 6'}>Grade 6</option>
+                      {
+                        grade && grade.data.map((item:any, i:number) => (
+                          <option value={item.id} key={i}>{item.naming}</option>
+                        ))
+                      }
                     </select>
                   )}
                 />
