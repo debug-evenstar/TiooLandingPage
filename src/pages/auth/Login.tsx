@@ -48,6 +48,12 @@ const LoginScreen = () => {
       }else {
         //
       }
+    }if(res.data.profile.account_type === "student"){
+      if(res.data.profile.status === "verified" || res.data.profile.status === "active"){
+        window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
+      }else {
+        //
+      }
     }if(res.data.profile.account_type === "freelancer"){
       if(res.data.profile.status === "active"){
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
@@ -56,7 +62,7 @@ const LoginScreen = () => {
       }else {
         //
       }
-    }if(res.data.profile.account_type === "parent" || res.data.profile.account_type === "student"){
+    }if(res.data.profile.account_type === "parent"){
       if(res.data.profile.status === "active"){
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
       }else if(res.data.profile.status === "verified"){

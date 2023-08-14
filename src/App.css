@@ -514,6 +514,12 @@ input[type="checkbox"]:checked {
   }
   .bgimagesmall {
     background: url(../src/pages/schools/sections/howitworks/image/bgsmall.png)
-      no-repeat;
+      center no-repeat;
+    /* background-size: cover; */
+  }
+  .flippedbgimg {
+    background: url(../src/pages/flippedclass/sections/header/images/headerimg.png)
+      center no-repeat;
+    background-size: cover;
   }
 }

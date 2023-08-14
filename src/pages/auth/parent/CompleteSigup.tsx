@@ -8,9 +8,14 @@ import { HashSpinner } from "../../../components/Ui/Loading";
 import { toast } from "react-toastify";
 import { useLazyCompleteRegisterParentQuery } from "../../../services/api/authSlice";
 import { useAppSelector } from "../../../redux/store";
+import dropdown from '../../../images/drop.svg'
+import { BsInfoCircle } from "react-icons/bs";
+import { useGetTioClassesQuery } from "../../../services/api/routineSlice";
 
 const ParentCompleteSignupScreen = () => {
   const [isBusy, setIsBusy] = useState(false)
+  const [toolTip, setTooltip] = useState(false);
+  const {data:grade, isLoading} = useGetTioClassesQuery()
   const navigate = useNavigate()
   const [complete] = useLazyCompleteRegisterParentQuery()
   const savedData = useAppSelector((state) => state.user.otp)
@@ -58,7 +63,7 @@ const ParentCompleteSignupScreen = () => {
             <p className="mt-1 fw-500">
               Create ana account to get started on 
               <Link to={"/"} className="text-primary">
-                SabiKid
+                Tioo
               </Link>
             </p>
           </div>
@@ -108,7 +113,19 @@ const ParentCompleteSignupScreen = () => {
                   )}
                 />
               </div>
-              <div className="mt-5">
+              <div className="mt-5 relative">
+                  {
+                    toolTip && <div className="bg-[#4F46E5] w-[240px] lg:w-[280px] text-center absolute left-2 lg:-left-2 -top-[60px] text-white px-2 py-2 rounded-lg">
+                    <p className="fs-300">Your child&apos;s class should align with the Grade 1-12 naming convention</p>
+                    <img
+                      src={dropdown}
+                      alt="pointer"
+                      className="w-12 absolute -bottom-[25px] left-[35%]"
+                    />
+                  </div>
+                  }
+                  <BsInfoCircle className="fs-500 text-[#4F46E5] top-[4px] absolute left-[110px] cursor-pointer" onMouseEnter={() => setTooltip(true)} onMouseLeave={() => setTooltip(false)} onClick={() => setTooltip(!toolTip)}/>
+                  <label className="text-[#4A5568] mb-2 fw-500 block">Child&apos;s Class</label>
                 <Controller
                   name="class"
                   control={control}
@@ -119,14 +136,14 @@ const ParentCompleteSignupScreen = () => {
                     },
                   }}
                   render={({ field }) => (
-                    <TextInput
-                      label="Child&apos;s Class"
-                      labelClassName="text-[#4A5568] mb-2 fw-500"
-                      placeholder="Primary 1"
-                      error={errors.class?.message}
-                      type={InputType.text}
-                      {...field}
-                    />
+                    <select className="w-full p-2 outline-none border-2 border-[#DA70D65E] rounded-[4px]" {...field}>
+                      <option></option>
+                      {
+                        grade && grade.data.map((item:any, i:number) => (
+                          <option value={item.id} key={i}>{item.naming}</option>
+                        ))
+                      }
+                    </select>
                   )}
                 />
               </div>
