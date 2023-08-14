@@ -517,4 +517,9 @@ input[type="checkbox"]:checked {
       center no-repeat;
     /* background-size: cover; */
   }
+  .flippedbgimg {
+    background: url(../src/pages/flippedclass/sections/header/images/headerimg.png)
+      center no-repeat;
+    background-size: cover;
+  }
 }
