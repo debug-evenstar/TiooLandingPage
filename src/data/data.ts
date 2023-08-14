@@ -203,7 +203,7 @@ export const NavData: NavDataTypes[] = [
   {
     id: 5,
     text: "Flipped classroom",
-    url: "",
+    url: "/flippedclass",
   },
   {
     id: 6,
