@@ -66,6 +66,14 @@ export const routineApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
 
+    getTioClasses: builder.query<any | ErrorResult, void>({
+      query: (param) => ({
+        url: `${ENDPOINT.GET_TIO_CLASSES}`,
+        method: ENDPOINT.HTTP_METHODS.GET,
+      }),
+      keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
+    }),
+
     acceptTeachMagic: builder.query<BaseResult | ErrorResult, TeacherSignup>({
       query: (payload) => ({
         url: `${ENDPOINT.ACCEPT_TEACHER_MAGIC}`,
@@ -96,4 +104,5 @@ export const {
   useLazyGetTeacherInviteQuery,
   useLazyAcceptTeachInviteQuery,
   useLazyAcceptTeachMagicQuery,
+  useGetTioClassesQuery
 } = routineApiSlice;
