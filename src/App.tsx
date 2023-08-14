@@ -17,6 +17,7 @@ import ParentCompleteSignupScreen from "./pages/auth/parent/CompleteSigup";
 import LandingPage from "./pages/home";
 import Schools from "./pages/schools";
 import Navbar from "./pages/home/sections/navbar/Navbar";
+import Flippedclass from "./pages/flippedclass";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/schools" element={<Schools />} />
+          <Route path="/flippedclass" element={<Flippedclass />} />
           {/* auth routes */}
           <Route path="/signup" element={<SignupIndex />} />
           <Route path="/login" element={<LoginScreen />} />
