@@ -7,8 +7,13 @@ import Button from "../../../../components/components/Button";
 function Tioofits() {
   return (
     <>
-      <div className="relative p-3 sm:p-20 sm:mb-[380px] mb-[150px]">
-        <h1 className="text-[50px] font-[600]">How Tioo Fits In</h1>
+      <div
+        className="relative p-3 sm:p-20 sm:mb-[380px] mb-[150px]"
+        data-aos="fade-up"
+      >
+        <h1 className="text-[30px] sm:text-[50px] font-[600]">
+          How Tioo Fits In
+        </h1>
         <div className="flex flex-col gap-5 sm:flex-row">
           <div className=" w-full sm:w-[55%] flex flex-col ">
             <p className="mb-4 text-[12px] sm:text-[16px]">
@@ -42,11 +47,17 @@ function Tioofits() {
             </div>
           </div>
           <div className="bg-[#998BBF] w-[180px] sm:w-[500px] p-3 ml-[170px] sm:ml-0 sm:mt-0 mt-[55px]">
-            <img src={fit1} className="object-cover w-full rounded-[10px]" />
+            <img
+              src={fit1}
+              className="object-cover w-full rounded-[5px] sm:rounded-[10px]"
+            />
           </div>
         </div>
-        <div className="bg-[#998BBF] w-[180px] sm:w-[500px] sm:bottom-[-300px]  sm:top-[525px] top-[740px] left-[30px] sm:left-[350px] absolute p-3">
-          <img src={fit2} className="object-cover w-full rounded-[10px] " />
+        <div className="bg-[#998BBF] w-[180px] sm:w-[500px] sm:bottom-[-300px]  sm:top-[525px] top-[640px] left-[30px] sm:left-[350px] absolute p-3">
+          <img
+            src={fit2}
+            className="object-cover w-full rounded-[5px] sm:rounded-[10px] "
+          />
         </div>
       </div>
       <div className="w-full bg-[#0E096C] p-2">
