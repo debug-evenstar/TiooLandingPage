@@ -5,7 +5,7 @@ import BenefitCard from "./BenefitCard";
 
 function Benefit() {
   return (
-    <div className="relative px-4 pt-0 pb-10 sm:px-20 ">
+    <div className="relative px-4 pt-0 pb-10 sm:px-20 " data-aos="fade-up">
       {benefitData.map((item, ind) => (
         <BenefitCard
           h1={item.h1}
