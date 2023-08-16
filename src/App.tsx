@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignupIndex from "./pages/auth/SignupIndex";
@@ -18,8 +18,19 @@ import LandingPage from "./pages/home";
 import Schools from "./pages/schools";
 import Navbar from "./pages/home/sections/navbar/Navbar";
 import Flippedclass from "./pages/flippedclass";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 50,
+      duration: 2000,
+    });
+    AOS.refresh();
+  }, []);
   return (
     <div>
       <BrowserRouter>
