@@ -12,7 +12,7 @@ const images = [slide1, slide1];
 function TopicsVariety() {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/login");
+    navigate("/");
   };
   return (
     <div className="w-full relative px-5 sm:px-20 py-10">
