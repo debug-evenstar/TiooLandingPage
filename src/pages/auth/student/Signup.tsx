@@ -64,12 +64,12 @@ const StudentSignup = () => {
     reset({
       name: isMagic() ? userData?.name : userData?.account?.name,
       email: isMagic() ? userData?.email : userData?.account?.email,
-      class: isMagic() ? userData?.arm?.naming : userData?.class_arm?.naming,
+      class: isMagic() ? userData?.naming : userData?.class_arm?.naming,
       ...(isMagic()
         ? {
             schoolId: userData?.schoolId,
             account_type: "student",
-            arm: userData?.arm?.id,
+            arm: userData?.arm,
           }
         : {
             accountId: id,
