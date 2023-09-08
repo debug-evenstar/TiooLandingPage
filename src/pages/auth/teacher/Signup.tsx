@@ -64,7 +64,9 @@ const TeacherSignup = () => {
       email: isMagic()
         ? ""
         : userData?.account.email,
-      school: userData?.classes
+      school: isMagic()? userData?.arms_naming
+      .map((el: any) => el.naming)
+      .join(",") : userData?.classes
         .map((el: any) => el.naming)
         .join(","),
       account_type: isMagic()
@@ -73,9 +75,9 @@ const TeacherSignup = () => {
       ...(isMagic()
         ? {
             schoolId: userData?.schoolId,
-            subjects: userData?.Subjects,
+            subjects: userData?.Subjects.map((el: any) => el.id),
             classes: userData?.classarms
-            .map((el: any) => el.id)
+            .map((el: any) => el)
           }
         : {
             accountId: id,
