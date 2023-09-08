@@ -75,7 +75,7 @@ const TeacherSignup = () => {
       ...(isMagic()
         ? {
             schoolId: userData?.schoolId,
-            subjects: userData?.Subjects,
+            subjects: userData?.Subjects.map((el: any) => el.id),
             classes: userData?.classarms
             .map((el: any) => el)
           }
