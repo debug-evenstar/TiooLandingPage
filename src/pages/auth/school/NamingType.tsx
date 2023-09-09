@@ -1,12 +1,12 @@
 import React, { useState, FC, useEffect } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
 import useModal from "../../../hooks/useModal";
-import CustomNamingModal from "../../../components/auth/customNaming";
 import { useAppSelector } from "../../../redux/store";
 import { useLazySetupSchoolQuery } from "../../../services/api/authSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { HashSpinner } from "../../../components/Ui/Loading";
+import CustomSchoolNamingModal from "../../../components/auth/customNamingSch";
 
 interface Props {
   openNext: (value: number) => void;
@@ -129,7 +129,7 @@ const NamingTypeScreen: FC<Props> = ({ openNext }) => {
           </div>
         </div>
         <Modal title="Add Your School Naming Style" sidebar>
-          <CustomNamingModal close={() => setShowModal(false)} />
+          <CustomSchoolNamingModal close={() => setShowModal(false)} />
         </Modal>
       </AuthLayout>
     </>
