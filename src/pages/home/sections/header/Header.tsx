@@ -85,6 +85,7 @@ function Header() {
           className=" w-[100%] sm:w-[45%] h-[303px] sm:h-[507px]"
           alt="a"
           src={image}
+          loading="lazy"
         />
 
         <img

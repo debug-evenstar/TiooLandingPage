@@ -42,7 +42,7 @@ function Navbar() {
           BETA
         </h5>
 
-        <div className="hidden sm:flex pt-5 w-[650px] m-[auto] h-full  gap-[24px] items-center   ">
+        <div className="hidden sm:flex pt-5 w-[650px] m-[auto] h-full  gap-[24px] items-center ">
           {NavData?.map((item, ind) => (
             <div className="flex flex-col items-center h-full">
               <Link
