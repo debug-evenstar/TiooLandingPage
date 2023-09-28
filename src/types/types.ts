@@ -7,6 +7,8 @@ export interface button {
   bg?: string;
   onclick: () => void;
   hover?: boolean;
+  variant?: string;
+  show?: any;
 }
 export interface InstructionDatatype {
   id: number;
@@ -44,4 +46,9 @@ export interface OFFER {
   title?: string;
   desc?: string;
   img?: string;
+}
+export interface navData {
+  id: number;
+  url: string;
+  text: string;
 }
