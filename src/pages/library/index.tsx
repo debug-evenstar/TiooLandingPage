@@ -1,11 +1,12 @@
-import library1 from '../assets/library-1.png';
-import library2 from '../assets/library-2.png';
-import library3 from '../assets/library-3.png';
-import ctaImage from '../assets/cta.jpeg';
-import searchIcon from '../assets/icons/search.svg';
+import library1 from '../../assets/library-1.png';
+import library2 from '../../assets/library-2.png';
+import library3 from '../../assets/library-3.png';
+import ctaImage from '../../assets/cta.jpeg';
+import searchIcon from '../../assets/icons/search.svg';
+import PageLayout from "../../layouts/PageLayout";
 import { useNavigate } from 'react-router-dom';
 
-const libraryMaterials = [
+const libraryMaterials: { name: string, sub: string, image: string}[] = [
     { name: 'Early coding for kids (Book 1)', sub: 'For Nursery and Primary Schools', image: library1 },
     { name: 'Early coding for kids (Book 2)', sub: 'For Nursery and Primary Schools', image: library2 },
     { name: 'Early coding for kids (workbook)', sub: 'For Nursery and Primary Schools', image: library3 },
@@ -32,7 +33,7 @@ function Search() {
                     </button>
                 </div>
                 <div className='flex items-center'>
-                    <img src={searchIcon} alt="icon" className='-mr-9 z-[2]'/>
+                    <img src={searchIcon} alt="icon" className='-mr-9 z-[2]' />
                     <input placeholder="Search Library" type="text" className='px-4 pl-10 h-[50px] z-[1] border-gray-400 outline-none w-[700px] border rounded-[4px]' />
                 </div>
             </div>
@@ -59,10 +60,10 @@ function CallToAction() {
     );
 }
 
-function LibraryCard( card: ILibraryCardProps) {
+function LibraryCard(card: ILibraryCardProps) {
     const navigate = useNavigate();
     return (
-        <div onClick={() => navigate('details',{state: card})} className="w-[100%] text-[24px] h-[400px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
+        <div onClick={() => navigate('details', { state: card })} className="w-[100%] text-[24px] h-[400px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
             <div className="w-full h-[169px] bg-gray-200">
                 <img src={card.image} className="w-full" alt="" />
             </div>
@@ -76,24 +77,27 @@ function LibraryCard( card: ILibraryCardProps) {
 
 export default function Library() {
     return (
-        <div className="mx-auto pt-10">
-            <Search />
-            <CallToAction />
-            <div className="w-[90%] mx-auto mt-10">
-                {
-                    libraryMaterials.map((_: ILibraryCardProps, index: number) => {
-                        if (index % 3 == 0) {
-                            return (
-                                <div key={index % 2} className="grid grid-cols-3 mx-auto gap-x-10 mt-16">
-                                    {libraryMaterials.slice(index, index + 3).map((card: ILibraryCardProps, index: number) => (
-                                        <LibraryCard {...card} key={index} />
-                                    ))}
-                                </div>
-                            )
-                        }
-                    })
-                }
+        <PageLayout>
+            <div className="mx-auto pt-10 mt-24 ">
+                <Search />
+                <CallToAction />
+                <div className="w-[90%] mx-auto mt-10">
+                    {
+                        libraryMaterials.map((_: ILibraryCardProps, index: number) => {
+                            if (index % 3 == 0) {
+                                return (
+                                    <div key={index % 2} className="grid grid-cols-3 mx-auto gap-x-10 mt-16">
+                                        {libraryMaterials.slice(index, index + 3).map((card: ILibraryCardProps, index: number) => (
+                                            <LibraryCard {...card} key={index} />
+                                        ))}
+                                    </div>
+                                )
+                            }
+                        })
+                    }
+                </div>
             </div>
-        </div>
+        </PageLayout>
+
     )
 }
