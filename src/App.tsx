@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Homes from "./pages/homes";
-import Pricing from "./pages/authors";
+import Pricing from "./pages/pricing";
 
 function App() {
   useEffect(() => {
@@ -23,6 +23,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Homes />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/library" element={<Pricing />} />
+          <Route path="/authors" element={<Pricing />} />
         </Routes>
       </BrowserRouter>
     </div>
