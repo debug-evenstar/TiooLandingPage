@@ -161,7 +161,7 @@ function FormInput({ label, type = "normal" }: any) {
 }
 function Form() {
     return (
-        <form className="w-[700px] h-[600px] p-6 py-7 shadow rounded-[8px] border" action="">
+        <form className="w-[700px] h-[600px] p-6 py-7 shadow-lg rounded-[8px] border" action="">
             <h1 className='font-[700] text-[#030036BD]'>Contact Us</h1>
             <div className='mt-8'>
                 <FormInput label="Full Name" type="text" />
