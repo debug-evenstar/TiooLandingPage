@@ -1,3 +1,8 @@
+export interface navData {
+  id: number;
+  url: string;
+  text: string;
+}
 export interface button {
   height?: number;
   width?: number;
@@ -6,49 +11,28 @@ export interface button {
   image?: string;
   bg?: string;
   onclick: () => void;
-  hover?: boolean;
   variant?: string;
   show?: any;
 }
-export interface InstructionDatatype {
-  id: number;
-
-  image: string;
-  text: string;
-}
-
-export interface BenefitDataTypes {
-  id: number;
-
-  h1: string;
-  h2?: string;
-  p1: string;
-  p2?: string;
+export interface BenefitCustomCardprop {
+  title: string;
+  desc: string;
   img: string;
-  rightrender: boolean;
+  col: number;
 }
-
-export interface GradeDataTypes {
+export interface schoolDataP {
+  title: string;
+  desc: string;
   id: number;
-
-  img: string;
-  heading: string;
-  text: string;
 }
-export interface NavDataTypes {
+export interface pricingDataP {
   id: number;
-  text: string;
-  url?: any;
-}
-
-export interface OFFER {
-  id?: number;
-  title?: string;
-  desc?: string;
-  img?: string;
-}
-export interface navData {
-  id: number;
-  url: string;
-  text: string;
+  amount: string;
+  time: string;
+  level: string;
+  level_desc: string;
+  list: string[];
+  availability: string;
+  tip: string;
+  tip_desc: string;
 }
