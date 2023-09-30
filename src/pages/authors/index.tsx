@@ -36,7 +36,7 @@ function WhyCard({ image, title, description }: any) {
                 <img src={image} alt="" className="w-[60px]" />
             </div>
             <h2 className="my-4 text-[36px] w-[80%] mx-auto font-[700]">{title}</h2>
-            <p className="text-sm font-[400] text-gray-500">
+            <p className="text-sm font-[400] text-gray-800">
                 {description}
             </p>
         </div>
