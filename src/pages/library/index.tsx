@@ -68,7 +68,7 @@ function LibraryCard(card: ILibraryCardProps) {
                 <img src={card.image} className="w-full" alt="" />
             </div>
             <div className="p-3 mt-6">
-                <p className="text-full mt-2 font-[700] text-[#030036BD]">{card.name}</p>
+                <p className="text-[30px] mt-2 font-[700] text-[#030036BD]">{card.name}</p>
                 <p className="text-sm text-gray-400 mt-4">{card.sub}</p>
             </div>
         </div>
