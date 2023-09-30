@@ -10,8 +10,8 @@ import lib from "../images/homeimg/library.png";
 import inter from "../images/homeimg/interactive.png";
 export const NAV_DATA: navData[] = [
   { id: 1, url: "/", text: "Home" },
-  { id: 2, url: "/courses", text: "Library" },
-  { id: 3, url: "/author", text: "Aurthors" },
+  { id: 2, url: "/library", text: "Library" },
+  { id: 3, url: "/authors", text: "Authors" },
   { id: 4, url: "/pricing", text: "Pricing" },
 ];
 export const benefitData: BenefitCustomCardprop[] = [
