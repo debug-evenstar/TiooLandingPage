@@ -70,11 +70,11 @@ function Header() {
 function ObjectiveAndRating() {
     return (
         <div className="mt-16 w-[90%] mx-auto flex justify-between">
-            <div className="border rounded-[4px] p-4 w-[40%]">
+            <div className="border rounded-[8px] p-4 pt-6 w-[40%]">
                 <h1 className="text-primary mb-4 font-[600]">What students will learn</h1>
                 <ul>
                     {objectives.map((item: string, index: number) => (
-                        <li key={index} className="flex space-x-2  mb-3 text-sm text-gray-500">
+                        <li key={index} className="flex space-x-2  mb-6 text-sm text-gray-500">
                             <span>
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M21 7.5L9 19.5L3.5 14L4.91 12.59L9 16.67L19.59 6.09L21 7.5Z" fill="#030036" fillOpacity="0.74" />
@@ -88,13 +88,28 @@ function ObjectiveAndRating() {
             <div className="border rounded-[4px] p-4 w-[40%] flex flex-col justify-between items-center">
                 <div>
                     <h1 className="text-[60px] text-center text-[#FEA948] font-[700]">4.2</h1>
+                    <div className='mx-auto w-fit'>
+                        <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z" fill="#FEA948" />
+                            <path d="M36 0L38.6942 8.2918H47.4127L40.3593 13.4164L43.0534 21.7082L36 16.5836L28.9466 21.7082L31.6407 13.4164L24.5873 8.2918H33.3058L36 0Z" fill="#FEA948" />
+                            <path d="M60 0L62.6942 8.2918H71.4127L64.3593 13.4164L67.0534 21.7082L60 16.5836L52.9466 21.7082L55.6407 13.4164L48.5873 8.2918H57.3058L60 0Z" fill="#FEA948" />
+                            <path d="M84 0L86.6942 8.2918H95.4127L88.3593 13.4164L91.0534 21.7082L84 16.5836L76.9466 21.7082L79.6407 13.4164L72.5873 8.2918H81.3058L84 0Z" fill="#FEA948" />
+                            <path d="M108 1.61804L110.219 8.4463L110.331 8.7918H110.694H117.874L112.065 13.0119L111.771 13.2254L111.884 13.5709L114.102 20.3992L108.294 16.1791L108 15.9656L107.706 16.1791L101.898 20.3992L104.116 13.5709L104.229 13.2254L103.935 13.0119L98.1262 8.7918H105.306H105.669L105.781 8.4463L108 1.61804Z" fill="url(#paint0_linear_46_270)" stroke="#FEA948" />
+                            <defs>
+                                <linearGradient id="paint0_linear_46_270" x1="113.5" y1="9" x2="104.5" y2="12" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0.677083" stop-color="white" stop-opacity="0.24" />
+                                    <stop offset="1" stop-color="#FEA948" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
                     <div className="w-full mt-5">
                         {
-                            [70,60,30,0,0].map((n: number,index: number) => (
+                            [70, 60, 30, 0, 0].map((n: number, index: number) => (
                                 <div className="flex w-full items-center  mb-2">
                                     <span className="w-[4rem] text-[14px] font-[300]">{5 - index} Star</span>
-                                    <div className="h-[4px] bg-gray-400 rounded overflow-hidden w-[230px]">
-                                        <div className="h-full bg-[#FEA948]" style={{width: n+'%'}}/>
+                                    <div className="h-[4px] bg-gray-300 rounded overflow-hidden w-[230px]">
+                                        <div className="h-full bg-[#FEA948]" style={{ width: n + '%' }} />
                                     </div>
                                 </div>
                             ))
