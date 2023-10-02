@@ -63,12 +63,13 @@ function CallToAction() {
 function LibraryCard(card: ILibraryCardProps) {
     const navigate = useNavigate();
     return (
-        <div onClick={() => navigate('details', { state: card })} className="w-[100%] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[400px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
+        <div onClick={() => navigate('details', { state: card })} className="w-[380px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[418px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
+        {/* <div onClick={() => navigate('details', { state: card })} className="w-[100%] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[400px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden"> */}
             <div className="w-full h-[169px] bg-gray-200">
                 <img src={card.image} className="w-full" alt="" />
             </div>
             <div className="p-3 mt-6">
-                <p className="text-[30px] mt-2 font-[700] text-[#030036BD]">{card.name}</p>
+                <p className="text-[28px] mt-2 font-[700] text-[#030036BD]">{card.name}</p>
                 <p className="text-sm text-gray-400 mt-4">{card.sub}</p>
             </div>
         </div>
