@@ -15,19 +15,19 @@ function Header() {
       />
       <img src={planet} className="absolute bottom-[30px] left-[20px] " />
       <img src={game} className="absolute right-[70px] bottom-[70px]" />
-      <div className="flex flex-col items-center justify-center w-full gap-7">
-        <h1 className="text-white text-[60px] font-[750] text-center">
+      <div className="flex flex-col pt-10 items-center justify-center w-full gap-7">
+        <h1 className="text-white leading-[5rem] text-[60px] font-[600] text-center">
           Gamified textbooks and workbooks for{" "}
           <span className="text-[60px] font-[700]  boujee-text">
             K–12 Education
           </span>
         </h1>
-        <p className="text-white text-[24px] text-center">
+        <p className="text-white text-[20px] text-center">
           Enhance your child's learning with dynamic, gamified and interactive
           textbooks and workbooks designed to self-tutor and provide practical
           knowledge using AI.
         </p>
-        <div className="w-[200px]">
+        <div className="w-[220px]">
           <Button2
             text1="Start Learning"
             onclick={() => {}}
