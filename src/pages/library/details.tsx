@@ -4,6 +4,7 @@ import others1 from '../../assets/others1.png';
 import others2 from '../../assets/others2.png';
 import others3 from '../../assets/others3.png';
 import PageLayout from '../../layouts/PageLayout';
+// import ReactRating from 'react-rating-stars-component';
 
 const objectives: string[] = [
     'Understand the basics of marketing',
@@ -87,7 +88,7 @@ function ObjectiveAndRating() {
             <div className="border rounded-[4px] p-4 w-[40%] flex flex-col justify-between items-center">
                 <div>
                     <h1 className="text-[60px] text-center text-[#FEA948] font-[700]">4.2</h1>
-                    <div className="w-full">
+                    <div className="w-full mt-5">
                         {
                             [70,60,30,0,0].map((n: number,index: number) => (
                                 <div className="flex w-full items-center  mb-2">
@@ -100,7 +101,7 @@ function ObjectiveAndRating() {
                         }
                     </div>
                 </div>
-                <div className="flex items-center justify-between w-full">
+                <div className="flex items-center justify-between w-full mt-10">
                     <span className="text-[#4F46E5] font-[600] underline">32 Reviews on this book</span>
                     <button className="border border-[#4F46E5] text-[#4F46E5] font-[600] rounded-[8px] px-4 py-3">
                         Write a review
