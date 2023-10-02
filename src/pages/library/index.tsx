@@ -45,7 +45,7 @@ function Search() {
 function CallToAction() {
 
     return (
-        <div className="relative w-full h-[98px] mt-16" >
+        <div className="relative w-full h-[78px] mt-10" >
             <img src={ctaImage} alt="background" className="absolute inset-0 w-full h-full object-cover object-center" />
             <div className="absolute inset-0 flex items-center bg-[#00000055]">
                 <div className="text-white text-[20px] font-semibold flex items-center justify-between w-[90%] mx-auto">
@@ -63,7 +63,7 @@ function CallToAction() {
 function LibraryCard(card: ILibraryCardProps) {
     const navigate = useNavigate();
     return (
-        <div onClick={() => navigate('details', { state: card })} className="w-[380px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[418px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
+        <div onClick={() => navigate('details', { state: card })} className="w-[350px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[388px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
         {/* <div onClick={() => navigate('details', { state: card })} className="w-[100%] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[400px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden"> */}
             <div className="w-full h-[169px] bg-gray-200">
                 <img src={card.image} className="w-full" alt="" />
@@ -79,15 +79,15 @@ function LibraryCard(card: ILibraryCardProps) {
 export default function Library() {
     return (
         <PageLayout>
-            <div className="mx-auto pt-10 mt-24 ">
+            <div className="mx-auto pt-4 mt-24 ">
                 <Search />
                 <CallToAction />
-                <div className="w-[90%] mx-auto mt-10">
+                <div className="w-[90%] mx-auto mt-4">
                     {
                         libraryMaterials.map((_: ILibraryCardProps, index: number) => {
                             if (index % 3 == 0) {
                                 return (
-                                    <div key={index % 2} className="grid grid-cols-3 mx-auto gap-x-10 mt-16">
+                                    <div key={index % 2} className="grid grid-cols-3 mx-auto gap-x-10 mt-10">
                                         {libraryMaterials.slice(index, index + 3).map((card: ILibraryCardProps, index: number) => (
                                             <LibraryCard {...card} key={index} />
                                         ))}

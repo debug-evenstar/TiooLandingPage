@@ -10,6 +10,7 @@ import playStore from '../../assets/icons/playstore.svg';
 import appleStore from '../../assets/icons/applestore.svg';
 
 import PageLayout from '../../layouts/PageLayout';
+import { useState } from 'react';
 
 function Header() {
     return (
@@ -177,6 +178,53 @@ function Form() {
         </form>
     );
 }
+
+const Accordion = ({ title, content }: { title: string, content: string }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleAccordion = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <div className="border-b border-gray-300 rounded">
+            <div
+                className="flex justify-between items-center p-4 py-7 cursor-pointer"
+                onClick={toggleAccordion}
+            >
+                <h2 className="text-lg text-primary text-[18px]">{title}</h2>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`h-6 w-6 ${isOpen ? 'transform rotate-180' : ''}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="#6663E3"
+                //   stroke="currentColor"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d={isOpen ? 'M5 15l7-7 7 7' : 'M19 9l-7 7-7-7'}
+                    />
+                </svg>
+            </div>
+            {isOpen && (
+                <div className="p-4 bg-gray-100">{content}</div>
+            )}
+        </div>
+    );
+}
+
+
+const questions: { q: string, a: string }[] = [
+    { q: 'How can I get started with gamifying my educational materials', a: '' },
+    { q: 'Do I need any technical skills or coding knowledge to use Tioo?', a: '' },
+    { q: 'How do I earn royalties from my gamified content?', a: '' },
+    { q: "Can I update my gamified content after it's published?", a: '' },
+    { q: 'Is there a fee for using Tioo?', a: '' },
+];
+
 export default function Authors() {
     return (
         <PageLayout>
@@ -192,6 +240,13 @@ export default function Authors() {
                         <p className="text-[#4F46E5] text-[26px] font-[700] w-[400px]">Ready to publish your textbooks and workbooks on Tioo?</p>
                         <Form />
                     </div>
+                </div>
+
+                <h1 className="font-[700] text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
+                <div className="w-[90%] mx-auto mt-10 border rounded-[8px] shadow-lg px-12 py-14">
+                    {questions.map((item: any) => (
+                        <Accordion title={item.q} content={item.a} />
+                    ))}
                 </div>
             </div>
         </PageLayout>
