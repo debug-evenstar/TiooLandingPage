@@ -69,8 +69,8 @@ function Header() {
 
 function ObjectiveAndRating() {
     return (
-        <div className="mt-16 w-[90%] mx-auto flex justify-between">
-            <div className="border rounded-[8px] p-4 pt-6 w-[40%]">
+        <div className="mt-16 w-[90%] border-gray-300 mx-auto flex justify-between">
+            <div className="border rounded-[8px] p-4 pt-6 w-[45%]">
                 <h1 className="text-primary mb-4 font-[600]">What students will learn</h1>
                 <ul>
                     {objectives.map((item: string, index: number) => (
@@ -85,7 +85,7 @@ function ObjectiveAndRating() {
                     ))}
                 </ul>
             </div>
-            <div className="border rounded-[4px] p-4 w-[40%] flex flex-col justify-between items-center">
+            <div className="border  rounded-[4px] p-4 w-[45%] flex flex-col justify-between items-center">
                 <div>
                     <h1 className="text-[60px] text-center text-[#FEA948] font-[700]">4.2</h1>
                     <div className='mx-auto w-fit'>
