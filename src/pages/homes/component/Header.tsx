@@ -7,7 +7,7 @@ import vr from "../../../images/homeimg/vr.png";
 
 function Header() {
   return (
-    <div className="bg-[#0E096C] w-full px-40 mt-[10px] h-[647px] pt-32 relative">
+    <div className="bg-[#0E096C] w-full px-40 mt-[10px] h-screen pt-32 relative">
       <img src={book} className="absolute top-[120px] left-[70px] " />
       <img
         src={vr}
