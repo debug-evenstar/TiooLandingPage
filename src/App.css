@@ -487,6 +487,9 @@ input[type="checkbox"]:checked {
   .box-shade {
     box-shadow: 0.4000000059604645px 0.4000000059604645px 4px 0px #00000040;
   }
+  .img-shade{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
   .types {
     height: 153px;
     border-radius: 17px 17px 0px 17px;
