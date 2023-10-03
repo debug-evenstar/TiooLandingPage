@@ -9,7 +9,7 @@ const BenefitCustomCard: React.FC<BenefitCustomCardprop> = ({
 }) => {
   return (
     <div
-      className={`w-full p-5 border rounded-[10px] ${
+      className={`w-[94%] p-5 border rounded-[10px] ${
         col == 1
           ? `shadow-[inset_0px_0px_15px_0px_rgba(234,57,189,0.50)]`
           : col == 2
@@ -19,12 +19,12 @@ const BenefitCustomCard: React.FC<BenefitCustomCardprop> = ({
     >
       <div className="flex justify-between items-center w-full h-[220px]">
         <h1
-          className={`text-[45px] font-[750] ${
+          className={`text-[40px] font-[750] ${
             col == 1
-              ? `text-[rgba(234,57,189,0.50)]`
+              ? `text-[rgba(234,57,189,1)]`
               : col == 2
-              ? `text-[rgba(132,72,186,0.50)]`
-              : `text-[rgba(105,181,240,0.50)]`
+              ? `text-[rgba(132,72,186,1)]`
+              : `text-[rgba(105,181,240,1)]`
           }`}
         >
           {title}

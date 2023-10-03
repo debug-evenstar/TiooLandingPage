@@ -14,7 +14,7 @@ function Featuredbook() {
           </h1>
         </div>
       </div>
-      <div className="flex gap-10 mt-10 ">
+      <div className="flex gap-10 mt-10 justify-between ">
         <div className="flex flex-col flex-1 gap-5 ">
           <h1 className="text-[40px] font-[750]">Early Coding For Kids</h1>
           <p className="text-[18px] font-[400]">
@@ -30,8 +30,8 @@ function Featuredbook() {
             <Button2 text1="Preview book" onclick={() => {}} />
           </div>
         </div>
-        <div className="flex-1">
-          <div className="bg-[#8896CA]  rounded-[32px] h-[400px] flex items-center justify-center text-white">
+        <div className="flex-1 ml-[14rem]">
+          <div className="bg-[#8896CA]  rounded-[32px] w-[400px] h-[450px] flex items-center justify-center text-white">
             <p>Textbook’s image</p>
           </div>
         </div>

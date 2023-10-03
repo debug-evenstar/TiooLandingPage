@@ -50,11 +50,11 @@ function Navbar() {
                 <div className="flex flex-col items-center h-full text-white mt-6">
                   <Link
                     to={item.url}
-                    className={`hover:scale-[1.1] hover:font-[500] duration-300 ${
+                    className={`hover:scale-[1.1] font-[500] ease-in hover:font-[500] duration-300 ${
                       colorchange || pathname !== "/"
-                        ? ` text-[#4F46E5]`
-                        : `text-[#FFF]`
-                    } ${pathname == item.url && `font-[600]`}`}
+                        ? ` text-[#4F46E5] border-[#4F46E5]`
+                        : `text-[#FFF] ]`
+                    } ${pathname == item.url && `font-[700] border-b-2`}`}
                   >
                     {item.text}
                   </Link>
