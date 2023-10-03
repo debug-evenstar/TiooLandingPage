@@ -233,7 +233,7 @@ export default function Authors() {
         AOS.init({
             duration: 1000
         });
-        AOS.refresh();
+        // AOS.refresh();
     })
     return (
         <PageLayout>
