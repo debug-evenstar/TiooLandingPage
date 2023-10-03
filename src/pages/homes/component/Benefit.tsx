@@ -36,7 +36,7 @@ function Benefit() {
         <div className="grid w-full grid-cols-2 gap-5 px-4 ">
           <div className="flex flex-col items-center justify-center p-14">
             {" "}
-            <h1 className="text-[rgba(3,0,54,0.74)] text-[50px] font-[750]">
+            <h1 className="text-[rgba(3,0,54,0.74)] text-[50px] font-[700]">
               Why Tioo?
             </h1>
             <p className="text-[20px] font-[400] text-center">

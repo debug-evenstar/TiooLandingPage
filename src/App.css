@@ -544,13 +544,13 @@ input[type="checkbox"]:checked {
   }
 
   .boujee-text {
-    --bg-size: 400%;
-    --color-one: hsl(350, 63%, 44%);
-    --color-two: hsl(263, 95%, 55%);
+    --bg-size: 70%;
+    --color-two: hsl(350, 63%, 44%);
+    --color-one: hsl(263, 95%, 55%);
     font-family: sans-serif;
     font-size: clamp(3rem, 25vmin, 8rem);
     background: linear-gradient(
-        90deg,
+        20deg,
         var(--color-one),
         var(--color-two),
         var(--color-one)
@@ -562,7 +562,7 @@ input[type="checkbox"]:checked {
 
   @media (prefers-reduced-motion: no-preference) {
     .boujee-text {
-      animation: move-bg 8s linear infinite;
+      /* animation: move-bg 8s linear infinite; */
     }
     @keyframes move-bg {
       to {

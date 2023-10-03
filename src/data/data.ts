@@ -60,7 +60,7 @@ export const pricingData: pricingDataP[] = [
   {
     id: 1,
 
-    amount: "N 8,000",
+    amount: "₦ 8,000",
     time: "/month",
     level: "Started",
     level_desc: "Early coding for kids",
@@ -78,7 +78,7 @@ export const pricingData: pricingDataP[] = [
   {
     id: 2,
 
-    amount: "N 12,000",
+    amount: "₦ 12,000",
     time: "/month",
     level: "Started",
     level_desc: "Early coding for kids",
@@ -90,13 +90,13 @@ export const pricingData: pricingDataP[] = [
       "Q&A",
     ],
     availability: "(coming soon)",
-    tip: "N 4,000",
-    tip_desc: "/month | save N 12,000",
+    tip: "₦ 4,000",
+    tip_desc: "/month | save ₦ 12,000",
   },
   {
     id: 1,
 
-    amount: "N 36,000",
+    amount: "₦ 36,000",
     time: "/month",
     level: "Started",
     level_desc: "Early coding for kids",
@@ -108,7 +108,7 @@ export const pricingData: pricingDataP[] = [
       "Q&A",
     ],
     availability: "(coming soon)",
-    tip: "N 3,000 ",
-    tip_desc: "/month | save N 60,000",
+    tip: "₦ 3,000 ",
+    tip_desc: "/month | save ₦ 60,000",
   },
 ];

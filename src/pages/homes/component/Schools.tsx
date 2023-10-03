@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import schimg from "../../../images/homeimg/schoolimg.png";
 import { Link } from "react-router-dom";
 import { SchoolData } from "../../../data/data";
 import { Button2 } from "../../../components/Ui/Button";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function Schools() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000
+    });
+    AOS.refresh();
+  },[])
   return (
     <div className="w-full px-20 py-16 gradient">
       <div className="flex flex-col items-center justify-center w-full ">
@@ -22,10 +29,10 @@ function Schools() {
         <div className="flex-1 ">
           {SchoolData?.map((items) => (
             <div key={items.id} className=" border-[#87909E] border-b-2 mt-5">
-              <h1 className="text-[28px] font-[750] text-[rgba(3,0,54,0.74)] mb-4">
+              <h1 data-aos="fade-left" className="text-[28px] font-[750] text-[rgba(3,0,54,0.74)] mb-4">
                 {items.title}
               </h1>
-              <p className="text-[14px] sm:text-[16px] font-[400] mb-5 text-[rgba(3,0,54,0.74)]">
+              <p data-aos="fade-left" className="text-[14px] sm:text-[16px] font-[400] mb-5 text-[rgba(3,0,54,0.74)]">
                 {items.desc}
               </p>
             </div>
