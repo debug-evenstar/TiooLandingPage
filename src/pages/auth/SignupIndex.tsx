@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SignupIndex = () => {
   const [route, setRoute] = useState<string>();
@@ -30,6 +31,9 @@ const SignupIndex = () => {
       route: "parent",
     },
   ];
+  const previewBook = () => {
+    toast.info("Not available yet")
+  }
   return (
     <>
       <div className="bg-[#0E096C]">
@@ -86,12 +90,12 @@ const SignupIndex = () => {
           </div>
           <div className="lg:w-6/12 hidden lg:block">
             <div className="absolute top-0 right-0 bg-white w-[40%] h-[85vh] rounded-b-[300px]">
-              <img src="https://res.cloudinary.com/dic7regoe/image/upload/v1696359495/praxeum/COVER_PAGE_1_2_1_yz4i2f.png" alt="img" className="w-7/12 mx-auto mt-4 rounded-[12px] img-shade" />
+              <img src="https://res.cloudinary.com/dic7regoe/image/upload/v1696359495/praxeum/COVER_PAGE_1_2_1_yz4i2f.png" alt="img" className="w-[57%] mx-auto mt-4 rounded-[12px] img-shade" />
               <div>
                 <p className="text-center mt-6">Explore our flagship textbook</p>
                 <div
                   className={`py-[10px] cursor-pointer btn-shade rounded-[8px] border border-[#312ECB33] w-4/12 mx-auto mt-3 bg-[#4F46E5] text-white text-center`}
-                >
+                onClick={previewBook}>
                   Preview textbook
                 </div>
               </div>
