@@ -24,7 +24,7 @@ function Header() {
                     <h1 className="font-[700]  text-[48px]">
                         Gamify Your Textbooks And Workbooks For Fun Learning & Earnings
                     </h1>
-                    <p className="font-[400] text-sm mt-4 text-[20px]">
+                    <p className="font-[400] mt-4 text-[24px]">
                         We empower authors to turn their textbooks and workbooks seamlessly<br/> into engaging, gamified resources for K-12 learners and earn royalties.
                     </p>
                 </div>
@@ -39,7 +39,7 @@ function WhyCard({ image, title, description }: any) {
             <div className="h-[120px] w-[120px] flex items-center justify-center rounded-full bg-gray-200 mx-auto">
                 <img src={image} alt="" className="w-[60px]" />
             </div>
-            <h2 className="my-4 text-[36px] w-[80%] mx-auto font-[700]">{title}</h2>
+            <h2 className="my-4 text-[38px] w-[80%] mx-auto font-[700]">{title}</h2>
             <p className="text-sm font-[400] text-gray-800">
                 {description}
             </p>
@@ -58,7 +58,7 @@ function WhyTioo() {
         <div className="my-16 px-16">
             <div className="w-[45%] mx-auto text-center">
                 <h2 data-aos="fade-up" className="text-[38px] font-[700]">Why Tioo?</h2>
-                <p data-aos="fade-up" className="text-sm font-[400] text-gray-800">
+                <p data-aos="fade-up" className=" font-[400] text-gray-800">
                     Join us on this exciting journey to enhance kids' understanding while earning royalties when students access your educational content
                 </p>
             </div>
@@ -81,8 +81,8 @@ function Pattern1() {
                 <img src={z1} alt="" className="w-full" />
             </div>
             <div className="w-[430px]">
-                <h2 className="text-[36px] mb-4 font-[700]" data-aos="fade-left">Digital Convenience</h2>
-                <p className="text-sm font-[400] text-gray-800" data-aos="fade-left">
+                <h2 className="text-[38px] mb-4 font-[700]" data-aos="fade-left">Digital Convenience</h2>
+                <p className="font-[400] text-gray-800" data-aos="fade-left">
                     Embrace the digital era. Make your textbooks and workbooks easily accessible on mobile phones, tablets, and laptops
                 </p>
             </div>
@@ -95,8 +95,8 @@ function Pattern2() {
 
             <div className='flex items-center justify-between py-20  px-16 bg-[#FFE4F9]'>
                 <div className="w-[330px]">
-                    <h2 className="text-[36px] mb-4 font-[700]" data-aos="fade-right" >User Analytics</h2>
-                    <p className="text-sm font-[400] text-gray-800" data-aos="fade-right" >
+                    <h2 className="text-[38px] mb-4 font-[700]" data-aos="fade-right" >User Analytics</h2>
+                    <p className="font-[400] text-gray-800" data-aos="fade-right" >
                         Gain insights into how your content is being used. Our analytics tools provide valuable data on reader engagement, helping you refine your offerings and improve your content.                </p>
                 </div>
                 <div className="w-[580px] bg-gray-100">
@@ -143,8 +143,8 @@ function Pattern3() {
                 <img src={z3} alt="" className="w-full" />
             </div>
             <div className="w-[430px]">
-                <h2 className="text-[36px] mb-4 font-[700]" data-aos="fade-left" >Eliminate Printing Cost</h2>
-                <p className="text-sm font-[400] text-gray-800" data-aos="fade-left" >
+                <h2 className="text-[38px] mb-4 font-[700]" data-aos="fade-left" >Eliminate Printing Cost</h2>
+                <p className="font-[400] text-gray-800" data-aos="fade-left" >
                     With Tioo, you no longer have to spend money on producing paper textbooks and workbooks. We help you deliver your contents in digital formats without hassle.
                 </p>
             </div>
