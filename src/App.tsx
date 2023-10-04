@@ -13,31 +13,37 @@ import SchoolSignup from "./pages/auth/school/Signup";
 import FreelanceSignupScreen from "./pages/auth/freelancer/Signup";
 import FreelanceNamingTypeScreen from "./pages/auth/freelancer/NamingType";
 import ParentSignupScreen from "./pages/auth/parent/Signup";
-import ParentCompleteSignupScreen from "./pages/auth/parent/CompleteSigup";
-import LandingPage from "./pages/home";
-import Schools from "./pages/schools";
-import Flippedclass from "./pages/flippedclass";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Homes from "./pages/homes";
+import Pricing from "./pages/pricing";
+import Authors from './pages/authors';
+import Library from './pages/library';
+import LibraryDetails from "./pages/library/details";
+import CookieComponent from './components/cookie';
+import ParentCompleteSignupScreen from "./pages/auth/parent/CompleteSignup";
 
 function App() {
 
   useEffect(() => {
     AOS.init({
-      easing: "ease-out-cubic",
-      once: true,
-      offset: 50,
-      duration: 2000,
+      // easing: "ease-out-cubic",
+      // once: true,
+      // offset: 50,
+      // duration: 2000,
     });
-    AOS.refresh();
+    // AOS.refresh();
   }, []);
   return (
     <div>
       <BrowserRouter>
+        <CookieComponent/>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/schools" element={<Schools />} />
-          <Route path="/flippedclass" element={<Flippedclass />} />
+          <Route path="/" element={<Homes />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/library/details" element={<LibraryDetails />} />
+          <Route path="/authors" element={<Authors />} />
           {/* auth routes */}
           <Route path="/signup" element={<SignupIndex />} />
           <Route path="/login" element={<LoginScreen />} />

@@ -3,10 +3,10 @@ import { Controller, useForm } from "react-hook-form";
 import TextInput, { InputType } from "../Ui/TextInput";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { MdAddCircleOutline } from "react-icons/md"
-import Button from "../Ui/Button";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { saveNaming } from "../../redux/reducers/setupReducer";
 import { toast } from "react-toastify";
+import Button from "../../utils/Button";
 
 interface Props {
   close: () => void

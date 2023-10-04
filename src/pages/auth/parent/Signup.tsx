@@ -5,12 +5,12 @@ import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
 import "react-phone-number-input/style.css";
 import TextInput, { InputType } from "../../../components/Ui/TextInput";
-import Button from "../../../components/Ui/Button";
 import { HashSpinner } from "../../../components/Ui/Loading";
 import { toast } from "react-toastify";
 import { useLazyRegisterParentQuery } from "../../../services/api/authSlice";
 import useModal from "../../../hooks/useModal";
 import SignupSuccessModal from "../../../components/auth/signupSuccess";
+import Button from "../../../utils/Button";
 
 const ParentSignupScreen = () => {
   const [isBusy, setIsBusy] = useState(false);

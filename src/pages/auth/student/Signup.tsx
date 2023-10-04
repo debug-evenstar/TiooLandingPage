@@ -6,7 +6,6 @@ import TextInput, { InputType } from "../../../components/Ui/TextInput";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
 import "react-phone-number-input/style.css";
 import { HashSpinner } from "../../../components/Ui/Loading";
-import Button from "../../../components/Ui/Button";
 import { toast } from "react-toastify";
 import {
   useLazyAcceptStudInviteQuery,
@@ -18,6 +17,7 @@ import { saveEmail } from "../../../redux/reducers/userReducer";
 import { useAppDispatch } from "../../../redux/store";
 import useModal from "../../../hooks/useModal";
 import SignupSuccessModal from "../../../components/auth/signupSuccess";
+import Button from "../../../utils/Button";
 
 const StudentSignup = () => {
   const [isBusy, setIsBusy] = useState(false);

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Button from "../Ui/Button";
 import { toast } from "react-toastify";
 import { useLazySendOtpQuery } from "../../services/api/authSlice";
 import { HashSpinner } from "../Ui/Loading";
+import Button from "../../utils/Button";
 
 const SignupSuccessModal = ({ email }: { email: string }) => {
   const [isBusy, setIsBusy] = useState(false);
