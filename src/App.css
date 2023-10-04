@@ -5,7 +5,7 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,700&display=swap"); */
 
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Poppins:wght@100;200;300;400;500;600;800&display=swap");
-@import url("https://allfont.net/allfont.css?fonts=comic-sans-ms");
+/* @import url("https://allfont.net/allfont.css?fonts=comic-sans-ms"); */
 /* @import url('https://fonts.cdnfonts.com/css/avenir'); */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
@@ -490,6 +490,9 @@ input[type="checkbox"]:checked {
   }
   .box-shade {
     box-shadow: 0.4000000059604645px 0.4000000059604645px 4px 0px #00000040;
+  }
+  .img-shade{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
   .types {
     height: 153px;
