@@ -46,8 +46,8 @@ function Navbar() {
           </p>
           <div className="flex items-center justify-between w-full h-full">
             <div className="flex items-center h-[55%] gap-10 ">
-              {NAV_DATA.map((item) => (
-                <div className="flex flex-col items-center h-full text-white mt-6">
+              {NAV_DATA.map((item: any, index: number) => (
+                <div key={index} className="flex flex-col items-center h-full text-white mt-6">
                   <Link
                     to={item.url}
                     className={`hover:scale-[1.1] font-[500] ease-in hover:font-[500] duration-300 ${

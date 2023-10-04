@@ -14,7 +14,8 @@ function Pricing() {
       .then(response => response.json())
       .then(data => {
         let cc = '';
-      if(data.country === "Nigeria"){ 
+      console.log(data.country)
+      if(data.country === "NG"){ 
         cc = "NGN" 
         setSymbol('₦');
       }else{
@@ -37,7 +38,7 @@ function Pricing() {
   return (
     <div className="relative flex w-full px-16 mt-20 justify-center j gap-7">
       {pricingData.map((item: any, index: number) => (
-        <div className="flex flex-col justify-between space-y-3 p-7 w-[370px] gap-4 shadows hover:scale-[1.01] duration-300 rounded-[8px] ">
+        <div key={index} className="flex flex-col justify-between space-y-3 p-7 w-[370px] gap-4 shadows hover:scale-[1.01] duration-300 rounded-[8px] ">
           <div className="flex flex-col w-full gap-4">
             <h1 className=" text-[#4F46E5] text-[40px] font-[700]">
               {/* {item.amount} */}
@@ -61,8 +62,8 @@ function Pricing() {
             </p>
             <p>+</p>
             <div className="flex flex-col gap-3">
-              {item.list.map((listitem: any) => (
-                <div className="flex gap-2 ">
+              {item.list.map((listitem: any, index: number) => (
+                <div key={index} className="flex gap-2 ">
                   <img src={point} className="w-[24px] h-[24px]" />
 
                   {item.list[item.list.length - 1] == listitem ? (

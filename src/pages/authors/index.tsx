@@ -253,8 +253,8 @@ export default function Authors() {
 
                 <h1 className="font-[700] text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
                 <div className="w-[90%] mx-auto mt-10 border rounded-[8px] shadow-lg px-12 py-14">
-                    {questions.map((item: any) => (
-                        <Accordion title={item.q} content={item.a} />
+                    {questions.map((item: any,index: number) => (
+                        <Accordion key={index} title={item.q} content={item.a} />
                     ))}
                 </div>
             </div>
