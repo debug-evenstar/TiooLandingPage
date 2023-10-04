@@ -4,6 +4,7 @@ import others1 from '../../assets/others1.png';
 import others2 from '../../assets/others2.png';
 import others3 from '../../assets/others3.png';
 import PageLayout from '../../layouts/PageLayout';
+import point from '../../images/pricingimg/point.png';
 // import ReactRating from 'react-rating-stars-component';
 
 const objectives: string[] = [
@@ -76,11 +77,13 @@ function ObjectiveAndRating() {
                 <ul>
                     {objectives.map((item: string, index: number) => (
                         <li key={index} className="flex space-x-2  mb-6 text-sm text-gray-500">
-                            <span>
+                            {/* <span>
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M21 7.5L9 19.5L3.5 14L4.91 12.59L9 16.67L19.59 6.09L21 7.5Z" fill="#030036" fillOpacity="0.74" />
                                 </svg>
-                            </span>
+                            </span> */}
+                            <img src={point} className="w-[20px] h-[20px]" />
+
                             <p className="text-primary">{item}</p>
                         </li>
                     ))}
