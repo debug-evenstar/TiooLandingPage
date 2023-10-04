@@ -167,7 +167,7 @@ const TextInput: React.FC<Props> = ({
   };
 
   return (
-    <div className="mt-3">
+    <div className="mt-3 w-full">
       <div>
         <>
           {label && (
