@@ -17,11 +17,11 @@ function Featuredbook() {
       <div className="flex gap-10 mt-10 justify-between ">
         <div className="flex flex-col flex-1 gap-5 ">
           <h1 className="text-[40px] font-[750]" data-aos="fade-right">Early Coding For Kids</h1>
-          <p className="text-[18px] font-[400]" data-aos="fade-right">
+          <p className="text-[18px] font-[500]" data-aos="fade-right">
             Dive into our flagship textbook, "Early Coding For Kids," designed
             to introduce young learners to the exciting world of coding.
           </p>
-          <p className="text-[18px] font-[400]" data-aos="fade-right">
+          <p className="text-[18px] font-[500]" data-aos="fade-right">
             Discover interactive lessons, real-world examples, and hands-on
             activities that make coding accessible and fun for students of all
             ages

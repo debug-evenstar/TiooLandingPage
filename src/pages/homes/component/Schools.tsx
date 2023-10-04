@@ -32,7 +32,7 @@ function Schools() {
               <h1 data-aos="fade-left" className="text-[28px] font-[750] text-[rgba(3,0,54,0.74)] mb-4">
                 {items.title}
               </h1>
-              <p data-aos="fade-left" className="text-[14px] sm:text-[16px] font-[400] mb-5 text-[rgba(3,0,54,0.74)]">
+              <p data-aos="fade-left" className="text-[14px] sm:text-[16px] font-[500] mb-5 text-[rgba(3,0,54,0.74)]">
                 {items.desc}
               </p>
             </div>
