@@ -10,21 +10,23 @@ import Authors from './pages/authors';
 import Library from './pages/library';
 import LibraryDetails from "./pages/library/details";
 import CookieComponent from './components/cookie';
+import GeoLocator from './components/geoLocator'
 
 function App() {
   useEffect(() => {
     AOS.init({
       // easing: "ease-out-cubic",
       // once: true,
-      // offset: 50,
-      // duration: 2000,
+      offset: 50,
+      duration: 1000,
     });
-    // AOS.refresh();
+    AOS.refresh();
   }, []);
   return (
     <div>
       <BrowserRouter>
-        <CookieComponent/>
+        <GeoLocator/>
+        <CookieComponent />
         <Routes>
           <Route path="/" element={<Homes />} />
           <Route path="/pricing" element={<Pricing />} />
