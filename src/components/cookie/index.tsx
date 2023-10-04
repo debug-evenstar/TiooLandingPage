@@ -11,12 +11,12 @@ export default function CookieComponent() {
     setAccepted(true);
   };
 
-  if (accepted || previouslyAccepted) {
-    return null; // Don't display the component if cookies are accepted
-  }
+  const styling = (accepted || previouslyAccepted)
+    ? "translate-y-full"
+    : ""
 
   return (
-    <div className="w-full text-primary justify-between flex items-center h-[200px] p-10 fixed bottom-0 z-[100] bg-white">
+    <div className={`w-full text-primary justify-between flex items-center h-[200px] p-10 fixed bottom-0 z-[100] bg-white duration-1000 ${styling}`}>
       <div className="w-[60%]">
         <h1 className="font-[700]">This website uses cookies</h1>
         <p className="text-sm">
@@ -24,7 +24,7 @@ export default function CookieComponent() {
         </p>
       </div>
 
-      <button onClick={acceptCookies} className="text-main px-10 py-3 rounded-[8px] border-2 border-[#0E096C] hover:bg-main hover:text-white font-[500] duration-300">
+      <button onClick={acceptCookies} className="text-main px-10 py-3 rounded-[8px] outline-none border-2 border-[#0E096C] hover:bg-main hover:text-white font-[500] duration-300">
         Accept
       </button>
     </div>
