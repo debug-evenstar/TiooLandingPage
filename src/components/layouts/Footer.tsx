@@ -12,7 +12,7 @@ function Footer() {
     console.log("Do something");
   };
   return (
-    <div className="bg-[#FAFAFA]  w-full relative  px-5sm:px-20 mt-12 mb-5   font-[poppins]  ">
+    <div className="bg-[#FAFAFA]  w-full relative  px-5 sm:px-20 mt-12 mb-5  ">
       <div className="flex flex-col sm:flex sm:flex-row border-b-2 border-[#CECDFD] w-full ">
         <div className=" w-[15%] ">
           <img
@@ -47,8 +47,8 @@ function Footer() {
             </div>
             <div className="hidden sm:flex gap-10  h-[60px] w-full      ">
               <ButtonCustom
-                height={15}
-                width={220}
+                height={13}
+                width={200}
                 image={play}
                 // text1="Get app on"
                 text2="Google play"
@@ -57,8 +57,8 @@ function Footer() {
               />
               <ButtonCustom
                 image={apple}
-                height={15}
-                width={220}
+                height={13}
+                width={200}
                 // text1="Get app on"
                 text2="apple store"
                 bg={"2C2C30"}
@@ -74,7 +74,7 @@ function Footer() {
               <BsFacebook />
             </div>
             <div className="w-full sm:w-[418px] flex items-start sm:items-end mr-0 sm:mr-10 ">
-              <p className=" pl-4 sm:p-0 font-[400] text-sm sm:text-[18px] text-left sm:text-right">
+              <p className=" pl-4 sm:p-0 text-primary font-[400] text-sm sm:text-primary text-left sm:text-right">
                 3 Atabara Street, off cairo street, Ademola Adetukonbo,
                 Crescent, Wuse 2, Abuja, FCT
               </p>
@@ -83,8 +83,9 @@ function Footer() {
         </div>
       </div>
       <div className="w-full mt-5">
-        <p className="text-[10px] sm:text-[16px] text-center">
-          ©️2023 Praxeum Limited. All rights reserved
+        <p className="text-[10px] sm:text-[16px] text-center text-sm text-primary">
+          &copy; 2023 Praxeum Limited. All rights reserved
+          {/* © 2023 Praxeum Limited. All rights reserved */}
         </p>
       </div>
     </div>

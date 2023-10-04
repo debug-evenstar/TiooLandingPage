@@ -21,7 +21,6 @@ import Authors from './pages/authors';
 import Library from './pages/library';
 import LibraryDetails from "./pages/library/details";
 import CookieComponent from './components/cookie';
-import GeoLocator from './components/geoLocator'
 import ParentCompleteSignupScreen from "./pages/auth/parent/CompleteSignup";
 
 function App() {
@@ -38,7 +37,6 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <GeoLocator />
         <CookieComponent />
         <Routes>
           <Route path="/" element={<Homes />} />

@@ -25,7 +25,7 @@ function Header() {
                         Gamify Your Textbooks And Workbooks For Fun Learning & Earnings
                     </h1>
                     <p className="font-[400] mt-4 text-[24px]">
-                        We empower authors to turn their textbooks and workbooks seamlessly<br/> into engaging, gamified resources for K-12 learners and earn royalties.
+                        We empower authors to turn their textbooks and workbooks seamlessly into engaging, gamified resources for K-12 learners and earn royalties.
                     </p>
                 </div>
             </div>
