@@ -4,10 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { ThreeCirclesLoading } from "../../components/Ui/Loading";
 import { FailureCheck, SuccessCheck } from "../../components/Ui/SuccessCheck";
-import Button from "../../components/Ui/Button";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { saveEmail, saveUser } from "../../redux/reducers/userReducer";
 import logo from '../../images/tioologo.png'
+import Button from "../../utils/Button";
 
 const AccountVerify = () => {
   const [isBusy, setIsBusy] = useState(false);
