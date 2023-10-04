@@ -1,0 +1,32 @@
+import React from "react";
+import Learning from "./Learning";
+
+function Aboutus() {
+  return (
+    <div className="px-20 mt-16">
+      <div className="flex flex-col items-center justify-center px-16 gap-7">
+        <h1 className="text-[#1E1E1E] text-[50px] font-[600]">About us</h1>
+        <p className="text-[18px] text-center">
+          Tioo, is an AI-Powered platform that aims to revolutionize K–12
+          education with AI-powered textbooks and workbooks that adapt to each
+          student's unique learning style.
+        </p>
+        <p className="text-[18px] text-center">
+          <p className="text-[18px]">
+            Tioo, is an AI-Powered platform that aims to revolutionize K–12
+            education with AI-powered textbooks and workbooks that adapt to each
+            student's unique learning style.
+          </p>
+        </p>
+        <p className="text-[18px] text-center">
+          By empowering students, educators, and authors with AI-driven tools,
+          Tioo enhances student engagement, comprehension, and overall academic
+          success, ultimately advancing the quality of K–12 education.
+        </p>
+      </div>
+      <Learning />
+    </div>
+  );
+}
+
+export default Aboutus;

@@ -7,7 +7,7 @@ import { useLazySendOtpQuery, useLazyVerifyOtpQuery } from "../../../services/ap
 import { useAppSelector } from "../../../redux/store";
 import { toast } from "react-toastify";
 import { HashSpinner, PulseSpinner } from "../../../components/Ui/Loading";
-import Button from "../../../components/Ui/Button";
+import Button from "../../../utils/Button";
 
 interface Props {
   openNext: (value: number) => void;
