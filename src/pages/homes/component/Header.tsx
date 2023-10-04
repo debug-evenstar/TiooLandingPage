@@ -18,14 +18,14 @@ function Header() {
       <div className="flex flex-col pt-10 items-center justify-center w-full gap-7">
         <h1 className="text-white leading-[5rem] text-[60px] font-[600] text-center">
           Gamified textbooks and workbooks for{" "}
-          <span className="text-[60px] font-[700]  boujee-text">
+          <span className="text-[60px] font-[600]  boujee-text">
             K–12 Education
           </span>
         </h1>
         <p className="text-white text-[20px] text-center">
           Enhance your child's learning with dynamic, gamified and interactive
           textbooks and workbooks designed to self-tutor and provide practical
-          knowledge using AI.
+          knowledge using AI.
         </p>
         <div className="w-[220px]">
           <Button2

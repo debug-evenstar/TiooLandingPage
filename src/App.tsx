@@ -9,6 +9,7 @@ import Pricing from "./pages/pricing";
 import Authors from './pages/authors';
 import Library from './pages/library';
 import LibraryDetails from "./pages/library/details";
+import CookieComponent from './components/cookie';
 
 function App() {
   useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <CookieComponent/>
         <Routes>
           <Route path="/" element={<Homes />} />
           <Route path="/pricing" element={<Pricing />} />

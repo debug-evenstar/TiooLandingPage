@@ -74,7 +74,7 @@ function Footer() {
               <BsFacebook />
             </div>
             <div className="w-full sm:w-[418px] flex items-start sm:items-end mr-0 sm:mr-10 ">
-              <p className=" pl-4 sm:p-0 font-[400] text-[12px] sm:text-[18px] text-left sm:text-right">
+              <p className=" pl-4 sm:p-0 font-[400] text-sm sm:text-[18px] text-left sm:text-right">
                 3 Atabara Street, off cairo street, Ademola Adetukonbo,
                 Crescent, Wuse 2, Abuja, FCT
               </p>
