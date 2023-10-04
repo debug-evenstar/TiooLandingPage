@@ -49,17 +49,18 @@ const SignupIndex = () => {
                   I am a
                 </p>
               </div>
-              <div className="mt-12 grid gap-10 px-8">
-                {userTypes.map((item) => (
+              <div className="mt-12 grid gap-10 px-8 text-center">
+                {userTypes.map((item, i) => (
                   <div
                     className={`types px-4 py-6 cursor-pointer ${
                       route === item.route
                         ? "bg-[#4F46E5] outline-[#4F46E5] !text-white"
                         : "bg-white"
                     }`}
+                    key={i}
                     onClick={() => setRoute(item.route)}
                   >
-                    <p className="fw-500 text-lg">{item.name}</p>
+                    <p className="fw-500 text-[20px] lg:pr-4">{item.name}</p>
                     <p
                       className={`mt-4 ${
                         route === item.route ? "text-white" : "text-[#87909E]"
