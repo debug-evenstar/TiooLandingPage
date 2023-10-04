@@ -2,8 +2,10 @@ import React from "react";
 import { pricingData } from "../../../data/data";
 import point from "../../../images/pricingimg/point.png";
 import { Button2 } from "../../../components/Ui/Button";
-
 function Pricing() {
+
+
+
   return (
     <div className="relative flex w-full px-16 mt-20 justify-center j gap-7">
       {pricingData.map((item) => (
