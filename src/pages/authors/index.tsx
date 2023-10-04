@@ -39,8 +39,8 @@ function WhyCard({ image, title, description }: any) {
             <div className="h-[120px] w-[120px] flex items-center justify-center rounded-full bg-gray-200 mx-auto">
                 <img src={image} alt="" className="w-[60px]" />
             </div>
-            <h2 className="my-4 text-[38px] w-[80%] mx-auto font-[700]">{title}</h2>
-            <p className="text-sm font-[400] text-gray-800">
+            <h2 className="my-4 text-[38px] w-[90%] mx-auto font-[700]">{title}</h2>
+            <p className="text-[17px] font-[400] text-gray-800">
                 {description}
             </p>
         </div>
@@ -58,7 +58,7 @@ function WhyTioo() {
         <div className="my-16 px-16">
             <div className="w-[45%] mx-auto text-center">
                 <h2 data-aos="fade-up" className="text-[38px] font-[700]">Why Tioo?</h2>
-                <p data-aos="fade-up" className=" font-[400] text-gray-800">
+                <p data-aos="fade-up" className=" font-[400] text-[17px] text-gray-800">
                     Join us on this exciting journey to enhance kids' understanding while earning royalties when students access your educational content
                 </p>
             </div>
@@ -196,38 +196,74 @@ const Accordion = ({ title, content }: { title: string, content: string }) => {
                 onClick={toggleAccordion}
             >
                 <h2 className="text-lg text-primary text-[18px]">{title}</h2>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`h-6 w-6 ${isOpen ? 'transform rotate-180' : ''}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="#6663E3"
-                //   stroke="currentColor"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d={isOpen ? 'M5 15l7-7 7 7' : 'M19 9l-7 7-7-7'}
-                    />
-                </svg>
+                <div className={`h-6 w-6 duration-300 ${isOpen ? 'rotate-180' : ''}`}> 
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="#6663E3"
+                    //   stroke="currentColor"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d={'M19 9l-7 7-7-7'}
+                        />
+
+                    </svg>
+                </div>
             </div>
-            {isOpen && (
-                <div className="p-4 bg-gray-100">{content}</div>
-            )}
+            {
+                <div className={`bg-gray-50 transition-[max-height] duration-700 ease-out overflow-hidden ${!isOpen? 'max-h-0': 'max-h-[30rem]'}`}>
+                    <div className="p-4 py-10">{content}</div>
+                </div>
+            }
         </div>
     );
 }
 
 
-const questions: { q: string, a: string }[] = [
-    { q: 'How can I get started with gamifying my educational materials', a: '' },
-    { q: 'Do I need any technical skills or coding knowledge to use Tioo?', a: '' },
-    { q: 'How do I earn royalties from my gamified content?', a: '' },
-    { q: "Can I update my gamified content after it's published?", a: '' },
-    { q: 'Is there a fee for using Tioo?', a: '' },
+const questions: {
+  q: string,
+  a: string
+} [] = [{
+    q: `How can I get started with gamifying my educational materials`,
+    a: `We handle the entire gamification in-house. No extra work on the author's side. All you need to do is reach out to us.
+`
+  },
+  {
+    q: 'Do I need any technical skills or coding knowledge to use Tioo?',
+    a: `No coding or technical skills are required. Our platform is user-friendly and designed to be accessible to authors and educators of all technical backgrounds.`
+  },
+  {
+    q: 'How do I earn royalties from my gamified content?',
+    a: `Authors and educators earn royalties based on the usage of their gamified content. The more students access and engage with your materials on our platform, the more you earn.`
+  },
+  {
+    q: "Can I update my gamified content after it's published?",
+    a: `Yes, you have the flexibility to update and refine your gamified materials at any time. We understand the importance of keeping educational content current.`
+  },
+  {
+    q: 'Is there a fee for using Tioo?',
+    a: `No, no payment is needed to publish your educational material on our platform
+`
+  },
 ];
 
+
+function FAQ(){
+    return (
+        <>
+            <h1 className="font-[700] text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
+            <div className="w-[90%] mx-auto mt-10 border rounded-[8px] shadow-lg px-12 py-14">
+                {questions.map((item: any,index: number) => (
+                    <Accordion key={index} title={item.q} content={item.a} />
+                ))}
+            </div>
+        </>
+    );
+}
 export default function Authors() {
     useEffect(() => {
         AOS.init({
@@ -250,13 +286,7 @@ export default function Authors() {
                         <Form />
                     </div>
                 </div>
-
-                <h1 className="font-[700] text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
-                <div className="w-[90%] mx-auto mt-10 border rounded-[8px] shadow-lg px-12 py-14">
-                    {questions.map((item: any,index: number) => (
-                        <Accordion key={index} title={item.q} content={item.a} />
-                    ))}
-                </div>
+                <FAQ/>
             </div>
         </PageLayout>
 
