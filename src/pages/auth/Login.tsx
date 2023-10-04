@@ -3,7 +3,7 @@ import AuthLayout from "../../components/layouts/AuthLayout";
 import { Link, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 import TextInput, { InputType } from "../../components/Ui/TextInput";
-import Button from "../../components/Ui/Button";
+// import Butto from "../../components/Ui/Button";
 import { HashSpinner } from "../../components/Ui/Loading";
 import { useLazyLoginQuery } from "../../services/api/authSlice";
 import { toast } from "react-toastify";
@@ -11,6 +11,7 @@ import useModal from "../../hooks/useModal";
 import VerifyEmailModal from "../../components/auth/verifyEmail";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { saveEmail, saveUser } from "../../redux/reducers/userReducer";
+import Button from "../../utils/Button";
 
 const LoginScreen = () => {
   

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 import TextInput, { InputType } from "../../components/Ui/TextInput";
 import { HashSpinner } from "../../components/Ui/Loading";
-import Button from "../../components/Ui/Button";
 import { toast } from "react-toastify";
 import { useForgetPasswordMutation } from "../../services/api/authSlice";
+import Button from "../../utils/Button";
 
 const ForgetPasswordScreen = () => {
   const [isBusy, setIsBusy] = useState(false);

@@ -1,41 +1,121 @@
 import React from "react";
-// import { classNames } from "../../utils/format";
+import { button } from "../../types/types";
 
-
-interface Props {
-  title: string | JSX.Element;
-  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
-  capitalizeTitle?: boolean;
-  secondary?: boolean;
-  disabled?: boolean;
-  className?: string;
-  altClassName?: string;
-  isBusy?: boolean;
-}
-
-const Button: React.FC<Props> = ({
-  title,
-  onClick,
-  capitalizeTitle,
-  secondary,
-  disabled,
-  className,
-  altClassName,
-  isBusy,
+export const Button: React.FC<button> = ({
+  height,
+  width,
+  text1,
+  onclick,
+  variant = "default",
 }) => {
   return (
-    <div className={disabled? "opacity-75 " : ""}>
-      <button className={altClassName || `py-3 lg:text-lg w-full  ${disabled? 'cursor-not-allowed btn-disabled' : 'btn-primary'}`} onClick={onClick ? onClick : undefined} disabled={disabled}>
-      {isBusy ? (
-          "loading"
-        ) : capitalizeTitle ? (
-          title
-        ) : (
-          title
-        )}
-      </button>
+    <div
+      //   className={`flex justify-center items-center font-[poppins] h-[${height}px] w-[${width}px] bg-[#4F46E5] rounded-[8px] text-[white]`}
+      className={`flex text-center py-[15px] px-[33px] justify-center items-center h-full w-full text-white  rounded-[10px] sm:rounded-[10px] cursor-pointer ${
+        variant == "default" ? `bg-[#4F46E5]` : `bg-[#FFF]`
+      }`}
+      onClick={onclick}
+    >
+      <p className={`text-[12px] sm:text-[18px] font-[700] text-white`}>
+        {text1}
+      </p>
     </div>
   );
 };
 
-export default Button;
+export const Button2: React.FC<button> = ({
+  height,
+  width,
+  text1,
+  onclick,
+  variant = "default",
+  show,
+}) => {
+  return (
+    <div
+      //   className={`flex justify-center items-center font-[poppins] h-[${height}px] w-[${width}px] bg-[#4F46E5] rounded-[8px] text-[white]`}
+      className={`flex text-center border-[1px] py-[15px] px-[33px] justify-center items-center h-full w-full text-white  rounded-[10px] sm:rounded-[4px] cursor-pointer ${
+        variant == "default"
+          ? `bg-[#4F46E5] border-none`
+          : variant == "secondary"
+          ? `bg-[#FFF] border-[#4F46E5] `
+          : `bg-[#FFF] border-[black]`
+      }`}
+      onClick={onclick}
+    >
+      <p
+        className={`text-[12px] sm:text-[18px] font-[700] ${
+          variant == "default"
+            ? `text-white`
+            : variant == "secondary"
+            ? `text-[#4F46E5]`
+            : `text-black`
+        } `}
+      >
+        {text1}
+      </p>
+    </div>
+  );
+};
+export const Button4: React.FC<button> = ({
+  height,
+  width,
+  text1,
+  onclick,
+  variant = "default",
+  show,
+}) => {
+  return (
+    <div
+      //   className={`flex justify-center items-center font-[poppins] h-[${height}px] w-[${width}px] bg-[#4F46E5] rounded-[8px] text-[white]`}
+      className={`flex text-center border-[1px] py-[12px] px-[27px] justify-center items-center h-full w-full text-white  rounded-[10px] sm:rounded-[4px] cursor-pointer ${
+        variant == "default" ? ` border-[#FFF]` : ` border-[#4F46E5] `
+      }`}
+      onClick={onclick}
+    >
+      <p
+        className={`text-[12px] sm:text-[18px] font-[500] ${
+          variant == "default" ? `text-white` : `text-[#4F46E5]`
+        } `}
+      >
+        {text1}
+      </p>
+    </div>
+  );
+};
+
+export const Button3: React.FC<button> = ({
+  height,
+  width,
+  text1,
+  onclick,
+  variant = "default",
+  image,
+}) => {
+  return (
+    <div
+      //   className={`flex justify-center items-center font-[poppins] h-[${height}px] w-[${width}px] bg-[#4F46E5] rounded-[8px] text-[white]`}
+      className={`gap-2 flex text-center border-[1px] py-[15px] px-[33px] justify-center items-center h-full w-full text-white  rounded-[10px] sm:rounded-[4px] cursor-pointer ${
+        variant == "default"
+          ? `bg-[#4F46E5] border-none`
+          : variant == "secondary"
+          ? `bg-[#FFF] border-[#4F46E5] `
+          : `bg-[#FFF] border-[black] `
+      }`}
+      onClick={onclick}
+    >
+      <img src={image} />
+      <p
+        className={`text-[12px] sm:text-[18px] font-[700] ${
+          variant == "default"
+            ? `text-white`
+            : variant == "secondary"
+            ? `text-[#4F46E5]`
+            : `text-black`
+        } `}
+      >
+        {text1}
+      </p>
+    </div>
+  );
+};
