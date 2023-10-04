@@ -3,8 +3,9 @@ import { pricingData } from "../../../data/data";
 import point from "../../../images/pricingimg/point.png";
 import { Button2 } from "../../../components/Ui/Button";
 function Pricing() {
+  
   const [pricing, setPricing] = useState([]);
-  const [ symbol, setSymbol ] = useState('')
+  const [ symbol, setSymbol ] = useState('');
 
   const keys: string[] = ['monthly', 'quaterly', 'yearly'];
 
@@ -14,7 +15,6 @@ function Pricing() {
       .then(response => response.json())
       .then(data => {
         let cc = '';
-      console.log(data.country)
       if(data.country === "NG"){ 
         cc = "NGN" 
         setSymbol('₦');
@@ -25,7 +25,7 @@ function Pricing() {
       fetch('https://api.hellotioo.com/open/pricing?cc='+cc)
         .then(response => response.json())
         .then(data => {
-          setPricing(data.data.pricing)
+          setPricing(data.data.pricing);
         })
 
       })
