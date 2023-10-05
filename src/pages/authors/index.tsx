@@ -40,7 +40,7 @@ function WhyCard({ image, title, description }: any) {
                 <img src={image} alt="" className="w-[60px]" />
             </div>
             <h2 className="my-4 text-[38px] w-[90%] mx-auto font-[700]">{title}</h2>
-            <p className="text-[17px] font-[400] text-gray-800">
+            <p className="text-[17px] font-[400] text-gray-800 font-inter">
                 {description}
             </p>
         </div>
@@ -58,7 +58,7 @@ function WhyTioo() {
         <div className="my-16 px-16">
             <div className="w-[45%] mx-auto text-center">
                 <h2 data-aos="fade-up" className="text-[38px] font-[700]">Why Tioo?</h2>
-                <p data-aos="fade-up" className=" font-[400] text-[17px] text-gray-800">
+                <p data-aos="fade-up" className=" font-[400] text-[17px] font-inter text-gray-800">
                     Join us on this exciting journey to enhance kids' understanding while earning royalties when students access your educational content
                 </p>
             </div>
@@ -82,7 +82,7 @@ function Pattern1() {
             </div>
             <div className="w-[430px]">
                 <h2 className="text-[38px] mb-4 font-[700]" data-aos="fade-left">Digital Convenience</h2>
-                <p className="font-[400] text-gray-800" data-aos="fade-left">
+                <p className="font-[400] text-gray-800 font-inter" data-aos="fade-left">
                     Embrace the digital era. Make your textbooks and workbooks easily accessible on mobile phones, tablets, and laptops
                 </p>
             </div>
@@ -96,7 +96,7 @@ function Pattern2() {
             <div className='flex items-center justify-between py-20  px-16 bg-[#FFE4F9]'>
                 <div className="w-[330px]">
                     <h2 className="text-[38px] mb-4 font-[700]" data-aos="fade-right" >User Analytics</h2>
-                    <p className="font-[400] text-gray-800" data-aos="fade-right" >
+                    <p className="font-[400] text-gray-800 font-inter" data-aos="fade-right" >
                         Gain insights into how your content is being used. Our analytics tools provide valuable data on reader engagement, helping you refine your offerings and improve your content.                </p>
                 </div>
                 <div className="w-[580px] bg-gray-100">
@@ -144,7 +144,7 @@ function Pattern3() {
             </div>
             <div className="w-[430px]">
                 <h2 className="text-[38px] mb-4 font-[700]" data-aos="fade-left" >Eliminate Printing Cost</h2>
-                <p className="font-[400] text-gray-800" data-aos="fade-left" >
+                <p className="font-[400] text-gray-800 font-inter" data-aos="fade-left" >
                     With Tioo, you no longer have to spend money on producing paper textbooks and workbooks. We help you deliver your contents in digital formats without hassle.
                 </p>
             </div>
@@ -216,7 +216,7 @@ const Accordion = ({ title, content }: { title: string, content: string }) => {
             </div>
             {
                 <div className={`bg-gray-50 transition-[max-height] duration-700 ease-out overflow-hidden ${!isOpen? 'max-h-0': 'max-h-[30rem]'}`}>
-                    <div className="p-4 py-10">{content}</div>
+                    <div className="p-4 py-10 font-inter">{content}</div>
                 </div>
             }
         </div>
