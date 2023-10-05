@@ -29,10 +29,10 @@ function Schools() {
         <div className="flex-1 ">
           {SchoolData?.map((items) => (
             <div key={items.id} className=" border-[#87909E] border-b-2 mb-[40px]">
-              <h1 data-aos="fade-left" className="text-[28px] font-[750] text-[rgba(3,0,54,0.74)] mb-4">
+              <h1 data-aos="fade-left" className="text-[28px] font-[750] text-gray-900 mb-4">
                 {items.title}
               </h1>
-              <p data-aos="fade-left" className="text-[14px] sm:text-[16px] font-[500] mb-5 text-[rgba(3,0,54,0.74)]">
+              <p data-aos="fade-left" className="text-[14px] sm:text-[16px] font-[500] mb-5 text-gray-900">
                 {items.desc}
               </p>
             </div>

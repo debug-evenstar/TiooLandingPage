@@ -42,9 +42,9 @@ function Header() {
 
                     </div>
 
-                    <p className='bg-white text-gray-500 mb-7'>An educational practice of introducing young children, typically between the ages of 3 to 12, to the basics of computer programming and coding.</p>
+                    <p className='bg-white text-gray-900 font-[500] mb-7'>An educational practice of introducing young children, typically between the ages of 3 to 12, to the basics of computer programming and coding.</p>
                     <div className="mb-6 py-[1px] h-[70px] w-full bg-gradient-to-r from-[#FA14D5] to-[#4F46E5]">
-                        <div className='text-[#030036BD] h-full bg-white flex items-center'><span className='text-gray-500'>Written by: </span> Moses stephen & Lewis Torn</div>
+                        <div className='text-[#030036BD] h-full bg-white flex items-center'><span className='text-gray-900 mr-2'>Written by: </span> Moses stephen & Lewis Torn</div>
                     </div>
                     <div className="flex items-center space-x-4">
                         <div className='flex space-x-2'>
@@ -59,7 +59,7 @@ function Header() {
                             <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11 0L0 6L4 8.18V14.18L11 18L18 14.18V8.18L20 7.09V14H22V6L11 0ZM17.82 6L11 9.72L4.18 6L11 2.28L17.82 6ZM16 12.99L11 15.72L6 12.99V9.27L11 12L16 9.27V12.99Z" fill="#87909E" />
                             </svg>
-                            <span className="text-primary underline">12 schools are using this book</span>
+                            <span className="text-primary underline">1 school is using this book</span>
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@ const products: TBookCardProps[] = [
 
     {
         title: 'Marketing basics Nursery',
-        sub: 'For Nursery',
+        sub: 'For Primary and Secondary Schools',
         description: 'Students will understand the basic marketing principles and....',
         rating: 4.2,
         image: others1
@@ -151,7 +151,7 @@ const products: TBookCardProps[] = [
 
     {
         title: 'Nursery workbook',
-        sub: 'For Nursery',
+        sub: 'For Primary and Secondary Schools',
         description: 'Students will understand the basic marketing principles and....',
         rating: 4.2,
         image: others1
@@ -159,7 +159,7 @@ const products: TBookCardProps[] = [
 
     {
         title: 'Marketing basics Primary',
-        sub: 'For Primary',
+        sub: 'For Primary and Secondary Schools',
         description: 'Students will understand the basic marketing principles and....',
         rating: 4.2,
         image: others2
@@ -167,7 +167,7 @@ const products: TBookCardProps[] = [
 
     {
         title: 'Primary workbook',
-        sub: 'For Primary',
+        sub: 'For Primary and Secondary Schools',
         description: 'Students will understand the basic marketing principles and....',
         rating: 4.2,
         image: others3
@@ -183,12 +183,12 @@ function BookCard({ title, image, sub, description, rating }: TBookCardProps) {
             </div>
             <div className="p-2 py-3">
                 <h1 className="text-gray-600 font-[500]">{title}</h1>
-                <p className="text-gray-400 my-3 text-sm">{description}</p>
-                <span className="py-[3px] text-gray-500 px-3 text-sm rounded-full">
+                <p className="text-gray-900 my-3 text-sm">{description}</p>
+                <span className="py-[3px] text-gray-900 px-3 text-sm rounded-full">
                     <sup className="font-[900]">*</sup>
                     {rating}
                 </span>
-                <div className='text-[12px] text-gray-400 mt-3'>
+                <div className='text-[12px] text-gray-900 mt-3'>
                     {sub}
                 </div>
             </div>
