@@ -51,10 +51,10 @@ function Navbar() {
                 <div key={index} className="flex flex-col items-center h-full text-white mt-6">
                   <Link
                     to={item.url}
-                    className={`hover:scale-[1.1] font-[600] ease-in hover:font-[500] duration-300 ${
+                    className={`hover:scale-[1.1] font-[600] text-[#4F46E5]  ease-in-out duration-300 ${
                       colorchange || pathname !== "/"
-                        ? ` text-[#4F46E5] border-[#4F46E5]`
-                        : `text-[#FFF] ]`
+                        ? `border-[#4F46E5]`
+                        : `text-[#FFF]`
                     } ${paths[1] == item.url.replace('/','') && `font-[700] border-b-2`}`}
                   >
                     {item.text}
@@ -72,7 +72,7 @@ function Navbar() {
                 to="/login"
                 className={`font-[600] ${
                   colorchange || pathname !== "/"
-                    ? `text-[#4F46E5]`
+                    ? `text-primary`
                     : `text-white`
                 }`}
               >

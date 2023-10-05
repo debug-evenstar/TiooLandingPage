@@ -13,7 +13,7 @@ import appleStore from '../../assets/icons/applestore.svg';
 import PageLayout from '../../layouts/PageLayout';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import { BsWhatsapp } from 'react-icons/bs';
 
 function Header() {
     return (
@@ -260,6 +260,28 @@ function FAQ(){
                 {questions.map((item: any,index: number) => (
                     <Accordion key={index} title={item.q} content={item.a} />
                 ))}
+
+                <div className="w-full text-primary text-sm text-center mt-16">
+                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                    Other questions?
+                    </p>
+                </div>
+                <div className="flex text-primary text-sm flex-col  sm:flex-row gap-0 sm:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
+                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                        Email{" "}
+                        <a className="text-[#4F46E5]" href="mailto:support@hellotioo.com">
+                            support@hellotioo.com
+                        </a>{" "}
+                    </p>
+                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                        or
+                        <BsWhatsapp className="inline ml-2 mr-2" />
+                        <a className="text-[#4F46E5]" href="tel:+2347018481060">
+                            +234 701 848 106022
+                        </a>
+                    </p>
+                </div>
+
             </div>
         </>
     );

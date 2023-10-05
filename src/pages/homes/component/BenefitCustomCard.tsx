@@ -31,7 +31,7 @@ const BenefitCustomCard: React.FC<BenefitCustomCardprop> = ({
         </h1>
         <img src={img} className="group-hover:scale-[1.05] duration-300" />
       </div>
-      <p className="mb-10 text-gray-900 text-[20px]">{desc}</p>
+      <p className="mb-10 text-gray-900 font-inter text-[20px]">{desc}</p>
     </div>
   );
 };

@@ -7,11 +7,11 @@ import PageLayout from "../../layouts/PageLayout";
 import { useNavigate } from 'react-router-dom';
 
 const libraryMaterials: { name: string, sub: string, image: string}[] = [
-    { name: 'Early coding for kids (Book 1)', sub: 'For Nursery and Primary Schools', image: library1 },
-    { name: 'Early coding for kids (Book 2)', sub: 'For Nursery and Primary Schools', image: library2 },
-    { name: 'Early coding for kids (workbook)', sub: 'For Nursery and Primary Schools', image: library3 },
-    { name: 'Early coding for kids (Book 1)', sub: 'For Nursery and Primary Schools', image: library1 },
-    { name: 'Early coding for kids (Book 2)', sub: 'For Nursery and Primary Schools', image: library2 },
+    { name: 'Early coding for kids (Book 1)', sub: 'For Primary and Secondary Schools', image: library1 },
+    { name: 'Early coding for kids (Book 2)', sub: 'For Primary and Secondary Schools', image: library2 },
+    { name: 'Early coding for kids (workbook)', sub: 'For Primary and Secondary Schools', image: library3 },
+    { name: 'Early coding for kids (Book 1)', sub: 'For Primary and Secondary Schools', image: library1 },
+    { name: 'Early coding for kids (Book 2)', sub: 'For Primary and Secondary Schools', image: library2 },
 ];
 
 export interface ILibraryCardProps {
@@ -70,7 +70,7 @@ function LibraryCard(card: ILibraryCardProps) {
             </div>
             <div className="p-3 mt-6">
                 <p className="text-[28px] mt-2 font-[700] text-[#030036BD]">{card.name}</p>
-                <p className="text-sm text-gray-400 mt-4">{card.sub}</p>
+                <p className="text-sm text-gray-900 mt-4">{card.sub}</p>
             </div>
         </div>
     );

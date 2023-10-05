@@ -62,7 +62,7 @@ export const pricingData: pricingDataP[] = [
 
     amount: "₦ 8,000",
     time: "/month",
-    level: "Started",
+    level: "Starter",
     level_desc: "Early coding for kids",
     list: [
       "AI tutoring",
@@ -80,7 +80,7 @@ export const pricingData: pricingDataP[] = [
 
     amount: "₦ 12,000",
     time: "/month",
-    level: "Started",
+    level: "Starter",
     level_desc: "Early coding for kids",
     list: [
       "AI tutoring",
@@ -98,7 +98,7 @@ export const pricingData: pricingDataP[] = [
 
     amount: "₦ 36,000",
     time: "/month",
-    level: "Started",
+    level: "Starter",
     level_desc: "Early coding for kids",
     list: [
       "AI tutoring",

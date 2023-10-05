@@ -22,7 +22,7 @@ function Schools() {
           Onboard your school on Tioo today
         </p>
       </div>
-      <div className="flex gap-8 mt-8 ">
+      <div className="flex gap-8 mt-16 ">
         <div className="flex-1 bg-[#FFF] h-[600px] rounded-[30px] flex items-center">
           <img src={schimg} className="w-full h-[60%] object-cover" />
         </div>
@@ -32,7 +32,7 @@ function Schools() {
               <h1 data-aos="fade-left" className="text-[28px] font-[750] text-gray-900 mb-4">
                 {items.title}
               </h1>
-              <p data-aos="fade-left" className="text-[14px] sm:text-[16px] font-[500] mb-5 text-gray-900">
+              <p data-aos="fade-left" className="text-[14px] font-inter sm:text-[16px] font-[500] mb-5 text-gray-900">
                 {items.desc}
               </p>
             </div>
