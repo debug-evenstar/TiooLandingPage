@@ -7,7 +7,7 @@ function Pricing() {
   const [pricing, setPricing] = useState([]);
   const [ symbol, setSymbol ] = useState('');
 
-  const keys: string[] = ['monthly', 'quarterly', 'yearly'];
+  const keys: string[] = ['monthly', 'quaterly', 'yearly'];
 
 
   useEffect(() => {
