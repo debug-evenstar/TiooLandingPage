@@ -46,7 +46,7 @@ function Pricing() {
             <h1 className=" text-[#4F46E5] -mt-4 text-[40px] font-[700]">
               {/* {item.amount} */}
               {symbol} {!!pricing.length? pricing[index][keys[index]].toLocaleString() : null}
-              <span className="text-[black] font-[400]">/{keys[index]?.replace('ua','uar')}</span>
+              <span className="text-black font-[400]">/{keys[index]?.replace('ua','uar')}</span>
             </h1>
             <p> </p>
             
@@ -76,7 +76,7 @@ function Pricing() {
           </div>
           <div className="bottom-0 ">
             {/*<Button2 text1="Get Started" onclick={() => { }} />*/}
-            <button className="w-full bg-[#4F46E5] py-3.5 rounded-[4px] text-white font-[500]">
+            <button className="w-full bg-[#4F46E5] py-3.5 rounded-[4px] text-white font-[600]">
               Get Started
             </button>
           </div>

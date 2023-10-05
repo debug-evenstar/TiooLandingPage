@@ -20,9 +20,9 @@ function Header() {
           <h1 className="text-[40px] font-[750] leading-[50px]">
             One subscription, Unlimited access
           </h1>
-          <p className=" text-[#E4E1E1] text-[16px]">
+          <p className=" text-[#E4E1E1] text-[16px] font-inter">
             A single subscription gives you access to all the gamified textbooks
-            and workbooks available in our library.{" "}
+            and workbooks available in our library.
           </p>
         </div>
       </div>

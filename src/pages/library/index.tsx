@@ -70,7 +70,7 @@ function LibraryCard(card: ILibraryCardProps) {
             </div>
             <div className="p-3 mt-6">
                 <p className="text-[28px] mt-2 font-[700] text-[#030036BD]">{card.name}</p>
-                <p className="text-sm text-gray-900 mt-4">{card.sub}</p>
+                <p className="text-sm text-gray-900 mt-4 font-inter">{card.sub}</p>
             </div>
         </div>
     );

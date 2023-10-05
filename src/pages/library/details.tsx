@@ -42,7 +42,7 @@ function Header() {
 
                     </div>
 
-                    <p className='bg-white text-gray-900 font-[500] mb-7'>An educational practice of introducing young children, typically between the ages of 3 to 12, to the basics of computer programming and coding.</p>
+                    <p className='bg-white text-gray-900 font-[500] font-inter mb-7'>An educational practice of introducing young children, typically between the ages of 3 to 12, to the basics of computer programming and coding.</p>
                     <div className="mb-6 py-[1px] h-[70px] w-full bg-gradient-to-r from-[#FA14D5] to-[#4F46E5]">
                         <div className='text-[#030036BD] h-full bg-white flex items-center'><span className='text-gray-900 mr-2'>Written by: </span> Moses stephen & Lewis Torn</div>
                     </div>
@@ -188,7 +188,7 @@ function BookCard({ title, image, sub, description, rating }: TBookCardProps) {
                     <sup className="font-[900]">*</sup>
                     {rating}
                 </span>
-                <div className='text-[12px] text-gray-900 mt-3'>
+                <div className='text-[12px] font-inter text-gray-900 mt-3'>
                     {sub}
                 </div>
             </div>
