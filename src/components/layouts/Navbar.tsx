@@ -10,6 +10,7 @@ import { Button2, Button4 } from "../Ui/Button";
 
 function Navbar() {
   const { pathname } = useLocation();
+  const paths = pathname.split('/');
   const [colorchange, setcolorchange] = useState(false);
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -50,11 +51,11 @@ function Navbar() {
                 <div key={index} className="flex flex-col items-center h-full text-white mt-6">
                   <Link
                     to={item.url}
-                    className={`hover:scale-[1.1] font-[500] ease-in hover:font-[500] duration-300 ${
+                    className={`hover:scale-[1.1] font-[600] ease-in hover:font-[500] duration-300 ${
                       colorchange || pathname !== "/"
                         ? ` text-[#4F46E5] border-[#4F46E5]`
                         : `text-[#FFF] ]`
-                    } ${pathname == item.url && `font-[700] border-b-2`}`}
+                    } ${paths[1] == item.url.replace('/','') && `font-[700] border-b-2`}`}
                   >
                     {item.text}
                   </Link>
@@ -69,13 +70,13 @@ function Navbar() {
             <div className="flex items-center gap-5 mr-4">
               <Link
                 to="/login"
-                className={`${
+                className={`font-[600] ${
                   colorchange || pathname !== "/"
                     ? `text-[#4F46E5]`
                     : `text-white`
                 }`}
               >
-                Login
+                Log in
               </Link>
               <div className="h-[60px]">
                 <Button4
