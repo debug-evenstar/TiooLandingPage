@@ -16,30 +16,30 @@ function Footer() {
       <div className="flex flex-col sm:flex sm:flex-row border-b-2 border-[#CECDFD] w-full ">
         <div className=" w-[15%] ">
           <img
-            className="w-[120px] sm:w-[160px] h-[100px] sm:h-[124px] absolute top-0 sm:top-9 left-5"
+            className="w-[120px] sm:w-[140px] absolute top-0 sm:top-9 left-5"
             src={logo}
           />
           <h5 className="absolute left-[70px] sm:left-[90px] bottom-[180px] sm:bottom-[80px] font-[500] text-[12px] text-[#4F46E5]">
             By Praxeum
           </h5>
         </div>
-        <div className="  flex flex-col sm:flex sm:flex-row  mt-[8rem] sm:mt-[4rem] gap-[1px] sm:gap-5 w-[85%]  mb-[20px]   justify-left sm:justify-evenly">
+        <div className="  flex flex-col sm:flex sm:flex-row  mt-[8rem] sm:mt-[4rem] gap-[1px] sm:gap-5 w-[90%]  mb-[20px]   justify-left sm:justify-evenly">
           <div className="h-full pl-4 sm:p-0 w-full sm:w-[50%] ">
             <div className="flex gap-5 mb-5 ">
               <a
-                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] sm:text-[20px]"
+                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] sm:text-[18px]"
                 href="#"
               >
                 About
               </a>
               <a
-                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] sm:text-[20px]"
+                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] sm:text-[18px]"
                 href="#"
               >
                 Privacy
               </a>
               <a
-                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] sm:text-[20px]"
+                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] sm:text-[18px]"
                 href="#"
               >
                 Terms
@@ -47,8 +47,8 @@ function Footer() {
             </div>
             <div className="hidden sm:flex gap-10  h-[60px] w-full      ">
               <ButtonCustom
-                height={13}
-                width={200}
+                height={10}
+                width={190}
                 image={play}
                 // text1="Get app on"
                 text2="Google play"
@@ -57,8 +57,8 @@ function Footer() {
               />
               <ButtonCustom
                 image={apple}
-                height={13}
-                width={200}
+                height={10}
+                width={190}
                 // text1="Get app on"
                 text2="apple store"
                 bg={"2C2C30"}
@@ -67,7 +67,7 @@ function Footer() {
             </div>
           </div>
           <div className="h-full w-full sm:w-[50%]  flex flex-col justify-center items-end pt-5 ">
-            <div className="absolute top-[50px] left-[140px] sm:static flex  gap-3 w-[130px] items-end justify-end sm:mr-10">
+            <div className="absolute top-[50px] text-primary mb-5 left-[140px] sm:static flex  gap-3 w-[130px] items-end justify-end sm:mr-10">
               <AiOutlineTwitter />
               <SlSocialLinkedin />
               <AiOutlineInstagram />

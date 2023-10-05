@@ -39,7 +39,7 @@ function Benefit() {
             <h1 className="text-[rgba(3,0,54,0.74)] text-[50px] font-[700]">
               Why Tioo?
             </h1>
-            <p className="text-[20px] font-[400] text-center">
+            <p className="text-[20px] font-inter font-[400] text-center">
               Transform learning into an exciting and interactive experience.
             </p>
           </div>

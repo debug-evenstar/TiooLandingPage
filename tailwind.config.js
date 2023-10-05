@@ -15,9 +15,13 @@ module.exports = withMT({
         frame:
           "url('https://res.cloudinary.com/dic7regoe/image/upload/v1689405515/praxeum/Frame_1000004193_io2u7f.png')",
       },
+      fontFamily: {
+        inter: ["Inter", 'sans-serif'],
+      },
     },
     fontFamily: {
       primary: ["poppins"],
+      inter: ["Inter", 'sans-serif'],
       sans: ["Comic Sans MS", "sans-serif"],
     },
   },

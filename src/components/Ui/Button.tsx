@@ -68,7 +68,7 @@ export const Button4: React.FC<button> = ({
   return (
     <div
       //   className={`flex justify-center items-center font-[poppins] h-[${height}px] w-[${width}px] bg-[#4F46E5] rounded-[8px] text-[white]`}
-      className={`flex text-center border-[1px] py-[12px] px-[27px] justify-center items-center h-full w-full text-white  rounded-[10px] sm:rounded-[8px] cursor-pointer ${
+      className={`flex text-center border-[1px] py-[11px] px-[27px] justify-center items-center h-full w-full text-white  rounded-[10px] sm:rounded-[8px] cursor-pointer ${
         variant == "default" ? ` border-[#FFF]` : `bg-main`
       }`}
       onClick={onclick}
