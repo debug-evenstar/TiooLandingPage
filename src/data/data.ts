@@ -5,7 +5,7 @@ import {
   schoolDataP,
 } from "../types/types";
 
-import aipower from "../images/homeimg/aipower.png";
+import ai from "../images/homeimg/ai.png";
 import lib from "../images/homeimg/library.png";
 import inter from "../images/homeimg/interactive.png";
 export const NAV_DATA: navData[] = [
@@ -17,7 +17,7 @@ export const NAV_DATA: navData[] = [
 export const benefitData: BenefitCustomCardprop[] = [
   {
     title: "AI-Powered Learning",
-    img: lib,
+    img: ai,
     desc: "Tioo leverages artificial intelligence to personalize and enhance your child’s educational experiences. ",
     col: 1,
   },
