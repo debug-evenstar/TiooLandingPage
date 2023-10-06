@@ -7,11 +7,11 @@ import PageLayout from "../../layouts/PageLayout";
 import { useNavigate } from 'react-router-dom';
 
 const libraryMaterials: { name: string, sub: string, image: string}[] = [
-    { name: 'Early coding for kids (Book 1)', sub: 'For Primary and Secondary Schools', image: library1 },
-    { name: 'Early coding for kids (Book 2)', sub: 'For Primary and Secondary Schools', image: library2 },
-    { name: 'Early coding for kids (workbook)', sub: 'For Primary and Secondary Schools', image: library3 },
-    { name: 'Early coding for kids (Book 1)', sub: 'For Primary and Secondary Schools', image: library1 },
-    { name: 'Early coding for kids (Book 2)', sub: 'For Primary and Secondary Schools', image: library2 },
+    { name: 'Early coding for kids (Level 1)', sub: 'For Primary and Secondary Schools', image: library1 },
+    { name: 'Early coding for kids (Level 2)', sub: 'For Primary and Secondary Schools', image: library2 },
+    { name: 'Early coding for kids (Level 3)', sub: 'For Primary and Secondary Schools', image: library3 },
+    { name: 'Early coding for kids (Level 4)', sub: 'For Primary and Secondary Schools', image: library1 },
+    { name: 'Early coding for kids (Level 5)', sub: 'For Primary and Secondary Schools', image: library2 },
 ];
 
 export interface ILibraryCardProps {
