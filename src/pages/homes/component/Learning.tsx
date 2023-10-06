@@ -3,8 +3,10 @@ import { Button2, Button3 } from "../../../components/Ui/Button";
 import ButtonCustom from "../../../components/components/ButtonCustom";
 import apple from "../../../images/apple.png";
 import play from "../../../images/play.png";
-
+import { useNavigate } from 'react-router-dom';
 function Learning() {
+  const navigate = useNavigate();
+  
   return (
     <div className="flex justify-between gap-20 p-5 mt-20 gradient2 rounded-[8px] shadows">
       <div className="flex flex-col  w-[40%]  gap-5">
@@ -15,7 +17,7 @@ function Learning() {
           Wondering how we can assist you? Let's have a chat!
         </p>
         <div className="flex gap-4">
-          <Button2 text1="Get Started" onclick={() => {}} />
+          <Button2 text1="Get Started" onclick={() => navigate('/signup')} />
           <Button2 text1="Contact us" onclick={() => {}} variant="secondary" />
         </div>
       </div>

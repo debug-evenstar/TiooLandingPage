@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import { Button2 } from "../../../components/Ui/Button";
 import book from "../../../images/homeimg/books.png";
 import game from "../../../images/homeimg/game.png";
@@ -6,6 +7,7 @@ import planet from "../../../images/homeimg/planet.png";
 import vr from "../../../images/homeimg/vr.png";
 
 function Header() {
+  const navigate = useNavigate();
   return (
     <div className="bg-[#0E096C] w-full px-40 mt-[10px] h-screen pt-32 relative">
       <img src={book} className="absolute top-[120px] left-[70px] " />
@@ -30,7 +32,7 @@ function Header() {
         <div className="w-[220px]">
           <Button2
             text1="Start Learning"
-            onclick={() => {}}
+            onclick={() => navigate('/signup')}
             variant="secondary"
           />
         </div>

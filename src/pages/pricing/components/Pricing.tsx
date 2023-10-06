@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from 'react-router-dom';
 import { pricingData } from "../../../data/data";
 import point from "../../../images/pricingimg/point.png";
 import { Button2 } from "../../../components/Ui/Button";
@@ -6,6 +7,7 @@ function Pricing() {
   
   const [pricing, setPricing] = useState([]);
   const [ symbol, setSymbol ] = useState('');
+  const navigate = useNavigate();
 
   const keys: string[] = ['monthly', 'quaterly', 'yearly'];
 
@@ -76,7 +78,7 @@ function Pricing() {
           </div>
           <div className="bottom-0 ">
             {/*<Button2 text1="Get Started" onclick={() => { }} />*/}
-            <button className="w-full bg-[#4F46E5] py-3.5 rounded-[4px] text-white font-[600]">
+            <button onClick={() => navigate('/signup')} className="w-full bg-[#4F46E5] py-3.5 rounded-[4px] text-white font-[600]">
               Get Started
             </button>
           </div>

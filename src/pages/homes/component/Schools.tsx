@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { SchoolData } from "../../../data/data";
 import { Button2 } from "../../../components/Ui/Button";
 import AOS from 'aos';
+import { useNavigate } from 'react-router-dom';
 import 'aos/dist/aos.css';
 function Schools() {
   useEffect(() => {
@@ -12,6 +13,8 @@ function Schools() {
     });
     AOS.refresh();
   },[])
+
+  const navigate = useNavigate();
   return (
     <div className="w-full px-20 py-16 mt-20 gradient">
       <div className="flex flex-col items-center justify-center w-full ">
@@ -38,7 +41,7 @@ function Schools() {
             </div>
           ))}
           <div className="w-[200px] mt-10">
-            <Button2 text1="Get Started" onclick={() => {}} />
+            <Button2 text1="Get Started" onclick={() => navigate('signup')} />
           </div>
         </div>
       </div>

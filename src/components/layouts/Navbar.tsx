@@ -84,7 +84,7 @@ function Navbar() {
                   onclick={doSignin}
                   variant={colorchange || pathname !== "/" ? "sec" : "default"}
                 />*/}
-                <button className={`px-10 py-3.5 rounded-[4px] font-[600] text-white
+                <button onClick={() => nav('/signup')}className={`px-10 py-3.5 rounded-[4px] font-[600] text-white
                     ${colorchange || pathname !== '/'? 'bg-[#4F46E5] text-[#4F46E5]':'border-2 border-white bg-transparent'}
                   `}>
                   Get Started
