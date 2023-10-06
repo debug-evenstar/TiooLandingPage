@@ -31,7 +31,7 @@ function Featuredbook() {
           </div>
         </div>
         <div className="flex-1 ml-[10rem]">
-          <div className="rounded-[32px] w-[440px] h-[450px] flex items-center justify-center text-white">
+          <div className="rounded-[32px] w-[440px] flex items-center justify-center text-white">
             <img src={featuredBook} className="w-full"/>
           </div>
         </div>
