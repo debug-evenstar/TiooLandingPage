@@ -25,10 +25,10 @@ function Learning() {
         <p className="text-[20px] rgba(3,0,54,0.74)">
           Enjoy a seamless interaction, Get Tioo App
         </p>
-        <div className="hidden sm:flex gap-10  h-[60px] w-full      ">
+        <div className="hidden sm:flex space-x-5  h-[60px] w-full      ">
           <ButtonCustom
             height={13}
-            width={220}
+            width={250}
             image={play}
             // text1="Get app on"
             text2="Google play"
@@ -38,7 +38,7 @@ function Learning() {
           <ButtonCustom
             image={apple}
             height={13}
-            width={220}
+            width={250}
             // text1="Get app on"
             text2="apple store"
             bg={"2C2C30"}
