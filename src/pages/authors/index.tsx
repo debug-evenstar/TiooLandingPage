@@ -39,7 +39,7 @@ function WhyCard({ image, title, description }: any) {
             <div className="h-[120px] w-[120px] flex items-center justify-center rounded-full bg-gray-200 mx-auto">
                 <img src={image} alt="" className="w-[60px]" />
             </div>
-            <h2 className="my-4 text-[38px] w-[90%] mx-auto font-[700]">{title}</h2>
+            <h2 className="my-4 text-[38px] w-[85%] mx-auto font-[700]">{title}</h2>
             <p className="text-[17px] font-[400] text-gray-800 font-inter">
                 {description}
             </p>
