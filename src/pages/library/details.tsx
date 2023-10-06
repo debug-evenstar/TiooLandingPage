@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router';
-import hero1 from '../../assets/hero1.png';
+import hero2 from '../../assets/hero2.png';
 import others1 from '../../assets/others1.png';
 import others2 from '../../assets/others2.png';
 import others3 from '../../assets/others3.png';
@@ -21,7 +21,10 @@ function Header() {
     return (
         <div>
             <div className="flex w-[90%] mx-auto space-x-10">
-                <img src={hero1} alt="" className="w-[450px]" />
+                {/*<img src={hero1} alt="" className="w-[450px]" />*/}
+                <div className="w-[450px] shadow-lg">
+                    <img src={hero2} alt="" className="w-full" />
+                </div>
                 <div className='w-[450px]'>
                     <h1 className="font-[700] text-[40px] text-[#030036BD]">Early Coding for kids (Book 1)</h1>
                     <div>
