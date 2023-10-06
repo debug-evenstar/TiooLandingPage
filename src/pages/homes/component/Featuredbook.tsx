@@ -1,6 +1,6 @@
 import React from "react";
 import { Button2 } from "../../../components/Ui/Button";
-
+import featuredBook from '../../../images/homeimg/featuredbook.png';
 function Featuredbook() {
   return (
     <div className="bg-[#E3E2FF]  w-full px-10 rounded-[20px] mt-52 relative pt-40 pb-20">
@@ -30,9 +30,9 @@ function Featuredbook() {
             <Button2 text1="Preview book" onclick={() => {}} />
           </div>
         </div>
-        <div className="flex-1 ml-[14rem]">
-          <div className="bg-[#8896CA]  rounded-[32px] w-[400px] h-[450px] flex items-center justify-center text-white">
-            <p>Textbook’s image</p>
+        <div className="flex-1 ml-[10rem]">
+          <div className="rounded-[32px] w-[440px] h-[450px] flex items-center justify-center text-white">
+            <img src={featuredBook} className="w-full"/>
           </div>
         </div>
       </div>

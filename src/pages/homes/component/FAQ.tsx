@@ -143,7 +143,7 @@ const Accordion = ({ title, content }: { title: string, content: string }) => {
                 </div>
             </div>
             {
-                <div className={`bg-gray-50 transition-[max-height] duration-700 ease-out overflow-hidden ${!isOpen? 'max-h-0': 'max-h-[30rem]'}`}>
+                <div className={`bg-gray-50 transition-[max-height] duration-700 font-inter ease-out overflow-hidden ${!isOpen? 'max-h-0': 'max-h-[30rem]'}`}>
                     <div className="p-4 py-10 text-primary">{content}</div>
                 </div>
             }
@@ -176,7 +176,7 @@ function FAQ(){
                         or
                         <BsWhatsapp className="inline ml-2 mr-2" />
                         <a className="text-[#4F46E5]" href="tel:+2347018481060">
-                            +234 701 848 106022
+                            +234 701 848 1060
                         </a>
                     </p>
                 </div>
