@@ -45,7 +45,7 @@ function Pricing() {
             </p>
             <h1 className=" text-[#4F46E5] -mt-4 text-[40px] font-[700]">
               {/* {item.amount} */}
-              {symbol} {!!pricing.length? pricing[index][keys[index]].toLocaleString() : null}
+              {symbol} {!!pricing.length? pricing[index][keys[index]]  : null}
               <span className="text-black font-[400]">/{keys[index]?.replace('ua','uar')}</span>
             </h1>
             <p> </p>
