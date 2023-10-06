@@ -43,6 +43,7 @@ function Search() {
 
 
 function CallToAction() {
+    const navigate = useNavigate();
 
     return (
         <div className="relative w-full h-[78px] mt-10" >
@@ -52,7 +53,7 @@ function CallToAction() {
                     <p>
                         Explore our vast library of gamified textbooks and workbooks
                     </p>
-                    <button className="px-3 py-2 border border-white rounded-[8px]">Start learning</button>
+                    <button onClick={() => navigate('/signup')} className="px-3 py-2 border border-white rounded-[8px]">Start learning</button>
                 </div>
             </div>
         </div>
@@ -63,10 +64,10 @@ function CallToAction() {
 function LibraryCard(card: ILibraryCardProps) {
     const navigate = useNavigate();
     return (
-        <div onClick={() => navigate('details', { state: card })} className="w-[350px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[388px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
+        <div onClick={() => navigate('details', { state: card })} className="group w-[350px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[388px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
         {/* <div onClick={() => navigate('details', { state: card })} className="w-[100%] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[400px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden"> */}
-            <div className="w-full h-[169px] bg-gray-200">
-                <img src={card.image} className="w-full" alt="" />
+            <div className="w-full h-[169px] bg-gray-200 overflow-hidden">
+                <img src={card.image} className="w-full group-hover:scale-[1.07] ease-in duration-300" alt="" />
             </div>
             <div className="p-3 mt-6">
                 <p className="text-[28px] mt-2 font-[700] text-[#030036BD]">{card.name}</p>

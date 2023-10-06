@@ -12,27 +12,6 @@ function Benefit() {
   return (
     <>
       <div className="px-16 py-10 ">
-        <p className="">Get the App</p>
-        <div className="hidden sm:flex gap-10  h-[60px] w-full      ">
-          <ButtonCustom
-            height={15}
-            width={220}
-            image={play}
-            // text1="Get app on"
-            text2="Google play"
-            bg={"2C2C30"}
-            onclick={() => {}}
-          />
-          <ButtonCustom
-            image={apple}
-            height={15}
-            width={220}
-            // text1="Get app on"
-            text2="apple store"
-            bg={"2C2C30"}
-            onclick={() => {}}
-          />
-        </div>
         <div className="grid w-full grid-cols-2 gap-5 px-4 ">
           <div className="flex flex-col items-center justify-center p-14">
             {" "}

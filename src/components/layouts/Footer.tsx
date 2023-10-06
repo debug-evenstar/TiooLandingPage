@@ -73,7 +73,7 @@ function Footer() {
               <AiOutlineInstagram />
               <BsFacebook />
             </div>
-            <div className="w-full sm:w-[418px] flex items-start sm:items-end mr-0 sm:mr-10 ">
+            <div className="w-full sm:w-[418px] flex items-start sm:items-end mr-0 ">
               <p className=" pl-4 sm:p-0 text-primary font-[400] text-sm sm:text-primary text-left sm:text-right">
                 3 Atabara Street, off cairo street, Ademola Adetukonbo,
                 Crescent, Wuse 2, Abuja, FCT
