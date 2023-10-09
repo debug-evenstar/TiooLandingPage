@@ -5,6 +5,7 @@ import ctaImage from '../../assets/cta.jpeg';
 import searchIcon from '../../assets/icons/search.svg';
 import PageLayout from "../../layouts/PageLayout";
 import { useNavigate } from 'react-router-dom';
+import imageCover from '../../assets/images/new-cover.png';
 
 const libraryMaterials: { name: string, sub: string, image: string}[] = [
     { name: 'Early coding for kids (Level 1)', sub: 'For Primary and Secondary Schools', image: library1 },
@@ -67,7 +68,7 @@ function LibraryCard(card: ILibraryCardProps) {
         <div onClick={() => navigate('details', { state: card })} className="group w-[350px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[388px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
         {/* <div onClick={() => navigate('details', { state: card })} className="w-[100%] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[400px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden"> */}
             <div className="w-full h-[169px] bg-gray-200 overflow-hidden">
-                <img src={card.image} className="w-full group-hover:scale-[1.07] ease-in duration-300" alt="" />
+                <img src={imageCover} className="w-full group-hover:scale-[1.07] ease-in duration-300" alt="" />
             </div>
             <div className="p-3 mt-6">
                 <p className="text-[28px] mt-2 font-[700] text-[#030036BD]">{card.name}</p>
