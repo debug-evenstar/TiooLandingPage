@@ -28,6 +28,14 @@ function VideoPlayer({ onLoad,start }: any) {
         onLoad(ref);
     },[start]);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+
+        },3000)
+
+        return clearTimeout(timer);
+    },[]);
+
     const toggleVideos = () => {
         console.log('ended video with tab:', current);
         const newCurrent = (current + 1) % 3;
@@ -41,14 +49,13 @@ function VideoPlayer({ onLoad,start }: any) {
 
     return (
         <>
-            {loaded > 2? 
+            {loaded? 
                 <div className={`flex duration-1000 transition-all items-center overflow-hidden rounded-[10px] ${start? 'opacity-100': 'opacity-0 -translate-y-full'}`}>
                     <video
                         ref={videoRef1}
                         className={`transition-opacity duration-1000 ${current === 0 ? 'opacity-100' : 'opacity-0'}`}
                         onEnded={toggleVideos}
                         src={video1}
-                        onLoadedMetadata={onVideoLoad}
                     />
 
                     <video
@@ -56,7 +63,6 @@ function VideoPlayer({ onLoad,start }: any) {
                         className={`transition-all duration-1000 ${current === 1 ? 'opacity-100 -translate-x-full' : current === 2 ? '-translate-x-[200%] opacity-0' : 'opacity-0'}`}
                         onEnded={toggleVideos}
                         src={video2}
-                        onLoadedMetadata={onVideoLoad}
                     />
 
                     <video
@@ -64,12 +70,11 @@ function VideoPlayer({ onLoad,start }: any) {
                         className={`transition-all duration-1000 ${current === 2 ? 'opacity-100 -translate-x-[200%]' : 'opacity-0'}`}
                         onEnded={toggleVideos}
                         src={video3}
-                        onLoadedMetadata={onVideoLoad}
                     />
                 </div>
                 :
                 <div className="w-full flex items-center justify-center h-full">
-                    <PulseLoader color="white" size={4} />
+                    <PulseLoader color="white" size={6} />
                 </div>
             }
         </>
