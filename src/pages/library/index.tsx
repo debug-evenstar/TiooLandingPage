@@ -1,25 +1,22 @@
-import library1 from '../../assets/library-1.png';
-import library2 from '../../assets/library-2.png';
-import library3 from '../../assets/library-3.png';
+
 import ctaImage from '../../assets/cta.jpeg';
 import searchIcon from '../../assets/icons/search.svg';
 import PageLayout from "../../layouts/PageLayout";
 import { useNavigate } from 'react-router-dom';
 import imageCover from '../../assets/images/new-cover.png';
 
-const libraryMaterials: { name: string, sub: string, image: string}[] = [
-    { name: 'Early coding for kids (Level 1)', sub: 'For Primary and Secondary Schools', image: library1 },
-    { name: 'Early coding for kids (Level 2)', sub: 'For Primary and Secondary Schools', image: library2 },
-    { name: 'Early coding for kids (Level 3)', sub: 'For Primary and Secondary Schools', image: library3 },
-    { name: 'Early coding for kids (Level 4)', sub: 'For Primary and Secondary Schools', image: library1 },
-    { name: 'Early coding for kids (Level 5)', sub: 'For Primary and Secondary Schools', image: library2 },
-];
-
 export interface ILibraryCardProps {
     name: string;
     sub: string;
-    image: any
 }
+const libraryMaterials: ILibraryCardProps[] = [
+    { name: 'Early coding for kids (Level 1)', sub: 'For Primary and Secondary Schools' },
+    { name: 'Early coding for kids (Level 2)', sub: 'For Primary and Secondary Schools' },
+    { name: 'Early coding for kids (Level 3)', sub: 'For Primary and Secondary Schools' },
+    { name: 'Early coding for kids (Level 4)', sub: 'For Primary and Secondary Schools' },
+    { name: 'Early coding for kids (Level 5)', sub: 'For Primary and Secondary Schools' },
+];
+
 
 function Search() {
     return (

@@ -1,0 +1,52 @@
+import { useEffect, useRef, useState } from 'react';
+
+import video1 from '../../../assets/videos/v1.mp4';
+import video2 from '../../../assets/videos/v2.mp4';
+import video3 from '../../../assets/videos/v3.mp4';
+
+function VideoPlayer({ onLoad }: any) {
+    const videoRef1 = useRef<HTMLVideoElement | null>(null);
+    const videoRef2 = useRef<HTMLVideoElement | null>(null);
+    const videoRef3 = useRef<HTMLVideoElement | null>(null);
+    const refs = [videoRef1, videoRef2, videoRef3];
+    const [current, setCurrent] = useState<number>(0);
+
+    useEffect(() => {
+        const ref = refs[current];
+        if (ref.current)
+            ref.current.currentTime = 0;
+        onLoad(ref);
+    }, [current])
+
+    const toggleVideos = () => {
+        console.log('ended video with tab:', current);
+        const newCurrent = (current + 1) % 3;
+        setCurrent(newCurrent);
+    };
+
+    return (
+        <div className="flex items-center overflow-hidden">
+            <video
+                ref={videoRef1}
+                className={`transition-opacity duration-1000 ${current === 0 ? 'opacity-100' : 'opacity-0'}`}
+                onEnded={toggleVideos}
+                src={video1}
+            />
+
+            <video
+                ref={videoRef2}
+                className={`transition-all duration-1000 ${current === 1 ? 'opacity-100 -translate-x-full' : current === 2 ? '-translate-x-[200%] opacity-0' : 'opacity-0'}`}
+                onEnded={toggleVideos}
+                src={video2}
+            />
+
+            <video
+                ref={videoRef3}
+                className={`transition-all duration-1000 ${current === 2 ? 'opacity-100 -translate-x-[200%]' : 'opacity-0'}`}
+                onEnded={toggleVideos}
+                src={video3}
+            />
+        </div>
+    );
+}
+export default VideoPlayer;
