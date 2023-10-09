@@ -43,7 +43,7 @@ function Pricing() {
         <div key={index} className="flex flex-col border justify-between space-y-3 p-7 w-[350px] gap-4 shadow-lg hover:scale-[1.01] duration-300 rounded-[8px] ">
           <div className="flex flex-col w-full gap-4">
             <p className="text-[#4F46E5] font-[700] flex h-[20px] justify-end">
-            {item.tip_desc &&  'save '+item.tip}
+            {item.tip_desc &&  'save '+symbol + item.tip}
             </p>
             <h1 className=" text-[#4F46E5] -mt-4 text-[40px] font-[700]">
               {/* {item.amount} */}

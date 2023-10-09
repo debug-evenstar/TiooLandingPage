@@ -90,7 +90,7 @@ export const pricingData: pricingDataP[] = [
       "Q&A",
     ],
     availability: "(coming soon)",
-    tip: "₦ 4,000",
+    tip: "6,000",
     tip_desc: "/month | save ₦ 12,000",
   },
   {
@@ -108,7 +108,7 @@ export const pricingData: pricingDataP[] = [
       "Q&A",
     ],
     availability: "(coming soon)",
-    tip: "₦ 3,000 ",
+    tip: "36,000 ",
     tip_desc: "/month | save ₦ 60,000",
   },
 ];
