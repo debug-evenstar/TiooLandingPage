@@ -18,12 +18,12 @@ function Learning() {
         </p>
         <div className="flex gap-4">
           <Button2 text1="Get Started" onclick={() => navigate('/signup')} />
-          <Button2 text1="Contact us" onclick={() => {}} variant="secondary" />
+          {/*<Button2 text1="Contact us" onclick={() => {}} variant="secondary" />*/}
         </div>
       </div>
       <div className=" w-[35%] flex flex-col justify-between">
         <p className="text-[20px] rgba(3,0,54,0.74)">
-          Enjoy a seamless interaction, Get Tioo App
+          Enjoy a seamless interaction
         </p>
         <div className="hidden sm:flex space-x-5  h-[60px] w-full      ">
           <ButtonCustom
