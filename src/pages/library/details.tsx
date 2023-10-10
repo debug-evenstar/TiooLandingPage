@@ -138,7 +138,7 @@ function ObjectiveAndRating() {
                     </div>
                 </div>
                 <div className="flex items-center justify-between w-full mt-10">
-                    <span className="text-[#4F46E5] font-[600] underline">32 Reviews on this book</span>
+                    {/*<span className="text-[#4F46E5] font-[600] underline">32 Reviews on this book</span>*/}
 {/*                    <button className="border border-[#4F46E5] text-[#4F46E5] font-[600] rounded-[8px] px-4 py-3">
                         Write a review
                     </button>*/}

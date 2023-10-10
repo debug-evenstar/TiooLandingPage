@@ -1,4 +1,5 @@
-import { useEffect, useState, useNavigate } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import headerImage from '../../assets/images/header-bg.png';
 import why1 from '../../assets/images/why-1.png';
 import why2 from '../../assets/images/why-2.png';
