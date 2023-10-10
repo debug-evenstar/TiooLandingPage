@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useNavigate } from 'react';
 import headerImage from '../../assets/images/header-bg.png';
 import why1 from '../../assets/images/why-1.png';
 import why2 from '../../assets/images/why-2.png';
@@ -119,6 +119,7 @@ function Pattern2() {
 }
 
 function CallToAction() {
+    const navigate = useNavigate();
     return (
         <div className="relative w-full h-[480px] mt-8" >
             <img src={cta} alt="background" className="absolute inset-0 w-full h-full object-cover object-center" />
@@ -127,7 +128,7 @@ function CallToAction() {
                     <h1 className="font-[500] text-[19px] text-center mb-10"data-aos="fade-up" >
                         Say goodbye to the constraints of traditional publishing timelines. With our website, you have the flexibility to publish and update your content as needed, ensuring it remains current and relevant.
                     </h1>
-                    <button data-aos="fade-up" className='w-[200px] mx-auto h-[60px] rounded-[4px] flex items-center justify-center text-[500] bg-[#4F46E5]'>
+                    <button onClick={() => navigate('/signup')} data-aos="fade-up" className='w-[200px] mx-auto h-[60px] rounded-[4px] flex items-center justify-center text-[500] bg-[#4F46E5]'>
                         Get Started
                     </button>
                 </div>
