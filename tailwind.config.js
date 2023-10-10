@@ -6,7 +6,8 @@ module.exports = withMT({
     extend: {
       colors: {
         primary: "#030036BD",
-        main: '#0E096C'
+        main: '#0E096C',
+        active: '#4F46E5'
       },
     
       backgroundImage: {

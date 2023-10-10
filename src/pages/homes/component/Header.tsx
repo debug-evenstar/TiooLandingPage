@@ -29,7 +29,7 @@ function Header() {
         <p className="text-white text-[20px] text-center">
           Enhance your child's learning with dynamic, gamified and interactive
           textbooks and workbooks designed to self-tutor and provide practical
-          knowledge using AI.
+          knowledge using AI
         </p>
         <div className="w-[220px]">
           <Button2

@@ -196,7 +196,7 @@ const LoginScreen = () => {
             </form>
             <div className="text-center mt-4">
               Don’t have an account?{" "}
-              <Link to="/signup" className="text-primary fw-500">
+              <Link to="/signup" className="text-active fw-500">
                 Sign Up
               </Link>
             </div>
