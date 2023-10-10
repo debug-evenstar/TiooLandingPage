@@ -27,7 +27,8 @@ function Demo() {
             <div className="w-3 h-3 rounded-full bg-red-400"></div>
           </div>
         </div>
-*/}        <div className="overflow-hidden">
+*/}
+        <div className="overflow-hidden">
           {<VideoPlayer play={start} onLoad={loader}/>}
         </div>
         <button onClick={() => toggleStart()} className="shadow-[0_0_10px_5px_rgba(0,0,0,0.3)] absolute outline-none text-3xl text-blue-700 w-[60px] h-[60px] rounded-full bg-white flex items-center justify-center left-10 bottom-8 shadow-2xl">
