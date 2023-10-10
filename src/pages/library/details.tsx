@@ -8,13 +8,27 @@ import PageLayout from '../../layouts/PageLayout';
 import point from '../../images/pricingimg/point.png';
 // import ReactRating from 'react-rating-stars-component';
 
+// const objectives: string[] = [
+//     'Understand the basics of marketing',
+//     'What marketing is and its importance',
+//     'Understand the fundamental principles of marketing',
+//     'Learn how these principles can be applied in real-world cases',
+//     'Learn marketing strategies and innovation',
+//     'Introduction into digital marketing'
+// ];
+
 const objectives: string[] = [
-    'Understand the basics of marketing',
-    'What marketing is and its importance',
-    'Understand the fundamental principles of marketing',
-    'Learn how these principles can be applied in real-world cases',
-    'Learn marketing strategies and innovation',
-    'Introduction into digital marketing'
+    'The amazing world of computers',
+    'Computer Programs',
+    'Coding',
+    'Programing Languages',
+    'Algorithms',
+    'Sequence',
+    'Bugs',
+    'Debugging',
+    'Pathway Ninjas',
+    'Binary Coding',
+    'Coding with scratch',
 ];
 
 function Header() {
@@ -46,9 +60,9 @@ function Header() {
 
                     </div>
 
-                    <p className='bg-white text-gray-900 font-[500] font-inter mb-7'>An educational practice of introducing young children, typically between the ages of 3 to 12, to the basics of computer programming and coding.</p>
+                    <p className='bg-white text-gray-900 font-[500] font-inter mb-7'>An educational practice of introducing young children, between the ages of 5 to 18, to the basics of computer programming and coding.</p>
                     <div className="mb-6 py-[1px] h-[70px] w-full bg-gradient-to-r from-[#FA14D5] to-[#4F46E5]">
-                        <div className='text-[#030036BD] h-full bg-white flex items-center'><span className='text-gray-900 mr-2'>Written by: </span> Moses stephen & Lewis Torn</div>
+                        <div className='text-[#030036BD] h-full bg-white flex items-center'><span className='text-gray-900 mr-2'>Written by: </span> David Ogunshola</div>
                     </div>
                     <div className="flex items-center space-x-4">
                         <div className='flex space-x-2'>
@@ -80,14 +94,13 @@ function ObjectiveAndRating() {
                 <h1 className="text-primary mb-4 font-[600]">What students will learn</h1>
                 <ul>
                     {objectives.map((item: string, index: number) => (
-                        <li key={index} className="flex space-x-2  mb-6 text-sm text-gray-500">
+                        <li key={index} className="flex space-x-2  mb-3 text-sm text-gray-500">
                             {/* <span>
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M21 7.5L9 19.5L3.5 14L4.91 12.59L9 16.67L19.59 6.09L21 7.5Z" fill="#030036" fillOpacity="0.74" />
                                 </svg>
                             </span> */}
                             <img src={point} className="w-[20px] h-[20px]" />
-
                             <p className="text-primary">{item}</p>
                         </li>
                     ))}
@@ -126,9 +139,9 @@ function ObjectiveAndRating() {
                 </div>
                 <div className="flex items-center justify-between w-full mt-10">
                     <span className="text-[#4F46E5] font-[600] underline">32 Reviews on this book</span>
-                    <button className="border border-[#4F46E5] text-[#4F46E5] font-[600] rounded-[8px] px-4 py-3">
+{/*                    <button className="border border-[#4F46E5] text-[#4F46E5] font-[600] rounded-[8px] px-4 py-3">
                         Write a review
-                    </button>
+                    </button>*/}
                 </div>
             </div>
         </div>
@@ -146,33 +159,33 @@ type TBookCardProps = {
 const products: TBookCardProps[] = [
 
     {
-        title: 'Marketing basics Nursery',
+        title: 'Early Coding for kids ( Level 2 )',
         sub: 'For Primary and Secondary Schools',
-        description: 'Students will understand the basic marketing principles and....',
+        description: 'Students will understand the basics of computer programming and ...',
         rating: 4.2,
         image: imageCover
     },
 
     {
-        title: 'Nursery workbook',
+        title: 'Early Coding for kids ( Level 3 )',
         sub: 'For Primary and Secondary Schools',
-        description: 'Students will understand the basic marketing principles and....',
+        description: 'Students will understand the basics of computer programming and ...',
         rating: 4.2,
         image: imageCover
     },
 
     {
-        title: 'Marketing basics Primary',
+        title: 'Early Coding for kids ( Level 4 )',
         sub: 'For Primary and Secondary Schools',
-        description: 'Students will understand the basic marketing principles and....',
+        description: 'Students will understand the basics of computer programming and ...',
         rating: 4.2,
         image: imageCover
     },
 
     {
-        title: 'Primary workbook',
+        title: 'Early Coding for kids ( Level 5 )',
         sub: 'For Primary and Secondary Schools',
-        description: 'Students will understand the basic marketing principles and....',
+        description: 'Students will understand the basics of computer programming and ...',
         rating: 4.2,
         image: imageCover
     },
