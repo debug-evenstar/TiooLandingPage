@@ -27,7 +27,7 @@ function Featuredbook() {
             ages
           </p>
           <div className=" w-[200px]">
-            <Button2 text1="Preview book" onclick={() => {}} />
+            <Button2 text1="Preview book" onclick={() => {window.open(process.env.REACT_APP_PREVIEW_LINK,'_blank')}} />
           </div>
         </div>
         <div className="flex-1 ml-[10rem]">

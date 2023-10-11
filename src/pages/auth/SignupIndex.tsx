@@ -32,7 +32,7 @@ const SignupIndex = () => {
     },
   ];
   const previewBook = () => {
-    toast.info("Not available yet")
+    window.open(process.env.REACT_APP_PREVIEW_LINK,'_blank')
   }
   return (
     <>
