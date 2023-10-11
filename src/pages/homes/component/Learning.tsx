@@ -24,14 +24,13 @@ function Learning() {
           {/*<Button2 text1="Contact us" onclick={() => {}} variant="secondary" />*/}
         </div>
       </div>
-      <div className=" w-[35%] flex flex-col justify-between">
+      <div className=" w-[35%] flex flex-col space-y-4">
         <p className="text-[20px] rgba(3,0,54,0.74)">
           Enjoy a seamless interaction
         </p>
         <div className="hidden sm:flex space-x-5  h-[60px] w-full">
-
-        <img src={playstore} className="w-[250px]"/>
-        <img src={applestore} className="w-[250px]"/>
+          <img src={playstore} className="w-[250px]"/>
+          <img src={applestore} className="w-[250px]"/>
 
 {/*          <ButtonCustom
             height={13}
@@ -52,6 +51,9 @@ function Learning() {
             onclick={() => {}}
           />*/}
         </div>
+        <p className="px-4 py-1.5 bg-white rounded-[8px] shadow  text-center mt-4">
+          Coming Soon
+        </p>
         <div className="flex gap-4"></div>
       </div>
     </div>
