@@ -7,11 +7,6 @@ function Pricing() {
     <PageLayout>
       <Header />
       <Pricings />
-      <div className="mt-10 p-5 rounded-[8px] shadow-xl w-[70%] mx-auto">
-        <p className="text-center text-4xl  text-primary font-[700] font-inter">
-          Don't worry you don't have to pay for each child, one subscription covers all your children.
-        </p>
-      </div>
     </PageLayout>
   );
 }

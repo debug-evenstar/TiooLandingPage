@@ -4,10 +4,14 @@ import searchIcon from '../../assets/icons/search.svg';
 import PageLayout from "../../layouts/PageLayout";
 import { useNavigate } from 'react-router-dom';
 import imageCover from '../../assets/images/new-cover.png';
+import ComingSoon from '../../components/components/comingsoon';
+
+import { useState } from 'react';
 
 export interface ILibraryCardProps {
     name: string;
     sub: string;
+    id?: number;
 }
 const libraryMaterials: ILibraryCardProps[] = [
     { name: 'Early coding for kids (Level 1)', sub: 'For Primary and Secondary Schools' },
@@ -61,10 +65,25 @@ function CallToAction() {
 
 function LibraryCard(card: ILibraryCardProps) {
     const navigate = useNavigate();
+    const [ modal, setModal ] = useState(false);
+
+    const handleClick = () => {
+        if(card.id === 0){
+            navigate('details', { state: card });
+        }else{
+        }
+
+    }
     return (
-        <div onClick={() => navigate('details', { state: card })} className="group w-[350px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[388px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
+        <>
+        <div onClick={handleClick} className="group w-[350px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[388px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
         {/* <div onClick={() => navigate('details', { state: card })} className="w-[100%] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[400px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden"> */}
             <div className="w-full h-[169px] bg-gray-200 overflow-hidden">
+                { card.id !== 0 && 
+                    <div className="relative flex justify-end">
+                        <span className="py-1 absolute bg-red-500 text-white z-[30] px-4">coming soon</span>
+                    </div>
+                }
                 <img src={imageCover} className="w-full group-hover:scale-[1.07] ease-in duration-300" alt="" />
             </div>
             <div className="p-3 mt-6">
@@ -72,6 +91,7 @@ function LibraryCard(card: ILibraryCardProps) {
                 <p className="text-sm text-gray-900 mt-4 font-inter">{card.sub}</p>
             </div>
         </div>
+        </>
     );
 }
 
@@ -88,7 +108,7 @@ export default function Library() {
                                 return (
                                     <div key={index % 2} className="grid grid-cols-3 mx-auto gap-x-10 mt-10">
                                         {libraryMaterials.slice(index, index + 3).map((card: ILibraryCardProps, index: number) => (
-                                            <LibraryCard {...card} key={index} />
+                                            <LibraryCard id={index} {...card} key={index} />
                                         ))}
                                     </div>
                                 )
