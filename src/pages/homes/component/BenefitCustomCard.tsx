@@ -10,7 +10,7 @@ const BenefitCustomCard: React.FC<BenefitCustomCardprop> = ({
   return (
     <div className="hover:scale-[1.02] ease-in group hover:shadow-[0_0_30px_6px_rgba(0,0,0,0.1)] duration-300 w-[94%] rounded-[10px]">
     <div
-      className={`p-5 rounded-[10px] bg-white border-2 border-white group ${
+      className={`p-5 rounded-[10px] h-full bg-white border-2 border-white group ${
         col == 1
           ? `shadow-[inset_0px_0px_15px_0px_rgba(234,57,189,0.50)]`
           : col == 2

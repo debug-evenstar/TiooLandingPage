@@ -138,7 +138,7 @@ function ObjectiveAndRating() {
                     </div>
                 </div>
                 <div className="flex items-center justify-between w-full mt-10">
-                    <span className="text-[#4F46E5] font-[600] underline">32 Reviews on this book</span>
+                    {/*<span className="text-[#4F46E5] font-[600] underline">32 Reviews on this book</span>*/}
 {/*                    <button className="border border-[#4F46E5] text-[#4F46E5] font-[600] rounded-[8px] px-4 py-3">
                         Write a review
                     </button>*/}
@@ -194,8 +194,12 @@ const products: TBookCardProps[] = [
 
 function BookCard({ title, image, sub, description, rating }: TBookCardProps) {
     return (
-        <div className="rounded-[8px] w-[270px] border shadow cursor-pointer">
+        <div className="hover:scale-[1.02] hover:shadow-lg duration-300 rounded-[8px] w-[270px] border shadow cursor-pointer">
             <div className="w-full rounded-t-[8px] overflow-hidden">
+                <div className="relative flex justify-end">
+                    <span className="py-1 rounded-[8px] absolute text-sm bg-red-500 text-white z-[30] px-4">coming soon</span>
+                </div>
+
                 <img src={image} alt="" />
             </div>
             <div className="p-2 py-3">
