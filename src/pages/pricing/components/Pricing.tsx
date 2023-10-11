@@ -28,7 +28,7 @@ function Pricing() {
           setSymbol('$');
         }    // }
 
-      fetch('https://api.hellotioo.com/open/pricing?cc='+cc)
+      fetch(process.env.REACT_APP_BASE_URL+'/open/pricing?cc='+cc)
         .then(response => response.json())
         .then(data => {
           setPricing(data.data.pricing);

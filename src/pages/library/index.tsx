@@ -68,7 +68,7 @@ function LibraryCard(card: ILibraryCardProps) {
     const [ modal, setModal ] = useState(false);
 
     const handleClick = () => {
-        if(card.id === 0){
+        if(card.name.includes('Level 1')){
             navigate('details', { state: card });
         }else{
         }
@@ -103,12 +103,12 @@ export default function Library() {
                 <CallToAction />
                 <div className="w-[90%] mx-auto mt-4">
                     {
-                        libraryMaterials.map((_: ILibraryCardProps, index: number) => {
-                            if (index % 3 == 0) {
+                        libraryMaterials.map((_: ILibraryCardProps, ind: number) => {
+                            if (ind % 3 == 0) {
                                 return (
-                                    <div key={index % 2} className="grid grid-cols-3 mx-auto gap-x-10 mt-10">
-                                        {libraryMaterials.slice(index, index + 3).map((card: ILibraryCardProps, index: number) => (
-                                            <LibraryCard id={index} {...card} key={index} />
+                                    <div key={ind % 2} className="grid grid-cols-3 mx-auto gap-x-10 mt-10">
+                                        {libraryMaterials.slice(ind, ind + 3).map((card: ILibraryCardProps, index: number) => (
+                                            <LibraryCard id={ind} {...card} key={index} />
                                         ))}
                                     </div>
                                 )
