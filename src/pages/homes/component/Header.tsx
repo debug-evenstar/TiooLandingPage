@@ -26,7 +26,7 @@ function Header() {
             K–12 Education
           </span>
         </h1>
-        <p className="text-white text-[20px] text-center">
+        <p className="text-white text-[24px] text-center">
           Enhance your child's learning with dynamic, gamified and interactive
           textbooks and workbooks designed to self-tutor and provide practical
           knowledge using AI
