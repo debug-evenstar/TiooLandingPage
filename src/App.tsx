@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignupIndex from "./pages/auth/SignupIndex";
@@ -22,6 +22,11 @@ import Library from './pages/library';
 import LibraryDetails from "./pages/library/details";
 import CookieComponent from './components/cookie';
 import ParentCompleteSignupScreen from "./pages/auth/parent/CompleteSignup";
+
+// const Pricing = lazy(() => import('./pages/pricing'));
+// const Authors = lazy(() => import('./pages/authors'));
+// const Homes = lazy(() => import('./pages/homes'));
+// const Library = lazy(() => import('./pages/library'));
 
 function App() {
 

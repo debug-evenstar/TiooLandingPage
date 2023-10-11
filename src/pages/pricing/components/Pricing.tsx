@@ -7,6 +7,7 @@ function Pricing() {
   
   const [pricing, setPricing] = useState([]);
   const [ symbol, setSymbol ] = useState('');
+  const [ country, setCountry] = useState('');
   const navigate = useNavigate();
 
   const keys: string[] = ['monthly', 'quaterly', 'yearly'];
@@ -16,14 +17,17 @@ function Pricing() {
     fetch('https://get.geojs.io/v1/ip/country.json')
       .then(response => response.json())
       .then(data => {
+        setCountry(data.country)
         let cc = '';
-      if(data.country === "NG"){ 
-        cc = "NGN" 
-        setSymbol('₦');
-      }else{
-        cc = "USD";
-        setSymbol('$');
-      }
+
+        if(data.country === "NG"){ 
+          cc = "NGN" 
+          setSymbol('₦');
+        }else{
+          cc = "USD";
+          setSymbol('$');
+        }    // }
+
       fetch('https://api.hellotioo.com/open/pricing?cc='+cc)
         .then(response => response.json())
         .then(data => {
@@ -38,6 +42,16 @@ function Pricing() {
 
 
   return (
+    <>
+    {
+      // country == "NG" && 
+      <div className="mt-10 p-5 rounded-[8px] shadow-xl w-[70%] mx-auto">
+        <p className="text-center text-xl  text-primary font-[700] font-inter">
+          Don't worry you don't have to pay for each child, one subscription covers all your children.
+        </p>
+      </div>
+    }
+
     <div className="relative flex w-full px-16 mt-20 justify-center j gap-7">
       {pricingData.map((item: any, index: number) => (
         <div key={index} className="flex flex-col border justify-between space-y-3 p-7 w-[350px] gap-4 shadow-lg hover:scale-[1.01] duration-300 rounded-[8px] ">
@@ -85,6 +99,8 @@ function Pricing() {
         </div>
       ))}
     </div>
+
+    </>
   );
 }
 
