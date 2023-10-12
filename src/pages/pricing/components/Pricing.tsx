@@ -5,7 +5,7 @@ import point from "../../../images/pricingimg/point.png";
 import { Button2 } from "../../../components/Ui/Button";
 function Pricing() {
   
-  const [pricing, setPricing] = useState([]);
+  const [pricing, setPricing] = useState<any>([]);
   const [ symbol, setSymbol ] = useState('');
   const [ country, setCountry] = useState('');
   const navigate = useNavigate();
@@ -35,7 +35,21 @@ function Pricing() {
         })
 
       })
-      .catch(() => alert("failed to get location"));
+      .catch(() => {
+        setPricing([
+          {
+          monthly: 4000
+          },
+          {
+          quaterly: 9500
+          },
+          {
+          yearly: 7500
+          }          
+        ])
+        setSymbol('₦');
+        console.log("failed to get location")
+      });
   }, [])
 
 
@@ -47,7 +61,7 @@ function Pricing() {
       // country == "NG" && 
       <div className="mt-10 p-5 rounded-[8px] shadow-xl w-[70%] mx-auto">
         <p className="text-center text-xl  text-primary font-[700] font-inter">
-          Don't worry you don't have to pay for each child, one subscription covers all your children.
+          Also, you don't have to pay for each child, one subscription covers all your children.
         </p>
       </div>
     }
