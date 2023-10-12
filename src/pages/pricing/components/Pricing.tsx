@@ -28,7 +28,11 @@ function Pricing() {
           setSymbol('$');
         }    // }
 
+<<<<<<< HEAD
       fetch(process.env.REACT_APP_BASE_URL+'/open/pricing?cc='+cc)
+=======
+      fetch('https://api.hellotioo.com/open/pricing?cc='+cc)
+>>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
         .then(response => response.json())
         .then(data => {
           setPricing(data.data.pricing);
