@@ -13,6 +13,7 @@ import {
 import imageCover from '../../assets/images/new-cover.png'
 import PageLayout from '../../layouts/PageLayout';
 import point from '../../images/pricingimg/point.png';
+
 // import ReactRating from 'react-rating-stars-component';
 
 // const objectives: string[] = [
@@ -86,7 +87,7 @@ function Header() {
                             <div onClick={(e: any) => e.stopPropagation()}>
                                 <Menu placement="bottom-end">
                                     <MenuHandler>
-                                        <span className="text-primary underline">1 school is using this book</span>
+                                        <button className="text-primary underline">1 school is using this book</button>
                                     </MenuHandler>
                                     <MenuList>
                                         <MenuItem
@@ -257,7 +258,6 @@ function Others() {
 export default function LibraryDetails() {
     const location = useLocation();
     const card = location.state;
-    console.log(card);
     return (
         <PageLayout>
             <div className="pb-10 pt-10 mt-24">
