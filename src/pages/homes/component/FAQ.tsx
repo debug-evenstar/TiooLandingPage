@@ -175,7 +175,11 @@ function FAQ(){
                     <p className="text-[13px] sm:text-[16px] font-[400]">
                         or
                         <BsWhatsapp className="inline ml-2 mr-2" />
+<<<<<<< HEAD
                         <a className="text-[#4F46E5]" target="_blank" href="https://api.whatsapp.com/send?phone=2347018481060">
+=======
+                        <a className="text-[#4F46E5]" target="_blank" href="https://api.whatsapp.com/send?phone=+2347018481060">
+>>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
                             +234 701 848 1060
                         </a>
                     </p>

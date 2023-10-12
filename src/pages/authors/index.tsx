@@ -98,14 +98,22 @@ function Pattern2() {
                 <div className="w-[330px]">
                     <h2 className="text-[38px] mb-4 font-[700]" data-aos="fade-right" >User Analytics</h2>
                     <p className=" text-[20px] font-[400] text-gray-800 font-inter" data-aos="fade-right" >
+<<<<<<< HEAD
                         Gain insights into how your content is being used. Our analytics tools provide valuable data on reader engagement, helping you refine your offerings and improve your content.
                     </p>
+=======
+                        Gain insights into how your content is being used. Our analytics tools provide valuable data on reader engagement, helping you refine your offerings and improve your content.                </p>
+>>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
                 </div>
                 <div className="w-[580px] bg-gray-100">
                     <img src={z2} alt="" className="w-full" />
                 </div>
             </div>
+<<<<<<< HEAD
             <div className="px-16 relative -mt-32">
+=======
+            <div className="px-16 relative -mt-28">
+>>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
                 <p className='text-[#030036BD]'>Get the App</p>
                 <div className="flex space-x-4 items-center">
                     <button>
@@ -115,9 +123,12 @@ function Pattern2() {
                         <img src={appleStore} alt="" />
                     </button>
                 </div>
+<<<<<<< HEAD
                 <p className="px-4 w-[330px] py-1.5 bg-white rounded-[8px] shadow  text-center mt-2">
                   Coming Soon
                 </p>
+=======
+>>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
             </div>
         </div>
     );
@@ -282,7 +293,11 @@ function FAQ(){
                     <p className="text-[13px] sm:text-[16px] font-[400]">
                         or
                         <BsWhatsapp className="inline ml-2 mr-2" />
+<<<<<<< HEAD
                         <a className="text-[#4F46E5]" href="https://api.whatsapp.com/send?phone=2347018481060">
+=======
+                        <a className="text-[#4F46E5]" href="https://api.whatsapp.com/send?phone=+2347018481060">
+>>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
                             +234 701 848 1060
                         </a>
                     </p>
