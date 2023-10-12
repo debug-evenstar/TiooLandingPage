@@ -40,10 +40,6 @@ const objectives: string[] = [
 ];
 
 function Header() {
-<<<<<<< HEAD
-=======
-
->>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
     return (
         <div>
             <div className="flex w-[90%] mx-auto space-x-10">
@@ -165,11 +161,7 @@ function ObjectiveAndRating() {
                 </div>
                 <div className="flex items-center justify-between w-full mt-10">
                     {/*<span className="text-[#4F46E5] font-[600] underline">32 Reviews on this book</span>*/}
-<<<<<<< HEAD
                     {/*                    <button className="border border-[#4F46E5] text-[#4F46E5] font-[600] rounded-[8px] px-4 py-3">
-=======
-{/*                    <button className="border border-[#4F46E5] text-[#4F46E5] font-[600] rounded-[8px] px-4 py-3">
->>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
                         Write a review
                     </button>*/}
                 </div>
@@ -266,10 +258,6 @@ function Others() {
 export default function LibraryDetails() {
     const location = useLocation();
     const card = location.state;
-<<<<<<< HEAD
-=======
-    console.log(card);
->>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
     return (
         <PageLayout>
             <div className="pb-10 pt-10 mt-24">
