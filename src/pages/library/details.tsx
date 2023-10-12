@@ -3,7 +3,6 @@ import hero2 from '../../assets/hero2.png';
 // import others1 from '../../assets/others1.png';
 // import others2 from '../../assets/others2.png';
 // import others3 from '../../assets/others3.png';
-<<<<<<< HEAD
 import {
     Button,
     Menu,
@@ -15,11 +14,6 @@ import imageCover from '../../assets/images/new-cover.png'
 import PageLayout from '../../layouts/PageLayout';
 import point from '../../images/pricingimg/point.png';
 
-=======
-import imageCover from '../../assets/images/new-cover.png'
-import PageLayout from '../../layouts/PageLayout';
-import point from '../../images/pricingimg/point.png';
->>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
 // import ReactRating from 'react-rating-stars-component';
 
 // const objectives: string[] = [
@@ -94,7 +88,6 @@ function Header() {
                             <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11 0L0 6L4 8.18V14.18L11 18L18 14.18V8.18L20 7.09V14H22V6L11 0ZM17.82 6L11 9.72L4.18 6L11 2.28L17.82 6ZM16 12.99L11 15.72L6 12.99V9.27L11 12L16 9.27V12.99Z" fill="#87909E" />
                             </svg>
-<<<<<<< HEAD
                             <div onClick={(e: any) => e.stopPropagation()}>
                                 <Menu placement="bottom-end">
                                     <MenuHandler>
@@ -111,9 +104,6 @@ function Header() {
                                     </MenuList>
                                 </Menu>
                             </div>
-=======
-                            <span className="text-primary underline">1 school is using this book</span>
->>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
                         </div>
                     </div>
                 </div>
