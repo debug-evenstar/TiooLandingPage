@@ -102,7 +102,7 @@ export const routineApiSlice = apiSlice.injectEndpoints({
 
     getContinent: builder.query<BaseResult | ErrorResult, string>({
       query: (param) => ({
-        url: `http://ipwho.is/${param}`,
+        url: `https://ipwho.is/${param}`,
         method: ENDPOINT.HTTP_METHODS.GET,
       }),
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
