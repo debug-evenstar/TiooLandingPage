@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react'
-=======
 import React, { useState } from 'react'
->>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
 
 export default function CookieComponent() {
   const [accepted, setAccepted] = useState(false);

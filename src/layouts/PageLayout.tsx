@@ -17,13 +17,7 @@ const PageLayout: React.FC<PageLayoutprops> = ({
     <>
       <div className="w-[100%] sm:max-w-[1440px] sm:min-w-[1024px] m-[auto]">
         <Navbar />
-<<<<<<< HEAD
         {children}
-=======
-
-        {children}
-
->>>>>>> 23b0ced42b31b68035025483290df55ee28815dd
         {needfooter && <Footer />}
       </div>
     </>
