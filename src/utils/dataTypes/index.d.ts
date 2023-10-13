@@ -10,3 +10,7 @@ export interface ErrorResult {
     message: string;
     [key: string]: any;
 }
+
+export interface IpResults {
+    ip: string
+}

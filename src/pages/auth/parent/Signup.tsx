@@ -127,6 +127,7 @@ const ParentSignupScreen = () => {
                 <PhoneInputWithCountry
                   international
                   defaultCountry="NG"
+                  countryCallingCodeEditable={false}
                   name="phone"
                   control={control}
                   rules={{ required: true }}
