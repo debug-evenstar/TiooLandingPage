@@ -126,6 +126,7 @@ const ParentSignupScreen = () => {
                 </label>
                 <PhoneInputWithCountry
                   international
+                  countryCallingCodeEditable={false}
                   defaultCountry="NG"
                   name="phone"
                   control={control}
