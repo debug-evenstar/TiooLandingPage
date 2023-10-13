@@ -130,6 +130,7 @@ const ParentSignupScreen = () => {
                   name="phone"
                   control={control}
                   rules={{ required: true }}
+                  countryCallingCodeEditable={false}
                   className="lg:p-2 p-2 border-2 border-[#DA70D65E] rounded outline-none mt-1"
                 />
                 {errors.phone && (

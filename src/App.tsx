@@ -1,4 +1,4 @@
-import { useEffect, lazy } from "react";
+import { useEffect,useState, lazy } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignupIndex from "./pages/auth/SignupIndex";
@@ -22,6 +22,8 @@ import Library from './pages/library';
 import LibraryDetails from "./pages/library/details";
 import CookieComponent from './components/cookie';
 import ParentCompleteSignupScreen from "./pages/auth/parent/CompleteSignup";
+import { useGetIpQuery, useLazyGetContinentQuery } from "./services/api/routineSlice";
+import { ThreeCirclesLoading } from "./components/Ui/Loading";
 
 // const Pricing = lazy(() => import('./pages/pricing'));
 // const Authors = lazy(() => import('./pages/authors'));
@@ -29,19 +31,49 @@ import ParentCompleteSignupScreen from "./pages/auth/parent/CompleteSignup";
 // const Library = lazy(() => import('./pages/library'));
 
 function App() {
-
+  const [loadConti, setLoadConti] = useState(true)
+  const [available, setAvailable] = useState(false)
+  const {data} = useGetIpQuery()
+  const permitted = ["NG", "FR", "DE", "CA", "US", "GB" ]
+  const [getCon] = useLazyGetContinentQuery()
+  const getConti = async(ip:any) => {
+    getCon(ip)
+    .then((res:any) => {
+      if(res.isSuccess){
+        console.log(res.data);
+        if(permitted.includes(res.data.country_code)){
+          setLoadConti(false)
+        }else{
+          setAvailable(true)
+        }
+      }
+    })
+  }
   useEffect(() => {
     AOS.init({
-      // easing: "ease-out-cubic",
-      // once: true,
       offset: 50,
       duration: 1000,
     });
     AOS.refresh();
-  }, []);
+    if(data){
+      getConti(data.ip)
+    }
+  }, [data]);
   return (
     <div>
-      <BrowserRouter>
+      {
+        available && <div className="w-full h-screen grid place-content-center text-3xl">
+          We're sorry, this service is not available in your country
+        </div>
+      }
+      {
+        loadConti && <div className="w-full h-screen flex items-center justify-center">
+        <ThreeCirclesLoading size="200" color="#4f46e5" />
+      </div>
+      }
+      {
+        !loadConti &&
+        <BrowserRouter>
         <CookieComponent />
         <Routes>
           <Route path="/" element={<Homes />} />
@@ -74,6 +106,7 @@ function App() {
           <Route path="/teacher/:id" element={<TeacherSignup />} />
         </Routes>
       </BrowserRouter>
+      }
     </div>
   );
 }

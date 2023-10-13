@@ -145,8 +145,10 @@ const SchoolSignup = () => {
                   defaultCountry="NG"
                   name="phone"
                   control={control}
-                  rules={{ required: true }}
-                  className="lg:p-2 p-2 border-2 border-[#DA70D65E] rounded outline-none mt-1"
+                  rules={{ required: true}}
+                  countryCallingCodeEditable={false}
+                  limitMaxLength
+                  className="lg:p-2 p-2 border-2 border-[#DA70D65E] rounded outline-none mt-1 w-full"
                 />
                 {errors.phone && (
                   <p className="error text-red-500 fw-500">
