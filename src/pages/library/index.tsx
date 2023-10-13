@@ -68,9 +68,8 @@ function LibraryCard(card: ILibraryCardProps) {
     const [ modal, setModal ] = useState(false);
 
     const handleClick = () => {
-        if(card.id === 0){
+        if(card.name.includes('Level 1')){
             navigate('details', { state: card });
-        }else{
         }
 
     }
@@ -79,7 +78,7 @@ function LibraryCard(card: ILibraryCardProps) {
         <div onClick={handleClick} className="group w-[350px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[388px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
         {/* <div onClick={() => navigate('details', { state: card })} className="w-[100%] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[400px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden"> */}
             <div className="w-full h-[169px] bg-gray-200 overflow-hidden">
-                { card.id !== 0 && 
+                { !card.name.includes('Level 1') && 
                     <div className="relative flex justify-end">
                         <span className="py-1 absolute bg-red-500 text-white z-[30] px-4">coming soon</span>
                     </div>

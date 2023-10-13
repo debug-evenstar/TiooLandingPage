@@ -143,11 +143,10 @@ const SchoolSignup = () => {
                 <PhoneInputWithCountry
                   international
                   defaultCountry="NG"
+                  countryCallingCodeEditable={false}
                   name="phone"
                   control={control}
                   rules={{ required: true}}
-                  countryCallingCodeEditable={false}
-                  limitMaxLength
                   className="lg:p-2 p-2 border-2 border-[#DA70D65E] rounded outline-none mt-1 w-full"
                 />
                 {errors.phone && (

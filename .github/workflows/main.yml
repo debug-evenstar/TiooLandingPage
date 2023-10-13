@@ -16,5 +16,5 @@ jobs:
      
           script: |
             cd ${{secrets.PRODUCTION_WORK_TREE}}
-            git --work-tree=${{secrets.PRODUCTION_WORK_TREE}} --git-dir=${{secrets.PRODUCTION_GIT_DIR}} pull origin sandbox
+            git --work-tree=${{secrets.PRODUCTION_WORK_TREE}} --git-dir=${{secrets.PRODUCTION_GIT_DIR}} pull origin main
             echo 'Deployment successful to server'
