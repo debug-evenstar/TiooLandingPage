@@ -1,7 +1,7 @@
 import { apiSlice } from "../apiSlice";
 
 import * as ENDPOINT from "../constants";
-import { BaseResult, ErrorResult } from "../../utils/dataTypes";
+import { BaseResult, ErrorResult, IpResults } from "../../utils/dataTypes";
 import {
   StudentSignupInput,
   TeacherSignup,
@@ -91,6 +91,22 @@ export const routineApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
+
+    getIp: builder.query<IpResults | ErrorResult, void>({
+      query: () => ({
+        url: `https://api.ipify.org?format=json`,
+        method: ENDPOINT.HTTP_METHODS.GET,
+      }),
+      keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
+    }),
+
+    getContinent: builder.query<BaseResult | ErrorResult, string>({
+      query: (param) => ({
+        url: `https://ipwho.is/${param}`,
+        method: ENDPOINT.HTTP_METHODS.GET,
+      }),
+      keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
+    }),
   }),
   overrideExisting: true,
 });
@@ -104,5 +120,7 @@ export const {
   useLazyGetTeacherInviteQuery,
   useLazyAcceptTeachInviteQuery,
   useLazyAcceptTeachMagicQuery,
-  useGetTioClassesQuery
+  useGetTioClassesQuery,
+  useGetIpQuery,
+  useLazyGetContinentQuery
 } = routineApiSlice;
