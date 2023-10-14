@@ -1,55 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { pricingData } from "../../../data/data";
 import point from "../../../images/pricingimg/point.png";
-import { Button2 } from "../../../components/Ui/Button";
+// import { Button2 } from "../../../components/Ui/Button";
 function Pricing() {
 
   const [pricing, setPricing] = useState<any>([]);
   const [symbol, setSymbol] = useState('');
   const [country, setCountry] = useState('');
   const navigate = useNavigate();
-
+  const [ pricingObject, setPricingObject ] = useState<{[key: string]: number}>();
+  const [ discount, setDiscount ] = useState<any>([]);
   const keys: string[] = ['monthly', 'quaterly', 'yearly'];
-
-
-  // useEffect(() => {
-  //   fetch('https://get.geojs.io/v1/ip/country.json')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setCountry(data.country)
-  //       let cc = '';
-  //       if (data.country === "NG") {
-  //         cc = "NGN"
-  //         setSymbol('₦');
-  //       } else {
-  //         cc = "USD";
-  //         setSymbol('$');
-  //       }    // }
-
-  //       fetch(process.env.REACT_APP_BASE_URL + '/open/pricing?cc=' + cc)
-  //         .then(response => response.json())
-  //         .then(data => {
-  //           setPricing(data.data.pricing);
-  //         })
-
-  //     })
-  //     .catch(() => {
-  //       setPricing([
-  //         {
-  //           monthly: 4000
-  //         },
-  //         {
-  //           quaterly: 9500
-  //         },
-  //         {
-  //           yearly: 7500
-  //         }
-  //       ])
-  //       setSymbol('₦');
-  //       console.log("failed to get location")
-  //     });
-  // }, [])
 
   useEffect(() => {
     fetch('https://api.ipify.org/?format=json')
@@ -58,26 +20,38 @@ function Pricing() {
         fetch('https://ipwho.is/' + data.ip)
           .then(response => response.json())
           .then(g_data => {
-            setCountry(data.country_code)
+            setCountry(g_data.country_code)
             let cc = '';
-            if (data.country_code === "NG") {
+            if (g_data.country_code === "NG") {
               cc = "NGN"
               setSymbol('₦');
             } else {
               cc = "USD";
               setSymbol('$');
-            }    // }
+            }
 
             fetch(process.env.REACT_APP_BASE_URL + '/open/pricing?cc=' + cc)
               .then(response => response.json())
               .then(data => {
-                setPricing(data.data.pricing);
+                const result: {[key: string]: number} = {};
+                data.data.pricing.forEach((item: any) => {
+                  const key = Object.keys(item)[0];
+                  const value = item[key]
+                  result[key] = value;
+                })
+                setPricingObject(result);
+                setPricing(Object.values(result));
+                setDiscount([
+                  null,
+                  (result.monthly * 3) - result.quaterly,
+                  (result.monthly * 12 ) - result.yearly
+                ])
               })
           })
 
       })
       .catch(() => {
-        setPricing([
+        const data = [
           {
             monthly: 4000
           },
@@ -87,13 +61,25 @@ function Pricing() {
           {
             yearly: 7500
           }
+        ]
+        const result: {[key: string]: number} = {};
+        data.forEach((item: any) => {
+          const key = Object.keys(item)[0];
+          const value = item[key]
+          result[key] = value;
+        })
+        setPricingObject(result);
+        setPricing(Object.values(result));
+        setDiscount([
+          null,
+          (result.monthly * 3) - result.quaterly,
+          (result.monthly * 12 ) - result.yearly
         ])
         setSymbol('₦');
         console.log("failed to get location")
       });
+      console.log(pricing);
   }, [])
-
-
 
 
   return (
@@ -112,11 +98,11 @@ function Pricing() {
           <div key={index} className="flex flex-col border justify-between space-y-3 p-7 w-[350px] gap-4 shadow-lg hover:scale-[1.01] duration-300 rounded-[8px] ">
             <div className="flex flex-col w-full gap-4">
               <p className="text-[#4F46E5] font-[700] flex h-[20px] justify-end">
-                {item.tip_desc && 'save ' + symbol + item.tip}
+                {discount[index] !== null && 'save ' + symbol + discount[index]?.toLocaleString()}
               </p>
               <h1 className=" text-[#4F46E5] -mt-4 text-[40px] font-[700]">
                 {/* {item.amount} */}
-                {symbol} {!!pricing.length ? pricing[index][keys[index]] : null}
+                {symbol} {!!pricing.length ? pricing[index]?.toLocaleString() : null}
                 <span className="text-black font-[400]">/{keys[index]?.replace('ua', 'uar')}</span>
               </h1>
               <p> </p>
