@@ -41,7 +41,7 @@ function App() {
     .then((res:any) => {
       if(res.isSuccess){
         console.log(res.data);
-        if(permitted.includes(res.data.country_code)){
+        if(permitted.includes(res.data.country_code) || !res.data.country_code){
           setLoadConti(false)
         }else{
           setAvailable(true)
@@ -62,7 +62,7 @@ function App() {
   return (
     <div>
       {
-        available && <div className="w-full h-screen grid place-content-center text-3xl">
+        available && <div className="w-full h-screen fixed grid place-content-center text-3xl">
           We're sorry, this service is not available in your country
         </div>
       }
