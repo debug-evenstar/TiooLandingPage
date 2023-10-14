@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { pricingData } from "../../../data/data";
 import point from "../../../images/pricingimg/point.png";
-// import { Button2 } from "../../../components/Ui/Button";
+// import axios;
+
 function Pricing() {
 
   const [pricing, setPricing] = useState<any>([]);
@@ -13,13 +14,17 @@ function Pricing() {
   const [ discount, setDiscount ] = useState<any>([]);
   const keys: string[] = ['monthly', 'quaterly', 'yearly'];
 
+
+
   useEffect(() => {
     fetch('https://api.ipify.org/?format=json')
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         fetch('https://ipwho.is/' + data.ip)
-          .then(response => response.json())
+          .then(resp => resp.json())
           .then(g_data => {
+            console.log(g_data);
             setCountry(g_data.country_code)
             let cc = '';
             if (g_data.country_code === "NG") {
@@ -30,9 +35,10 @@ function Pricing() {
               setSymbol('$');
             }
 
-            fetch(process.env.REACT_APP_BASE_URL + '/open/pricing?cc=' + cc)
+            fetch((process.env.REACT_APP_BASE_URL || 'https://beta.api.hellotioo.com') + '/open/pricing?cc=' + cc)
               .then(response => response.json())
               .then(data => {
+                console.log("pricing",data)
                 const result: {[key: string]: number} = {};
                 data.data.pricing.forEach((item: any) => {
                   const key = Object.keys(item)[0];
@@ -47,6 +53,7 @@ function Pricing() {
                   (result.monthly * 12 ) - result.yearly
                 ])
               })
+              .catch(error => console.log())
           })
 
       })
@@ -98,7 +105,7 @@ function Pricing() {
           <div key={index} className="flex flex-col border justify-between space-y-3 p-7 w-[350px] gap-4 shadow-lg hover:scale-[1.01] duration-300 rounded-[8px] ">
             <div className="flex flex-col w-full gap-4">
               <p className="text-[#4F46E5] font-[700] flex h-[20px] justify-end">
-                {discount[index] !== null && 'save ' + symbol + discount[index]?.toLocaleString()}
+                {( discount[index] !== null && discount[index] !== undefined ) && 'save ' + symbol + (discount[index] && discount[index]?.toLocaleString())}
               </p>
               <h1 className=" text-[#4F46E5] -mt-4 text-[40px] font-[700]">
                 {/* {item.amount} */}

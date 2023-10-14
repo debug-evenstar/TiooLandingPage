@@ -12,7 +12,7 @@ export const Button: React.FC<button> = ({
     <div
       //   className={`flex justify-center items-center font-[poppins] h-[${height}px] w-[${width}px] bg-[#4F46E5] rounded-[8px] text-[white]`}
       className={`flex text-center py-[15px] px-[33px] justify-center items-center h-full w-full text-white  rounded-[10px] sm:rounded-[10px] cursor-pointer ${
-        variant == "default" ? `bg-[#4F46E5]` : `bg-[#FFF]`
+        variant === "default" ? `bg-[#4F46E5]` : `bg-[#FFF]`
       }`}
       onClick={onclick}
     >
@@ -35,9 +35,9 @@ export const Button2: React.FC<button> = ({
     <div
       //   className={`flex justify-center items-center font-[poppins] h-[${height}px] w-[${width}px] bg-[#4F46E5] rounded-[8px] text-[white]`}
       className={`flex text-center border-[1px] py-[15px] px-[33px] justify-center items-center h-full w-full text-white  rounded-[10px] sm:rounded-[4px] cursor-pointer ${
-        variant == "default"
+        variant === "default"
           ? `bg-[#4F46E5] border-none`
-          : variant == "secondary"
+          : variant === "secondary"
           ? `bg-[#FFF] border-[#4F46E5] `
           : `bg-[#FFF] border-[black]`
       }`}
@@ -45,9 +45,9 @@ export const Button2: React.FC<button> = ({
     >
       <p
         className={`text-[12px] sm:text-[18px] font-[700] ${
-          variant == "default"
+          variant === "default"
             ? `text-white`
-            : variant == "secondary"
+            : variant === "secondary"
             ? `text-[#4F46E5]`
             : `text-black`
         } `}
@@ -69,14 +69,14 @@ export const Button4: React.FC<button> = ({
     <div
       //   className={`flex justify-center items-center font-[poppins] h-[${height}px] w-[${width}px] bg-[#4F46E5] rounded-[8px] text-[white]`}
       className={`flex text-center border-[1px] py-[11px] px-[27px] justify-center items-center h-full w-full text-white  rounded-[10px] sm:rounded-[8px] cursor-pointer ${
-        variant == "default" ? ` border-[#FFF]` : `bg-main`
+        variant === "default" ? ` border-[#FFF]` : `bg-main`
       }`}
       onClick={onclick}
     >
       <p
         className={`text-[12px] sm:text-[18px] font-[500] ${
-          // variant == "default" ? `text-white` : `text-[#4F46E5]`
-          variant == "default" ? `text-white` : `text-white`
+          // variant === "default" ? `text-white` : `text-[#4F46E5]`
+          variant === "default" ? `text-white` : `text-white`
         } `}
       >
         {text1}
@@ -97,9 +97,9 @@ export const Button3: React.FC<button> = ({
     <div
       //   className={`flex justify-center items-center font-[poppins] h-[${height}px] w-[${width}px] bg-[#4F46E5] rounded-[8px] text-[white]`}
       className={`gap-2 flex text-center border-[1px] py-[15px] px-[33px] justify-center items-center h-full w-full text-white  rounded-[10px] sm:rounded-[4px] cursor-pointer ${
-        variant == "default"
+        variant === "default"
           ? `bg-[#4F46E5] border-none`
-          : variant == "secondary"
+          : variant === "secondary"
           ? `bg-[#FFF] border-[#4F46E5] `
           : `bg-[#FFF] border-[black] `
       }`}
@@ -108,9 +108,9 @@ export const Button3: React.FC<button> = ({
       <img src={image} />
       <p
         className={`text-[12px] sm:text-[18px] font-[700] ${
-          variant == "default"
+          variant === "default"
             ? `text-white`
-            : variant == "secondary"
+            : variant === "secondary"
             ? `text-[#4F46E5]`
             : `text-black`
         } `}
