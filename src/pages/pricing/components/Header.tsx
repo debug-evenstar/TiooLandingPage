@@ -5,21 +5,21 @@ import book from "../../../images/pricingimg/book.png";
 
 function Header() {
   return (
-    <div className="w-full px-16 mt-28 rounded">
+    <div className="w-full px-3 lg:px-16 mt-28 rounded">
       <div className="bg-[#0E096C] rounded-[48px] h-[250px] relative flex gap-4 text-white">
         <img
           src={pricingimg}
           alt="price"
-          className="rounded-l-[48px] h-full object-cover "
+          className="hidden lg:block rounded-l-[48px] h-full object-cover "
         />
-        <img src={book}  alt="book" className="absolute right-16 top-12" />
+        <img src={book}  alt="book" className="absolute right-16  lg:top-12" />
         <img
           src={imgbg}
           alt="background"
           className="absolute bottom-0 h-full right-0 rounded-[48px] "
         />
-        <div className="w-[500px] h-full flex flex-col justify-center gap-4">
-          <h1 className="text-[40px] font-[750] leading-[50px]">
+        <div className="lg:w-[500px] px-4 lg:px-0 h-full flex flex-col justify-center gap-4">
+          <h1 className="lg:text-[40px] text-2xl font-[750] lg:leading-[50px]">
             One subscription, Unlimited access
           </h1>
           <p className=" text-[#E4E1E1] text-[16px] font-inter">

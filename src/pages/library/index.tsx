@@ -24,9 +24,9 @@ const libraryMaterials: ILibraryCardProps[] = [
 
 function Search() {
     return (
-        <div className="w-full">
-            <div className="w-[90%] mx-auto flex items-center space-x-12">
-                <div className='flex items-center space-x-3'>
+        <div className="w-full px-2 lg:px-0">
+            <div className="lg:w-[90%] lg:mx-auto lg:flex items-center lg:space-x-12">
+                <div className='flex items-center justify-between lg:justify-start lg:space-x-3'>
                     <h1 className="text-[28px] text-[#030036BD]">All Subjects</h1>
                     <button>
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,9 +34,9 @@ function Search() {
                         </svg>
                     </button>
                 </div>
-                <div className='flex items-center'>
+                <div className='flex items-center mt-2 lg:mt-0 pl-3 lg:pl-0'>
                     <img src={searchIcon} alt="icon" className='-mr-9 z-[2]' />
-                    <input placeholder="Search Library" type="text" className='px-4 pl-10 h-[50px] z-[1] border-gray-400 outline-none w-[700px] border rounded-[4px]' />
+                    <input placeholder="Search Library" type="text" className='px-4 pl-10 h-[50px] z-[1] border-gray-400 outline-none w-full lg:w-[700px] border rounded-[4px]' />
                 </div>
             </div>
         </div>
@@ -48,14 +48,14 @@ function CallToAction() {
     const navigate = useNavigate();
 
     return (
-        <div className="relative w-full h-[78px] mt-10" >
+        <div className="relative w-full h-[130px] lg:h-[78px] mt-10" >
             <img src={ctaImage} alt="background" className="absolute inset-0 w-full h-full object-cover object-center" />
-            <div className="absolute inset-0 flex items-center bg-[#00000055]">
-                <div className="text-white text-[20px] font-semibold flex items-center justify-between w-[90%] mx-auto">
-                    <p>
+            <div className="absolute inset-0 lg:flex items-center bg-[#00000055]">
+                <div className="text-white text-[20px] font-semibold lg:flex items-center justify-between w-[90%] mx-auto">
+                    <p className='pt-2 lg:pt-0'>
                         Explore our vast library of gamified textbooks and workbooks
                     </p>
-                    <button onClick={() => navigate('/signup')} className="px-3 py-2 border border-white rounded-[8px]">Start learning</button>
+                    <button onClick={() => navigate('/signup')} className="px-3 mt-2 lg:mt-0 py-2 border border-white rounded-[8px]">Start learning</button>
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@ function LibraryCard(card: ILibraryCardProps) {
     }
     return (
         <>
-        <div onClick={handleClick} className="group w-[350px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[388px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
+        <div onClick={handleClick} className="group w-full lg:w-[350px] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[388px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden">
         {/* <div onClick={() => navigate('details', { state: card })} className="w-[100%] cursor-pointer hover:shadow-xl duration-300 text-[24px] h-[400px] rounded-[32px] shadow border bg-white hover:bg-[#FCF4FB] overflow-hidden"> */}
             <div className="w-full h-[169px] bg-gray-200 overflow-hidden">
                 { !card.name.includes('Level 1') && 
@@ -105,7 +105,7 @@ export default function Library() {
                         libraryMaterials.map((_: ILibraryCardProps, index: number) => {
                             if (index % 3 == 0) {
                                 return (
-                                    <div key={index % 2} className="grid grid-cols-3 mx-auto gap-x-10 mt-10">
+                                    <div key={index % 2} className="grid lg:grid-cols-3 mx-auto gap-10 mt-10">
                                         {libraryMaterials.slice(index, index + 3).map((card: ILibraryCardProps, index: number) => (
                                             <LibraryCard id={index} {...card} key={index} />
                                         ))}

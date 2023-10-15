@@ -100,16 +100,16 @@ function Pricing() {
     <>
       {
         // country == "NG" && 
-        <div className="mt-10 p-5 rounded-[8px] shadow-xl w-[70%] mx-auto">
+        <div className="mt-10 p-5 mx-3 lg:mx-auto rounded-[8px] shadow-xl lg:w-[70%] mx-auto">
           <p className="text-center text-xl  text-primary font-[700] font-inter">
             Also, you don't have to pay for each child, one subscription covers all your children.
           </p>
         </div>
       }
 
-      <div className="relative flex w-full px-16 mt-20 justify-center j gap-7">
+      <div className="relative lg:flex w-full lg:px-16 px-3 mt-5 lg:mt-20 justify-center j gap-7">
         {pricingData.map((item: any, index: number) => (
-          <div key={index} className="flex flex-col border justify-between space-y-3 p-7 w-[350px] gap-4 shadow-lg hover:scale-[1.01] duration-300 rounded-[8px] ">
+          <div key={index} className="flex flex-col border justify-between space-y-3 p-7 lg:w-[350px] mb-6 lg:mb-0 gap-4 shadow-lg hover:scale-[1.01] duration-300 rounded-[8px] ">
             <div className="flex flex-col w-full gap-4">
               <p className="text-[#4F46E5] font-[700] flex h-[20px] justify-end">
                 {item.tip_desc && 'save ' + symbol + item.tip}
