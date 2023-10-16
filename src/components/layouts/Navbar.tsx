@@ -6,7 +6,7 @@ import log from "../../images/homeimg/logoimg.png";
 import log2 from "../../images/homeimg/logoimg2.png";
 // import log from ""
 import { NAV_DATA } from "../../data/data";
-import { Button2, Button4 } from "../Ui/Button";
+// import { Button2, Button4 } from "../Ui/Button";
 
 function Navbar() {
   const { pathname } = useLocation();
@@ -21,10 +21,10 @@ function Navbar() {
   };
 
   const nav = useNavigate();
-  const doSignin = () => {};
+  // const doSignin = () => {};
   window.addEventListener("scroll", changeNavbarColor);
   return (
-    <div>
+    <div className="hidden sm:md:lg:block">
       <div
         className={`pl-[150px] w-full z-[40]  h-[70px] sm:h-[80px] fixed top-0  left-0   ${
           colorchange || pathname !== "/" ? `bg-[#FFF]` : `bg-[#0E096C]`
@@ -37,6 +37,7 @@ function Navbar() {
             src={pathname !== "/" || colorchange ? log2 : log}
             className="h-[64px] w-[81px] cursor-pointer absolute left-5 fill-[#0E096C]"
             onClick={() => nav("/", { replace: true })}
+            alt=""
           />
           <p
             className={`text-[10px] absolute  left-[100px] top-[45px] ${
@@ -55,7 +56,7 @@ function Navbar() {
                       colorchange || pathname !== "/"
                         ? `border-[#4F46E5]`
                         : `text-[#FFF]`
-                    } ${paths[1] == item.url.replace('/','') && `font-[700] border-b-2`}`}
+                    } ${paths[1] === item.url.replace('/','') && `font-[700] border-b-2`}`}
                   >
                     {item.text}
                   </Link>

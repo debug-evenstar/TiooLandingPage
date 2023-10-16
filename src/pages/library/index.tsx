@@ -4,9 +4,9 @@ import searchIcon from '../../assets/icons/search.svg';
 import PageLayout from "../../layouts/PageLayout";
 import { useNavigate } from 'react-router-dom';
 import imageCover from '../../assets/images/new-cover.png';
-import ComingSoon from '../../components/components/comingsoon';
+// import ComingSoon from '../../components/components/comingsoon';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 
 export interface ILibraryCardProps {
     name: string;
@@ -24,7 +24,7 @@ const libraryMaterials: ILibraryCardProps[] = [
 
 function Search() {
     return (
-        <div className="w-full px-2 lg:px-0">
+        <div className="w-full px-4 lg:px-0">
             <div className="lg:w-[90%] lg:mx-auto lg:flex items-center lg:space-x-12">
                 <div className='flex items-center justify-between lg:justify-start lg:space-x-3'>
                     <h1 className="text-[28px] text-[#030036BD]">All Subjects</h1>
@@ -65,7 +65,7 @@ function CallToAction() {
 
 function LibraryCard(card: ILibraryCardProps) {
     const navigate = useNavigate();
-    const [ modal, setModal ] = useState(false);
+    // const [ modal, setModal ] = useState(false);
 
     const handleClick = () => {
         if(card.name.includes('Level 1')){
@@ -103,7 +103,7 @@ export default function Library() {
                 <div className="w-[90%] mx-auto mt-4">
                     {
                         libraryMaterials.map((_: ILibraryCardProps, index: number) => {
-                            if (index % 3 == 0) {
+                            if (index % 3 === 0) {
                                 return (
                                     <div key={index % 2} className="grid lg:grid-cols-3 mx-auto gap-10 mt-10">
                                         {libraryMaterials.slice(index, index + 3).map((card: ILibraryCardProps, index: number) => (
@@ -111,6 +111,8 @@ export default function Library() {
                                         ))}
                                     </div>
                                 )
+                            }else{
+                                return null
                             }
                         })
                     }
