@@ -74,8 +74,8 @@ const Accordion = ({ title, content }: { title: string, content: string }) => {
 function FAQ(){
     return (
         <div className="mt-20">
-            <h1 className="font-[700] text-[30px] sm:md:text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
-            <div className="w-[90%] mx-auto mt-10 border rounded-[8px] shadow-lg px-4 sm:md:lg:px-12 py-5 sm:md:lg:py-14">
+            <h1 className="font-[700] text-[30px] sm:text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
+            <div className="w-[90%] mx-auto mt-10 border rounded-[8px] shadow-lg px-4 sm:px-12 py-5 sm:py-14">
                 {questions.map((item: any,index: number) => (
                     <Accordion key={index} title={item.q} content={item.a} />
                 ))}
