@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 export default function CookieComponent() {
   const [accepted, setAccepted] = useState(false);
 
-  // const previouslyAccepted = localStorage.getItem('acceptedCookies') === 'true';
-  const previouslyAccepted = false;
+  const previouslyAccepted = localStorage.getItem('acceptedCookies') === 'true';
+  // const previouslyAccepted = false;
   const acceptCookies = () => {
     // Set the 'acceptedCookies' item in localStorage
     localStorage.setItem('acceptedCookies', 'true');

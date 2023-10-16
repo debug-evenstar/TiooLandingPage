@@ -10,9 +10,9 @@ function Header() {
         <img
           src={pricingimg}
           alt="price"
-          className="hidden lg:block rounded-l-[48px] h-full object-cover "
+          className="hidden sm:md:lg:block rounded-l-[48px] h-full object-cover "
         />
-        <img src={book}  alt="book" className="absolute right-16  lg:top-12" />
+        <img src={book} alt="book" className="absolute right-8 top-12 sm:md:right-16  sm:md:lg:top-12" />
         <img
           src={imgbg}
           alt="background"

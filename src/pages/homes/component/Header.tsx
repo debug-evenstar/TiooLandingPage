@@ -23,7 +23,7 @@ function Header() {
       <div className="relative flex flex-col pt-10 items-center justify-center w-full z-[20] gap-7">
         <h1 className="text-white leading-[3.5rem] sm:md:leading-[5rem] text-5xl sm:md:text-[60px] font-[600] text-center">
           Gamified textbooks and workbooks for
-          <span className=" text-5xl sm:md:lg:text-[60px] font-[600] boujee-text">
+          <span className="pl-2 sm:md:pl-0 text-5xl sm:md:lg:text-[60px] font-[600] boujee-text">
             K–12 Education
           </span>
         </h1>

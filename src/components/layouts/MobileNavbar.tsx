@@ -92,6 +92,15 @@ function SideBar({pathname, paths, active, setActive}: any){
               {item.text}
             </Link>
         ))}
+        <Link
+          key={NAV_DATA.length}
+          to={'/login'}
+          className={`text-center w-full py-6 my-2 text-2xl font-[600] ease-in-out duration-300
+            text-gray-700 border-white`}
+        >
+          Log In
+        </Link>
+
       </div>
     </div>
   );
