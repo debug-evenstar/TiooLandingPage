@@ -24,7 +24,7 @@ function Navbar() {
   // const doSignin = () => {};
   window.addEventListener("scroll", changeNavbarColor);
   return (
-    <div className="hidden sm:md:lg:block">
+    <div className="hidden sm:block">
       <div
         className={`pl-[150px] w-full z-[40]  h-[70px] sm:h-[80px] fixed top-0  left-0   ${
           colorchange || pathname !== "/" ? `bg-[#FFF]` : `bg-[#0E096C]`

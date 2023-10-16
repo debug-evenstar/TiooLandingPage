@@ -7,13 +7,13 @@ import zig from "../../../images/homeimg/bgzigzag.png";
 function Benefit() {
   return (
     <>
-      <div className="px-4 sm:md:px-16 py-10 ">
-        <div className="sm:md:grid w-full sm:md:grid-cols-2 sm:md:gap-5 sm:md:px-4 ">
-          <div className="flex flex-col items-center justify-center mb-4 sm:md:mb-0 sm:md:p-14">
-            <h1 className="text-[rgba(3,0,54,0.74)] text-[30px] sm:md:text-[50px] font-[700]">
+      <div className="px-4 sm:px-16 py-10 ">
+        <div className="sm:grid w-full sm:grid-cols-2 sm:gap-5 sm:px-4 ">
+          <div className="flex flex-col items-center justify-center mb-4 sm:mb-0 sm:p-14">
+            <h1 className="text-[rgba(3,0,54,0.74)] text-[30px] sm:text-[50px] font-[700]">
               Why Tioo?
             </h1>
-            <p className="text-[18px] sm:md:text-[20px] font-inter font-[400] text-center">
+            <p className="text-[18px] sm:text-[20px] font-inter font-[400] text-center">
               Transform learning into an exciting and interactive experience.
             </p>
           </div>
