@@ -23,7 +23,7 @@ function MobileNavbar() {
   // const doSignin = () => {};
   window.addEventListener("scroll", changeNavbarColor);
   return (
-    <div className="sm:md:lg:hidden">
+    <div className="sm:hidden">
       <SideBar {...{active, setActive, pathname, paths}}/>
       <div
         className={`flex w-full z-[40] items-center justify-between  h-[75px] sm:h-[80px] fixed top-0  left-0  ${
