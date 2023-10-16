@@ -26,7 +26,7 @@ function Featuredbook() {
             activities that make coding accessible and fun for students of all
             ages
           </p>
-          <div className=" w-[200px]">
+          <div className=" w-full sm:md:w-[200px]">
             <Button2 text1="Preview book" onclick={() => {window.open(process.env.REACT_APP_PREVIEW_LINK,'_blank')}} />
           </div>
         </div>
