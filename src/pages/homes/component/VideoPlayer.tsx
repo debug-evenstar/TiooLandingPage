@@ -15,24 +15,31 @@ function VideoPlayer() {
 
     useEffect(() => {
         const ref = refs[current];
-        if (ref.current) {
-            ref.current.currentTime = 0;
-            ref.current.play();
+        try {        
+            if (ref.current) {
+                ref.current.currentTime = 0;
+                ref.current.play();
+            }
+        }catch(error){
+            console.log(error)
         }
+
 
     }, [current])
 
     useEffect(() => {
         const videos = document.querySelectorAll('video');
-        console.log(videos);
         videos[videos.length - 1].addEventListener('canplaythrough', () => {
-            console.log("loaded video");
             setLoaded(true);
         })
         const ref = refs[current];
-        if (ref.current) {
-            ref.current.currentTime = 0;
-            ref.current.play();
+        try{
+            if (ref.current) {
+                ref.current.currentTime = 0;
+                ref.current.play();
+            }
+        }catch(error){
+            console.log(error);
         }
     }, []);
 

@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
-
+import { useState } from 'react';
 export default function CookieComponent() {
   const [accepted, setAccepted] = useState(false);
 
   const previouslyAccepted = localStorage.getItem('acceptedCookies') === 'true';
-
+  // const previouslyAccepted = false;
   const acceptCookies = () => {
     // Set the 'acceptedCookies' item in localStorage
     localStorage.setItem('acceptedCookies', 'true');
@@ -16,9 +15,9 @@ export default function CookieComponent() {
     : ""
 
   return (
-    <div className={`w-full text-primary justify-between flex items-center h-[200px] p-10 fixed bottom-0 z-[100] bg-white duration-1000 ${styling}`}>
-      <div className="w-[60%]">
-        <h1 className="font-[700]">This website uses cookies</h1>
+    <div className={`w-full text-primary justify-between flex flex-col sm:flex-row sm:items-center h-[300px] sm:h-[200px] p-4 sm:2p-10 fixed bottom-0 z-[120] bg-white duration-1000 ${styling}`}>
+      <div className="sm:w-[60%] relative">
+        <h1 className="text-xl mb-2 font-[700]">This website uses cookies</h1>
         <p className="text-sm">
           We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services.
         </p>

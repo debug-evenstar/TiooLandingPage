@@ -8,24 +8,19 @@ function Pricing() {
 
   const [pricing, setPricing] = useState<any>([]);
   const [symbol, setSymbol] = useState('');
-  const [country, setCountry] = useState('');
   const navigate = useNavigate();
-  const [ pricingObject, setPricingObject ] = useState<{[key: string]: number}>();
+  // const [ pricingObject, setPricingObject ] = useState<{[key: string]: number}>();
   const [ discount, setDiscount ] = useState<any>([]);
   const keys: string[] = ['monthly', 'quaterly', 'yearly'];
-
 
 
   useEffect(() => {
     fetch('https://api.ipify.org/?format=json')
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         fetch('https://ipwho.is/' + data.ip)
           .then(resp => resp.json())
           .then(g_data => {
-            console.log(g_data);
-            setCountry(g_data.country_code)
             let cc = '';
             if (g_data.country_code === "NG") {
               cc = "NGN"
@@ -38,14 +33,13 @@ function Pricing() {
             fetch((process.env.REACT_APP_BASE_URL || 'https://beta.api.hellotioo.com') + '/open/pricing?cc=' + cc)
               .then(response => response.json())
               .then(data => {
-                console.log("pricing",data)
                 const result: {[key: string]: number} = {};
                 data.data.pricing.forEach((item: any) => {
                   const key = Object.keys(item)[0];
                   const value = item[key]
                   result[key] = value;
                 })
-                setPricingObject(result);
+                // setPricingObject(result);
                 setPricing(Object.values(result));
                 setDiscount([
                   null,
@@ -59,15 +53,9 @@ function Pricing() {
       })
       .catch(() => {
         const data = [
-          {
-            monthly: 4000
-          },
-          {
-            quaterly: 9500
-          },
-          {
-            yearly: 7500
-          }
+          {monthly: 8000},
+          {quaterly: 12000},
+          {yearly: 36000},
         ]
         const result: {[key: string]: number} = {};
         data.forEach((item: any) => {
@@ -75,7 +63,7 @@ function Pricing() {
           const value = item[key]
           result[key] = value;
         })
-        setPricingObject(result);
+        // setPricingObject(result);
         setPricing(Object.values(result));
         setDiscount([
           null,
@@ -85,7 +73,6 @@ function Pricing() {
         setSymbol('₦');
         console.log("failed to get location")
       });
-      console.log(pricing);
   }, [])
 
 
@@ -93,16 +80,16 @@ function Pricing() {
     <>
       {
         // country == "NG" && 
-        <div className="mt-10 p-5 rounded-[8px] shadow-xl w-[70%] mx-auto">
+        <div className="mt-10 p-5 mx-3 lg:mx-auto rounded-[8px] shadow-xl lg:w-[70%] mx-auto">
           <p className="text-center text-xl  text-primary font-[700] font-inter">
             Also, you don't have to pay for each child, one subscription covers all your children.
           </p>
         </div>
       }
 
-      <div className="relative flex w-full px-16 mt-20 justify-center j gap-7">
+      <div className="relative lg:flex w-full lg:px-16 px-3 mt-5 lg:mt-20 justify-center gap-7">
         {pricingData.map((item: any, index: number) => (
-          <div key={index} className="flex flex-col border justify-between space-y-3 p-7 w-[350px] gap-4 shadow-lg hover:scale-[1.01] duration-300 rounded-[8px] ">
+          <div key={index} className="flex flex-col border justify-between space-y-3 p-7 lg:w-[350px] mb-6 lg:mb-0 gap-4 shadow-lg hover:scale-[1.01] duration-300 rounded-[8px] ">
             <div className="flex flex-col w-full gap-4">
               <p className="text-[#4F46E5] font-[700] flex h-[20px] justify-end">
                 {( discount[index] !== null && discount[index] !== undefined ) && 'save ' + symbol + (discount[index] && discount[index]?.toLocaleString())}
@@ -124,9 +111,9 @@ function Pricing() {
               <div className="flex flex-col gap-3">
                 {item.list.map((listitem: any, index: number) => (
                   <div key={index} className="flex gap-2 ">
-                    <img src={point} className="w-[24px] h-[24px]" />
+                    <img src={point} alt="" className="w-[24px] h-[24px]" />
 
-                    {item.list[item.list.length - 1] == listitem ? (
+                    {item.list[item.list.length - 1] === listitem ? (
                       <p>
                         {listitem}
                         <span className="text-[#A87B0C]">(Coming soon)</span>

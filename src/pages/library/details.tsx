@@ -1,10 +1,7 @@
-import { useLocation } from 'react-router';
+// import { useLocation } from 'react-router';
 import hero2 from '../../assets/hero2.png';
-// import others1 from '../../assets/others1.png';
-// import others2 from '../../assets/others2.png';
-// import others3 from '../../assets/others3.png';
+
 import {
-    Button,
     Menu,
     MenuHandler,
     MenuItem,
@@ -16,14 +13,6 @@ import point from '../../images/pricingimg/point.png';
 
 // import ReactRating from 'react-rating-stars-component';
 
-// const objectives: string[] = [
-//     'Understand the basics of marketing',
-//     'What marketing is and its importance',
-//     'Understand the fundamental principles of marketing',
-//     'Learn how these principles can be applied in real-world cases',
-//     'Learn marketing strategies and innovation',
-//     'Introduction into digital marketing'
-// ];
 
 const objectives: string[] = [
     'The amazing world of computers',
@@ -42,13 +31,13 @@ const objectives: string[] = [
 function Header() {
     return (
         <div>
-            <div className="flex w-[90%] mx-auto space-x-10">
+            <div className="sm:flex sm:w-[90%] mx-auto sm:space-x-10">
                 {/*<img src={hero1} alt="" className="w-[450px]" />*/}
-                <div className="w-[450px] shadow-lg">
+                <div className="w-[90%] mx-auto sm:m-0 sm:w-[450px] shadow-lg">
                     <img src={hero2} alt="" className="w-full" />
                 </div>
-                <div className='w-[450px]'>
-                    <h1 className="font-[700] text-[40px] text-[#030036BD]">Early Coding for kids (Level 1)</h1>
+                <div className='w-full px-4 sm:px-0 mt-5 sm:mt-0 sm:w-[450px]'>
+                    <h1 className="font-[700] text-[30px] sm:text-[40px] text-[#030036BD]">Early Coding for kids (Level 1)</h1>
                     <div>
                         <svg width="154" height="24" viewBox="0 0 154 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.767045 15.4545V13.517L5.625 5.86364H7.29545V8.54545H6.30682L3.24432 13.392V13.483H10.1477V15.4545H0.767045ZM6.35227 17.5V14.8636L6.39773 14.0057V5.86364H8.70455V17.5H6.35227ZM13.0057 17.6477C12.6307 17.6477 12.3087 17.5152 12.0398 17.25C11.7746 16.9811 11.642 16.6591 11.642 16.2841C11.642 15.9129 11.7746 15.5947 12.0398 15.3295C12.3087 15.0644 12.6307 14.9318 13.0057 14.9318C13.3693 14.9318 13.6875 15.0644 13.9602 15.3295C14.233 15.5947 14.3693 15.9129 14.3693 16.2841C14.3693 16.5341 14.3049 16.7633 14.1761 16.9716C14.0511 17.1761 13.8864 17.3409 13.6818 17.4659C13.4773 17.5871 13.2519 17.6477 13.0057 17.6477ZM16.3338 17.5V15.7273L20.4759 11.892C20.8281 11.5511 21.1236 11.2443 21.3622 10.9716C21.6046 10.6989 21.7884 10.4318 21.9134 10.1705C22.0384 9.9053 22.1009 9.61932 22.1009 9.3125C22.1009 8.97159 22.0232 8.67803 21.8679 8.43182C21.7126 8.18182 21.5005 7.99053 21.2315 7.85795C20.9626 7.72159 20.6577 7.65341 20.3168 7.65341C19.9607 7.65341 19.6501 7.72538 19.3849 7.86932C19.1198 8.01326 18.9152 8.2197 18.7713 8.48864C18.6274 8.75758 18.5554 9.07765 18.5554 9.44886H16.2202C16.2202 8.6875 16.3925 8.02652 16.7372 7.46591C17.0819 6.9053 17.5649 6.47159 18.1861 6.16477C18.8073 5.85795 19.5232 5.70455 20.3338 5.70455C21.1671 5.70455 21.8925 5.85227 22.5099 6.14773C23.1312 6.43939 23.6141 6.8447 23.9588 7.36364C24.3035 7.88258 24.4759 8.47727 24.4759 9.14773C24.4759 9.58712 24.3887 10.0208 24.2145 10.4489C24.044 10.8769 23.7391 11.3523 23.2997 11.875C22.8603 12.3939 22.241 13.017 21.4418 13.7443L19.7429 15.4091V15.4886H24.6293V17.5H16.3338Z" fill="#FEA948" />
@@ -59,8 +48,8 @@ function Header() {
                             <path d="M142 1.61804L144.219 8.4463L144.331 8.7918H144.694H151.874L146.065 13.0119L145.771 13.2254L145.884 13.5709L148.102 20.3992L142.294 16.1791L142 15.9656L141.706 16.1791L135.898 20.3992L138.116 13.5709L138.229 13.2254L137.935 13.0119L132.126 8.7918H139.306H139.669L139.781 8.4463L142 1.61804Z" fill="url(#paint0_linear_46_215)" stroke="#FEA948" />
                             <defs>
                                 <linearGradient id="paint0_linear_46_215" x1="147.5" y1="9" x2="138.5" y2="12" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0.677083" stop-color="white" stop-opacity="0.24" />
-                                    <stop offset="1" stop-color="#FEA948" />
+                                    <stop offset="0.677083" stopColor="white" stopOpacity="0.24" />
+                                    <stop offset="1" stopColor="#FEA948" />
                                 </linearGradient>
                             </defs>
                         </svg>
@@ -69,7 +58,7 @@ function Header() {
 
                     <p className='bg-white text-gray-900 font-[500] font-inter mb-7'>An educational practice of introducing young children, between the ages of 5 to 18, to the basics of computer programming and coding.</p>
                     <div className="mb-6 py-[1px] h-[70px] w-full bg-gradient-to-r from-[#FA14D5] to-[#4F46E5]">
-                        <div className='text-[#030036BD] h-full bg-white flex items-center'><span className='text-gray-900 mr-2'>Written by: </span> David Ogunshola</div>
+                        <div className='text-[#030036BD] h-full w-full bg-white flex items-center'><span className='text-gray-900 mr-2'>Written by: </span> David Ogunshola</div>
                     </div>
                     <div className="flex items-center space-x-4">
                         <div className='flex space-x-2'>
@@ -111,8 +100,8 @@ function Header() {
 
 function ObjectiveAndRating() {
     return (
-        <div className="mt-16 w-[90%] border-gray-300 mx-auto flex justify-between">
-            <div className="border rounded-[8px] p-4 pt-6 w-[45%]">
+        <div className="mt-16 px-4 sm:px-0 sm:w-[90%] border-gray-300 mx-auto flex flex-col sm:flex-row justify-between">
+            <div className="border rounded-[8px] p-4 pt-6 sm:w-[45%]">
                 <h1 className="text-primary mb-4 font-[600]">What students will learn</h1>
                 <ul>
                     {objectives.map((item: string, index: number) => (
@@ -122,13 +111,13 @@ function ObjectiveAndRating() {
                                     <path d="M21 7.5L9 19.5L3.5 14L4.91 12.59L9 16.67L19.59 6.09L21 7.5Z" fill="#030036" fillOpacity="0.74" />
                                 </svg>
                             </span> */}
-                            <img src={point} className="w-[20px] h-[20px]" />
+                            <img src={point} alt="" className="w-[20px] h-[20px]" />
                             <p className="text-primary">{item}</p>
                         </li>
                     ))}
                 </ul>
             </div>
-            <div className="border  rounded-[4px] p-4 w-[45%] flex flex-col justify-between items-center">
+            <div className="border  rounded-[4px] p-4 mt-2 sm:mt-0 sm:w-[45%] flex flex-col justify-between items-center">
                 <div>
                     <h1 className="text-[60px] text-center text-[#FEA948] font-[700]">4.2</h1>
                     <div className='mx-auto w-fit'>
@@ -140,8 +129,8 @@ function ObjectiveAndRating() {
                             <path d="M108 1.61804L110.219 8.4463L110.331 8.7918H110.694H117.874L112.065 13.0119L111.771 13.2254L111.884 13.5709L114.102 20.3992L108.294 16.1791L108 15.9656L107.706 16.1791L101.898 20.3992L104.116 13.5709L104.229 13.2254L103.935 13.0119L98.1262 8.7918H105.306H105.669L105.781 8.4463L108 1.61804Z" fill="url(#paint0_linear_46_270)" stroke="#FEA948" />
                             <defs>
                                 <linearGradient id="paint0_linear_46_270" x1="113.5" y1="9" x2="104.5" y2="12" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0.677083" stop-color="white" stop-opacity="0.24" />
-                                    <stop offset="1" stop-color="#FEA948" />
+                                    <stop offset="0.677083" stopColor="white" stopOpacity="0.24" />
+                                    <stop offset="1" stopColor="#FEA948" />
                                 </linearGradient>
                             </defs>
                         </svg>
@@ -149,7 +138,7 @@ function ObjectiveAndRating() {
                     <div className="w-full mt-5">
                         {
                             [70, 60, 30, 0, 0].map((n: number, index: number) => (
-                                <div className="flex w-full items-center  mb-2">
+                                <div key={index} className="flex w-full items-center  mb-2">
                                     <span className="w-[4rem] text-[14px] font-[300]">{5 - index} Star</span>
                                     <div className="h-[4px] bg-gray-300 rounded overflow-hidden w-[230px]">
                                         <div className="h-full bg-[#FEA948]" style={{ width: n + '%' }} />
@@ -216,7 +205,7 @@ const products: TBookCardProps[] = [
 
 function BookCard({ title, image, sub, description, rating }: TBookCardProps) {
     return (
-        <div className="hover:scale-[1.02] hover:shadow-lg duration-300 rounded-[8px] w-[270px] border shadow cursor-pointer">
+        <div className="hover:scale-[1.02] hover:shadow-lg duration-300 rounded-[8px] sm:w-[270px] border shadow cursor-pointer">
             <div className="w-full rounded-t-[8px] overflow-hidden">
                 <div className="relative flex justify-end">
                     <span className="py-1 rounded-[8px] absolute text-sm bg-red-500 text-white z-[30] px-4">coming soon</span>
@@ -243,8 +232,8 @@ function BookCard({ title, image, sub, description, rating }: TBookCardProps) {
 function Others() {
     return (
         <div className='w-[90%] mx-auto mt-16'>
-            <h1 className="text-[#030036BD] font-[600]">Other books like this</h1>
-            <div className="mt-3 grid grid-cols-4 gap-x-3">
+            <h1 className="text-[20px] sm:text-[16px] text-[#030036BD] font-[600]">Other books like this</h1>
+            <div className="mt-3 flex flex-col gap-y-4 items-center sm:grid sm:grid-cols-4 sm:gap-x-3">
                 {
                     products.map((props, index) => (
                         <BookCard {...props} key={index} />
@@ -256,8 +245,8 @@ function Others() {
 }
 
 export default function LibraryDetails() {
-    const location = useLocation();
-    const card = location.state;
+    // const location = useLocation();
+    // const card = location.state;
     return (
         <PageLayout>
             <div className="pb-10 pt-10 mt-24">

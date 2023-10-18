@@ -1,29 +1,25 @@
 import React from "react";
 import BenefitCustomCard from "./BenefitCustomCard";
-import { BenefitCustomCardprop } from "../../../types/types";
 import { benefitData } from "../../../data/data";
 import Featuredbook from "./Featuredbook";
 import zig from "../../../images/homeimg/bgzigzag.png";
-import apple from "../../../images/apple.png";
-import play from "../../../images/play.png";
-import ButtonCustom from "../../../components/components/ButtonCustom";
 
 function Benefit() {
   return (
     <>
-      <div className="px-16 py-10 ">
-        <div className="grid w-full grid-cols-2 gap-5 px-4 ">
-          <div className="flex flex-col items-center justify-center p-14">
-            {" "}
-            <h1 className="text-[rgba(3,0,54,0.74)] text-[50px] font-[700]">
+      <div className="px-4 sm:px-16 py-10 ">
+        <div className="sm:grid w-full sm:grid-cols-2 sm:gap-5 sm:px-4 ">
+          <div className="flex flex-col items-center justify-center mb-4 sm:mb-0 sm:p-14">
+            <h1 className="text-[rgba(3,0,54,0.74)] text-[30px] sm:text-[50px] font-[700]">
               Why Tioo?
             </h1>
-            <p className="text-[20px] font-inter font-[400] text-center">
+            <p className="text-[18px] sm:text-[20px] font-inter font-[400] text-center">
               Transform learning into an exciting and interactive experience.
             </p>
           </div>
-          {benefitData.map((item) => (
+          {benefitData.map((item: any,index: number) => (
             <BenefitCustomCard
+              key={index}
               col={item.col}
               desc={item.desc}
               title={item.title}
@@ -33,7 +29,7 @@ function Benefit() {
         </div>
         <Featuredbook />
       </div>
-      <img src={zig} className="w-full mt-10" />
+      <img src={zig} alt="" className="w-full mt-10" />
     </>
   );
 }

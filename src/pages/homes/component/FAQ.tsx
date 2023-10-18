@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { AiOutlineRight, AiOutlineDown } from "react-icons/ai";
 import { BsWhatsapp } from "react-icons/bs";
 
 const questions: { q: string, a: string ,id: number}[] = [
@@ -30,85 +29,6 @@ const questions: { q: string, a: string ,id: number}[] = [
   },
 ];
 
-// interface dropItem {
-//   ind: number;
-//   id: number;
-//   q: string;
-//   a: string;
-// }
-// function FAQ() {
-//   const [open, setOpen] = useState<boolean[]>([]);
-//   const toggleOpen = (index: any) => {
-//     setOpen((prevOpen) => {
-//       const updatedOpen = [...prevOpen];
-//       updatedOpen[index] = !updatedOpen[index];
-//       return updatedOpen;
-//     });
-//   };
-//   const DropItem: React.FC<dropItem> = ({ ind, id, q, text }) => {
-//     const isOpen = open[ind];
-
-//     return (
-//       <div className="w-full border-b-2 border-[#CECDFD]">
-//         <div
-//           className=" cursor-pointer h-[100px]  flex items-center gap-8 "
-//           onClick={() => toggleOpen(ind)}
-//         >
-//           {isOpen ? <AiOutlineDown /> : <AiOutlineRight />}
-//           <p className="text-[rgba(3,0,54,0.74)]">{q}</p>
-//         </div>
-//         {/* This will show the content */}
-//         {/* {isOpen && (
-//           <div className="h-[200px] w-full px-12">
-//             <p>{text}</p>
-//           </div>
-//         )} */}
-//       </div>
-//     );
-//   };
-
-//   return (
-//     <div className="w-full relative px-5 sm:px-20 py-10 font-[poppins] mt-16 ">
-//       <h1 className=" font-[500] text-[20px] sm:text-[48px] text-center text-[rgba(3,0,54,0.74)]">
-//         Frequently Asked Questions
-//       </h1>
-//       <div className="bg-[#FFF] rounded-none sm:rounded-[8px] p-0 sm:p-10 mt-10 m-[auto]  w-full sm:w-[1123px]  border-none sm:border-[3px] shadows">
-//         {/* Heading */}
-
-//         {/* content */}
-//         {itemfordrop?.map((el, index) => (
-//           <DropItem
-//             ind={index}
-//             id={el.id}
-//             text={el.text}
-//             q={el.q}
-//           />
-//         ))}
-//         <div className="w-full text-center mt-7">
-//           <p className="text-[13px] sm:text-[18px] font-[400]">
-//             Other questions?
-//           </p>
-//         </div>
-//         <div className="flex flex-col  sm:flex-row gap-0 sm:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
-//           <p className="text-[13px] sm:text-[18px] font-[400]">
-//             Email{" "}
-//             <a className="text-[#4F46E5]" href="mailto:support@hellotioo.com">
-//               support@hellotioo.com
-//             </a>{" "}
-//           </p>
-//           <p className="text-[13px] sm:text-[18px] font-[400]">
-//             or
-//             <BsWhatsapp className="inline ml-2 mr-2" />
-//             <a className="text-[#4F46E5]" href="tel:+2347018481060">
-//               +234 701 848 106022
-//             </a>
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 
 const Accordion = ({ title, content }: { title: string, content: string }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -130,7 +50,6 @@ const Accordion = ({ title, content }: { title: string, content: string }) => {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="#6663E3"
-                    //   stroke="currentColor"
                     >
                         <path
                             strokeLinecap="round"
@@ -155,8 +74,8 @@ const Accordion = ({ title, content }: { title: string, content: string }) => {
 function FAQ(){
     return (
         <div className="mt-20">
-            <h1 className="font-[700] text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
-            <div className="w-[90%] mx-auto mt-10 border rounded-[8px] shadow-lg px-12 py-14">
+            <h1 className="font-[700] text-[30px] sm:text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
+            <div className="w-[90%] mx-auto mt-10 border rounded-[8px] shadow-lg px-4 sm:px-12 py-5 sm:py-14">
                 {questions.map((item: any,index: number) => (
                     <Accordion key={index} title={item.q} content={item.a} />
                 ))}
@@ -167,7 +86,7 @@ function FAQ(){
                 </div>
                 <div className="flex text-primary text-sm flex-col  sm:flex-row gap-0 sm:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
                     <p className="text-[13px] sm:text-[16px] font-[400]">
-                        Email{" "}
+                        Email
                         <a className="text-[#4F46E5]" href="mailto:support@hellotioo.com">
                             support@hellotioo.com
                         </a>{" "}
@@ -175,7 +94,7 @@ function FAQ(){
                     <p className="text-[13px] sm:text-[16px] font-[400]">
                         or
                         <BsWhatsapp className="inline ml-2 mr-2" />
-                        <a className="text-[#4F46E5]" target="_blank" href="https://api.whatsapp.com/send?phone=2347018481060">
+                        <a className="text-[#4F46E5]" target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=2347018481060">
                             +234 701 848 1060
                         </a>
                     </p>
