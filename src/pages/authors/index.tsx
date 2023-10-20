@@ -105,7 +105,7 @@ function Pattern2() {
                     <img src={z2} alt="" className="w-full" />
                 </div>
             </div>
-            <div className="px-3 lg:px-16 relative py-12 lg:py-0 lg:-mt-32">
+            <div className="px-3 border flex items-center lg:block flex-col lg:px-16 relative py-12 lg:py-0 lg:-mt-32">
                 <p className='text-[#030036BD]'>Get the App</p>
                 <div className="flex space-x-4 items-center">
                     <button>
@@ -115,7 +115,7 @@ function Pattern2() {
                         <img src={appleStore} alt="" />
                     </button>
                 </div>
-                <p className="mt-4 lg:mt-0 px-4 w-[330px] py-1.5 bg-white rounded-[8px] shadow  text-center mt-2">
+                <p className="mt-4 lg:mt-2 px-4 w-[330px] py-1.5 bg-white rounded-[8px] shadow  text-center mt-2">
                   Coming Soon
                 </p>
             </div>
@@ -261,7 +261,7 @@ const questions: {
 function FAQ(){
     return (
         <>
-            <h1 className="font-[700] w-[90%] text-3xl lg:text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
+            <h1 className="font-[700] w-[90%] mx-auto text-3xl lg:text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
             <div className="lg:w-[90%] mx-2 lg:mx-auto mt-10 border rounded-[8px] shadow-lg lg:px-12 lg:py-14 pb-10 ">
                 {questions.map((item: any,index: number) => (
                     <Accordion key={index} title={item.q} content={item.a} />
@@ -310,7 +310,7 @@ export default function Authors() {
                 <Pattern3 />
                 <div className="px-4 lg:px-16 mt-16 py-16">
                     <div className='lg:flex justify-between'>
-                        <p className="text-[#4F46E5] text-[26px] font-[700] lg:w-[400px]">Ready to publish your textbooks and workbooks on Tioo?</p>
+                        <p className="text-[#4F46E5] text-[26px] text-center lg:text-left font-[700] lg:w-[400px]">Ready to publish your textbooks and workbooks on Tioo?</p>
                         <Form />
                     </div>
                 </div>
