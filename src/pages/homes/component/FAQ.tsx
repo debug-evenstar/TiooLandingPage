@@ -74,24 +74,24 @@ const Accordion = ({ title, content }: { title: string, content: string }) => {
 function FAQ(){
     return (
         <div className="mt-20">
-            <h1 className="font-[700] text-[30px] sm:text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
-            <div className="w-[90%] mx-auto mt-10 border rounded-[8px] shadow-lg px-4 sm:px-12 py-5 sm:py-14">
+            <h1 className="font-[700] text-[30px] lg:text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
+            <div className="w-[90%] mx-auto mt-10 border rounded-[8px] shadow-lg px-4 lg:px-12 py-5 lg:py-14">
                 {questions.map((item: any,index: number) => (
                     <Accordion key={index} title={item.q} content={item.a} />
                 ))}
                 <div className="w-full text-primary text-sm text-center mt-16">
-                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                    <p className="text-[13px] lg:text-[16px] font-[400]">
                     Other questions?
                     </p>
                 </div>
-                <div className="flex text-primary text-sm flex-col  sm:flex-row gap-0 sm:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
-                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                <div className="flex text-primary text-sm flex-col  lg:flex-row gap-0 lg:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
+                    <p className="text-[13px] lg:text-[16px] font-[400]">
                         Email
                         <a className="text-[#4F46E5]" href="mailto:support@hellotioo.com">
                             support@hellotioo.com
                         </a>{" "}
                     </p>
-                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                    <p className="text-[13px] lg:text-[16px] font-[400]">
                         or
                         <BsWhatsapp className="inline ml-2 mr-2" />
                         <a className="text-[#4F46E5]" target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=2347018481060">

@@ -15,8 +15,8 @@ export default function CookieComponent() {
     : ""
 
   return (
-    <div className={`w-full text-primary justify-between flex flex-col sm:flex-row sm:items-center h-[300px] sm:h-[200px] p-4 sm:2p-10 fixed bottom-0 z-[120] bg-white duration-1000 ${styling}`}>
-      <div className="sm:w-[60%] relative">
+    <div className={`w-full text-primary justify-between flex flex-col lg:flex-row lg:items-center h-[300px] lg:h-[200px] p-4 lg:2p-10 fixed bottom-0 z-[120] bg-white duration-1000 ${styling}`}>
+      <div className="lg:w-[60%] relative">
         <h1 className="text-xl mb-2 font-[700]">This website uses cookies</h1>
         <p className="text-sm">
           We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services.
