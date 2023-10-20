@@ -31,13 +31,13 @@ const objectives: string[] = [
 function Header() {
     return (
         <div>
-            <div className="sm:flex sm:w-[90%] mx-auto sm:space-x-10">
+            <div className="lg:flex lg:w-[90%] mx-auto lg:space-x-10">
                 {/*<img src={hero1} alt="" className="w-[450px]" />*/}
-                <div className="w-[90%] mx-auto sm:m-0 sm:w-[450px] shadow-lg">
+                <div className="w-[90%] mx-auto lg:m-0 lg:w-[450px] shadow-lg">
                     <img src={hero2} alt="" className="w-full" />
                 </div>
-                <div className='w-full px-4 sm:px-0 mt-5 sm:mt-0 sm:w-[450px]'>
-                    <h1 className="font-[700] text-[30px] sm:text-[40px] text-[#030036BD]">Early Coding for kids (Level 1)</h1>
+                <div className='w-full px-4 lg:px-0 mt-5 lg:mt-0 lg:w-[450px]'>
+                    <h1 className="font-[700] text-[30px] lg:text-[40px] text-[#030036BD]">Early Coding for kids (Level 1)</h1>
                     <div>
                         <svg width="154" height="24" viewBox="0 0 154 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.767045 15.4545V13.517L5.625 5.86364H7.29545V8.54545H6.30682L3.24432 13.392V13.483H10.1477V15.4545H0.767045ZM6.35227 17.5V14.8636L6.39773 14.0057V5.86364H8.70455V17.5H6.35227ZM13.0057 17.6477C12.6307 17.6477 12.3087 17.5152 12.0398 17.25C11.7746 16.9811 11.642 16.6591 11.642 16.2841C11.642 15.9129 11.7746 15.5947 12.0398 15.3295C12.3087 15.0644 12.6307 14.9318 13.0057 14.9318C13.3693 14.9318 13.6875 15.0644 13.9602 15.3295C14.233 15.5947 14.3693 15.9129 14.3693 16.2841C14.3693 16.5341 14.3049 16.7633 14.1761 16.9716C14.0511 17.1761 13.8864 17.3409 13.6818 17.4659C13.4773 17.5871 13.2519 17.6477 13.0057 17.6477ZM16.3338 17.5V15.7273L20.4759 11.892C20.8281 11.5511 21.1236 11.2443 21.3622 10.9716C21.6046 10.6989 21.7884 10.4318 21.9134 10.1705C22.0384 9.9053 22.1009 9.61932 22.1009 9.3125C22.1009 8.97159 22.0232 8.67803 21.8679 8.43182C21.7126 8.18182 21.5005 7.99053 21.2315 7.85795C20.9626 7.72159 20.6577 7.65341 20.3168 7.65341C19.9607 7.65341 19.6501 7.72538 19.3849 7.86932C19.1198 8.01326 18.9152 8.2197 18.7713 8.48864C18.6274 8.75758 18.5554 9.07765 18.5554 9.44886H16.2202C16.2202 8.6875 16.3925 8.02652 16.7372 7.46591C17.0819 6.9053 17.5649 6.47159 18.1861 6.16477C18.8073 5.85795 19.5232 5.70455 20.3338 5.70455C21.1671 5.70455 21.8925 5.85227 22.5099 6.14773C23.1312 6.43939 23.6141 6.8447 23.9588 7.36364C24.3035 7.88258 24.4759 8.47727 24.4759 9.14773C24.4759 9.58712 24.3887 10.0208 24.2145 10.4489C24.044 10.8769 23.7391 11.3523 23.2997 11.875C22.8603 12.3939 22.241 13.017 21.4418 13.7443L19.7429 15.4091V15.4886H24.6293V17.5H16.3338Z" fill="#FEA948" />
@@ -100,8 +100,8 @@ function Header() {
 
 function ObjectiveAndRating() {
     return (
-        <div className="mt-16 px-4 sm:px-0 sm:w-[90%] border-gray-300 mx-auto flex flex-col sm:flex-row justify-between">
-            <div className="border rounded-[8px] p-4 pt-6 sm:w-[45%]">
+        <div className="mt-16 px-4 lg:px-0 lg:w-[90%] border-gray-300 mx-auto flex flex-col lg:flex-row justify-between">
+            <div className="border rounded-[8px] p-4 pt-6 lg:w-[45%]">
                 <h1 className="text-primary mb-4 font-[600]">What students will learn</h1>
                 <ul>
                     {objectives.map((item: string, index: number) => (
@@ -117,7 +117,7 @@ function ObjectiveAndRating() {
                     ))}
                 </ul>
             </div>
-            <div className="border  rounded-[4px] p-4 mt-2 sm:mt-0 sm:w-[45%] flex flex-col justify-between items-center">
+            <div className="border  rounded-[4px] p-4 mt-2 lg:mt-0 lg:w-[45%] flex flex-col justify-between items-center">
                 <div>
                     <h1 className="text-[60px] text-center text-[#FEA948] font-[700]">4.2</h1>
                     <div className='mx-auto w-fit'>
@@ -205,7 +205,7 @@ const products: TBookCardProps[] = [
 
 function BookCard({ title, image, sub, description, rating }: TBookCardProps) {
     return (
-        <div className="hover:scale-[1.02] hover:shadow-lg duration-300 rounded-[8px] sm:w-[270px] border shadow cursor-pointer">
+        <div className="hover:scale-[1.02] hover:shadow-lg duration-300 rounded-[8px] lg:w-[270px] border shadow cursor-pointer">
             <div className="w-full rounded-t-[8px] overflow-hidden">
                 <div className="relative flex justify-end">
                     <span className="py-1 rounded-[8px] absolute text-sm bg-red-500 text-white z-[30] px-4">coming soon</span>
@@ -232,8 +232,8 @@ function BookCard({ title, image, sub, description, rating }: TBookCardProps) {
 function Others() {
     return (
         <div className='w-[90%] mx-auto mt-16'>
-            <h1 className="text-[20px] sm:text-[16px] text-[#030036BD] font-[600]">Other books like this</h1>
-            <div className="mt-3 flex flex-col gap-y-4 items-center sm:grid sm:grid-cols-4 sm:gap-x-3">
+            <h1 className="text-[20px] lg:text-[16px] text-[#030036BD] font-[600]">Other books like this</h1>
+            <div className="mt-3 flex flex-col gap-y-4 items-center lg:grid lg:grid-cols-4 lg:gap-x-3">
                 {
                     products.map((props, index) => (
                         <BookCard {...props} key={index} />

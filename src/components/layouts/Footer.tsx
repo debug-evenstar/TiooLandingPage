@@ -12,40 +12,38 @@ function Footer() {
     console.log("Do something");
   };
   return (
-    <div className="bg-[#FAFAFA]  w-full relative  px-5 sm:px-20 mt-12 mb-5  ">
-      <div className="flex flex-col sm:flex sm:flex-row border-b-2 border-[#CECDFD] w-full ">
+    <div className="bg-[#FAFAFA]  w-full relative  px-5 lg:px-20 mt-12 mb-5  ">
+      <div className="flex flex-col lg:flex lg:flex-row border-b-2 border-[#CECDFD] w-full ">
         <div className=" w-[15%] ">
           <img
-            className="w-[120px] sm:w-[140px] absolute top-0 sm:top-9 left-5"
+            className="w-[120px] lg:w-[140px] absolute top-0 lg:top-9 left-5"
             src={logo}
+            alt=""
           />
-          <h5 className="absolute left-[70px] sm:left-[90px] bottom-[180px] sm:bottom-[80px] font-[500] text-[12px] text-[#4F46E5]">
+          <h5 className="absolute left-[70px] lg:left-[90px] bottom-[180px] lg:bottom-[80px] font-[500] text-[12px] text-[#4F46E5]">
             By Praxeum
           </h5>
         </div>
-        <div className="  flex flex-col sm:flex sm:flex-row  mt-[8rem] sm:mt-[4rem] gap-[1px] sm:gap-5 w-[90%]  mb-[20px]   justify-left sm:justify-evenly">
-          <div className="h-full pl-4 sm:p-0 w-full sm:w-[50%] ">
+        <div className="  flex flex-col lg:flex lg:flex-row  mt-[8rem] lg:mt-[4rem] gap-[1px] lg:gap-5 w-[90%]  mb-[20px]   justify-left lg:justify-evenly">
+          <div className="h-full pl-4 lg:p-0 w-full lg:w-[50%] ">
             <div className="flex gap-5 mb-5 ">
-              <a
-                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] sm:text-[18px]"
-                href="#"
+              <button
+                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] lg:text-[18px]"
               >
                 About
-              </a>
-              <a
-                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] sm:text-[18px]"
-                href="#"
+              </button>
+              <button
+                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] lg:text-[18px]"
               >
                 Privacy
-              </a>
-              <a
-                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] sm:text-[18px]"
-                href="#"
+              </button>
+              <button
+                className="font-[500] text-[rgba(3,0,54,0.74)] text-[14px] lg:text-[18px]"
               >
                 Terms
-              </a>
+              </button>
             </div>
-            <div className="hidden sm:flex gap-10  h-[60px] w-full      ">
+            <div className="hidden lg:flex gap-10  h-[60px] w-full      ">
               <ButtonCustom
                 height={10}
                 width={190}
@@ -66,15 +64,15 @@ function Footer() {
               />
             </div>
           </div>
-          <div className="h-full w-full sm:w-[50%]  flex flex-col justify-center items-end pt-5 ">
-            <div className="absolute top-[50px] text-primary mb-5 left-[140px] sm:static flex  gap-3 w-[130px] items-end justify-end sm:mr-10">
+          <div className="h-full w-full lg:w-[50%]  flex flex-col justify-center items-end pt-5 ">
+            <div className="absolute top-[50px] text-primary mb-5 left-[140px] lg:static flex  gap-3 w-[130px] items-end justify-end lg:mr-10">
               <AiOutlineTwitter />
               <SlSocialLinkedin />
               <AiOutlineInstagram />
               <BsFacebook />
             </div>
-            <div className="w-full sm:w-[418px] flex items-start sm:items-end mr-0 ">
-              <p className=" pl-4 sm:p-0 text-primary font-[400] text-sm sm:text-primary text-left sm:text-right">
+            <div className="w-full lg:w-[418px] flex items-start lg:items-end mr-0 ">
+              <p className=" pl-4 lg:p-0 text-primary font-[400] text-sm lg:text-primary text-left lg:text-right">
                 3 Atabara Street, off cairo street, Ademola Adetukonbo,
                 Crescent, Wuse 2, Abuja, FCT
               </p>
@@ -83,7 +81,7 @@ function Footer() {
         </div>
       </div>
       <div className="w-full mt-5">
-        <p className="text-[10px] sm:text-[16px] text-center text-sm text-primary">
+        <p className="text-[10px] lg:text-[16px] text-center text-sm text-primary">
           &copy; 2023 Praxeum Limited. All rights reserved
           {/* © 2023 Praxeum Limited. All rights reserved */}
         </p>
