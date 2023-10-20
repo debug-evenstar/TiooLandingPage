@@ -11,12 +11,12 @@ function Header() {
   const navigate = useNavigate();
   return (
     <div className="bg-[#0E096C] w-full px-4 sm:px-40 mt-[10px] h-screen pt-32 relative">
-      <img src={book} alt="book" className="absolute top-[120px] left-[70px] " />
+      <img src={book} alt="book" className="absolute top-[100px] left-[30px] sm:top-[120px] sm:left-[70px] " />
       <img src={gridLines} className="opacity-10 sm:h-auto h-[20rem] absolute left-0 top-[10rem] sm:top-0 z-[1]" alt="grid lines"/>
       <img
         src={vr}
         alt="vr helmet"
-        className="absolute right-[20px] sm:right-[40px] top-[140px] sm:top-[220px] w-[100px] h-[100px]"
+        className="absolute right-[1px] sm:right-[40px] top-[100px] sm:top-[220px] w-[100px] h-[100px]"
       />
       <img src={planet} alt="planet" className="absolute bottom-[30px] left-[20px] " />
       <img src={game} alt="pad" className="absolute right-[30px] sm:right-[70px] bottom-[70px]" />
