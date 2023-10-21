@@ -23,17 +23,17 @@ function MobileNavbar() {
   // const doSignin = () => {};
   window.addEventListener("scroll", changeNavbarColor);
   return (
-    <div className="sm:hidden">
+    <div className="lg:hidden">
       <SideBar {...{active, setActive, pathname, paths}}/>
       <div
-        className={`flex w-full z-[40] items-center justify-between  h-[75px] sm:h-[80px] fixed top-0  left-0  ${
+        className={`flex w-full z-[40] items-center justify-between  h-[75px] lg:h-[80px] fixed top-0  left-0  ${
           colorchange || pathname !== "/" ? `bg-[#FFF]` : `bg-[#0E096C]`
         }`}
       >
         <div className="items-center w-full p-2 h-full mb-10 items-center flex">
           <img
             src={pathname !== "/" || colorchange ? log2 : log}
-            className="h-[50px] w-[70px] top-2.5 cursor-pointer absolute left-5 fill-[#0E096C]"
+            className="w-[60px] top-2.5 cursor-pointer absolute left-5 fill-[#0E096C]"
             onClick={() => nav("/", { replace: true })}
             alt=""
           />
