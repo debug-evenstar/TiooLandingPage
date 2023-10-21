@@ -9,71 +9,66 @@ function Pricing() {
   const [pricing, setPricing] = useState<any>([]);
   const [symbol, setSymbol] = useState('');
   const navigate = useNavigate();
-  // const [ pricingObject, setPricingObject ] = useState<{[key: string]: number}>();
   const [ discount, setDiscount ] = useState<any>([]);
   const keys: string[] = ['monthly', 'quaterly', 'yearly'];
 
 
+  const resolveResult = (data: any) => {
+    const result: {[key: string]: number} = {};
+    data.forEach((item: any) => {
+      const key = Object.keys(item)[0];
+      const value = item[key]
+      result[key] = value;
+    })
+
+    return result;
+  }
+
+  const calculateSavings = (result: any) => {
+    return [
+      null,
+      (result.monthly * 3) - result.quaterly,
+      (result.monthly * 12 ) - result.yearly
+    ]
+  }
+
+
   useEffect(() => {
-    fetch('https://api.ipify.org/?format=json')
-      .then(response => response.json())
-      .then(data => {
-        fetch('https://ipwho.is/' + data.ip)
-          .then(resp => resp.json())
-          .then(g_data => {
-            let cc = '';
-            if (g_data.country_code === "NG") {
-              cc = "NGN"
-              setSymbol('₦');
-            } else {
-              cc = "USD";
-              setSymbol('$');
-            }
 
-            fetch((process.env.REACT_APP_BASE_URL || 'https://beta.api.hellotioo.com') + '/open/pricing?cc=' + cc)
-              .then(response => response.json())
-              .then(data => {
-                const result: {[key: string]: number} = {};
-                data.data.pricing.forEach((item: any) => {
-                  const key = Object.keys(item)[0];
-                  const value = item[key]
-                  result[key] = value;
-                })
-                // setPricingObject(result);
-                setPricing(Object.values(result));
-                setDiscount([
-                  null,
-                  (result.monthly * 3) - result.quaterly,
-                  (result.monthly * 12 ) - result.yearly
-                ])
-              })
-              .catch(error => console.log())
-          })
-
-      })
-      .catch(() => {
-        const data = [
-          {monthly: 8000},
-          {quaterly: 12000},
-          {yearly: 36000},
-        ]
-        const result: {[key: string]: number} = {};
-        data.forEach((item: any) => {
-          const key = Object.keys(item)[0];
-          const value = item[key]
-          result[key] = value;
-        })
-        // setPricingObject(result);
-        setPricing(Object.values(result));
-        setDiscount([
-          null,
-          (result.monthly * 3) - result.quaterly,
-          (result.monthly * 12 ) - result.yearly
-        ])
+    const constructPricing = (data: any,error = false) => {
+      const result = resolveResult(data);
+      setPricing(Object.values(result));
+      setDiscount(calculateSavings(result))
+      if(error){
         setSymbol('₦');
-        console.log("failed to get location")
-      });
-  }, [])
+      }
+    }
+
+    const dummy_data = [
+      {monthly: 8000},
+      {quaterly: 12000},
+      {yearly: 36000},
+    ]
+
+
+    const country_code = localStorage.getItem('COUNTRY_CODE');
+    if(country_code){
+      const condition = country_code === "NG";
+      const cc = condition? "NGN":"USD";
+      setSymbol(condition? '₦':'$');
+      fetch((process.env.REACT_APP_BASE_URL || 'https://beta.api.hellotioo.com') + '/open/pricing?cc=' + cc)
+        .then(response => response.json())
+        .then(data => {
+          constructPricing(data.data.pricing);
+        })
+        .catch(error => {
+          constructPricing(dummy_data,true)
+        })
+
+    }else{
+      constructPricing(dummy_data,true);
+    }
+  },[]);
 
 
   return (

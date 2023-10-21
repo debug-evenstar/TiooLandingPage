@@ -105,7 +105,7 @@ export const Button3: React.FC<button> = ({
       }`}
       onClick={onclick}
     >
-      <img src={image} />
+      <img alt="" src={image} />
       <p
         className={`text-[12px] sm:text-[18px] font-[700] ${
           variant === "default"

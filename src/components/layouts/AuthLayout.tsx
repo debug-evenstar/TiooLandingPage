@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import logo from '../../images/tioologo.png'
 import logos from '../../images/logos.png'
 
 interface AuthLayoutProps {
