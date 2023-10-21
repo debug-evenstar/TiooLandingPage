@@ -94,7 +94,7 @@ function Pricing() {
               <p className="text-[#4F46E5] font-[700] flex h-[20px] justify-end">
                 {( discount[index] !== null && discount[index] !== undefined ) && 'save ' + symbol + (discount[index] && discount[index]?.toLocaleString())}
               </p>
-              <h1 className=" text-[#4F46E5] -mt-4 text-[40px] font-[700]">
+              <h1 className=" text-[#4F46E5] -mt-4 text-[30px] lg:text-[40px] font-[700]">
                 {/* {item.amount} */}
                 {symbol} {!!pricing.length ? pricing[index]?.toLocaleString() : null}
                 <span className="text-black font-[400]">/{keys[index]?.replace('ua', 'uar')}</span>

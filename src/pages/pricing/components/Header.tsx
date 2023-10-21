@@ -10,16 +10,16 @@ function Header() {
         <img
           src={pricingimg}
           alt="price"
-          className="hidden sm:block rounded-l-[48px] h-full object-cover "
+          className="hidden lg:block rounded-l-[48px] h-full object-cover "
         />
-        <img src={book} alt="book" className="absolute z-[2] right-8 top-12 sm:right-16  sm:top-12" />
+        <img src={book} alt="book" className="absolute z-[2] right-8 top-12 lg:right-16  lg:top-12" />
         <img
           src={imgbg}
           alt="background"
           className="absolute bottom-0 h-full right-0 rounded-[48px] "
         />
         <div className="lg:w-[500px] px-4 lg:px-0 h-full flex flex-col justify-center gap-4">
-          <h1 className="lg:text-[40px] w-[80%] sm:w-full text-2xl font-[750] z-[4] lg:leading-[50px]">
+          <h1 className="lg:text-[40px] w-[80%] lg:w-full text-2xl font-[750] z-[4] lg:leading-[50px]">
             One subscription, Unlimited access
           </h1>
           <p className=" text-[#E4E1E1] text-[16px] font-inter">

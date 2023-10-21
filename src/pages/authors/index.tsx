@@ -22,7 +22,7 @@ function Header() {
             <img src={headerImage} alt="background" className="absolute inset-0 w-full h-full object-cover object-center" />
             <div className="absolute inset-0 flex items-center bg-[#00000055] px-5 lg:px-16">
                 <div className="text-white lg:w-[55%]">
-                    <h1 className="font-[700] text-3xl sm:leading-[4rem] sm:text-[48px]">
+                    <h1 className="font-[700] text-3xl lg:leading-[4rem] lg:text-[48px]">
                         Gamify Your Textbooks And Workbooks For Fun Learning & Earnings
                     </h1>
                     <p className="font-[400] mt-4 font-inter text-xl lg:text-[24px]">
@@ -36,11 +36,11 @@ function Header() {
 
 function WhyCard({ image, title, description }: any) {
     return (
-        <div className="text-center w-full sm:w-[350px] text-[#262626]" data-aos="fade-up" data-aos-offset={300}>
+        <div className="text-center w-full lg:w-[350px] text-[#262626]" data-aos="fade-up" data-aos-offset={300}>
             <div className="h-[120px] w-[120px] flex items-center justify-center rounded-full bg-gray-200 mx-auto">
                 <img src={image} alt="" className="w-[60px]" />
             </div>
-            <h2 className="my-4 text-2xl sm:text-[38px] sm:w-[85%] mx-auto font-[700]">{title}</h2>
+            <h2 className="my-4 text-2xl lg:text-[38px] lg:w-[85%] mx-auto font-[700]">{title}</h2>
             <p className="lg:text-[20px]  text-[18px] font-[400] text-gray-800 font-inter">
                 {description}
             </p>
@@ -64,7 +64,7 @@ function WhyTioo() {
                 </p>
             </div>
             <div className="mt-16">
-                <div className='grid sm:grid-cols-3 justify-center sm:justify-auto gap-10 lg:gap-0'>
+                <div className='grid lg:grid-cols-3 justify-center lg:justify-auto gap-10 lg:gap-0'>
                     {data.map((item: any, index: number) => (
                         <WhyCard {...item} key={index} />
                     ))}
@@ -81,7 +81,7 @@ function Pattern1() {
             <div className="lg:w-[580px] bg-gray-100">
                 <img src={z1} alt="" className="w-full" />
             </div>
-            <div className="lg:w-[430px] sm:mt-0 mt-5 pb-12 lg:pb-0">
+            <div className="lg:w-[430px] lg:mt-0 mt-5 pb-12 lg:pb-0">
                 <h2 className="text-2xl mt-1 lg:mt-0 lg:text-[38px] mb-4 font-[700]" data-aos="fade-left">Digital Convenience</h2>
                 <p className=" text-[20px] font-[400] text-gray-800 font-inter" data-aos="fade-left">
                     Embrace the digital era. Make your textbooks and workbooks easily accessible on mobile phones, tablets, and laptops
@@ -148,7 +148,7 @@ function Pattern3() {
             <div className="lg:w-[580px] bg-gray-100">
                 <img src={z3} alt="" className="w-full" />
             </div>
-            <div className="lg:w-[430px] mt-5 sm:mt-0">
+            <div className="lg:w-[430px] mt-5 lg:mt-0">
                 <h2 className="lg:text-[38px] text-2xl mt-2 lg:mt-0 mb-4 font-[700]" data-aos="fade-left" >Eliminate Printing Cost</h2>
                 <p className=" text-[20px] font-[400] text-gray-800 font-inter" data-aos="fade-left" >
                     With Tioo, you no longer have to spend money on producing paper textbooks and workbooks. We help you deliver your contents in digital formats without hassle.
@@ -268,18 +268,18 @@ function FAQ(){
                 ))}
 
                 <div className="w-full text-primary text-sm text-center mt-16">
-                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                    <p className="text-[13px] lg:text-[16px] font-[400]">
                     Other questions?
                     </p>
                 </div>
-                <div className="flex text-primary text-sm flex-col  sm:flex-row gap-0 sm:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
-                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                <div className="flex text-primary text-sm flex-col  lg:flex-row gap-0 lg:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
+                    <p className="text-[13px] lg:text-[16px] font-[400]">
                         Email{" "}
                         <a className="text-[#4F46E5]" href="mailto:support@hellotioo.com">
                             support@hellotioo.com
                         </a>{" "}
                     </p>
-                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                    <p className="text-[13px] lg:text-[16px] font-[400]">
                         or
                         <BsWhatsapp className="inline ml-2 mr-2" />
                         <a className="text-[#4F46E5]" href="https://api.whatsapp.com/send?phone=2347018481060">
