@@ -17,6 +17,7 @@ const ButtonCustom: React.FC<button> = ({
     >
       {image && (
         <img
+          alt=""
           className="h-[20px] sm:h-[24px] w-[20px] sm:w-[24px]"
           src={image}
         />

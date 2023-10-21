@@ -28,7 +28,7 @@ const FreelanceNamingTypeScreen = () => {
     setShowModal(true);
   };
   useEffect(() => {
-    if(namingType === "C" && !sch.naming.length && !showModal){
+    if (namingType === "C" && !sch.naming.length && !showModal) {
       setNamingType('')
     }// eslint-disable-next-line
   }, [setShowModal])
@@ -41,19 +41,19 @@ const FreelanceNamingTypeScreen = () => {
       ...(namingType === "C" && { class_namings: sch.naming }),
     };
     await update(payload)
-    .then((res:any) => {
-      if (res.isSuccess) {
-        toast.success(res.data.message);
+      .then((res: any) => {
+        if (res.isSuccess) {
+          toast.success(res.data.message);
+          setIsBusy(false);
+          navigate('/login')
+        } else {
+          toast.error(res?.error?.data?.message);
+        }
+      })
+      .catch((err) => {
+        toast.error(err?.error?.data?.message);
         setIsBusy(false);
-        navigate('/login')
-      } else {
-        toast.error(res?.error?.data?.message);
-      }
-    })
-    .catch((err) => {
-      toast.error(err?.error?.data?.message);
-      setIsBusy(false);
-    });
+      });
   };
   const namingTypes = [
     {
@@ -76,11 +76,10 @@ const FreelanceNamingTypeScreen = () => {
           <div className="mt-12 w-10/12 mx-auto">
             {namingTypes.map((item) => (
               <div
-                className={`types px-4 py-6 cursor-pointer ${
-                  namingType === item.param
-                    ? "bg-[#4F46E5] outline-[#4F46E5] !text-white"
-                    : "bg-white"
-                }`}
+                className={`types px-4 py-6 cursor-pointer ${namingType === item.param
+                  ? "bg-[#4F46E5] outline-[#4F46E5] !text-white"
+                  : "bg-white"
+                  }`}
                 onClick={
                   item.param === "C"
                     ? () => openModal(item)
@@ -90,9 +89,8 @@ const FreelanceNamingTypeScreen = () => {
               >
                 <p className="fw-600 text-lg">{item.name}</p>
                 <p
-                  className={`fs-400  ${
-                    namingType === item.param ? "text-white" : "text-[#87909E]"
-                  } ${item.param === "ps" ? "mt-1" : "mt-4"}`}
+                  className={`fs-400  ${namingType === item.param ? "text-white" : "text-[#87909E]"
+                    } ${item.param === "ps" ? "mt-1" : "mt-4"}`}
                 >
                   {item.desc}
                 </p>
@@ -101,12 +99,11 @@ const FreelanceNamingTypeScreen = () => {
           </div>
           <div className="flex justify-center mt-10">
             <div
-              className={`py-[10px] cursor-pointer btn-shade rounded-t-[8px] rounded-bl-[8px] border border-[#312ECB33] w-5/12 flex justify-center bg-[#E3E2FF] text-[#87909EBD] text-center ${
-                namingType && "!bg-[#4F46E5] text-white"
-              }`}
-              onClick={namingType? updateSchool : () => false}
+              className={`py-[10px] cursor-pointer btn-shade rounded-t-[8px] rounded-bl-[8px] border border-[#312ECB33] w-5/12 flex justify-center bg-[#E3E2FF] text-[#87909EBD] text-center ${namingType && "!bg-[#4F46E5] text-white"
+                }`}
+              onClick={namingType ? updateSchool : () => false}
             >
-              {isBusy? <HashSpinner size={20} color="white"/> : "Continue"}
+              {isBusy ? <HashSpinner size={20} color="white" /> : "Continue"}
             </div>
           </div>
         </div>

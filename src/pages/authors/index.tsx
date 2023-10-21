@@ -93,7 +93,6 @@ function Pattern1() {
 function Pattern2() {
     return (
         <div>
-
             <div className='lg:flex items-center justify-between py-12 lg:py-20 px-3 lg:px-16 bg-[#FFE4F9]'>
                 <div className="lg:w-[330px]">
                     <h2 className="text-2xl lg:text-[38px] mb-4 font-[700]" data-aos="fade-right" >User Analytics</h2>
@@ -105,7 +104,7 @@ function Pattern2() {
                     <img src={z2} alt="" className="w-full" />
                 </div>
             </div>
-            <div className="px-3 border flex items-center lg:block flex-col lg:px-16 relative py-12 lg:py-0 lg:-mt-32">
+            <div className="px-3 flex items-center lg:block lg:pb-8 flex-col lg:px-16 relative py-12 lg:py-0 lg:-mt-[150px]">
                 <p className='text-[#030036BD]'>Get the App</p>
                 <div className="flex space-x-4 items-center">
                     <button>
@@ -126,7 +125,7 @@ function Pattern2() {
 function CallToAction() {
     const navigate = useNavigate();
     return (
-        <div className="relative w-full h-[480px] mt-8" >
+        <div className="relative w-full h-[480px]" >
             <img src={cta} alt="background" className="absolute inset-0 w-full h-full object-cover object-center" />
             <div className="absolute inset-0 flex items-center bg-[#000000aa] px-5 lg:px-16">
                 <div className="text-white text-center mx-auto lg:w-[50%]">

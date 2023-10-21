@@ -15,7 +15,7 @@ import Button from "../../../utils/Button";
 const ParentCompleteSignupScreen = () => {
   const [isBusy, setIsBusy] = useState(false)
   const [toolTip, setTooltip] = useState(false);
-  const {data:grade, isLoading} = useGetTioClassesQuery()
+  const {data:grade} = useGetTioClassesQuery()
   const navigate = useNavigate()
   const [complete] = useLazyCompleteRegisterParentQuery()
   const savedData = useAppSelector((state) => state.user.otp)
