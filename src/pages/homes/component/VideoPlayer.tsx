@@ -9,39 +9,27 @@ import { PulseLoader } from 'react-spinners';
 function VideoPlayer() {
     const videoRef1 = useRef<HTMLVideoElement | null>(null);
     const videoRef2 = useRef<HTMLVideoElement | null>(null);
-    const refs = [videoRef1, videoRef2];
     const [current, setCurrent] = useState<number>(0);
     const [loaded, setLoaded] = useState<boolean>(false);
 
     useEffect(() => {
-        const ref = refs[current];
-        try {        
-            if (ref.current) {
-                ref.current.currentTime = 0;
-                ref.current.play();
-            }
-        }catch(error){
-            console.log(error)
-        }
-
-
-    }, [current])
-
-    useEffect(() => {
-        const videos = document.querySelectorAll('video');
+        const refs = [videoRef1, videoRef2];
+        const videos = document.querySelectorAll('video');    
         videos[videos.length - 1].addEventListener('canplaythrough', () => {
             setLoaded(true);
         })
         const ref = refs[current];
-        try{
+        try {
             if (ref.current) {
                 ref.current.currentTime = 0;
                 ref.current.play();
             }
-        }catch(error){
-            console.log(error);
+        } catch (error) {
+            console.log(error)
         }
-    }, []);
+
+    }, [current])
+
 
     const toggleVideos = () => {
         const newCurrent = (current + 1) % 2;
@@ -69,13 +57,7 @@ function VideoPlayer() {
                     src={video2}
                 />
 
-                {/*                    <video
-                        ref={videoRef3}
-                        className={`transition-all duration-1000 ${current === 2 ? 'opacity-100 -translate-x-[200%]' : 'opacity-0'}`}
-                        onEnded={toggleVideos}
-                        src={video3}
-                    />
-*/}                </div>
+            </div>
             <div className={`${!loaded ? '' : 'hidden'} w-full flex items-center justify-center h-full`}>
                 <PulseLoader color="white" size={6} />
             </div>

@@ -1,7 +1,4 @@
-import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import PageLayout from "../../layouts/PageLayout";
-import { Button2 } from "../../components/Ui/Button";
 import Demo from "./component/Demo";
 import Benefit from "./component/Benefit";
 import Schools from "./component/Schools";

@@ -14,9 +14,9 @@ import { saveEmail, saveUser } from "../../redux/reducers/userReducer";
 import Button from "../../utils/Button";
 
 const LoginScreen = () => {
-  
+
   const [isBusy, setIsBusy] = useState<boolean>(false);
-  const {Modal, setShowModal} = useModal()
+  const { Modal, setShowModal } = useModal()
   const [email, setEmail] = useState('')
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -33,50 +33,50 @@ const LoginScreen = () => {
       password: "",
     },
   });
-  const navigateTo = (res:any) => {
-    
-    if(res.data.profile.account_type === "school"){
-      if(res.data.profile.status === "active"){
+  const navigateTo = (res: any) => {
+
+    if (res.data.profile.account_type === "school") {
+      if (res.data.profile.status === "active") {
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
-      }else if(res.data.profile.status === "verified"){
+      } else if (res.data.profile.status === "verified") {
         navigate('/school-complete')
-      }else {
+      } else {
         //
       }
-    }if(res.data.profile.account_type === "teacher"){
-      if(res.data.profile.status === "verified" || res.data.profile.status === "active"){
+    } if (res.data.profile.account_type === "teacher") {
+      if (res.data.profile.status === "verified" || res.data.profile.status === "active") {
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
-      }else {
+      } else {
         //
       }
-    }if(res.data.profile.account_type === "student"){
-      if(res.data.profile.status === "verified" || res.data.profile.status === "active"){
+    } if (res.data.profile.account_type === "student") {
+      if (res.data.profile.status === "verified" || res.data.profile.status === "active") {
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
-      }else {
+      } else {
         //
       }
-    }if(res.data.profile.account_type === "freelancer"){
-      if(res.data.profile.status === "active"){
+    } if (res.data.profile.account_type === "freelancer") {
+      if (res.data.profile.status === "active") {
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
-      }else if(res.data.profile.status === "verified"){
+      } else if (res.data.profile.status === "verified") {
         navigate('/freelancer-complete')
-      }else {
+      } else {
         //
       }
-    }if(res.data.profile.account_type === "parent"){
-      if(res.data.profile.status === "active"){
+    } if (res.data.profile.account_type === "parent") {
+      if (res.data.profile.status === "active") {
         window.location.replace(`${res.data.profile.redirect}/${res.data.token}`)
-      }else if(res.data.profile.status === "verified"){
+      } else if (res.data.profile.status === "verified") {
         navigate('/parent-complete')
-      }else {
+      } else {
         //
       }
     }
   }
-  const onSubmit = async (data:any) => {
+  const onSubmit = async (data: any) => {
     setIsBusy(true);
     await login(data)
-      .then((res:any) => {
+      .then((res: any) => {
         if (res.isSuccess) {
           toast.success(res.data.message)
           dispatch(
@@ -96,9 +96,9 @@ const LoginScreen = () => {
             }));
           navigateTo(res)
           setIsBusy(false)
-        }else {
+        } else {
           toast.error(res.error.data.message);
-          if(res.error.data.action === "verify"){
+          if (res.error.data.action === "verify") {
             setEmail(data.email)
             setShowModal(true)
           }
