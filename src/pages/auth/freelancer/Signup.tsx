@@ -36,16 +36,16 @@ const FreelanceSignupScreen = () => {
       account_type: "freelancer"
     },
   });
-  const onSubmit = async (data:any) => {
+  const onSubmit = async (data: any) => {
     setIsBusy(true);
     await register(data)
-      .then((res:any) => {
+      .then((res: any) => {
         if (res.isSuccess) {
           setEmail(data.email);
           setIsBusy(false);
           setShowModal(true);
           reset()
-        }else {
+        } else {
           toast.error(res?.error?.data.message);
           setIsBusy(false);
         }
@@ -62,7 +62,7 @@ const FreelanceSignupScreen = () => {
           <div className="text-center lg:w-9/12 mx-auto pb-3 border-b-[4px] border-[#4F46E5]">
             <p className="text-primary text-2xl fw-600">Sign Up</p>
             <p className="mt-1 fw-500">
-              Create an account to get started on 
+              Create an account to get started on
               <Link to={"/"} className="text-primary pl-1">
                 Tioo
               </Link>
@@ -207,7 +207,7 @@ const FreelanceSignupScreen = () => {
               </div>
               <div className="mt-8">
                 <div className="w-10/12 mx-auto">
-                <Button title={isBusy ? <HashSpinner size={20} color="white"/> : "Sign Up"} disabled={!isValid} />
+                  <Button title={isBusy ? <HashSpinner size={20} color="white" /> : "Sign Up"} disabled={!isValid} />
                 </div>
               </div>
             </form>

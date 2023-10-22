@@ -22,7 +22,7 @@ function Header() {
             <img src={headerImage} alt="background" className="absolute inset-0 w-full h-full object-cover object-center" />
             <div className="absolute inset-0 flex items-center bg-[#00000055] px-5 lg:px-16">
                 <div className="text-white lg:w-[55%]">
-                    <h1 className="font-[700] text-3xl sm:leading-[4rem] sm:text-[48px]">
+                    <h1 className="font-[700] text-3xl lg:leading-[4rem] lg:text-[48px]">
                         Gamify Your Textbooks And Workbooks For Fun Learning & Earnings
                     </h1>
                     <p className="font-[400] mt-4 font-inter text-xl lg:text-[24px]">
@@ -36,11 +36,11 @@ function Header() {
 
 function WhyCard({ image, title, description }: any) {
     return (
-        <div className="text-center w-full sm:w-[350px] text-[#262626]" data-aos="fade-up" data-aos-offset={300}>
+        <div className="text-center w-full lg:w-[350px] text-[#262626]" data-aos="fade-up" data-aos-offset={300}>
             <div className="h-[120px] w-[120px] flex items-center justify-center rounded-full bg-gray-200 mx-auto">
                 <img src={image} alt="" className="w-[60px]" />
             </div>
-            <h2 className="my-4 text-2xl sm:text-[38px] sm:w-[85%] mx-auto font-[700]">{title}</h2>
+            <h2 className="my-4 text-2xl lg:text-[38px] lg:w-[85%] mx-auto font-[700]">{title}</h2>
             <p className="lg:text-[20px]  text-[18px] font-[400] text-gray-800 font-inter">
                 {description}
             </p>
@@ -64,7 +64,7 @@ function WhyTioo() {
                 </p>
             </div>
             <div className="mt-16">
-                <div className='grid sm:grid-cols-3 justify-center sm:justify-auto gap-10 lg:gap-0'>
+                <div className='grid lg:grid-cols-3 justify-center lg:justify-auto gap-10 lg:gap-0'>
                     {data.map((item: any, index: number) => (
                         <WhyCard {...item} key={index} />
                     ))}
@@ -81,7 +81,7 @@ function Pattern1() {
             <div className="lg:w-[580px] bg-gray-100">
                 <img src={z1} alt="" className="w-full" />
             </div>
-            <div className="lg:w-[430px] sm:mt-0 mt-5 pb-12 lg:pb-0">
+            <div className="lg:w-[430px] lg:mt-0 mt-5 pb-12 lg:pb-0">
                 <h2 className="text-2xl mt-1 lg:mt-0 lg:text-[38px] mb-4 font-[700]" data-aos="fade-left">Digital Convenience</h2>
                 <p className=" text-[20px] font-[400] text-gray-800 font-inter" data-aos="fade-left">
                     Embrace the digital era. Make your textbooks and workbooks easily accessible on mobile phones, tablets, and laptops
@@ -93,7 +93,6 @@ function Pattern1() {
 function Pattern2() {
     return (
         <div>
-
             <div className='lg:flex items-center justify-between py-12 lg:py-20 px-3 lg:px-16 bg-[#FFE4F9]'>
                 <div className="lg:w-[330px]">
                     <h2 className="text-2xl lg:text-[38px] mb-4 font-[700]" data-aos="fade-right" >User Analytics</h2>
@@ -105,7 +104,7 @@ function Pattern2() {
                     <img src={z2} alt="" className="w-full" />
                 </div>
             </div>
-            <div className="px-3 lg:px-16 relative py-12 lg:py-0 lg:-mt-32">
+            <div className="px-3 flex items-center lg:block lg:pb-8 flex-col lg:px-16 relative py-12 lg:py-0 lg:-mt-[150px]">
                 <p className='text-[#030036BD]'>Get the App</p>
                 <div className="flex space-x-4 items-center">
                     <button>
@@ -115,7 +114,7 @@ function Pattern2() {
                         <img src={appleStore} alt="" />
                     </button>
                 </div>
-                <p className="mt-4 lg:mt-0 px-4 w-[330px] py-1.5 bg-white rounded-[8px] shadow  text-center mt-2">
+                <p className="mt-4 lg:mt-2 px-4 w-[330px] py-1.5 bg-white rounded-[8px] shadow  text-center mt-2">
                   Coming Soon
                 </p>
             </div>
@@ -126,7 +125,7 @@ function Pattern2() {
 function CallToAction() {
     const navigate = useNavigate();
     return (
-        <div className="relative w-full h-[480px] mt-8" >
+        <div className="relative w-full h-[480px]" >
             <img src={cta} alt="background" className="absolute inset-0 w-full h-full object-cover object-center" />
             <div className="absolute inset-0 flex items-center bg-[#000000aa] px-5 lg:px-16">
                 <div className="text-white text-center mx-auto lg:w-[50%]">
@@ -148,7 +147,7 @@ function Pattern3() {
             <div className="lg:w-[580px] bg-gray-100">
                 <img src={z3} alt="" className="w-full" />
             </div>
-            <div className="lg:w-[430px] mt-5 sm:mt-0">
+            <div className="lg:w-[430px] mt-5 lg:mt-0">
                 <h2 className="lg:text-[38px] text-2xl mt-2 lg:mt-0 mb-4 font-[700]" data-aos="fade-left" >Eliminate Printing Cost</h2>
                 <p className=" text-[20px] font-[400] text-gray-800 font-inter" data-aos="fade-left" >
                     With Tioo, you no longer have to spend money on producing paper textbooks and workbooks. We help you deliver your contents in digital formats without hassle.
@@ -261,25 +260,25 @@ const questions: {
 function FAQ(){
     return (
         <>
-            <h1 className="font-[700] w-[90%] text-3xl lg:text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
+            <h1 className="font-[700] w-[90%] mx-auto text-3xl lg:text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
             <div className="lg:w-[90%] mx-2 lg:mx-auto mt-10 border rounded-[8px] shadow-lg lg:px-12 lg:py-14 pb-10 ">
                 {questions.map((item: any,index: number) => (
                     <Accordion key={index} title={item.q} content={item.a} />
                 ))}
 
                 <div className="w-full text-primary text-sm text-center mt-16">
-                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                    <p className="text-[13px] lg:text-[16px] font-[400]">
                     Other questions?
                     </p>
                 </div>
-                <div className="flex text-primary text-sm flex-col  sm:flex-row gap-0 sm:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
-                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                <div className="flex text-primary text-sm flex-col  lg:flex-row gap-0 lg:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
+                    <p className="text-[13px] lg:text-[16px] font-[400]">
                         Email{" "}
                         <a className="text-[#4F46E5]" href="mailto:support@hellotioo.com">
                             support@hellotioo.com
                         </a>{" "}
                     </p>
-                    <p className="text-[13px] sm:text-[16px] font-[400]">
+                    <p className="text-[13px] lg:text-[16px] font-[400]">
                         or
                         <BsWhatsapp className="inline ml-2 mr-2" />
                         <a className="text-[#4F46E5]" href="https://api.whatsapp.com/send?phone=2347018481060">
@@ -310,7 +309,7 @@ export default function Authors() {
                 <Pattern3 />
                 <div className="px-4 lg:px-16 mt-16 py-16">
                     <div className='lg:flex justify-between'>
-                        <p className="text-[#4F46E5] text-[26px] font-[700] lg:w-[400px]">Ready to publish your textbooks and workbooks on Tioo?</p>
+                        <p className="text-[#4F46E5] text-[26px] text-center lg:text-left font-[700] lg:w-[400px]">Ready to publish your textbooks and workbooks on Tioo?</p>
                         <Form />
                     </div>
                 </div>

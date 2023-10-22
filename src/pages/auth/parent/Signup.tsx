@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import AuthLayout from "../../../components/layouts/AuthLayout";
 import { Link } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
@@ -51,7 +51,7 @@ const ParentSignupScreen = () => {
           setIsBusy(false);
           setShowModal(true);
           reset()
-        }else {
+        } else {
           toast.error(res?.error?.data.message);
           setIsBusy(false);
         }

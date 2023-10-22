@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import { useLazySendOtpQuery } from "../../services/api/authSlice";
 import { HashSpinner } from "../Ui/Loading";
@@ -12,19 +12,20 @@ const VerifyEmailModal = ({ email }: { email: string }) => {
     const payload = {
       email: email,
     };
-    
+
     sendOtp(payload)
       .then((res: any) => {
         if (res.isSuccess) {
           toast.success(res.data.message);
           setIsBusy(false);
-        }else {
-            toast.success(res.error.data.message)
-            setIsBusy(false);}
+        } else {
+          toast.success(res.error.data.message)
+          setIsBusy(false);
+        }
       })
       .catch((err) => {
         setIsBusy(false);
-    });
+      });
   };
   return (
     <>
@@ -44,23 +45,23 @@ const VerifyEmailModal = ({ email }: { email: string }) => {
           </p>
           <div className="flex justify-center mt-6 gap-x-3 xl:gap-x-5">
             <div className="w-6/12 xl:w-5/12">
-            <Button
-              title={
-                isBusy ? (
-                  <HashSpinner size={20} color="white" />
-                ) : (
-                  "Resend Email"
-                )
-              }
-              onClick={ResendOtp}
-              altClassName="px-2 py-2 btn-like"
-            />
+              <Button
+                title={
+                  isBusy ? (
+                    <HashSpinner size={20} color="white" />
+                  ) : (
+                    "Resend Email"
+                  )
+                }
+                onClick={ResendOtp}
+                altClassName="px-2 py-2 btn-like"
+              />
             </div>
             <div className="w-6/12 xl:w-5/12">
-            <Button
-              title="Contact Support"
-              altClassName="px-2 py-2 border-2 rounded-xl"
-            />
+              <Button
+                title="Contact Support"
+                altClassName="px-2 py-2 border-2 rounded-xl"
+              />
             </div>
           </div>
         </div>

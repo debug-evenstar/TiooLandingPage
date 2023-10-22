@@ -1,4 +1,4 @@
-import { useEffect, lazy, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignupIndex from "./pages/auth/SignupIndex";
@@ -34,31 +34,37 @@ function App() {
   const [loadConti, setLoadConti] = useState(true)
   const [available, setAvailable] = useState(false)
   const {data} = useGetIpQuery()
-  const permitted = ["NG", "FR", "DE", "CA", "US", "GB" ]
   const [getCon] = useLazyGetContinentQuery()
-  const getConti = async(ip:any) => {
-    getCon(ip)
-    .then((res:any) => {
-      if(res.isSuccess){
-        console.log(res.data);
-        if(permitted.includes(res.data.country_code) || !res.data.country_code){
-          setLoadConti(false)
-        }else{
-          setAvailable(true)
-        }
-      }
-    })
-  }
+
   useEffect(() => {
     AOS.init({
       offset: 50,
       duration: 1000,
     });
     AOS.refresh();
+
+    const permitted = ["NG", "FR", "DE", "CA", "US", "GB" ]
+    // console.log("app useeffect")
+
+    const getConti = async(ip:any) => {
+      getCon(ip)
+      .then((res:any) => {
+        if(res.isSuccess){
+          console.log(res.data);
+          if(permitted.includes(res.data.country_code) || !res.data.country_code){
+            localStorage.setItem('COUNTRY_CODE',res.data.country_code);
+            setLoadConti(false)
+          }else{
+            setAvailable(true)
+          }
+        }
+      })
+    }
+
     if(data){
       getConti(data.ip)
     }
-  }, [data]);
+  }, [data,getCon]);
   return (
     <div>
       {

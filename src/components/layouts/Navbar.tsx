@@ -24,15 +24,15 @@ function Navbar() {
   // const doSignin = () => {};
   window.addEventListener("scroll", changeNavbarColor);
   return (
-    <div className="hidden sm:block">
+    <div className="hidden lg:block">
       <div
-        className={`pl-[150px] w-full z-[40]  h-[70px] sm:h-[80px] fixed top-0  left-0   ${
+        className={`pl-[150px] w-full z-[40]  h-[70px] lg:h-[80px] fixed top-0  left-0   ${
           colorchange || pathname !== "/" ? `bg-[#FFF]` : `bg-[#0E096C]`
         }`}
       >
-        <div className="block sm:hidden absolute top-[20px] right-[10px] w-[32px] h-[32px] "></div>
+        <div className="block lg:hidden absolute top-[20px] right-[10px] w-[32px] h-[32px] "></div>
 
-        <div className="items-center hidden w-full h-full mb-10 sm:flex">
+        <div className="items-center hidden w-full h-full mb-10 lg:flex">
           <img
             src={pathname !== "/" || colorchange ? log2 : log}
             className="h-[64px] w-[81px] cursor-pointer absolute left-5 fill-[#0E096C]"
