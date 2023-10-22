@@ -28,7 +28,7 @@ function Header() {
           </span>
         </h1>
         <p className="text-white text-[16px] md:text-[24px] mt-0 lg:mt-0 md:mt-5 lg:text-[24px] text-center">
-          Enhance your child's learning with dynamic, gamified and interactive
+          Enhance your child's learning with gamified and interactive
           textbooks and workbooks designed to self-tutor and provide practical
           knowledge using AI
         </p>

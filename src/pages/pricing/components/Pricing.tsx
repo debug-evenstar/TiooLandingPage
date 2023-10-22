@@ -10,6 +10,7 @@ function Pricing() {
   const [symbol, setSymbol] = useState('');
   const navigate = useNavigate();
   const [ discount, setDiscount ] = useState<any>([]);
+  const [ countryCode, setCountryCode ] = useState< string | null >();
   const keys: string[] = ['monthly', 'quaterly', 'yearly'];
 
 
@@ -52,6 +53,7 @@ function Pricing() {
 
 
     const country_code = localStorage.getItem('COUNTRY_CODE');
+    setCountryCode(country_code);
     if(country_code){
       const condition = country_code === "NG";
       const cc = condition? "NGN":"USD";
@@ -74,7 +76,7 @@ function Pricing() {
   return (
     <>
       {
-        // country == "NG" && 
+        (countryCode === "NG" || countryCode === null) && 
         <div className="mt-10 p-5 mx-3 lg:mx-auto rounded-[8px] shadow-xl lg:w-[70%] mx-auto">
           <p className="text-center text-xl  text-primary font-[700] font-inter">
             Also, you don't have to pay for each child, one subscription covers all your children.
