@@ -22,13 +22,13 @@ function Header() {
       <img src={game} alt="pad" className="absolute right-[30px] lg:right-[70px] bottom-[70px]" />
       <div className="relative flex flex-col pt-10  md:pt-38 lg:pt-10 items-center justify-center w-full z-[20] gap-7">
         <h1 className="text-white leading-[3.5rem] md:leading-[5rem] lg:leading-[5rem] text-5xl md:text-[76px] lg:text-[60px] font-[600] text-center">
-          Gamified textbooks and workbooks for
+          Animated textbooks and workbooks for
           <span className="pl-2 md:pl-5 lg:pl-5 text-5xl md:text-[76px] lg:text-[60px] font-[600] boujee-text">
             K–12 Education
           </span>
         </h1>
         <p className="text-white text-[16px] md:text-[24px] mt-0 lg:mt-0 md:mt-5 lg:text-[24px] text-center">
-          Enhance your child's learning with gamified and interactive
+          Enhance your child's learning with animated and interactive
           textbooks and workbooks designed to self-tutor and provide practical
           knowledge using AI
         </p>
