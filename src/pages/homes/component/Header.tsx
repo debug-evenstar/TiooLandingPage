@@ -12,7 +12,10 @@ function Header() {
   const headlines = {
     nigeria:(
           <h1 className="text-white leading-[3.5rem] md:leading-[5rem] lg:leading-[5rem] text-5xl md:text-[76px] lg:text-[60px] font-[600] text-center">
-            Interactive Textbooks For Primary And Secondary Schools
+            Interactive Textbooks For <br/> 
+            <span className="px-2 md:pl-5 lg:pl-5 text-5xl md:text-[76px] lg:text-[60px] font-[600] boujee-text">
+              Primary And Secondary Schools
+            </span>
           </h1>
         ),
     others: (
@@ -20,8 +23,8 @@ function Header() {
             Interactive Textbooks For <br/>
           <span className="px-2 md:pl-5 lg:pl-5 text-5xl md:text-[76px] lg:text-[60px] font-[600] boujee-text">
             K–12
-          </span>
           Schools And Students
+          </span>
         </h1>
       )
   }
