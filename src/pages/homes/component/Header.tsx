@@ -13,7 +13,7 @@ function Header() {
     nigeria: (
       <h1 className="text-white leading-[3.5rem] md:leading-[5rem] lg:leading-[5rem] text-5xl md:text-[76px] lg:text-[60px] font-[600] text-center">
         Interactive Textbooks For <br />
-        <span className="px-2 md:pl-5 lg:pl-5 text-5xl md:text-[76px] lg:text-[60px] font-[600] boujee-text">
+        <span className="px-2 lg:whitespace-nowrap text-5xl md:text-[76px] lg:text-[60px] font-[600] boujee-text">
           Primary And Secondary Schools
         </span>
       </h1>
@@ -21,7 +21,7 @@ function Header() {
     others: (
       <h1 className="text-white leading-[3.5rem] md:leading-[5rem] lg:leading-[5rem] text-5xl md:text-[76px] lg:text-[60px] font-[600] text-center">
         Interactive Textbooks For <br />
-        <span className="px-2 md:pl-5 lg:pl-5 text-5xl md:text-[76px] lg:text-[60px] font-[600] boujee-text">
+        <span className="px-2 lg:whitespace-nowrap text-5xl md:text-[76px] lg:text-[60px] font-[600] boujee-text">
           K–12 Schools And Students
         </span>
       </h1>
