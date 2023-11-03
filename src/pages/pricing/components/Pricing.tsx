@@ -9,13 +9,12 @@ function Pricing() {
   const [pricing, setPricing] = useState<any>([]);
   const [symbol, setSymbol] = useState('');
   const navigate = useNavigate();
-  const [ discount, setDiscount ] = useState<any>([]);
-  const [ countryCode, setCountryCode ] = useState< string | null >();
+  const [discount, setDiscount] = useState<any>([]);
   const keys: string[] = ['monthly', 'quaterly', 'yearly'];
 
 
   const resolveResult = (data: any) => {
-    const result: {[key: string]: number} = {};
+    const result: { [key: string]: number } = {};
     data.forEach((item: any) => {
       const key = Object.keys(item)[0];
       const value = item[key]
@@ -29,67 +28,58 @@ function Pricing() {
     return [
       null,
       (result.monthly * 3) - result.quaterly,
-      (result.monthly * 12 ) - result.yearly
+      (result.monthly * 12) - result.yearly
     ]
   }
 
 
   useEffect(() => {
 
-    const constructPricing = (data: any,error = false) => {
+    const constructPricing = (data: any, error = false) => {
       const result = resolveResult(data);
       setPricing(Object.values(result));
       setDiscount(calculateSavings(result))
-      if(error){
+      if (error) {
         setSymbol('₦');
       }
     }
 
     const dummy_data = [
-      {monthly: 8000},
-      {quaterly: 12000},
-      {yearly: 36000},
+      { monthly: 8000 },
+      { quaterly: 12000 },
+      { yearly: 36000 },
     ]
 
 
     const country_code = localStorage.getItem('COUNTRY_CODE');
-    setCountryCode(country_code);
-    if(country_code){
+
+    if (country_code) {
       const condition = country_code === "NG";
-      const cc = condition? "NGN":"USD";
-      setSymbol(condition? '₦':'$');
+      const cc = condition ? "NGN" : "USD";
+      setSymbol(condition ? '₦' : '$');
       fetch((process.env.REACT_APP_BASE_URL || 'https://beta.api.hellotioo.com') + '/open/pricing?cc=' + cc)
         .then(response => response.json())
         .then(data => {
           constructPricing(data.data.pricing);
         })
         .catch(error => {
-          constructPricing(dummy_data,true)
+          constructPricing(dummy_data, true)
         })
 
-    }else{
-      constructPricing(dummy_data,true);
+    } else {
+      constructPricing(dummy_data, true);
     }
-  },[]);
+  }, []);
 
 
   return (
     <>
-      {
-        (countryCode === "NG" || countryCode === null) && 
-        <div className="mt-10 p-5 mx-3 lg:mx-auto rounded-[8px] shadow-xl lg:w-[70%] mx-auto">
-          <p className="text-center text-xl  text-primary font-[700] font-inter">
-            Also, you don't have to pay for each child, one subscription covers all your children.
-          </p>
-        </div>
-      }
-
       <div className="relative lg:flex w-full lg:px-16 px-3 mt-5 lg:mt-20 justify-center gap-7">
         {pricingData.map((item: any, index: number) => (
           <div key={index} className="flex flex-col border justify-between space-y-3 p-7 lg:w-[350px] mb-6 lg:mb-0 gap-4 shadow-lg hover:scale-[1.01] duration-300 rounded-[8px] ">
             <div className="flex flex-col w-full gap-4">
               <p className="text-[#4F46E5] font-[700] flex h-[20px] justify-end">
-                {( discount[index] !== null && discount[index] !== undefined ) && 'save ' + symbol + (discount[index] && discount[index]?.toLocaleString())}
+                {(discount[index] !== null && discount[index] !== undefined) && 'save ' + symbol + (discount[index] && discount[index]?.toLocaleString())}
               </p>
               <h1 className=" text-[#4F46E5] -mt-4 text-[30px] lg:text-[40px] font-[700]">
                 {/* {item.amount} */}
