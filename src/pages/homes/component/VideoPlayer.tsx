@@ -25,7 +25,7 @@ function VideoPlayer() {
                 ref.current.play();
             }
         } catch (error) {
-            console.log(error)
+            // console.log(error)
         }
 
     }, [current])
