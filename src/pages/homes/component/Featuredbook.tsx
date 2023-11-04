@@ -27,7 +27,7 @@ function Featuredbook() {
             ages
           </p>
           <div className=" w-full lg:w-[200px]">
-            <Button2 text1="Preview book" onclick={() => {window.open(process.env.REACT_APP_PREVIEW_LINK,'_blank')}} />
+            <Button2 text1="Preview book" onclick={() => {window.open(import.meta.env.VITE_PREVIEW_LINK,'_blank')}} />
           </div>
         </div>
         <div className="lg:flex-1 lg:ml-[10rem]">

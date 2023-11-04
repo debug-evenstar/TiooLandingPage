@@ -1,4 +1,3 @@
-
 import ctaImage from '../../assets/cta.jpeg';
 import searchIcon from '../../assets/icons/search.svg';
 import PageLayout from "../../layouts/PageLayout";

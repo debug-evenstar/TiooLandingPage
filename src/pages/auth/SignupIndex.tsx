@@ -31,7 +31,7 @@ const SignupIndex = () => {
     },
   ];
   const previewBook = () => {
-    window.open(process.env.REACT_APP_PREVIEW_LINK, '_blank')
+    window.open(import.meta.env.VITE_PREVIEW_LINK, '_blank')
   }
   return (
     <>

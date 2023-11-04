@@ -57,7 +57,7 @@ function Pricing() {
       const condition = country_code === "NG";
       const cc = condition ? "NGN" : "USD";
       setSymbol(condition ? '₦' : '$');
-      fetch((process.env.REACT_APP_BASE_URL || 'https://beta.api.hellotioo.com') + '/open/pricing?cc=' + cc)
+      fetch((import.meta.env.VITE_BASE_URL || 'https://beta.api.hellotioo.com') + '/open/pricing?cc=' + cc)
         .then(response => response.json())
         .then(data => {
           constructPricing(data.data.pricing);
