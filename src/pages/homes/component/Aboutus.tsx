@@ -13,7 +13,7 @@ function Aboutus() {
             Furthermore, This platform offers insight and analytics to help educators pinpoint areas of improvement.
         </p>
         <p className="text-[18px] w-full lg:w-[70%] text-center" data-aos="fade-up">
-          Tioo boosts engagement, comprehension. And academic achievement, elevating the standard of K-12 education.
+          Tioo boosts engagement, comprehension and academic achievement, elevating the standard of K-12 education.
         </p>
 
       </div>
