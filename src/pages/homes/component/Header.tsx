@@ -27,9 +27,8 @@ function Header() {
       </h1>
     )
   }
+
   const country_code = localStorage.getItem('COUNTRY_CODE');
-
-
 
   return (
     <div className="bg-[#0E096C] w-full px-4 md:px-8 lg:px-40 mt-[10px] h-screen pt-32 relative">
@@ -59,7 +58,7 @@ function Header() {
           knowledge using AI
 */}
           Enhance your child's learning with school textbooks that have been brought to life using
-          animation and adaptive learning technology to make it interactive,
+          animation and AI to make it interactive,
           answer difficult questions with steps, and provide practical knowledge
         </p>
         <div className="w-[220px]">
