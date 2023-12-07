@@ -11,17 +11,17 @@ function Header() {
   const navigate = useNavigate();
   const headlines = {
     nigeria: (
-      <h1 className="text-white leading-[3.5rem] md:leading-[5rem] lg:leading-[5rem] text-5xl md:text-[76px] lg:text-[60px] font-[600] text-center">
+      <h1 className="text-white leading-[2.5rem] md:leading-[5rem] lg:leading-[5rem] text-[40px] md:text-[76px] lg:text-[60px] font-[600] text-center">
         Interactive Textbooks For <br />
-        <span className="px-2 lg:whitespace-nowrap text-5xl md:text-[76px] lg:text-[60px] font-[600] boujee-text">
+        <span className="px-2 lg:whitespace-nowrap text-[40px] md:text-[76px] lg:text-[60px] font-[600] boujee-text">
           Primary And Secondary Schools
         </span>
       </h1>
     ),
     others: (
-      <h1 className="text-white leading-[3.5rem] md:leading-[5rem] lg:leading-[5rem] text-5xl md:text-[76px] lg:text-[60px] font-[600] text-center">
+      <h1 className="text-white leading-[2.5rem] md:leading-[5rem] lg:leading-[5rem] text-[40px] md:text-[76px] lg:text-[60px] font-[600] text-center">
         Interactive Textbooks For <br />
-        <span className="px-2 lg:whitespace-nowrap text-5xl md:text-[76px] lg:text-[60px] font-[600] boujee-text">
+        <span className="px-2 lg:whitespace-nowrap text-[40px] md:text-[76px] lg:text-[60px] font-[600] boujee-text">
           K–12 Schools And Students
         </span>
       </h1>
@@ -39,8 +39,8 @@ function Header() {
         alt="vr helmet"
         className="absolute right-[1px] lg:right-[40px] top-[100px] lg:top-[220px] w-[100px] h-[100px]"
       />
-      <img src={planet} alt="planet" className="absolute bottom-[30px] left-[20px] " />
-      <img src={game} alt="pad" className="absolute right-[30px] lg:right-[70px] bottom-[70px]" />
+      <img src={planet} alt="planet" className="absolute bottom-[0px] left-[-20px] " />
+      <img src={game} alt="pad" className="absolute right-[0px] lg:right-[70px] bottom-[0px]" />
       <div className="relative flex flex-col pt-10  md:pt-38 lg:pt-10 items-center justify-center w-full z-[20] gap-7">
         {/*        <h1 className="text-white leading-[3.5rem] md:leading-[5rem] lg:leading-[5rem] text-5xl md:text-[76px] lg:text-[60px] font-[600] text-center">
           Animated textbooks and workbooks for
