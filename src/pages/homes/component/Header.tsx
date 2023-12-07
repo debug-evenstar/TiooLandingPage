@@ -31,7 +31,7 @@ function Header() {
   const country_code = localStorage.getItem('COUNTRY_CODE');
 
   return (
-    <div className="bg-[#0E096C] w-full px-4 md:px-8 lg:px-40 mt-[10px] h-screen pt-32 relative">
+    <div className="bg-[#0E096C] w-full px-4 md:px-8 lg:px-40 mt-[10px] h-[110vh] sm:h-screen pt-32 relative">
       <img src={book} alt="book" className="absolute top-[100px] left-[30px] lg:top-[120px] lg:left-[70px] " />
       <img src={gridLines} className="opacity-10 lg:h-auto h-[20rem] absolute left-0 top-[10rem] lg:top-0 z-[1]" alt="grid lines" />
       <img
