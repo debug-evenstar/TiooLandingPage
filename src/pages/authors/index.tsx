@@ -115,7 +115,7 @@ function Pattern2() {
                     </button>
                 </div>
                 <p className="mt-4 lg:mt-2 px-4 w-[330px] py-1.5 bg-white rounded-[8px] shadow  text-center mt-2">
-                  Coming Soon
+                    Coming Soon
                 </p>
             </div>
         </div>
@@ -129,7 +129,7 @@ function CallToAction() {
             <img src={cta} alt="background" className="absolute inset-0 w-full h-full object-cover object-center" />
             <div className="absolute inset-0 flex items-center bg-[#000000aa] px-5 lg:px-16">
                 <div className="text-white text-center mx-auto lg:w-[50%]">
-                    <h1 className="font-[500] text-[19px] text-center mb-10"data-aos="fade-up" >
+                    <h1 className="font-[500] text-[19px] text-center mb-10" data-aos="fade-up" >
                         Say goodbye to the constraints of traditional publishing timelines. With our website, you have the flexibility to publish and update your content as needed, ensuring it remains current and relevant.
                     </h1>
                     <button onClick={() => navigate('/signup')} data-aos="fade-up" className='w-[200px] mx-auto h-[60px] rounded-[4px] flex items-center justify-center text-[500] bg-[#4F46E5]'>
@@ -201,7 +201,7 @@ const Accordion = ({ title, content }: { title: string, content: string }) => {
                 onClick={toggleAccordion}
             >
                 <h2 className="text-lg text-primary text-[18px]">{title}</h2>
-                <div className={`h-6 w-6 duration-300 ${isOpen ? 'rotate-180' : ''}`}> 
+                <div className={`h-6 w-6 duration-300 ${isOpen ? 'rotate-180' : ''}`}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -220,7 +220,7 @@ const Accordion = ({ title, content }: { title: string, content: string }) => {
                 </div>
             </div>
             {
-                <div className={`bg-gray-50 transition-[max-height] font-inter duration-700 ease-out overflow-hidden ${!isOpen? 'max-h-0': 'max-h-[30rem]'}`}>
+                <div className={`bg-gray-50 transition-[max-height] font-inter duration-700 ease-out overflow-hidden ${!isOpen ? 'max-h-0' : 'max-h-[30rem]'}`}>
                     <div className="p-4 py-10 text-primary ">{content}</div>
                 </div>
             }
@@ -230,45 +230,45 @@ const Accordion = ({ title, content }: { title: string, content: string }) => {
 
 
 const questions: {
-  q: string,
-  a: string
-} [] = [{
+    q: string,
+    a: string
+}[] = [{
     q: `How can I get started with gamifying my educational materials`,
     a: `We handle the entire gamification in-house. No extra work on the author's side. All you need to do is reach out to us.
 `
-  },
-  {
+},
+{
     q: 'Do I need any technical skills or coding knowledge to use Tioo?',
     a: `No coding or technical skills are required. Our platform is user-friendly and designed to be accessible to authors and educators of all technical backgrounds.`
-  },
-  {
+},
+{
     q: 'How do I earn royalties from my gamified content?',
     a: `Authors and educators earn royalties based on the usage of their gamified content. The more students access and engage with your materials on our platform, the more you earn.`
-  },
-  {
+},
+{
     q: "Can I update my gamified content after it's published?",
     a: `Yes, you have the flexibility to update and refine your gamified materials at any time. We understand the importance of keeping educational content current.`
-  },
-  {
+},
+{
     q: 'Is there a fee for using Tioo?',
     a: `No, no payment is needed to publish your educational material on our platform
 `
-  },
-];
+},
+    ];
 
 
-function FAQ(){
+function FAQ() {
     return (
         <>
             <h1 className="font-[700] w-[90%] mx-auto text-3xl lg:text-[40px] text-center mt-10 text-primary">Frequently Asked Questions</h1>
             <div className="lg:w-[90%] mx-2 lg:mx-auto mt-10 border rounded-[8px] shadow-lg lg:px-12 lg:py-14 pb-10 ">
-                {questions.map((item: any,index: number) => (
+                {questions.map((item: any, index: number) => (
                     <Accordion key={index} title={item.q} content={item.a} />
                 ))}
 
                 <div className="w-full text-primary text-sm text-center mt-16">
                     <p className="text-[13px] lg:text-[16px] font-[400]">
-                    Other questions?
+                        Other questions?
                     </p>
                 </div>
                 <div className="flex text-primary text-sm flex-col  lg:flex-row gap-0 lg:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
@@ -281,8 +281,8 @@ function FAQ(){
                     <p className="text-[13px] lg:text-[16px] font-[400]">
                         or
                         <BsWhatsapp className="inline ml-2 mr-2" />
-                        <a className="text-[#4F46E5]" href="https://api.whatsapp.com/send?phone=2347018481060">
-                            +234 701 848 1060
+                        <a className="text-[#4F46E5]" href="https://api.whatsapp.com/send?phone=2348135667049">
+                            +234 813 566 7049
                         </a>
                     </p>
                 </div>
@@ -313,7 +313,7 @@ export default function Authors() {
                         <Form />
                     </div>
                 </div>
-                <FAQ/>
+                <FAQ />
             </div>
         </PageLayout>
 
