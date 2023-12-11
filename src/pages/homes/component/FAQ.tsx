@@ -86,7 +86,7 @@ function FAQ() {
                 </div>
                 <div className="flex text-primary text-sm flex-col  lg:flex-row gap-0 lg:gap-2 w-full text-center mt-1 m-[auto]  justify-center">
                     <p className="text-[13px] lg:text-[16px] font-[400]">
-                        Email
+                        Email{" "}
                         <a className="text-[#4F46E5]" href="mailto:support@hellotioo.com">
                             support@hellotioo.com
                         </a>{" "}
