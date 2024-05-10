@@ -24,6 +24,7 @@ import CookieComponent from './components/cookie';
 import ParentCompleteSignupScreen from "./pages/auth/parent/CompleteSignup";
 import { ThreeCirclesLoading } from "./components/Ui/Loading";
 import { useGetIpQuery, useLazyGetContinentQuery } from "./services/api/routineSlice";
+import ScrollToTop from "./utils/scrollTop";
 
 // const Pricing = lazy(() => import('./pages/pricing'));
 // const Authors = lazy(() => import('./pages/authors'));
@@ -33,7 +34,7 @@ import { useGetIpQuery, useLazyGetContinentQuery } from "./services/api/routineS
 function App() {
   const [loadConti, setLoadConti] = useState(true)
   const [available, setAvailable] = useState(false)
-  const {data} = useGetIpQuery()
+  const { data } = useGetIpQuery()
   const [getCon] = useLazyGetContinentQuery()
 
   useEffect(() => {
@@ -43,28 +44,28 @@ function App() {
     });
     AOS.refresh();
 
-    const permitted = ["NG", "FR", "DE", "CA", "US", "GB" ]
+    const permitted = ["NG", "FR", "DE", "CA", "US", "GB"]
     // console.log("app useeffect")
 
-    const getConti = async(ip:any) => {
+    const getConti = async (ip: any) => {
       getCon(ip)
-      .then((res:any) => {
-        if(res.isSuccess){
-          console.log(res.data);
-          if(permitted.includes(res.data.country_code) || !res.data.country_code){
-            localStorage.setItem('COUNTRY_CODE',res.data.country_code);
-            setLoadConti(false)
-          }else{
-            setAvailable(true)
+        .then((res: any) => {
+          if (res.isSuccess) {
+            console.log(res.data);
+            if (permitted.includes(res.data.country_code) || !res.data.country_code) {
+              localStorage.setItem('COUNTRY_CODE', res.data.country_code);
+              setLoadConti(false)
+            } else {
+              setAvailable(true)
+            }
           }
-        }
-      })
+        })
     }
 
-    if(data){
+    if (data) {
       getConti(data.ip)
     }
-  }, [data,getCon]);
+  }, [data, getCon]);
   return (
     <div>
       {
@@ -74,44 +75,45 @@ function App() {
       }
       {
         loadConti && <div className="w-full h-screen flex items-center justify-center">
-        <ThreeCirclesLoading size="200" color="#4f46e5" />
-      </div>
+          <ThreeCirclesLoading size="200" color="#4f46e5" />
+        </div>
       }
       {
         !loadConti &&
         <BrowserRouter>
-        <CookieComponent />
-        <Routes>
-          <Route path="/" element={<Homes />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/library" element={<Library />} />
-          <Route path="/library/details" element={<LibraryDetails />} />
-          <Route path="/authors" element={<Authors />} />
-          {/* auth routes */}
-          <Route path="/signup" element={<SignupIndex />} />
-          <Route path="/login" element={<LoginScreen />} />
-          <Route path="/school" element={<SchoolSignup />} />
-          <Route path="/school-complete" element={<SchoolSignupIndex />} />
-          <Route path="/freelancer" element={<FreelanceSignupScreen />} />
-          <Route
-            path="/freelancer-complete"
-            element={<FreelanceNamingTypeScreen />}
-          />
-          <Route path="/parent" element={<ParentSignupScreen />} />
-          <Route
-            path="/parent-complete"
-            element={<ParentCompleteSignupScreen />}
-          />
-          <Route path="/account/verify/:id" element={<AccountVerify />} />
-          <Route path="/forget" element={<ForgetPasswordScreen />} />
-          <Route
-            path="/new-password/:id/:email"
-            element={<ResetPasswordScreen />}
-          />
-          <Route path="/student/:id" element={<StudentSignup />} />
-          <Route path="/teacher/:id" element={<TeacherSignup />} />
-        </Routes>
-      </BrowserRouter>
+          <CookieComponent />
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Homes />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/library" element={<Library />} />
+            <Route path="/library/details" element={<LibraryDetails />} />
+            <Route path="/authors" element={<Authors />} />
+            {/* auth routes */}
+            <Route path="/signup" element={<SignupIndex />} />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/school" element={<SchoolSignup />} />
+            <Route path="/school-complete" element={<SchoolSignupIndex />} />
+            <Route path="/freelancer" element={<FreelanceSignupScreen />} />
+            <Route
+              path="/freelancer-complete"
+              element={<FreelanceNamingTypeScreen />}
+            />
+            <Route path="/parent" element={<ParentSignupScreen />} />
+            <Route
+              path="/parent-complete"
+              element={<ParentCompleteSignupScreen />}
+            />
+            <Route path="/account/verify/:id" element={<AccountVerify />} />
+            <Route path="/forget" element={<ForgetPasswordScreen />} />
+            <Route
+              path="/new-password/:id/:email"
+              element={<ResetPasswordScreen />}
+            />
+            <Route path="/student/:id" element={<StudentSignup />} />
+            <Route path="/teacher/:id" element={<TeacherSignup />} />
+          </Routes>
+        </BrowserRouter>
       }
     </div>
   );
