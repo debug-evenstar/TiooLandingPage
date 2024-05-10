@@ -1,30 +1,21 @@
-/** @type {import('tailwindcss').Config} */
-const withMT = require("@material-tailwind/react/utils/withMT");
-module.exports = withMT({
-  content: ["./src/**/*.{html,js,ts,tsx}"],
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
-      colors: {
-        primary: "#030036BD",
-        main: '#0E096C',
-        active: '#4F46E5'
+      colors:{
+        'main': '#9C29B2',
+        'dark': '#454545',
+        'darker': '#171717',
+        'dark-blue': '#0E096C',
       },
-    
-      backgroundImage: {
-        home: "linear-gradient(to right, rgba(105, 76, 87, 1),rgba(0, 0, 0, 0.2))",
-        dash: "url('https://res.cloudinary.com/dic7regoe/image/upload/v1689193391/praxeum/Frame_1000004421_aysm37.png')",
-        frame:
-          "url('https://res.cloudinary.com/dic7regoe/image/upload/v1689405515/praxeum/Frame_1000004193_io2u7f.png')",
-      },
-      fontFamily: {
-        inter: ["Inter", 'sans-serif'],
-      },
-    },
-    fontFamily: {
-      primary: ["poppins"],
-      inter: ["Inter", 'sans-serif'],
-      sans: ["Comic Sans MS", "sans-serif"],
+      dropShadow: {
+        '3xl': '10px 30px 12px rgba(103, 0, 123, 0.15)',
+      }
     },
   },
   plugins: [],
-});
+}
+
