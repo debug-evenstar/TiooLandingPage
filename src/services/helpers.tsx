@@ -13,5 +13,5 @@ export const SendOtp = (email: string) => {
         toast.success(res.data.message);
       }
     })
-    .catch((err) => {});
+    .catch((err) => { console.log(err)});
 };
