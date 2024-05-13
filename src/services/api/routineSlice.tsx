@@ -67,7 +67,7 @@ export const routineApiSlice = apiSlice.injectEndpoints({
     }),
 
     getTioClasses: builder.query<any | ErrorResult, void>({
-      query: (param) => ({
+      query: (_: any) => ({
         url: `${ENDPOINT.GET_TIO_CLASSES}`,
         method: ENDPOINT.HTTP_METHODS.GET,
       }),

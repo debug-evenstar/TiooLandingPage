@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "../../common/Buttons/button";
 import "animate.css";
+import './style.css';
+
 import { Typewriter } from "react-simple-typewriter";
 
 const Doodles = () => {
@@ -149,16 +151,16 @@ export default function Hero() {
             TextBooks And
           </p>
           <p className="font-bold text-[34px] mb-5 sm:text-[70px] text-main text-end ">
-            Rigid
-            <span className="relative inline-block animate__animated">
+            <span className="relative inline-block animate__animated pr-3">
               <Animation
                 angle={-7}
                 color="#1a93a5"
                 text="Interactive"
                 type="typewriter"
-                className="sm:-left-[21rem] -left-[180px] font-[500] transition-all duration-1000  -bottom-4"
+                className="sm:-left-[11rem] to-left font-[500] transition-all duration-1000  md:bottom-2"
               />
-            </span>{" "}
+              Rigid
+            </span>
             Learning
           </p>
         </div>
