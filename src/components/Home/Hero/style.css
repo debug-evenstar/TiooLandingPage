@@ -1,0 +1,9 @@
+@media screen and (max-width: 640px){
+  .to-left{
+    left: -100px !important;
+  }
+}
+
+/* .to-left{
+  left: -100px;
+} */
