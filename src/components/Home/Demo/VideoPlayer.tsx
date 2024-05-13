@@ -39,7 +39,7 @@ function VideoPlayer() {
     return (
         <>
 
-            <div className={`${loaded ? '' : 'hidden'} flex duration-1000 w-full transition-all items-center overflow-hidden rounded-[10px]`}>
+            <div className={`${loaded ? '' : 'hidden'} border border-gray-200 flex duration-1000 w-full transition-all items-center overflow-hidden rounded-[10px]`}>
                 <video
                     autoPlay muted
                     ref={videoRef1}
