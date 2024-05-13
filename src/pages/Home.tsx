@@ -19,7 +19,7 @@ export default function Home() {
       delay: 500,
       offset: 120,
       duration: 1000,
-      easing: 'new-easing' as 'ease-in'
+      easing: 'new-easing'
     });
   },[]);
 

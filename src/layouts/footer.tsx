@@ -16,10 +16,11 @@ const socials = [
 ];
 
 const serviceLinks = [
-  { link: '/#', name: 'lorem ipsum' },
-  { link: '/#', name: 'lorem ipsum' },
-  { link: '/#', name: 'lorem ipsum' },
+  { link: '/#', name: 'Smart and Interactive Textbooks and Workbooks students' },
+  { link: '/#', name: 'Personalized Learning and individual assessment capabilities' },
+  { link: '/#', name: 'Digital publishing for Authors and Publishers' },
 ];
+ 
 
 const usefulLinks = [
   { link: '/#', name: 'About us' },
@@ -27,7 +28,6 @@ const usefulLinks = [
   { link: '/#', name: 'Privacy policy' },
   { link: '/#', name: 'Contact us' },
   { link: '/#', name: 'Terms of service' },
-
 ];
 
 interface LinkProps { name: string, link: string}
@@ -40,7 +40,7 @@ const CollapsibleNav = ({ title, data }: CollapsibleNavProps) => {
   return (
     <div className="mb-4">
       <div className="flex items-center justify-between">
-        <h3 className='font-semibold outfit-font text-white text-[28px] text-nowrap'>{title}</h3>
+        <h3 className='font-semibold outfit-font text-white text-[24px] sm:text-[28px] text-nowrap'>{title}</h3>
         <button className="text-white text-4xl h-fit outline-none sm:hidden" onClick={() => setActive(!active)}>
           { active? <span>&times;</span>:'+'}
         </button>
@@ -49,7 +49,7 @@ const CollapsibleNav = ({ title, data }: CollapsibleNavProps) => {
         className={` ${!active && 'hidden'} flex flex-col space-y-2`}
       >
           {data.map(({ name, link }: LinkProps, idx: number) => (
-            <NavLink key={idx} className="text-base" to={link}>{name}</NavLink>
+            <NavLink key={idx} className="text-sm" to={link}>{name}</NavLink>
           ))}
       </div>
     </div>
@@ -63,11 +63,11 @@ export default function Footer() {
         <img src={logo} className=" " alt="" />
       </div>
 
-      <div className="my-8 flex sm:flex-row flex-col sm:space-x-20">
+      <div className="my-8 flex lg:flex-row flex-col lg:space-x-20">
         <div className='sm:w-[35%] mb-3'>
           <h3 className="font-semibold outfit-font text-white text-[1.75rem]">ABOUT Tioo</h3>
           <p className="text-sm">
-            Sapien luctus lesuada sentus pharetra nisi quisuea aenean eros mus magnis arcu vehicula nascetur feugiat
+          Tioo is an app that makes learning exciting and easy to understand for kids in Nigeria. It uses cool animations, and AI to make learning fun and easy. Tioo helps kids who feel bored or confused with regular school textbooks to develop a love for studying.
           </p>
 
           <div className="flex items-center space-x-2 mt-10">
