@@ -4,12 +4,14 @@ import Button from "../components/common/Buttons/button";
 import libraryImg1 from "../assets/images/library-book-1.png";
 import libraryImg2 from "../assets/images/library-book-2.png";
 
-const BookShowcase = ({ title, books }: { title: string, books: any }) => {
+const BookShowcase = ({ title, books }: { title: string; books: any }) => {
   return (
     <div>
-      <h3 className="outfit-font font-semibold text-[34px] sm:text-[44px] text-dark">{title}</h3>
+      <h3 className="outfit-font font-semibold text-[34px] sm:text-[44px] text-dark">
+        {title}
+      </h3>
       <div className="flex justify-center sm:justify-between flex-wrap sm:flex-nowrap mt-10">
-        {books.map(({image, title, author}: any,index: number) => (
+        {books.map(({ image, title, author }: any, index: number) => (
           <div className="w-full  " key={index}>
             <img src={image} alt="" className="sm:w-[12rem]" />
             <p className="text-sm sm:text-base font-bold">{title}</p>
@@ -63,7 +65,11 @@ export default function Library() {
               Vast Collection Of Books Made Into Interactive learning with Tioo
             </p>
 
-            <Button className="px-8 mt-4 py-2 bg-main rounded font-semibold text-white text-[23px]">
+            <Button
+              link
+              to="https://docs.google.com/forms/d/e/1FAIpQLSdxRSkNj3yBwOIYwKyZpQGgv4jibQuM0o0L6hRffhF8KJ7xew/viewform?embedded=true"
+              className="px-8 mt-4 py-2 bg-main rounded font-semibold text-white text-[23px]"
+            >
               Get Started
             </Button>
           </div>
@@ -74,10 +80,10 @@ export default function Library() {
       </div>
 
       <div className="my-10 bg-white px-3 sm:px-20  py-20">
-        <BookShowcase title="Best Books For Pupils" books={books}/>
+        <BookShowcase title="Best Books For Pupils" books={books} />
       </div>
       <div className="my-10 bg-white px-3 sm:px-20  py-20">
-        <BookShowcase title="Best Science Books " books={books}/>
+        <BookShowcase title="Best Science Books " books={books} />
       </div>
     </div>
   );
