@@ -7,5 +7,5 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   keepUnusedDataFor: CACHE_LIFETIME.TINY,
   tagTypes: [],
-  endpoints: (_: any) => ({}),
+  endpoints: (builder) => ({}),
 });

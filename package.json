@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.2.4",
     "@studio-freight/lenis": "^1.0.42",
     "@types/aos": "^3.0.7",
     "animate.css": "^4.1.1",
@@ -21,7 +20,6 @@
     "react-router-dom": "^6.23.0",
     "react-simple-typewriter": "^5.0.1",
     "react-spinners": "^0.13.8",
-    "react-toastify": "^10.0.5",
     "typewriter": "^9.2.0",
     "wow.js": "^1.2.2"
   },

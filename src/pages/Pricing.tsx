@@ -78,8 +78,8 @@ const PricingCard = ({ name, price, discount, features }: PricingCardProps) => {
         </div>
       </div>
       <div className="mt-2 flex space-y-3 flex-col">
-        {features.map((feature) => (
-          <div className="flex space-x-3">
+        {features.map((feature,index) => (
+          <div key={index} className="flex space-x-3">
             <img src={checkboxImg} alt="" />
             <span className="text-dark text-sm">{feature}</span>
           </div>
@@ -106,8 +106,8 @@ const PricingCards = () => {
         <button className="text-sm px-4 py-2">For Schools</button>
       </div>
       <div className="mt-6 flex flex-wrap justify-center mx-auto w-fit sm:space-x-10">
-        {cards.map((card) => (
-          <PricingCard {...card} />
+        {cards.map((card, index) => (
+          <PricingCard {...card} key={index} />
         ))}
       </div>
     </div>
