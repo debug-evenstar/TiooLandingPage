@@ -15,9 +15,9 @@ export default function Demo() {
         </span>
       </div> */}
 
-      <div className="bg-[#F2EDFF] py-4 lg:py-16 px-4 lg:px-32">
+      <div className="py-4 lg:py-16 px-4 lg:px-32">
         <div className="lg:h-[500px] lg:w-[750px] flex flex-col items-center justify-center mx-auto rounded-[56px] relative">
-          <div className="overflow-hidden">{<VideoPlayer />}</div>
+          <div className="overflow-hidden ">{<VideoPlayer />}</div>
         </div>
       </div>
     </div>
