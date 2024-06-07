@@ -6,6 +6,7 @@ import CustomList, {
 import listImg from "../assets/images/authors-2.png";
 import Button from "../components/common/Buttons/button";
 import { NavLink } from "react-router-dom";
+import CallToAction from "@/components/common/CallToAction/callToAction";
 
 const BouncingBall = () => {
   return (
@@ -20,25 +21,37 @@ const BouncingBall = () => {
 
 const Header = () => {
   return (
-    <div className="px-3 sm:px-20 py-4 flex items-center justify-between outfit-font bg-white">
-      <div className="">
+    <div className="px-3 sm:px-20 py-4 flex flex-col sm:flex-row items-center justify-between outfit-font bg-white">
+      <div className="order-2 sm:order-1 ">
         <div className="flex justify-between">
           <BouncingBall />
           <BouncingBall />
         </div>
-        <p className="font-semibold -top-4 relative text-[40px] text-[#b902dc]">
-          Gamify Your Textbooks And Workbooks <br /> For Fun Learning & Earnings
+        <p className="font-semibold -top-4 relative text-[30px] sm:text-[40px] text-[#b902dc]">
+          Gamify Your Textbooks And Workbooks <br className="hidden sm:block" />{" "}
+          For Fun Learning & Earnings
         </p>
-        <p className="text-dark text-[21px] mb-5">
-          We empower authors to turn their textbooks and workbooks seamlessly
+        <p className="text-dark text-[19px] sm:text-[21px] mb-5">
+          {/* We empower authors to turn their textbooks and workbooks seamlessly
           into <br /> engaging, gamified resources for K-12 learners and earn
-          royalties.
+          royalties. */}
+          Turn your textbooks and workbooks seamlessly into engaging, gamified
+          resources for K-12 learners and earn royalties.
         </p>
-        <NavLink to="https://docs.google.com/forms/d/e/1FAIpQLScGoPUnTehAZLTPpCP6Q7SWM4gUuopoj52WgzM4KwroL7cPhg/viewform?embedded=true" className="px-12 mt-4 py-2 bg-main rounded font-semibold text-white text-[23px]">
-          Join Tioo
-        </NavLink>
+        <div className="flex justify-center sm:justify-start">
+          <NavLink
+            to="https://docs.google.com/forms/d/e/1FAIpQLScGoPUnTehAZLTPpCP6Q7SWM4gUuopoj52WgzM4KwroL7cPhg/viewform?embedded=true"
+            className="px-12 mt-4 py-2 bg-main rounded font-semibold text-white text-[23px]"
+          >
+            Join Tioo
+          </NavLink>
+        </div>
       </div>
-      <img src={heroImg} alt="" className="w-[30%]" />
+      <img
+        src={heroImg}
+        alt=""
+        className="sm:w-[30%] w-[70%] order-1 sm:order-2"
+      />
     </div>
   );
 };
@@ -73,53 +86,40 @@ const data: ListContentProps[] = [
 
 const WhyTioo = () => {
   return (
-    <div className="py-20 px-3 sm:px-20">
+    <div className="pt-10 pb-20 px-3 sm:px-20 bg-white">
       <div className="text-dark outfit-font mx-auto w-fit text-center">
-        <p className=" font-semibold text-[45px]">Why Tioo?</p>
-        <p className=" text-[24px]">
+        <p className=" font-semibold text-[30px] md:text-[45px]">Why Tioo?</p>
+        <p className=" text-[20px] md:text-[24px]">
           Join us on this exciting journey to enhance kids' understanding while{" "}
-          <br /> earning royalties when students access your educational content{" "}
+          <br className="hidden md:block" /> earning royalties when students
+          access your educational content{" "}
         </p>
       </div>
 
       <div className="mt-10 flex sm:space-x-10 items-center sm:flex-row flex-col ">
-        <CustomList data={data} />
-        <img src={listImg} alt="" className="w-[40%]" />
+        <div className="order-2 md:order-1 px-4">
+          <CustomList background="bg-white" data={data} />
+        </div>
+        <img src={listImg} alt="" className="w-[80%] md:w-[40%] order-1 md:order-2" />
       </div>
     </div>
   );
 };
 
-
 const Action = () => {
   return (
-    <div className="py-20">
-            <div className="py-10 bg-[#67007b] sm:w-[80%] mx-auto rounded-[16px] border-white border-[3px] px-28 drop">
-        <div className="text-white outfit-font mx-auto w-fit text-center">
-          <p className=" font-semibold text-[40px]">Make Learning Fun</p>
-          <p className=" text-[24px]">
-            Say goodbye to the contraints of traditional <br/>publishing timeslines. With our website, you have <br/> the flexibility to publish
-             and update your content <br/>as needed, ensuring it remains current and <br/> relevant.
-          </p>
-        </div>
-          <div className="flex justify-center font-semibold outfit-font mt-4 ">
-            <Button className="border-2 border-gray-300  text-[22px] w-[18rem] py-2">
-              Join Tioo
-            </Button>
-          </div>
-      </div>
-
+    <div className="md:py-20 bg-white">
+      <CallToAction style={{paddingTop: '1rem',paddingBottom: '1rem'}}/>
     </div>
   );
-}
+};
 
 export default function Authors() {
   return (
     <div className="">
       <Header />
       <WhyTioo />
-      <Action/>
+      <Action />
     </div>
-
   );
 }

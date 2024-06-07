@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom'
-import logo from '../assets/images/logo/logo.png'
-import facebookImg from '../assets/images/icons/facebook.svg';
-import instagramImg from '../assets/images/icons/instagram.svg';
-import linkedinImg from '../assets/images/icons/linkedin.svg';
-import twitterImg from '../assets/images/icons/twitter.svg';
+import logo from '@/assets/images/logo/logo.png'
+import facebookImg from '@/assets/images/icons/facebook.svg';
+import instagramImg from '@/assets/images/icons/instagram.svg';
+import linkedinImg from '@/assets/images/icons/linkedin.svg';
+import twitterImg from '@/assets/images/icons/twitter.svg';
 import { useState } from 'react';
 
 

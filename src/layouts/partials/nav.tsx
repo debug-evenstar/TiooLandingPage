@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
-import Button from "../components/common/Buttons/button";
-import logo from "../assets/images/logo/logo.png";
-import { navs } from "../contants/nav";
+import Button from "@/components/common/Buttons/button";
+import logo from "@/assets/images/logo/logo.png";
+import { navs } from "@/contants/nav";
 import { useState } from "react";
 
 function SideNav({ navOpen, setNavOpen }: any) {
@@ -29,10 +29,11 @@ function SideNav({ navOpen, setNavOpen }: any) {
       </div>
       <div className="w-full flex flex-col  space-y-4 ">
         <nav className="flex flex-col mx-auto items-center outfit-font justify-between space-y-3 w-[45%] ">
-          {navs.map(({ name, path }) => (
+          {navs.map(({ name, path }: any) => (
             <NavLink
               to={path}
               key={path}
+              onClick={() => setNavOpen(false)}
               className={`text-xl text-dark border-b rounded pb-1 w-fit hover:text-main duration-300 ${checkActive(
                 path
               )}`}
@@ -42,9 +43,11 @@ function SideNav({ navOpen, setNavOpen }: any) {
           ))}
         </nav>
         <div className="flex space-y-3 w-full flex-col">
-          <button className="px-3 rounded-r-[4px] rounded-tl-[4px] h-[42px] border font-semibold text-[20px] border-main text-main ">
+          <NavLink to="/login">
+          <button className="px-3 w-full rounded-r-[4px] rounded-tl-[4px] h-[42px] border font-semibold text-[20px] border-main text-main ">
             Login
           </button>
+          </NavLink>
           <Button className="h-[42px]">Start Learning</Button>
         </div>
       </div>
@@ -69,8 +72,8 @@ export default function Nav() {
         <a href="/">
           <img src={logo} className="w-[80%]" alt="" />
         </a>
-        <nav className="hidden lg:flex items-center outfit-font justify-between space-x-3 w-[45%] ">
-          {navs.map(({ name, path }) => (
+        <nav className="hidden lg:flex items-center outfit-font justify-between w-[43%] ">
+          {navs.map(({ name, path }: {name: string, path: string}) => (
             <NavLink
               to={path}
               key={path}
@@ -99,9 +102,11 @@ export default function Nav() {
           </svg>
         </button>
         <div className="hidden lg:flex items-center space-x-2">
-          <button className="px-3 rounded-r-[4px] rounded-tl-[4px] h-[42px] border font-semibold text-[20px] border-main text-main w-[148px]">
-            Login
-          </button>
+          <NavLink to="/login">
+            <button className="px-3 rounded-r-[4px] rounded-tl-[4px] h-[42px] border font-semibold text-[20px] border-main text-main w-[148px]">
+              Login
+            </button>
+          </NavLink>
           <Button
             link
             to="https://docs.google.com/forms/d/e/1FAIpQLSdxRSkNj3yBwOIYwKyZpQGgv4jibQuM0o0L6hRffhF8KJ7xew/viewform?embedded=true"
