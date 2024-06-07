@@ -5,9 +5,9 @@ import image3 from '../../../assets/images/library-3.png';
 
 const PhotoRobbin = () => {
   const [styles, setStyles] = useState<string[]>([
-    "z-[300]",
-    "z-[200] translate-x-28 -translate-y-20",
-    "z-[100] translate-x-60 -translate-y-40",
+    "z-[300] translate-x-[4rem] md:translate-x-0 -translate-y-12 md:translate-y-0",
+    "z-[200] translate-x-[10rem] md:translate-x-28 -translate-y-28 md:-translate-y-20",
+    "z-[100] translate-x-[15rem] md:translate-x-60 -translate-y-40 md:-translate-y-40",
   ]);
 
 
@@ -34,7 +34,7 @@ const PhotoRobbin = () => {
       key={index}
       src={image}
       alt={`Image`}
-      className={`transition-all duration-1000 shadow-xl w-10rem sm:w-[20rem] bg-white shadow absolute border rounded ${styles[index]}`}
+      className={`transition-all duration-1000 shadow-xl w-[11rem] md:w-[20rem] bg-white shadow absolute border rounded ${styles[index]}`}
     />
   ));
 
