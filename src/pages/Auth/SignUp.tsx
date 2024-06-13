@@ -1,26 +1,88 @@
-import { FC, FormEvent } from "react";
+import { FC, FormEvent, useState } from "react";
 import signupImg from "@/assets/images/signup.png";
 
 import arrowRight from "@/assets/images/icons/arrow-right.svg";
-import facebookImg from "@/assets/images/icons/facebook2.svg";
 import googleImg from "@/assets/images/icons/google.svg";
-import appleImg from "@/assets/images/icons/apple.svg";
+
 import { AuthHeader, Input } from "../../components/Auth";
 import { CheckboxInput } from "../../components/Auth";
 import { SocialButton } from "../../components/Auth";
+import { useLazyRegisterUserQuery } from "@/services/api/authSlice";
 
-import { NavLink } from "react-router-dom";
+interface FormErrorState {
+  first_name?: string;
+  last_name?: string;
+  email?: string;
+  password?: string;
+  password_confirmation?: string;
+}
 
 const FormArea: FC = () => {
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
+  });
+
+  const [formErrors, setFormErrors] = useState<FormErrorState>({
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
+  });
+
+  const validate = () => {
+    const errors: FormErrorState = {};
+
+    if (!formData.first_name) {
+      errors.first_name = "First name is required";
+    }
+
+    if (!formData.last_name) {
+      errors.last_name = "Last name is required";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      errors.email = "Invalid email format";
+    }
+
+    if (formData.password.length < 6) {
+      errors.password = "Password must at least 6 chars long";
+    }
+
+    if (formData.password != formData.password_confirmation) {
+      errors.password_confirmation = "Passwords do not match";
+    }
+
+    setFormErrors(errors);
+
+    return Object.keys(errors).length == 0;
+  };
+  
+  const [registerUser] = useLazyRegisterUserQuery();
+
+  const submitFormData = () => {
+    registerUser(formData).then((response) => {
+      console.log(response);
+    });
+  };
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (validate()) {
+      submitFormData();
+    }
   };
 
   const handleChange = (e: any) => {
     const name = e.target.name;
+    setFormData({ ...formData, [name]: e.target.value });
   };
 
-  const sendRequest = () => {};
 
   return (
     <div className="bg-white px-6 md:px-16 flex flex-col justify-center">
@@ -81,7 +143,7 @@ const FormArea: FC = () => {
               I Agree with all of your Terms & Conditions
             </label>
           </div>
-          <button className="bg-main mt-5 md:mt-0 rounded-[20px] px-6 py-2 flex text-white items-center font-[600] ">
+          <button type='submit' className="bg-main mt-5 md:mt-0 rounded-[20px] px-6 py-2 flex text-white items-center font-[600] ">
             Create Account
             <img src={arrowRight} alt="" className="w-[1.2rem] ml-2" />
           </button>
