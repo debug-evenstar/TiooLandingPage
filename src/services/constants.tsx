@@ -14,12 +14,14 @@ export enum CACHE_LIFETIME {
     DELETE = "DELETE",
   }
 
-  export const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+  export const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 
   // auth
 
 export const USER_LOGIN = 'account/signin'
-export const SCHOOL_REGISTER = 'account/signup'
+// export const SCHOOL_REGISTER = 'account/signup'
+export const USER_REGISTER = 'account/signup'
 export const PARENT_REGISTER = 'student/parent/signup_first'
 export const PARENT_REGISTER_SECOND = 'student/parent/signup_second'
 export const REQUEST_NEW_OTP = 'account/verify/resend'
