@@ -12,10 +12,18 @@ import Login from "./pages/Auth/Login";
 import PasswordReset from "./pages/PasswordReset";
 import SignUp from "./pages/Auth/SignUp";
 import OTP from "./pages/Auth/OTP";
+// import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import Onboarding from "./pages/Auth/Onboarding";
+import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';    
 
 function App() {
   return (
-    <div className="bg-neutral-100 overflow-hidden">
+    <div className="bg-neutral-100">
+      <ToastContainer
+        transition={Zoom}
+        
+      />
       <Router>
         <Routes>
           <Route element={<LandingLayout />}>
@@ -26,9 +34,10 @@ function App() {
           </Route>
           <Route element={<AuthLayout/>}>
             <Route path="/login" element={<Login/>} />
+            <Route path="/onboarding" element={<Onboarding/>} />
             <Route path="/password-reset" element={<PasswordReset/>} />
             <Route path="/signup" element={<SignUp/>} />
-            <Route path="/verify-otp" element={<OTP/>} />
+            <Route path="/verify-otp/:email" element={<OTP/>} />
           </Route>
         </Routes>
       </Router>

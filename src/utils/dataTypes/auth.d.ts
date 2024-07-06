@@ -59,7 +59,8 @@ export interface RequestOtp {
 }
 
 export interface VerifyOtp {
-    token: string
+    otp: string
+    email: string
 }
 
 export interface SetupSchoolInput {

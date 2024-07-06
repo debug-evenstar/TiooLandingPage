@@ -17,9 +17,9 @@ export const SocialButton = ({ name, image, handler = () => null }: any) => {
   );
 };
 
-export const CheckboxInput = ({ name }: any) => {
+export const CheckboxInput = ({ name, active, setActive }: any) => {
   const ref = useRef<any>();
-  const [active, setActive] = useState(false);
+  
 
   const handleInputClick = (e: MouseEvent<HTMLInputElement>) => {};
 
@@ -41,7 +41,7 @@ export const CheckboxInput = ({ name }: any) => {
         }`}
       >
         {ref.current && ref.current.value == "On" && (
-          <div className="w-2 h-2 bg-white rounded-full mx-auto"></div>
+          <div className="w-2 h-2 flex items-center text-lg justify-center text-white rounded-full mx-auto">✔</div>
         )}
       </button>
       <input
@@ -60,6 +60,7 @@ export const Input = ({
   placeholder,
   handleChange,
   name,
+  errorMessage,
   label,
   className,
 }: any) => {
@@ -74,7 +75,7 @@ export const Input = ({
           placeholder={placeholder}
           onChange={handleChange}
           name={name}
-          className="outline-none mt-2 w-full px-3 py-2 border border-gray-300 rounded"
+          className="outline-none focus:border-main mt-2 w-full px-3 py-2 border border-gray-300 rounded"
         />
         {type == "password" && (
           <button className="right-3 absolute top-4 ">
@@ -82,6 +83,7 @@ export const Input = ({
           </button>
         )}
       </div>
+      <p className="text-red-500 h-4 text-sm">{errorMessage}</p>
     </div>
   );
 };

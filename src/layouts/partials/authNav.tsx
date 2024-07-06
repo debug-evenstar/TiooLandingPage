@@ -1,13 +1,11 @@
-import { NavLink, useLocation} from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Button from "@/components/common/Buttons/button";
 import logo from "@/assets/images/logo/logo1.png";
 import { useState } from "react";
 
 export default function LoginNav() {
   const [navOpen, setNavOpen] = useState(false);
-  const {pathname} = useLocation();
-
-  
+  const { pathname } = useLocation();
 
   return (
     <>
@@ -15,7 +13,10 @@ export default function LoginNav() {
         <a href="/">
           <img src={logo} className="w-[80%]" alt="" />
         </a>
-        <button className="lg:hidden outline-none" onClick={() => setNavOpen(true)}>
+        <button
+          className="lg:hidden outline-none"
+          onClick={() => setNavOpen(true)}
+        >
           <svg
             width="32"
             height="24"
@@ -31,16 +32,16 @@ export default function LoginNav() {
             />
           </svg>
         </button>
-        <div className="hidden lg:flex items-center space-x-4">
-          <p>
-          Already have an account?
-          </p>
-          <NavLink to={ !pathname.includes('signup') ? '/signup': '/login'}>
-            <button className="bg-[#EED2F4] px-7 py-2 rounded-[4px] font-[700] text-main">
-              { !pathname.includes('signup') ? "Sign Up": "Sign In"}
-            </button>
-          </NavLink>
-        </div>
+        {!pathname.includes("onboarding") && (
+          <div className="hidden lg:flex items-center space-x-4">
+            <p>Already have an account?</p>
+            <NavLink to={!pathname.includes("signup") ? "/signup" : "/login"}>
+              <button className="bg-[#EED2F4] px-7 py-2 rounded-[4px] font-[700] text-main">
+                {!pathname.includes("signup") ? "Sign Up" : "Sign In"}
+              </button>
+            </NavLink>
+          </div>
+        )}
       </div>
     </>
   );

@@ -45,3 +45,14 @@ export const ACCEPT_TEACHER_MAGIC = 'invites/teacher/accept'
 export const GET_INVITED_TEACHER = 'teacher/invited'
 export const GET_INVITED_TEACHER_INFO = 'invites/info'
 export const GET_TIO_CLASSES = 'tio/classes'
+
+
+// ONBOARDING
+export const ACCOUNT_TYPES = '/onboarding/account-types';
+export const ACCOUNT_TYPE_QUESTIONS = '/onboarding/account-type/:id/questions'
+
+
+// Student front base url
+export const STUDENT_FRONT_BASE = import.meta.env.VITE_STUDENT_FRONT_URL;
+export const STUDENT_FRONT_DASHBOARDd = '/dashboard/home';
+export const STUDENT_FRONT_AUTH = '/auth/'
