@@ -132,3 +132,19 @@ body{
 body[data-aos-easing="new-easing"] [data-aos] {
   transition-timing-function: cubic-bezier(.28,1.32,.87,.99)
 }
+
+.metallic-bong {
+  animation: metallicBong 1s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+@keyframes metallicBong {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 0 1px #bbb;
+  }
+  to {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+  }
+}

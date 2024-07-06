@@ -81,6 +81,20 @@ export const authApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
 
+    getAccountTypes: builder.query<any , any>({
+      query: () => ({
+        url: `${ENDPOINT.ACCOUNT_TYPES}`,
+        method: ENDPOINT.HTTP_METHODS.GET,
+      })
+    }),
+
+    getOnboardingQuestions: builder.query<any, any>({
+      query: (id) => ({
+        url: `/onboarding/questions`,
+        method: ENDPOINT.HTTP_METHODS.GET,
+      })
+    }),
+
     forgetPassword: builder.mutation<BaseResult | ErrorResult, ForgetPasswordInput>({
       query: (payload) => ({
         url: `${ENDPOINT.FORGET_PASSWORD}`,
@@ -96,6 +110,10 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body: payload,
       }),
     }),
+
+
+    // Onboarding queries
+
   }),
   overrideExisting: true,
 });
@@ -110,6 +128,8 @@ export const {
   useLazySendOtpQuery,
   useLazyVerifyOtpQuery,
   useLazySetupSchoolQuery,
+  useLazyGetAccountTypesQuery,
+  useLazyGetOnboardingQuestionsQuery,
   useForgetPasswordMutation,
   useResetPasswordMutation
 } = authApiSlice;

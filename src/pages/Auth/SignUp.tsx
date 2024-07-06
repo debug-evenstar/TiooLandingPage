@@ -8,6 +8,9 @@ import { AuthHeader, Input } from "../../components/Auth";
 import { CheckboxInput } from "../../components/Auth";
 import { SocialButton } from "../../components/Auth";
 import { useLazyRegisterUserQuery } from "@/services/api/authSlice";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { DotLoader, HashLoader, MoonLoader, PuffLoader, RingLoader, ScaleLoader } from "react-spinners";
 
 interface FormErrorState {
   first_name?: string;
@@ -15,9 +18,11 @@ interface FormErrorState {
   email?: string;
   password?: string;
   password_confirmation?: string;
+  tos?: string;
 }
 
 const FormArea: FC = () => {
+  const [tos, setTos] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -34,7 +39,7 @@ const FormArea: FC = () => {
     password_confirmation: "",
   });
 
-  const validate = () => {
+  const validated = () => {
     const errors: FormErrorState = {};
 
     if (!formData.first_name) {
@@ -58,23 +63,39 @@ const FormArea: FC = () => {
       errors.password_confirmation = "Passwords do not match";
     }
 
+    if(!tos){
+      errors.tos = "Please consider our terms of service";
+      toast.error(errors.tos);
+    }
+
     setFormErrors(errors);
 
     return Object.keys(errors).length == 0;
   };
-  
-  const [registerUser] = useLazyRegisterUserQuery();
+
+  const [registerUser, { isLoading }] = useLazyRegisterUserQuery();
+  const navigate = useNavigate();
 
   const submitFormData = () => {
-    registerUser(formData).then((response) => {
+    registerUser(formData).then((response: any) => {
+      if (response.isSuccess) {
+        toast.success(response.data.message);
+        localStorage.setItem(
+          "profile",
+          JSON.stringify({ email: formData.email, token: response.data.token })
+        );
+        navigate(`/verify-otp/${formData.email}`);
+      } else {
+        toast.error(response.error.data.message);
+      }
       console.log(response);
     });
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (validate()) {
-      submitFormData();
+    if (validated() && tos) {
+      return submitFormData();
     }
   };
 
@@ -83,18 +104,18 @@ const FormArea: FC = () => {
     setFormData({ ...formData, [name]: e.target.value });
   };
 
-
   return (
     <div className="bg-white px-6 md:px-16 flex flex-col justify-center">
       <AuthHeader>Create your account</AuthHeader>
-      <form onSubmit={handleSubmit}>
+      <form noValidate onSubmit={handleSubmit}>
         <div className="flex items-center flex-col sm:flex-row justify-between md:space-x-3">
           <Input
             type="text"
             label="First name"
             name="first_name"
             placeholder="Enter first name"
-            className="mb-5"
+            className="mb-2"
+            errorMessage={formErrors.first_name}
             handleChange={handleChange}
           />
           <Input
@@ -102,17 +123,19 @@ const FormArea: FC = () => {
             label="Last name"
             name="last_name"
             placeholder="Enter last name"
-            className="mb-5"
+            className="mb-2"
+            errorMessage={formErrors.last_name}
             handleChange={handleChange}
           />
         </div>
         <div>
           <Input
             type="email"
-            label="Email or username"
+            label="Email"
             name="email"
             placeholder="Email address"
-            className="mb-5"
+            className="mb-2"
+            errorMessage={formErrors.email}
             handleChange={handleChange}
           />
         </div>
@@ -123,14 +146,16 @@ const FormArea: FC = () => {
             name="password"
             placeholder="Password"
             handleChange={handleChange}
-            className="mb-5"
+            errorMessage={formErrors.password}
+            className="mb-2"
           />
           <Input
             type="password"
             label="Confirm password"
             name="password_confirmation"
             placeholder="Confirm Password"
-            className="mb-5"
+            className="mb-2"
+            errorMessage={formErrors.password_confirmation}
             handleChange={handleChange}
           />
         </div>
@@ -138,14 +163,21 @@ const FormArea: FC = () => {
         <div className="w-full flex items-center mt-4 flex-col sm:flex-row justify-between">
           <div className="flex items-center space-x-3 ">
             {/* <input type="checkbox" name="remember" /> */}
-            <CheckboxInput name="remember" />
+            <CheckboxInput name="remember" active={tos} setActive={setTos} />
             <label className="text-gray-500" htmlFor="">
               I Agree with all of your Terms & Conditions
             </label>
           </div>
-          <button type='submit' className="bg-main mt-5 md:mt-0 rounded-[20px] px-6 py-2 flex text-white items-center font-[600] ">
+          <button
+            type="submit"
+            className="bg-main mt-5 md:mt-0 rounded-[20px] px-6 py-2 flex text-white items-center font-[600] "
+          >
             Create Account
-            <img src={arrowRight} alt="" className="w-[1.2rem] ml-2" />
+            {
+              isLoading
+              ? <DotLoader color="white" size={12} className="w-[1.2rem] ml-2" />
+              : <img src={arrowRight} alt="" className="w-[1.2rem] ml-2" />
+            }
           </button>
         </div>
 
@@ -157,12 +189,6 @@ const FormArea: FC = () => {
 
         <div className="mt-3 flex  flex-col lg:flex-row items-center justify-center">
           <SocialButton name="Google" image={googleImg} handler={() => null} />
-          {/* <SocialButton
-            name="Facebook"
-            image={facebookImg}
-            handler={() => null}
-          /> */}
-          {/* <SocialButton name="Apple" image={appleImg} handler={() => null} /> */}
         </div>
       </form>
     </div>
