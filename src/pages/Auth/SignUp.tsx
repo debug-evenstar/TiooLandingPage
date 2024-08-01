@@ -1,16 +1,21 @@
 import { FC, FormEvent, useState } from "react";
 import signupImg from "@/assets/images/signup.png";
-
+import startsWith from "lodash.startswith";
 import arrowRight from "@/assets/images/icons/arrow-right.svg";
 import googleImg from "@/assets/images/icons/google.svg";
 
-import { AuthHeader, Input } from "../../components/Auth";
+import {
+  AuthHeader,
+  Input,
+  SelectInput,
+  PhoneInput,
+} from "../../components/Auth";
 import { CheckboxInput } from "../../components/Auth";
 import { SocialButton } from "../../components/Auth";
 import { useLazyRegisterUserQuery } from "@/services/api/authSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { DotLoader, HashLoader, MoonLoader, PuffLoader, RingLoader, ScaleLoader } from "react-spinners";
+import { DotLoader } from "react-spinners";
 
 interface FormErrorState {
   first_name?: string;
@@ -19,16 +24,23 @@ interface FormErrorState {
   password?: string;
   password_confirmation?: string;
   tos?: string;
+  country?: string;
+  phone?: string;
 }
 
 const FormArea: FC = () => {
   const [tos, setTos] = useState(false);
+  const [country, setCountry] = useState<any>([]);
+  const [code, setCode] = useState<any>();
+
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
     email: "",
     password: "",
     password_confirmation: "",
+    phone: "",
+    country: "",
   });
 
   const [formErrors, setFormErrors] = useState<FormErrorState>({
@@ -37,16 +49,30 @@ const FormArea: FC = () => {
     email: "",
     password: "",
     password_confirmation: "",
+    country: "",
+    phone: "",
   });
 
   const validated = () => {
     const errors: FormErrorState = {};
 
+    if (formData.phone.length < 5) {
+      errors.phone = "Invalid phone number";
+    }
+
+    if (startsWith(formData.phone.slice(code?.length), "0")) {
+      errors.phone = "please enter a valid phone number";
+    }
+
+    if (!formData.country) {
+      errors.country = "Please select your country";
+    }
+
     if (!formData.first_name) {
       errors.first_name = "First name is required";
     }
 
-    if (!formData.last_name) {
+    if (formData.last_name.length == 0) {
       errors.last_name = "Last name is required";
     }
 
@@ -63,7 +89,7 @@ const FormArea: FC = () => {
       errors.password_confirmation = "Passwords do not match";
     }
 
-    if(!tos){
+    if (!tos) {
       errors.tos = "Please consider our terms of service";
       toast.error(errors.tos);
     }
@@ -104,8 +130,21 @@ const FormArea: FC = () => {
     setFormData({ ...formData, [name]: e.target.value });
   };
 
+  const countryOptions = [
+    "Egypt",
+    "Ghana",
+    "Nigeria",
+    "Kenya",
+    "South Africa",
+    "United Kindom",
+    "United States",
+    "Others",
+  ]
+    .sort()
+    .map((country: string) => ({ value: country, label: country }));
+
   return (
-    <div className="bg-white px-6 md:px-16 flex flex-col justify-center">
+    <div className="bg-white px-6 md:px-16 flex flex-col justify-center pt-5 ">
       <AuthHeader>Create your account</AuthHeader>
       <form noValidate onSubmit={handleSubmit}>
         <div className="flex items-center flex-col sm:flex-row justify-between md:space-x-3">
@@ -126,6 +165,31 @@ const FormArea: FC = () => {
             className="mb-2"
             errorMessage={formErrors.last_name}
             handleChange={handleChange}
+          />
+        </div>
+
+        <div className="flex items-center flex-col sm:flex-row justify-between md:space-x-3">
+          <SelectInput
+            options={countryOptions}
+            values={country}
+            placeholder=""
+            label="Country"
+            className="mb-2"
+            errorMessage={formErrors.country}
+            handleChange={(value: any) =>
+              setFormData({ ...formData, country: value[0].label })
+            }
+          />
+          <PhoneInput
+            label="Phone number"
+            placeholder="+2348032334874"
+            className="mb-2"
+            value={formData.phone}
+            errorMessage={formErrors?.phone}
+            handleChange={(phone: string, data: any) => {
+              setFormData({ ...formData, phone: phone });
+              setCode(data.dialCode);
+            }}
           />
         </div>
         <div>
@@ -160,24 +224,28 @@ const FormArea: FC = () => {
           />
         </div>
 
-        <div className="w-full flex items-center mt-4 flex-col sm:flex-row justify-between">
+        <div className="w-full flex  mt-4 flex-col sm:flex-row justify-between">
           <div className="flex items-center space-x-3 ">
             {/* <input type="checkbox" name="remember" /> */}
             <CheckboxInput name="remember" active={tos} setActive={setTos} />
             <label className="text-gray-500" htmlFor="">
-              I Agree with all of your Terms & Conditions
+              I Agree with all of your{" "}
+              <span className="text-main">Terms & Conditions</span>
             </label>
           </div>
           <button
             type="submit"
-            className="bg-main mt-5 md:mt-0 rounded-[20px] px-6 py-2 flex text-white items-center font-[600] "
+            disabled={!tos}
+            className={`${
+              tos ? "bg-main" : "bg-purple-200"
+            } mt-5 w-fit md:mt-0 rounded-[20px] px-6 py-2 flex text-white items-center font-[600] `}
           >
             Create Account
-            {
-              isLoading
-              ? <DotLoader color="white" size={12} className="w-[1.2rem] ml-2" />
-              : <img src={arrowRight} alt="" className="w-[1.2rem] ml-2" />
-            }
+            {isLoading ? (
+              <DotLoader color="white" size={12} className="w-[1.2rem] ml-2" />
+            ) : (
+              <img src={arrowRight} alt="" className="w-[1.2rem] ml-2" />
+            )}
           </button>
         </div>
 
@@ -197,9 +265,9 @@ const FormArea: FC = () => {
 
 export default function SignUp() {
   return (
-    <div className="grid md:grid-cols-2 h-full">
-      <div className="h-full bg-[#fbf4fc] relative hidden sm:flex flex-col justify-center items-center">
-        <img src={signupImg} alt="" className="w-[80%] mx-auto" />
+    <div className="grid lg:grid-cols-2 h-full">
+      <div className="h-full bg-[#fbf4fc] relative sm:flex flex-col justify-center items-center">
+        <img src={signupImg} alt="" className="w-[40%] lg:w-[80%] mx-auto" />
       </div>
       <FormArea />
     </div>

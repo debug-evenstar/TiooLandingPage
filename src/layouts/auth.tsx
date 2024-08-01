@@ -3,7 +3,7 @@ import AuthNav from "./partials/authNav";
 
 export default function AuthLayout() {
   return (
-    <div className="w-full   h-[40vh] bg-black text-[14px] ">
+    <div className="w-full h-[40vh] text-[14px] ">
       <AuthNav />
       <div className="h-[calc(100vh_-_90px)]">
         <Outlet />

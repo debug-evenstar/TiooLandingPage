@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className="header-container pb-32">
+      <div className="header-container pb-16">
         <Hero />
         <Demo />
       </div>
