@@ -19,10 +19,9 @@ import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';
 
 function App() {
   return (
-    <div className="bg-neutral-100">
+    <div className="">
       <ToastContainer
         transition={Zoom}
-        
       />
       <Router>
         <Routes>
