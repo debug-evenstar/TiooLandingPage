@@ -25,7 +25,7 @@ const SingleSelectGroup = ({
     setAnswer(options[index]);
   };
   return (
-    <div className="grid grid-cols-3 grid-rows-2 gap-7">
+    <div className="grid grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-7">
       {options?.map((option: string, index: number) => (
         <button
           key={index}
@@ -289,7 +289,7 @@ const OnboardingSetup: FC = () => {
   }, []);
 
   return (
-    <div className="bg-white px-6 sm:px-20 flex flex-col justify-between">
+    <div className="bg-white px-6 sm:px-16 md:px-10 lg:px-20 flex flex-col justify-between">
       <ProcessFlow questions={questions} />
     </div>
   );
