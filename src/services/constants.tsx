@@ -54,5 +54,5 @@ export const ACCOUNT_TYPE_QUESTIONS = '/onboarding/account-type/:id/questions'
 
 // Student front base url
 export const STUDENT_FRONT_BASE = import.meta.env.VITE_STUDENT_FRONT_URL;
-export const STUDENT_FRONT_DASHBOARDd = '/dashboard/home';
+export const STUDENT_FRONT_DASHBOARD = '/dashboard/home';
 export const STUDENT_FRONT_AUTH = '/auth/'

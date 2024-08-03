@@ -66,11 +66,17 @@ const FormArea: FC = () => {
             `${STUDENT_FRONT_BASE}/auth/${response.data.token}`
           );
         } else {
+
+
+
           navigate("/onboarding");
         }
         // console.log(response.data.data);
       } else {
         toast.error(response?.error?.data?.message);
+        if(response?.error?.data?.action == 'verify'){
+          return navigate(`/verify-otp/${formData.email}`);
+        }
       }
     });
   };
@@ -90,7 +96,6 @@ const FormArea: FC = () => {
   return (
     <div className="bg-white px-6 sm:px-16 flex flex-col justify-center pt-5 sm:pt-0">
       <AuthHeader>Sign in to your account</AuthHeader>
-
       <form onSubmit={handleSubmit}>
         <Input
           type="email"
