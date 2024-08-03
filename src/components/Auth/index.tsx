@@ -73,7 +73,7 @@ export const Input = ({
 
   return (
     <div className={`w-full ${className}`}>
-      <label className="" htmlFor={name}>
+      <label className="text-sm" htmlFor={name}>
         {label}
       </label>
       <div className="relative">
