@@ -12,6 +12,7 @@ import AOS from 'aos';
 
 import 'aos/dist/aos.css';
 
+
 export default function Home() {
 
   useEffect(() => {
@@ -19,13 +20,13 @@ export default function Home() {
       delay: 500,
       offset: 120,
       duration: 1000,
-      easing: 'new-easing'
+      easing: 'new-easing' as any
     });
   },[]);
 
   return (
     <div className="">
-      <div className="header-container pb-32">
+      <div className="header-container pb-16">
         <Hero />
         <Demo />
       </div>

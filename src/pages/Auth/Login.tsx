@@ -61,15 +61,16 @@ const FormArea: FC = () => {
           JSON.stringify({ email: formData.email, token: response.data.token })
         );
 
-        if(true == response.data.profile.onboarded){
-          window.location.assign(`${STUDENT_FRONT_BASE}/auth/${response.data.token}`);
-        }else{
-          navigate('/onboarding');
+        if (true == response.data.profile.onboarded) {
+          window.location.assign(
+            `${STUDENT_FRONT_BASE}/auth/${response.data.token}`
+          );
+        } else {
+          navigate("/onboarding");
         }
         // console.log(response.data.data);
-
       } else {
-        toast.error(response.error.data.message);
+        toast.error(response?.error?.data?.message);
       }
     });
   };
@@ -87,7 +88,7 @@ const FormArea: FC = () => {
   };
 
   return (
-    <div className="bg-white px-6 sm:px-16 flex flex-col justify-center">
+    <div className="bg-white px-6 sm:px-16 flex flex-col justify-center pt-5 sm:pt-0">
       <AuthHeader>Sign in to your account</AuthHeader>
 
       <form onSubmit={handleSubmit}>
@@ -151,9 +152,9 @@ const FormArea: FC = () => {
 
 export default function Login() {
   return (
-    <div className="grid md:grid-cols-2 h-full">
-      <div className="h-full bg-[#fbf4fc] relative flex-col justify-end hidden sm:flex">
-        <img src={loginImg} alt="" className="w-[80%] mx-auto" />
+    <div className="flex flex-col sm:grid sm:grid-cols-2 h-full">
+      <div className="sm:h-full bg-[#fbf4fc] relative flex-col justify-end sm:flex">
+        <img src={loginImg} alt="" className="w-[40%] sm:w-[80%] mx-auto" />
       </div>
       <FormArea />
     </div>
