@@ -115,9 +115,8 @@ const Animation = ({
     <span
       ref={ref}
       style={{ backgroundColor: color, transform: `rotate(${angle}deg)` }}
-      className={`flex absolute ${
-        visible ? "block" : "hidden"
-      } text-white px-2 sm:px-7 sm:text-[60px] rounded-full left-0 ${className}`}
+      className={`flex absolute ${visible ? "block" : "hidden"
+        } text-white px-2 sm:px-7 sm:text-[60px] rounded-full left-0 ${className}`}
     >
       {type == "typewriter"
         ? visible && <Typewriter typeSpeed={120} words={[text]} />
@@ -143,7 +142,7 @@ export default function Hero() {
               Boring{" "}
               <Animation
                 angle={-10}
-                className="-rotate-[10deg] top-0"
+                className="top-0"
                 color="#ffc909"
                 text="Smart"
               />
@@ -164,14 +163,16 @@ export default function Hero() {
             Learning
           </p>
         </div>
-        <p className="outfit-font text-dark font-[500] text-center text-base sm:text-[23px] w-fit mx-auto">
-          Where learning meets interactivity & Fun
+        <p className="capitalize outfit-font text-dark font-[500] text-center text-base sm:text-[23px] w-fit mx-auto">
+          {/* Where learning meets interactivity & Fun */}
+          discover diverse interactive smart textbooks across different subjects and exam preparations
         </p>
 
         <div className="flex items-center justify-center mt-10">
           <Button
             link
-            to="https://docs.google.com/forms/d/e/1FAIpQLSdxRSkNj3yBwOIYwKyZpQGgv4jibQuM0o0L6hRffhF8KJ7xew/viewform?embedded=true"
+            to=""
+            // to="/signup"
             className="mx-auto font-semibold outfit-font px-4 text-[24px] py-2"
           >
             Start Learning

@@ -15,7 +15,7 @@ import OTP from "./pages/Auth/OTP";
 // import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Onboarding from "./pages/Auth/Onboarding";
-import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';    
+import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';  
 
 function App() {
   return (

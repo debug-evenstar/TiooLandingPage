@@ -15,9 +15,8 @@ function SideNav({ navOpen, setNavOpen }: any) {
 
   return (
     <div
-      className={`flex duration-1000 ease-in-out  ${
-        navOpen ? "" : "translate-x-full"
-      } fixed inset-0 px-4 bg-white h-screen w-full z-[1000] flex-col items-center justify-between text-md border-b `}
+      className={`flex duration-1000 ease-in-out  ${navOpen ? "" : "translate-x-full"
+        } fixed inset-0 px-4 bg-white h-screen w-full z-[1000] flex-col items-center justify-between text-md border-b `}
     >
       <div className="flex py-4 items-center w-full justify-end">
         <button
@@ -44,9 +43,9 @@ function SideNav({ navOpen, setNavOpen }: any) {
         </nav>
         <div className="flex space-y-3 w-full flex-col">
           <NavLink to="/login">
-          <button className="px-3 w-full rounded-r-[4px] rounded-tl-[4px] h-[42px] border font-semibold text-[20px] border-main text-main ">
-            Login
-          </button>
+            <button className="px-3 w-full rounded-r-[4px] rounded-tl-[4px] h-[42px] border font-semibold text-[20px] border-main text-main ">
+              Login
+            </button>
           </NavLink>
           <Button className="h-[42px]">Start Learning</Button>
         </div>
@@ -62,22 +61,22 @@ export default function Nav() {
   const checkActive = (path: string) => {
     return path == location.pathname
       ? "border-main font-[500] text-main"
-      : "border-white text-dark";
+      : "border-[#F6D7FC] text-dark";
   };
 
   return (
     <>
       <SideNav {...{ navOpen, setNavOpen }} />
-      <div className="h-[100px] flex px-3 sm:px-24 shadow sm:shadow-none justify-between items-center bg-white">
+      <div className="h-[85.84px] flex px-3 sm:px-10 sm:shadow-none relative justify-between items-center bg-[#F6D7FC]">
         <a href="/">
           <img src={logo} className="w-[80%]" alt="" />
         </a>
-        <nav className="hidden lg:flex items-center outfit-font justify-between w-[43%] ">
-          {navs.map(({ name, path }: {name: string, path: string}) => (
+        <nav className="hidden text-[17px] lg:flex items-center outfit-font  ml-10 relative justify-between w-[40%] ">
+          {navs.map(({ name, path }: { name: string, path: string }) => (
             <NavLink
               to={path}
               key={path}
-              className={`text-xl border-b rounded pb-1 w-fit hover:text-main duration-300 ${checkActive(
+              className={`text border-b rounded pb-1 w-fit hover:text-main duration-300 ${checkActive(
                 path
               )}`}
             >
@@ -103,17 +102,15 @@ export default function Nav() {
         </button>
         <div className="hidden lg:flex items-center space-x-2">
           <NavLink to="/login">
-            <button className="px-3 rounded-r-[4px] rounded-tl-[4px] h-[42px] border font-semibold text-[20px] border-main text-main w-[148px]">
+            <button className="px-7 rounded-full h-[42px] border urbanist font-[500] text-[18px] bg-white border-main text-main ">
               Login
             </button>
           </NavLink>
-          <Button
-            link
-            to="https://docs.google.com/forms/d/e/1FAIpQLSdxRSkNj3yBwOIYwKyZpQGgv4jibQuM0o0L6hRffhF8KJ7xew/viewform?embedded=true"
-            className="h-[42px] mt-0"
-          >
-            Start Learning
-          </Button>
+          <NavLink to="/signup">
+            <button className="px-5 rounded-full h-[42px] border urbanist font-[500] text-[18px] bg-main border-main text-white ">
+              Sign Up
+            </button>
+          </NavLink>
         </div>
       </div>
     </>

@@ -9,6 +9,9 @@ export const navs = [
     name: 'For Authors', path: '/authors'
   },
   {
+    name: 'For Schools', path: '/schools'
+  },
+  {
     name: 'Pricing', path: '/pricing'
   }
 ];

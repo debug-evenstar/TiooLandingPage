@@ -2,7 +2,7 @@
 import { apiSlice } from "../apiSlice";
 
 import * as ENDPOINT from "../constants";
-import { ForgetPasswordInput, LoginInput, RequestOtp, ResetPasswordInput, SetupSchoolCustomInput, SetupSchoolInput, SetupSchoolResult, StudentLoginResult,UserSignup, TeacherSignup, VerifyOtp } from "../../utils/dataTypes/auth";
+import { ForgetPasswordInput, LoginInput, RequestOtp, ResetPasswordInput, SetupSchoolCustomInput, SetupSchoolInput, SetupSchoolResult, StudentLoginResult, UserSignup, TeacherSignup, VerifyOtp } from "../../utils/dataTypes/auth";
 import { BaseResult, ErrorResult } from "../../utils/dataTypes";
 
 export const authApiSlice = apiSlice.injectEndpoints({
@@ -81,7 +81,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
 
-    getAccountTypes: builder.query<any , any>({
+    getAccountTypes: builder.query<any, any>({
       query: () => ({
         url: `${ENDPOINT.ACCOUNT_TYPES}`,
         method: ENDPOINT.HTTP_METHODS.GET,
@@ -110,6 +110,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body: payload,
       }),
     }),
+
 
 
     // Onboarding queries

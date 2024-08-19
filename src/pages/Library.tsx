@@ -67,7 +67,7 @@ export default function Library() {
             </p>
             <Button
               link
-              to="https://docs.google.com/forms/d/e/1FAIpQLSdxRSkNj3yBwOIYwKyZpQGgv4jibQuM0o0L6hRffhF8KJ7xew/viewform?embedded=true"
+              to="/signup"
               className="px-8 mt-4 py-2 bg-main rounded font-semibold text-white text-[23px]"
             >
               Get Started

@@ -78,7 +78,7 @@ const PricingCard = ({ name, price, discount, features }: PricingCardProps) => {
         </div>
       </div>
       <div className="mt-2 flex space-y-3 flex-col">
-        {features.map((feature,index) => (
+        {features.map((feature, index) => (
           <div key={index} className="flex space-x-3">
             <img src={checkboxImg} alt="" />
             <span className="text-dark text-sm">{feature}</span>
@@ -86,7 +86,7 @@ const PricingCard = ({ name, price, discount, features }: PricingCardProps) => {
         ))}
       </div>
       <div className="mt-3 pt-3">
-        <NavLink to="https://docs.google.com/forms/d/e/1FAIpQLSdxRSkNj3yBwOIYwKyZpQGgv4jibQuM0o0L6hRffhF8KJ7xew/viewform?embedded=true">
+        <NavLink to="/signup">
           <button className="py-2 rounded-r-[4px] rounded-tl-[4px]  border border-main text-main w-full text-sm">
             Get Started
           </button>
