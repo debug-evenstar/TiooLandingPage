@@ -88,7 +88,7 @@ export default function NewHero() {
     <>
     <Doodles/>
     <div className="h-[90vh] mb-[10rem] relative ">
-      <img src={heroBgImg} alt="" className='relative inset-0' />EarlyCodingForKids
+      <img src={heroBgImg} alt="" className='relative inset-0' />
       <div className="absolute inset-0 w-full h-full px-3 sm:px-20">
         <div className="flex items-center justify-between relative">
           <div className="font-[700]">

@@ -1,8 +1,6 @@
+import { books } from "@/contants/books";
 import PhotoRobbin from "../components/LIbrary/PhotoRobbin/photoRobbin";
 import Button from "../components/common/Buttons/button";
-
-import libraryImg1 from "../assets/images/library-book-1.png";
-import libraryImg2 from "../assets/images/library-book-2.png";
 
 const BookShowcase = ({ title, books }: { title: string; books: any }) => {
   return (
@@ -25,37 +23,7 @@ const BookShowcase = ({ title, books }: { title: string; books: any }) => {
 };
 
 export default function Library() {
-  const books = [
-    {
-      title: "A Children Book Ab...",
-      author: "By Joe Barry",
-      image: libraryImg1,
-    },
 
-    {
-      title: "Early Coding For Kids",
-      author: "By David Ogunshola",
-      image: libraryImg2,
-    },
-
-    {
-      title: "A Children Book Ab...",
-      author: "By Joe Barry",
-      image: libraryImg1,
-    },
-
-    {
-      title: "Early Coding For Kids",
-      author: "By David Ogunshola",
-      image: libraryImg2,
-    },
-
-    {
-      title: "Early Coding For Kids",
-      author: "By David Ogunshola",
-      image: libraryImg2,
-    },
-  ];
 
   return (
     <div className="">

@@ -1,5 +1,5 @@
 import featuredBookImg from "../../../assets/images/featured-book.png";
-import Button from "../../common/Buttons/button";
+import Button from "@/components/common/Buttons/button";
 import "./style.css";
 
 export default function FeaturedBook() {

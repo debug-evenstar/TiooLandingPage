@@ -25,29 +25,29 @@ const TiooJAMBPrep: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gray-100 min-h-screen p-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="px-3 py-8 sm:py-16 sm:px-12">
+      <div className="">
         <h1 className="text-4xl font-bold text-center text-blue-900 mb-4">
           Tioo The Ultimate JAMB Prep Solution!
         </h1>
-        <p className="text-center text-gray-600 mb-12">
+        <p className="text-center sm:w-[60%] mx-auto text urbanist text-[20px] text-gray-600 mb-12">
           Pass your exams with flying colours using Tioo. Here are some ways Tioo can help you pass your UTME in flying colours.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-20 gap-x-6">
           {features.map((feature, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg p-6">
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl mb-4 mx-auto ${
+            <div key={index} className="bg-white text rounded-lg flex flex-col items-center justify-center relative shadow-2xl shadow-[#FCEBFF] h-[300px] p-3">
+              <div className={`w-[90px] h-[90px] -top-10 absolute rounded-full flex items-center justify-center text-3xl mb-4 mx-auto ${
                 index === 0 ? 'bg-[#5B72EE]' :
                 index === 1 ? 'bg-[#F48C06]' :
-                index === 2 ? 'bg-[]' :
-                'bg-cyan-500'
+                index === 2 ? 'bg-[#9C29B2]' :
+                'bg-[#29B9E7]'
               }`}>
                 {feature.icon}
               </div>
      
-              <h3 className="text-xl font-semibold text-center mb-2">{feature.title}</h3>
-              <p className="text-gray-600 text-center">{feature.description}</p>
+              <h3 className="text-lg text-main font-semibold text-center mb-2">{feature.title}</h3>
+              <p className="text-gray-600 outfit-font text-center text-[14px] font-[400]">{feature.description}</p>
             </div>
           ))}
         </div>

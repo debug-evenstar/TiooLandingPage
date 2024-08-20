@@ -1,58 +1,44 @@
-import React from 'react';
+import { FC } from 'react';
+import bookImg from "@/assets/images/library-book-2.png";
 
-interface FeaturedContentProps {
-  title: string;
-  description: string;
-  slides: number;
-  duration: string;
-  imageSrc: string;
+const FeaturedContent = () => {
+   return (
+      <section className="px-3 sm:px-12 py-16">
+         <div className="urbanist mb-5 mx-auto text-start">
+            <h1 className="text-[35px] quicksand font-[600] text-[#1F3D4F] mb-4">
+               <span className="text-[30px]">📚🌟</span>
+               Step Into the Spotlight with Our Featured Books!
+               <span className="text-[30px]">🌟📚</span> </h1>
+            <p className="text-[20px] text-[#696984] mx-auto">We’re excited to showcase our handpicked selection of Featured Books—each one a gateway to captivating<br /> adventures and immersive experiences! Our curated collection highlights the best of what our Interactive<br /> Library has to offer. Discover stories that not only entertain but also engage and inspire.</p>
+         </div>
+         <div className="flex flex-col sm:flex-row gap-x-16 items-center">
+            <div className="sm:w-[36%]  bg-[#FCEBFF] flex items-center rounded-[10px] justify-center py-5">
+               <img src={bookImg} alt="" className="sm:w-[300px] bg-[#FCEBFF]" />
+            </div>
+            <div className='quicksand sm:w-[64%]'>
+               <h2 className="text-[30px] sm:w-[64%] font-[600] mb-4">Early Coding For Kids 1 - 5</h2>
+               <p className="urbanist text-[20px] text-[#696984]">
+                  Unleash the excitement of coding with our interactive textbook designed for young learners. Dive into engaging lessons, real-world examples, and hands-on activities that make coding fun and accessible for all ages. Start your coding adventure today! 🚀💻
+               </p>
+               <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                     <div className="h-6 w-6 bg-purple-500 rounded-full mr-2"></div>
+                     <p className="text-sm font-medium text-gray-700">Slides:</p>
+                     <p className="text-sm text-gray-500 ml-2">586 slides</p>
+                  </div>
+                  <div className="flex items-center">
+                     <div className="h-6 w-6 bg-purple-500 rounded-full mr-2"></div>
+                     <p className="text-sm font-medium text-gray-700">Duration:</p>
+                     <p className="text-sm text-gray-500 ml-2">10 Hours</p>
+                  </div>
+               </div>
+               <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Preview
+               </button>
+            </div>
+         </div>
+      </section>
+   );
 }
-
-const FeaturedContent: React.FC<FeaturedContentProps> = ({
-  title,
-  description,
-  slides,
-  duration,
-  imageSrc,
-}) => {
-  return (
-    <div className="flex justify-center items-center bg-purple-50 p-8 rounded-lg">
-      {/* Book Image */}
-      <div className="flex-shrink-0">
-        <img src={imageSrc} alt={title} className="w-56 h-auto rounded-md shadow-md" />
-      </div>
-
-      {/* Book Details */}
-      <div className="ml-8">
-        <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
-        <p className="text-gray-600 mt-2">{description}</p>
-
-        {/* Book Info */}
-        <div className="mt-4 flex items-center">
-          <div className="text-purple-500 font-medium flex items-center mr-6">
-            <span className="w-2.5 h-2.5 bg-purple-500 rounded-full mr-2"></span> Slides:
-            <span className="ml-1 text-gray-700">{slides}</span>
-          </div>
-          <div className="text-purple-500 font-medium flex items-center">
-            <span className="w-2.5 h-2.5 bg-purple-500 rounded-full mr-2"></span> Duration:
-            <span className="ml-1 text-gray-700">{duration}</span>
-          </div>
-        </div>
-
-        {/* Preview Button */}
-        <button className="mt-6 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700">
-          Preview
-        </button>
-
-        {/* Navigation Dots */}
-        <div className="mt-6 flex items-center">
-          <span className="w-3 h-3 bg-purple-600 rounded-full mx-1"></span>
-          <span className="w-3 h-3 bg-gray-300 rounded-full mx-1"></span>
-          <span className="w-3 h-3 bg-gray-300 rounded-full mx-1"></span>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export default FeaturedContent;
