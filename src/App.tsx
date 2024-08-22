@@ -15,7 +15,9 @@ import OTP from "./pages/Auth/OTP";
 // import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Onboarding from "./pages/Auth/Onboarding";
-import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';  
+import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';
+import BookDetails from "./pages/BookDetails";
+import ScrollToTop from "./utils/scrollTop";
 
 function App() {
   return (
@@ -24,19 +26,21 @@ function App() {
         transition={Zoom}
       />
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route element={<LandingLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/library" element={<Library />} />
+            <Route path="/book/:id" element={<BookDetails />} />
             <Route path="/authors" element={<Authors />} />
           </Route>
-          <Route element={<AuthLayout/>}>
-            <Route path="/login" element={<Login/>} />
-            <Route path="/onboarding" element={<Onboarding/>} />
-            <Route path="/password-reset" element={<PasswordReset/>} />
-            <Route path="/signup" element={<SignUp/>} />
-            <Route path="/verify-otp/:email" element={<OTP/>} />
+          <Route element={<AuthLayout />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/onboarding" element={<Onboarding />} />
+            <Route path="/password-reset" element={<PasswordReset />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/verify-otp/:email" element={<OTP />} />
           </Route>
         </Routes>
       </Router>

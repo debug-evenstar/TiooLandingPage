@@ -36,9 +36,9 @@ export default function Home() {
       </div>
       <NewAboutTioo />
       <OurBooks />
-      <TiooJAMBPrep />
       <FeaturedContent />
-      <WhyTioo/>
+      <TiooJAMBPrep />
+      <WhyTioo />
       <FAQ />
       <CallToAction />
     </div>

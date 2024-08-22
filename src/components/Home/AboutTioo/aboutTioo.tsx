@@ -5,7 +5,7 @@ export default function AboutTioo() {
     <div className="px-3 py-20 sm:py-0 sm:px-20 text-dark outfit-font bg-white">
       <div className="flex items-center flex-col sm:flex-row">
         <div data-aos="fade-right order-2 sm:order-1">
-          <p className="font-semibold text-[35px] text-[44px]">About Tioo</p>
+          <p className="font-semibold text-[35px] sm:text-[44px]">About Tioo</p>
           <p className="text-base sm:text-[24px] sm:w-[80%] leading-[2rem]">
             Tioo is an app that makes learning exciting and easy to understand
             for kids in Nigeria. It uses cool animations, and AI to make

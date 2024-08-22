@@ -100,6 +100,14 @@ export const routineApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
 
+    getLibraryBooks: builder.query<any, any>({
+      query: () => ({
+        url: '/open/textbooks',
+        method: ENDPOINT.HTTP_METHODS.GET,
+      }),
+      keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
+    }),
+
     getContinent: builder.query<BaseResult | ErrorResult, string>({
       query: (param) => ({
         url: `https://ipwho.is/${param}`,
@@ -122,5 +130,6 @@ export const {
   useLazyAcceptTeachMagicQuery,
   useGetTioClassesQuery,
   useGetIpQuery,
-  useLazyGetContinentQuery
+  useLazyGetContinentQuery,
+  useGetLibraryBooksQuery,
 } = routineApiSlice;

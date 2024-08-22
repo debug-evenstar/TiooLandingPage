@@ -1,11 +1,12 @@
 import React from 'react'
 import './style.css';
 import heroBgImg from "../../../assets/images/hero-bg.svg"
+import heroBgMobileImg from "../../../assets/images/hero-bg-mobile.svg"
 import heroPicImg from "../../../assets/images/hero-pic.png";
 import playIcon from "../../../assets/images/icons/play.svg";
 const Doodles = () => {
   return (
-    <div className="absolute w-full h-full px-3 sm:px-28 ">
+    <div className="hidden sm:block absolute z-[20] w-full h-full px-3 mt-12 -left-16 pointer-events-none sm:px-28 ">
       <span className="">
         <svg
           width="67"
@@ -86,32 +87,33 @@ const Doodles = () => {
 export default function NewHero() {
   return (
     <>
-    <Doodles/>
-    <div className="h-[90vh] mb-[10rem] relative ">
-      <img src={heroBgImg} alt="" className='relative inset-0' />
-      <div className="absolute inset-0 w-full h-full px-3 sm:px-20">
-        <div className="flex items-center justify-between relative">
-          <div className="font-[700]">
-            <p className="text-[48px] leading-[4rem]"><span className="text-main">Revolutionize</span> your <br /> learning with Tioo</p>
-            <p className="text-[23px] urbanist text-gray-600 font-[400] mt-4  ">
-              Discover thousands of interactive smart textbooks <br />across various subjects and exams preparations
-            </p>
-            <div className="py-20 flex items-center gap-x-4 relative">
-              <button className="px-8 py-4 text-[23px] rounded-full bg-main text-white weight-[700] urbanist">Get Started</button>
-              <button className="flex items-center gap-x-1 text-gray-600">
-                <div className='w-[48px] h-[48px] shrink p-4 flex items-center justify-center rounded-full bg-white shadow-2xl'>
-                  <img src={playIcon} alt="" className='' />
-                </div>
-                <span>Watch Demo</span>
-              </button>
+      <Doodles />
+      <div className="h-[80vh] bg-[#F6D7FC]  sm:mb-[10rem] relative ">
+        <img src={heroBgImg} alt="" className='hidden sm:block relative inset-0 w-full' />
+        <img src={heroBgMobileImg} alt="" className='block sm:hidden h-[100vh] relative inset-0 w-full' />
+        <div className="absolute inset-0 w-full h-full px-3 sm:px-20">
+          <div className="flex items-center justify-between flex-col md:flex-row relative">
+            <div className="order-2 md:order-1 font-[700]">
+              <p className="text-[32px] lg:text-[48px] sm:leading-[4rem]"><span className="text-main">Revolutionize</span> your <br /> learning with Tioo</p>
+              <p className="text-[16px] sm:text-[23px] urbanist text-gray-600 font-[400] mt-4  ">
+                Discover thousands of interactive smart textbooks <br className="hidden sm:block" />across various subjects and exams preparations
+              </p>
+              <div className="py-10 sm:py-20 flex items-center gap-x-4 relative">
+                <button className="px-8 py-4 text-[17px] lg:text-[23px] rounded-full bg-main text-white weight-[700] urbanist">Get Started</button>
+                <button className="flex items-center gap-x-1 text-gray-600">
+                  <div className='lg:w-[48px] lg:h-[48px] shrink p-4 flex items-center justify-center rounded-full bg-white shadow-2xl'>
+                    <img src={playIcon} alt="" className='' />
+                  </div>
+                  <span>Watch Demo</span>
+                </button>
+              </div>
             </div>
-          </div>
-          <div>
-            <img src={heroPicImg} alt="" className='relative w-[620px] -top-14 pointer-events-none' />
+            <div className="order-1 md:order-2">
+              <img src={heroPicImg} alt="" className='relative w-[85%] mx-auto  md:w-[420px] lg:w-[620px] -top-0 sm:  -top-14 pointer-events-none' />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   )
 }

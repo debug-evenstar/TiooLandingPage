@@ -58,16 +58,19 @@ function SideNav({ navOpen, setNavOpen }: any) {
 export default function Nav() {
   const [navOpen, setNavOpen] = useState(false);
   const location = useLocation();
+  const isHome = location.pathname === '/';
   const checkActive = (path: string) => {
     return path == location.pathname
       ? "border-main font-[500] text-main"
-      : "border-[#F6D7FC] text-dark";
+      : !isHome ? "border-white" : "border-[#F6D7FC] text-dark";
   };
+
+
 
   return (
     <>
       <SideNav {...{ navOpen, setNavOpen }} />
-      <div className="h-[85.84px] flex px-3 sm:px-10 sm:shadow-none relative justify-between items-center bg-[#F6D7FC]">
+      <div className={`h-[85.84px] flex px-3 sm:px-10 sm:shadow-none relative justify-between items-center ${isHome && "bg-[#F6D7FC]"}`}>
         <a href="/">
           <img src={logo} className="w-[80%]" alt="" />
         </a>
@@ -76,7 +79,7 @@ export default function Nav() {
             <NavLink
               to={path}
               key={path}
-              className={`text border-b rounded pb-1 w-fit hover:text-main duration-300 ${checkActive(
+              className={`border-b rounded pb-1 w-fit hover:text-main duration-300 ${checkActive(
                 path
               )}`}
             >

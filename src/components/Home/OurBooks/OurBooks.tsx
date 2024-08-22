@@ -10,11 +10,38 @@ const SlideContainer = () => {
   let sliderRef: any = useRef(null);
 
   const settings = {
-    dots: false,
-    infinite: true,
+    dots: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 5,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   const handlePrev = () => {
@@ -42,7 +69,6 @@ const SlideContainer = () => {
 
       {/* <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 grid-rows-1  mt-10"> */}
       <Slider ref={(slider: any) => { sliderRef = slider }} {...settings} className="mt-10">
-
         {books.map(({ image, title, author }: any, index: number) => (
           <div className="w-full  " key={index}>
             <img src={image} alt="" className="sm:w-[14rem]" />
@@ -53,28 +79,27 @@ const SlideContainer = () => {
       </Slider>
       {/* </div> */}
 
-      <div className="mt-10 flex justify-center">
+      < div className="mt-10 flex justify-center" >
         <button className="border border-main px-8 py-3 font-[600] text-[21px] text-slate-600">
           View All
         </button>
+      </div >
 
-      </div>
-
-    </div>
+    </div >
   );
 }
 
 
 const OurBooks = () => {
   return (
-    <section className="mt-20 bg-[#FFF9FF] py-20 ">
-      <div className="urbanist w-[80%] mb-4 mx-auto text-center">
-        <h1 className="text-[38px] quicksand font-[600] text-[#1F3D4F] mb-4">
+    <section className="mt-20 bg-[#FFF9FF] py-10 sm:py-20 px-4   ">
+      <div className="urbanist w-full sm:w-[80%] mb-4 mx-auto text-center">
+        <h1 className="text-[24px] sm:text-[38px] quicksand font-[600] text-[#1F3D4F] mb-4">
           <span className="text-[30px]">📚✨</span>
           Welcome to the Future of Books!<span className="text-[30px]">✨📚</span> </h1>
-        <p className="text-[20px] text-[#696984] mx-auto">We’re thrilled to introduce our revolutionary Interactive Library—where reading meets innovation! Dive into a world <br /> where books are more than just pages and ink; they’re dynamic, engaging experiences that come to life at your<br /> fingertips.</p>
+        <p className="text-[20px] text-[#696984] mx-auto">We’re thrilled to introduce our revolutionary Interactive Library—where reading meets innovation! Dive into a world <br className="hidden sm:block" /> where books are more than just pages and ink; they’re dynamic, engaging experiences that come to life at your<br className="hidden sm:block" /> fingertips.</p>
       </div>
-      <div className="px-12 mt-2">
+      <div className="px-3 sm:px-12 mt-2">
         <SlideContainer />
       </div>
     </section>
