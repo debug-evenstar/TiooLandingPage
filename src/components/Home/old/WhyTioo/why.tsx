@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
-import whyImg1 from "../../../assets/images/why-1.png";
-import whyImg2 from "../../../assets/images/why-2.png";
-import whyImg3 from "../../../assets/images/why-3.png";
+import whyImg1 from "@/assets/images/why-1.png";
+import whyImg2 from "@/assets/images/why-2.png";
+import whyImg3 from "@/assets/images/why-3.png";
 
-import whySvg1 from "../../../assets/images/icons/why-1.svg";
-import whySvg2 from "../../../assets/images/icons/why-2.svg";
-import whySvg3 from "../../../assets/images/icons/why-3.svg";
-import moleculeImg from "../../../assets/images/icons/molecule.svg";
-import cellImg from "../../../assets/images/icons/cell.svg";
+import whySvg1 from "@/assets/images/icons/why-1.svg";
+import whySvg2 from "@/assets/images/icons/why-2.svg";
+import whySvg3 from "@/assets/images/icons/why-3.svg";
+import moleculeImg from "@/assets/images/icons/molecule.svg";
+import cellImg from "@/assets/images/icons/cell.svg";
 
-import AnimatedComp from "../../common/AnimatedText/animatedText";
+import AnimatedComp from "@/components/common/AnimatedText/animatedText";
 
 const WhyCard = ({
   className,

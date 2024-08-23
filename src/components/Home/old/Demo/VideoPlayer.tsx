@@ -47,7 +47,6 @@ function VideoPlayer() {
                     onEnded={toggleVideos}
                     src={video1}
                 />
-
                 <video
                     autoPlay muted
                     ref={videoRef2}
