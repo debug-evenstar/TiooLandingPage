@@ -1,52 +1,24 @@
 import { NavLink } from "react-router-dom";
-import checkboxImg from "../assets/images/icons/checkbox.svg";
-import PricingFAQ from "../components/Pricing/PricingFAQ/faq";
+import { useState } from "react";
+import checkboxImg from "@/assets/images/icons/checkbox.svg";
+import PricingFAQ from "@/components/Pricing/PricingFAQ/faq";
+import useCountryCode from "@/hooks/useCountryCode";
+import { plans } from "@/contants/pricing";
 
 interface PricingCardProps {
   name: string;
   price: number;
   discount?: number | null;
   features: string[];
+  foreign: boolean;
+  dollarPrice: number;
+  dollarDiscount: number;
+}
+const transformPrice = (price: any) => {
+  const rate = 1600;
+  return Math.floor(price / rate);
 }
 
-const cards: PricingCardProps[] = [
-  {
-    name: "Monthly",
-    price: 4000,
-    discount: null,
-    features: [
-      "AI tutoring",
-      "Unlimited answers to exercises and activities",
-      "Video lessons",
-      "Coaching from authors",
-      "Q&A(Coming soon)",
-    ],
-  },
-  {
-    name: "Quartery",
-    price: 9000,
-    discount: -3000,
-    features: [
-      "AI tutoring",
-      "Unlimited answers to exercises and activities",
-      "Video lessons",
-      "Coaching from authors",
-      "Q&A(Coming soon)",
-    ],
-  },
-  {
-    name: "Yearly",
-    price: 30000,
-    discount: -18000,
-    features: [
-      "AI tutoring",
-      "Unlimited answers to exercises and activities",
-      "Video lessons",
-      "Coaching from authors",
-      "Q&A(Coming soon)",
-    ],
-  },
-];
 
 const PricingHeader = () => {
   return (
@@ -63,31 +35,37 @@ const PricingHeader = () => {
   );
 };
 
-const PricingCard = ({ name, price, discount, features }: PricingCardProps) => {
+const PricingCard = ({ name, price, discount, dollarDiscount, dollarPrice, features, foreign }: PricingCardProps) => {
+
+  const newPrice = foreign ? dollarPrice : price;
+  const newDiscount = foreign && discount ? dollarDiscount : discount;
+
   return (
-    <div className="mb-3 sm:mb-0 border border-gray-200 rounded-[8px] p-4 py-5 flex flex-col w-[17rem]">
-      <div className="font-[500] inter-font text-dark">
-        <h3 className="text-[20px]">{name}</h3>
-        <div className="flex items-center space-x-3">
-          <h3 className="text-[30px]">₦ {price.toLocaleString()}</h3>
-          {discount && (
-            <p className="rounded bg-gray-100 px-2 text-[12px]">
-              {discount.toLocaleString()}
-            </p>
-          )}
+    <div className="mb-3 shadow-[0px_2px_18px_0px_#9C29B226] sm:mb-0 border border-[#9C29B226] rounded-[8px] p-4 py-5 flex flex-col w-[17rem]">
+      <div className="font-[500] text-center inter-font text-dark">
+        <h3 className="text-[16px] font-[600] urbanist">{name}</h3>
+        <div className="flex items-center justify-center space-x-3">
+          <h3 className="text-[32px] quicksand font-[600]">
+            <span className="text-[15px] text-gray-500">{foreign ? "$" : "₦"}</span> {newPrice?.toLocaleString()}
+            {newDiscount && (
+              <span className="text-[15px] text-gray-500">
+                / <span className="line-through">{newDiscount.toLocaleString()} </span>
+              </span>
+            )}
+          </h3>
         </div>
       </div>
-      <div className="mt-2 flex space-y-3 flex-col">
+      <div className="mt-2 flex gap-y-5 flex-col">
         {features.map((feature, index) => (
-          <div key={index} className="flex space-x-3">
+          <div key={index} className="flex gap-x-3">
             <img src={checkboxImg} alt="" />
-            <span className="text-dark text-sm">{feature}</span>
+            <span className="text-dark text-base font-[600]">{feature}</span>
           </div>
         ))}
       </div>
       <div className="mt-3 pt-3">
         <NavLink to="/signup">
-          <button className="py-2 rounded-r-[4px] rounded-tl-[4px]  border border-main text-main w-full text-sm">
+          <button className="py-2 rounded-r-[4px] rounded-tl-[4px]  border border-main text-main w-full font-[600]">
             Get Started
           </button>
         </NavLink>
@@ -96,18 +74,37 @@ const PricingCard = ({ name, price, discount, features }: PricingCardProps) => {
   );
 };
 
-const PricingCards = () => {
+const PricingCards = ({ foreign }: { foreign: boolean }) => {
+
+  const [plan, setPlan] = useState<string>('basic');
+
+  const handleClick = (plan: string) => {
+    setPlan(plan);
+  }
+
+  const isActive = (p: any) => p === plan;
+
+  const style = (plan: string) => isActive(plan) ?
+    "text-sm px-4 py-2 bg-[#171717] text-white rounded"
+    :
+    "text-sm px-4 py-2"
+
+  const cards = plan == 'basic' ? plans.basic : plans.pro;
+
+
   return (
     <div className="py-10 mb-3 sm:mb-0">
       <div className="w-fit flex items-center space-x-2 mx-auto outfit-font p-1.5 border-gray-200 rounded border">
-        <button className="text-sm px-4 py-2 bg-[#171717] text-white rounded">
-          For Students
+        <button onClick={() => handleClick('basic')} className={style('basic')}>
+          Basic Plan
         </button>
-        <button className="text-sm px-4 py-2">For Schools</button>
+        <button onClick={() => handleClick('pro')} className={style("pro")}>
+          Pro Plan
+        </button>
       </div>
       <div className="mt-6 flex flex-wrap justify-center mx-auto w-fit sm:space-x-10">
-        {cards.map((card, index) => (
-          <PricingCard {...card} key={index} />
+        {cards.map((card: any, index: number) => (
+          <PricingCard foreign={foreign} {...card} key={index} />
         ))}
       </div>
     </div>
@@ -115,10 +112,12 @@ const PricingCards = () => {
 };
 
 export default function Pricing() {
+  const { countryCode } = useCountryCode();
+
   return (
     <div className="bg-white">
       <PricingHeader />
-      <PricingCards />
+      <PricingCards foreign={countryCode !== "NG"} />
       <PricingFAQ />
     </div>
   );

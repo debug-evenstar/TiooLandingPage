@@ -97,7 +97,12 @@ export const routineApiSlice = apiSlice.injectEndpoints({
         url: `https://api.ipify.org?format=json`,
         method: ENDPOINT.HTTP_METHODS.GET,
       }),
-      keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
+      extraOptions: {
+        fetchFn: async (url: any, options: any) => {
+          options.mode = 'no-cors';
+          return fetch(url, options);
+        },
+      },
     }),
 
     getLibraryBooks: builder.query<any, any>({

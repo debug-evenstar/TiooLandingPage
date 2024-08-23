@@ -37,9 +37,10 @@ const FeaturedContent = () => {
                   </div>
 
                </div>
-               <button className="border border-main px-8 py-3 font-[600] text-[21px] text-slate-600">
-                  Preview
-               </button>
+               
+               <a href="/signup" className="border capitalize border-main px-8 py-3 font-[600] text-[21px] text-slate-600">
+                  start learning
+               </a>
 
             </div>
          </div>

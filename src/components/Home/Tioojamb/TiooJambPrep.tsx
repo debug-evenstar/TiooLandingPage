@@ -41,7 +41,7 @@ const TiooJAMBPrep: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-20 gap-y-16 gap-x-6">
           {features.map((feature, index) => (
-            <div key={index} className="bg-white text rounded-lg flex flex-col items-center justify-center relative shadow-2xl shadow-[#f9d8ff] h-[300px] p-3">
+            <div key={index} className="bg-white hover:scale-[1.09] duration-300 cursoer-pointer text rounded-lg flex flex-col items-center justify-center relative shadow-2xl shadow-[#f9d8ff] h-[300px] p-3">
               <div className={`w-[90px] h-[90px] -top-10 absolute rounded-full flex items-center justify-center text-3xl mb-4 mx-auto ${index === 0 ? 'bg-[#5B72EE]' :
                 index === 1 ? 'bg-[#F48C06]' :
                   index === 2 ? 'bg-[#9C29B2]' :

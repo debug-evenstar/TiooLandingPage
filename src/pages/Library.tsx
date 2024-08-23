@@ -6,10 +6,10 @@ import Button from "../components/common/Buttons/button";
 const LibraryBookCard = ({ index, image, title, author }: any) => {
   const navigate = useNavigate();
   const handleClick = (e: any) => {
-    navigate('/book/1');
+    navigate(`/book/${index + 1}`);
   }
   return (
-    <div onClick={handleClick} className="w-full hover:shadow-lg cursor-pointer  p-3 rounded-lg" key={index}>
+    <div onClick={handleClick} className="w-full hover:shadow-[rgba(0,0,0,0.2)_0px_0px_45px_0px] hover:scale-[1.09] duration-300 hover cursor-pointer  p-3 rounded-lg" key={index}>
       <img src={image} alt="" className="sm:w-[12rem] shadow mx-auto mb-3" />
       <p className="text-sm sm:text-base font-bold">{title}</p>
       <p className="text-sm">by {author ?? 'Tioo'} </p>
