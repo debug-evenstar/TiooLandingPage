@@ -3,16 +3,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
-body{  
+body {
   font-family: "Quicksand", sans-serif !important;
   overflow-x: hidden;
+}
+
+.quicksand {
+  font-family: "Quicksand", sans-serif !important;
 }
 
 .outfit-font {
   font-family: "Outfit", sans-serif !important;
 }
 
-.inter-font{
+.inter-font {
   font-family: "Inter", sans-serif !important;
 }
 
@@ -20,107 +24,122 @@ body{
   font-family: "Urbanist", sans-serif;
 }
 
-.header-container{
+.header-container {
   background: url('assets//images/wave.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.auth-screen-size{
+.auth-screen-size {
   height: calc(100vh - 90px) !important;
-} 
+}
 
-.dashed{
+.dashed {
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='110%25' height='120%25' y='-10' fill='none' stroke='purple' stroke-width='3' stroke-dasharray='6%2c 10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
 @keyframes bounce-custom {
-  to { transform: translate3d(0, 0, 0);} 
-  from { transform: translate3d(0, -17px, 0);} 
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  from {
+    transform: translate3d(0, -17px, 0);
+  }
 }
 
 
 @keyframes bounce-shadow {
-  from {  width: 100%;}
-  to { width: 0; height: 0} 
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0;
+    height: 0
+  }
 }
 
-.bounce-shadow{
+.bounce-shadow {
   /* animation: bounce-shadow; */
   margin: auto;
-  animation-name: bounce-shadow !important; 
-  animation-duration: 0.5s; 
-  animation-direction: alternate; 
-  animation-timing-function: cubic-bezier( 
-  .5, 0.5, 1, .5); 
-  animation-iteration-count: infinite; 
+  animation-name: bounce-shadow !important;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5, 0.5, 1, .5);
+  animation-iteration-count: infinite;
 }
 
 
 .bounce-custom {
-  animation-name: bounce-custom; 
-  animation-duration: 0.5s; 
-  animation-direction: alternate; 
-  animation-timing-function: cubic-bezier( 
-  .5, 0.5, 1, .5); 
-  animation-iteration-count: infinite; 
-  -webkit-animation-name: bounce-custom; 
-  -webkit-animation-duration: 0.5s; 
-  -webkit-animation-direction: alternate; 
-  -webkit-animation-timing-function: cubic-bezier( 
-  .5, 0.05, 1, .5); 
-  -webkit-animation-iteration-count: infinite; 
+  animation-name: bounce-custom;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5, 0.5, 1, .5);
+  animation-iteration-count: infinite;
+  -webkit-animation-name: bounce-custom;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+  -webkit-animation-iteration-count: infinite;
 }
 
 
 @keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-20px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
+  0% {
+    transform: translatey(0px);
+  }
+
+  50% {
+    transform: translatey(-20px);
+  }
+
+  100% {
+    transform: translatey(0px);
+  }
 }
 
 
 
-@keyframes multicolor-circle{
-	0% {
+@keyframes multicolor-circle {
+  0% {
     background-color: #FFE68C
-	}
-	25% {
+  }
+
+  25% {
     background-color: #FFC9F0
-	}
+  }
+
   50% {
     background-color: #9DDCFF
   }
-	100% {
+
+  100% {
     background-color: #FFE68C
-	}
+  }
 }
 
-.custom-delay-1{
+.custom-delay-1 {
   animation-delay: .5s;
 }
 
-.custom-delay-2{
+.custom-delay-2 {
   animation-delay: 2s;
 }
-.custom-delay-3{
+
+.custom-delay-3 {
   animation-delay: 1s;
 }
-.background-change{
-  animation-name: multicolor-circle; 
+
+.background-change {
+  animation-name: multicolor-circle;
   animation-duration: 6s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-.levitate{
-  animation-name: float; 
+.levitate {
+  animation-name: float;
   animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -130,7 +149,7 @@ body{
 
 [data-aos][data-aos-easing="new-easing"],
 body[data-aos-easing="new-easing"] [data-aos] {
-  transition-timing-function: cubic-bezier(.28,1.32,.87,.99)
+  transition-timing-function: cubic-bezier(.28, 1.32, .87, .99)
 }
 
 .metallic-bong {
@@ -143,8 +162,10 @@ body[data-aos-easing="new-easing"] [data-aos] {
     transform: scale(1);
     box-shadow: 0 0 0 1px #bbb;
   }
+
   to {
     transform: scale(1.1);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
   }
 }
+

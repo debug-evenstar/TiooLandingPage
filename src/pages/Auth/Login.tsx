@@ -66,9 +66,6 @@ const FormArea: FC = () => {
             `${STUDENT_FRONT_BASE}/auth/${response.data.token}`
           );
         } else {
-
-
-
           navigate("/onboarding");
         }
         // console.log(response.data.data);
