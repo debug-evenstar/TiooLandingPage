@@ -82,7 +82,7 @@ function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/library" element={<Library />} />
             <Route path="/book/:id" element={<BookDetails />} />
-            <Route path="/authors" element={<Authors />} />
+            <Route path="/educators" element={<Authors />} />
           </Route>
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<Login />} />

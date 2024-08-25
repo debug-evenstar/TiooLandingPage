@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css';
 import heroBgImg from "../../../assets/images/hero-bg.svg"
 import heroBgMobileImg from "../../../assets/images/hero-bg-mobile.svg"
 import heroPicImg from "../../../assets/images/hero-pic.png";
 import playIcon from "../../../assets/images/icons/play.svg";
+
+import Typewriter from 'typewriter-effect';
+
+
 const Doodles = () => {
   return (
     <div className="hidden sm:block absolute z-[20] w-full h-full px-3 mt-12 -left-16 pointer-events-none sm:px-28 ">
@@ -84,6 +88,28 @@ const Doodles = () => {
   );
 };
 
+const TypeHeader = () => {
+
+  // const [cursor, setCursor] = useState(true);
+  let cursor = true;
+  return <Typewriter
+    options={{
+      deleteSpeed: 3,
+      cursor: ''
+    }}
+    onInit={(typewriter) => {
+      typewriter
+        .start()
+        .typeString('Your <span class="text-main">one-stop shop</span> <br /> for smart textbooks')
+        .deleteAll()
+        .typeString('<span class="text-main">Enhance</span> your learning <br /> with Tioo')
+        .start()
+    }}
+  />
+}
+
+
+
 export default function NewHero() {
   return (
     <>
@@ -94,7 +120,10 @@ export default function NewHero() {
         <div className="absolute inset-0 w-full h-full px-3 sm:px-20">
           <div className="flex items-center justify-between flex-col md:flex-row relative">
             <div className="order-2 md:order-1 font-[700]">
-              <p className="text-[32px] lg:text-[48px] sm:leading-[4rem]"><span className="text-main">Revolutionize</span> your <br /> learning with Tioo</p>
+              <p className="text-[32px] border  h-[8rem] lg:text-[48px] sm:leading-[4rem]">
+                <TypeHeader />
+                {/* <span className="text-main">Revolutionize</span> your <br /> learning with Tioo */}
+              </p>
               <p className="text-[16px] sm:text-[23px] urbanist text-gray-600 font-[400] mt-4  ">
                 Discover thousands of interactive smart textbooks <br className="hidden sm:block" />across various subjects and exams preparations
               </p>
@@ -109,7 +138,7 @@ export default function NewHero() {
               </div>
             </div>
             <div className="order-1 md:order-2">
-              <img src={heroPicImg} alt="" className='relative w-[85%] mx-auto  md:w-[420px] lg:w-[620px] -top-0 sm:  -top-14 pointer-events-none' />
+              <img src={heroPicImg} alt="" className='relative w-[85%] mx-auto  md:w-[390px] lg:w-[560px] -top-0 sm:-top-14 pointer-events-none' />
             </div>
           </div>
         </div>

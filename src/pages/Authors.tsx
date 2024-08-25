@@ -40,7 +40,7 @@ const Header = () => {
         </p>
         <div className="flex justify-center sm:justify-start">
           <NavLink
-            to="https://docs.google.com/forms/d/e/1FAIpQLScGoPUnTehAZLTPpCP6Q7SWM4gUuopoj52WgzM4KwroL7cPhg/viewform?embedded=true"
+            to={import.meta.env.VITE_PUBLISHER_FRONT_URL}
             className="px-12 mt-4 py-2 bg-main rounded font-semibold text-white text-[23px]"
           >
             Join Tioo
