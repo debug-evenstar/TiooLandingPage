@@ -7,3 +7,20 @@
 /* .to-left{
   left: -100px;
 } */
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  width: 100%;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: purple;
+  width: 100%;
+}

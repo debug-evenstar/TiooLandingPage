@@ -6,7 +6,7 @@ export const navs = [
     name: 'Library', path: '/library'
   },
   {
-    name: 'For Authors', path: '/authors'
+    name: 'For  Educators', path: '/educators'
   },
   {
     name: 'Pricing', path: '/pricing'

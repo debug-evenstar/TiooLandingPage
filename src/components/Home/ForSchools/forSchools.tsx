@@ -31,7 +31,7 @@ export default function ForSchools() {
         <div data-aos="fade-left" className="px-8 sm:px-0">
           <CustomList data={data} />
           <div className="mx-auto w-fit">
-            <Button link to="https://docs.google.com/forms/d/e/1FAIpQLSdxRSkNj3yBwOIYwKyZpQGgv4jibQuM0o0L6hRffhF8KJ7xew/viewform?embedded=true" className="px-9  py-3 font-semibold text-[21px] outfit-font">Get Started</Button>
+            <Button link to="/signup" className="px-9  py-3 font-semibold text-[21px] outfit-font">Get Started</Button>
           </div>
         </div>
       </div>
