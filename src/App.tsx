@@ -39,10 +39,10 @@ function App() {
       duration: 1000,
     });
 
-    if(!data)
-    fetch('https://api.ipify.org?format=json')
-      .then(response => response.json())
-      .then(data => setData(data));
+    if (!data)
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => setData(data));
 
     const permitted = ["NG", "FR", "DE", "CA", "US", "GB"]
     // console.log("app useeffect")
@@ -77,7 +77,7 @@ function App() {
       <Router>
         <ScrollToTop />
         <Routes>
-          <Route element={<LandingLayout />}>
+          <Route element={<LandingLayout />} >
             <Route path="/" element={<Home />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/library" element={<Library />} />

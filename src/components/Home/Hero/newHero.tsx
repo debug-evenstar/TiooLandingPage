@@ -6,6 +6,7 @@ import heroPicImg from "../../../assets/images/hero-pic.png";
 import playIcon from "../../../assets/images/icons/play.svg";
 
 import Typewriter from 'typewriter-effect';
+import { NavLink } from 'react-router-dom';
 
 
 const Doodles = () => {
@@ -122,15 +123,17 @@ export default function NewHero() {
         <div className="absolute inset-0 w-full h-full px-3 sm:px-20">
           <div className="flex items-center justify-between flex-col md:flex-row relative">
             <div className="order-2 md:order-1 font-[700]">
-              <p className="text-[32px] h-[8rem] lg:text-[48px] sm:leading-[4rem]">
+              <div className="text-[32px] h-[8rem] lg:text-[48px] sm:leading-[4rem]">
                 <TypeHeader />
                 {/* <span className="text-main">Revolutionize</span> your <br /> learning with Tioo */}
-              </p>
+              </div>
               <p className="text-[16px] sm:text-[23px] urbanist text-gray-600 font-[400] mt-4  ">
                 Discover thousands of interactive smart textbooks <br className="hidden sm:block" />across various subjects and exams preparations
               </p>
               <div className="py-10 sm:py-20 flex items-center gap-x-4 relative">
-                <button className="px-8 py-4 text-[17px] lg:text-[23px] rounded-full bg-main text-white weight-[700] urbanist">Get Started</button>
+                <NavLink to="/signup">
+                  <button className="px-8 py-4 text-[17px] lg:text-[23px] rounded-full bg-main text-white weight-[700] urbanist">Get Started</button>
+                </NavLink>
                 <button className="flex items-center gap-x-1 text-gray-600">
                   <div className='lg:w-[48px] lg:h-[48px] shrink p-4 flex items-center justify-center rounded-full bg-white shadow-2xl'>
                     <img src={playIcon} alt="" className='' />
