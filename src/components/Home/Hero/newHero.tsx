@@ -94,13 +94,15 @@ const TypeHeader = () => {
   let cursor = true;
   return <Typewriter
     options={{
-      deleteSpeed: 3,
-      cursor: ''
+      deleteSpeed: 4,
+      cursor: '',
+      delay: 50,
     }}
     onInit={(typewriter) => {
       typewriter
         .start()
         .typeString('Your <span class="text-main">one-stop shop</span> <br /> for smart textbooks')
+        .pauseFor(500)
         .deleteAll()
         .typeString('<span class="text-main">Enhance</span> your learning <br /> with Tioo')
         .start()
@@ -120,7 +122,7 @@ export default function NewHero() {
         <div className="absolute inset-0 w-full h-full px-3 sm:px-20">
           <div className="flex items-center justify-between flex-col md:flex-row relative">
             <div className="order-2 md:order-1 font-[700]">
-              <p className="text-[32px] border  h-[8rem] lg:text-[48px] sm:leading-[4rem]">
+              <p className="text-[32px] h-[8rem] lg:text-[48px] sm:leading-[4rem]">
                 <TypeHeader />
                 {/* <span className="text-main">Revolutionize</span> your <br /> learning with Tioo */}
               </p>
