@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { FaChevronDown } from 'react-icons/fa6';
 import Slider from 'react-slick';
@@ -8,6 +8,12 @@ import { books } from '@/contants/books';
 
 const SlideContainer = () => {
   let sliderRef: any = useRef(null);
+
+  const [tab, setTab] = useState('k-12');
+  const [display, setDisplay] = useState(books ?? []);
+  useEffect(() => {
+    setDisplay(tab == 'k-12' ? books : [])
+  }, [tab, display]);
 
   const settings = {
     dots: true,
@@ -54,29 +60,39 @@ const SlideContainer = () => {
 
   return (
     <div>
-      <div className='bg-[#FCEBFF] w-full h-[40px] p-1 font-[500] rounded-[5px] grid-cols-1 items-center justify-center'>
-        <button className="bg-white w-full h-full rounded-[8px]">
-          K12 Books
+      <div className='bg-[#FCEBFF] w-full h-[40px] p-1 font-[500] rounded-[5px] grid grid-cols-2 gap-x-2 items-center justify-center'>
+        <button onClick={() => { setTab('k-12'); handlePrev() }} className="bg-white w-full h-full rounded-[8px]">
+          K-12 Books
+        </button>
+        <button onClick={() => setTab('exam')} className="bg-white w-full h-full rounded-[8px]">
+          Examp Prep
         </button>
       </div>
       <div className="flex justify-between items-center mt-12">
-        <h1 className='text-[30px] font-[500] text-gray-600 '>K12 Books</h1>
+        <h1 className='text-[30px] font-[500] text-gray-600 '>K-12 Books</h1>
         <div className="flex items-center gap-x-3">
           <button onClick={handlePrev} className="w-12 h-12 flex items-center justify-center bg-white border rounded-full"><FaChevronLeft /></button>
           <button onClick={handleNext} className="w-12 h-12 flex items-center justify-center bg-white border rounded-full"><FaChevronRight /></button>
         </div>
       </div>
 
-      {/* <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 grid-rows-1  mt-10"> */}
-      <Slider ref={(slider: any) => { sliderRef = slider }} {...settings} className="mt-10">
-        {books.map(({ image, title, author }: any, index: number) => (
-          <div className="w-full  " key={index}>
-            <img src={image} alt="" className="sm:w-[14rem]" />
-            <p className="text-sm sm:text-base font-bold">{title}</p>
-            <p className="text-sm">{author} </p>
+      {
+        display.length ?
+          <Slider ref={(slider: any) => { sliderRef = slider }} {...settings} className="mt-10 min-h-[25rem] ">
+            {display.map(({ image, title, author }: any, index: number) => (
+              <div className="w-full  " key={index}>
+                <img src={image} alt="" className="sm:w-[14rem]" />
+                <p className="text-sm sm:text-base font-bold">{title}</p>
+                <p className="text-sm">{author} </p>
+              </div>
+            ))}
+          </Slider>
+          : 
+
+          <div className="min-h-[25rem] flex items-center justify-center w-full">
+            <p>No books in this section</p>
           </div>
-        ))}
-      </Slider>
+      }
       {/* </div> */}
 
       < div className="mt-10 flex justify-center" >

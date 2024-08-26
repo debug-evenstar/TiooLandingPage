@@ -30,7 +30,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <div className="header-container pb-16 mb-10">
         <Hero />
       </div>
