@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import checkboxImg from "@/assets/images/icons/checkbox.svg";
 import PricingFAQ from "@/components/Pricing/PricingFAQ/faq";
 import useCountryCode from "@/hooks/useCountryCode";
 import { plans } from "@/contants/pricing";
+import { useLazyGetContinentQuery } from "@/services/api/routineSlice";
+import { fetchData } from "@/utils/fetch";
+import { ScaleLoader } from "react-spinners";
 
 interface PricingCardProps {
   name: string;
@@ -13,10 +16,6 @@ interface PricingCardProps {
   foreign: boolean;
   dollarPrice: number;
   dollarDiscount: number;
-}
-const transformPrice = (price: any) => {
-  const rate = 1600;
-  return Math.floor(price / rate);
 }
 
 
@@ -112,12 +111,40 @@ const PricingCards = ({ foreign }: { foreign: boolean }) => {
 };
 
 export default function Pricing() {
-  const { countryCode } = useCountryCode();
+  const [loading, setLoading] = useState(true);
+  const [getCon] = useLazyGetContinentQuery()
+  const [countryCode, setCountryCode] = useState(null);
+
+  useEffect(() => {
+    const getConti = async () => {
+
+      const response: any = await fetchData('https://api.ipify.org?format=json')
+      if (response && response.ip)
+        getCon(response.ip)
+          .then((res: any) => {
+            localStorage.setItem('COUNTRY_CODE', res.data.country_code ?? "NG");
+            setCountryCode(res.data.country_code);
+            setLoading(false);
+          })
+    }
+    getConti()
+
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="w-full h-[50vh] inset-0 flex items-center justify-center">
+        <span>
+          <ScaleLoader height={30} speedMultiplier={1.3} color="#9c29b2" />
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white">
       <PricingHeader />
-      <PricingCards foreign={countryCode !== "NG"} />
+      <PricingCards foreign={countryCode !== "NG" && countryCode !== null} />
       <PricingFAQ />
     </div>
   );

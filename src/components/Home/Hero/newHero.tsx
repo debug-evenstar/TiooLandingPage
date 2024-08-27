@@ -99,6 +99,7 @@ const TypeHeader = () => {
       cursor: '',
       delay: 50,
     }}
+
     onInit={(typewriter) => {
       typewriter
         .start()
@@ -130,7 +131,7 @@ export default function NewHero() {
               <p className="text-[16px] sm:text-[23px] urbanist text-gray-600 font-[400] mt-4  ">
                 Discover thousands of interactive smart textbooks <br className="hidden sm:block" />across various subjects and exams preparations
               </p>
-              <div className="py-10 sm:py-20 flex items-center gap-x-4 relative">
+              <div className="py-10 sm:py-20 flex items-center justify-center sm:justify-start gap-x-4 relative">
                 <NavLink to="/signup">
                   <button className="px-8 py-4 text-[17px] lg:text-[23px] rounded-full bg-main text-white weight-[700] urbanist">Get Started</button>
                 </NavLink>
@@ -150,4 +151,4 @@ export default function NewHero() {
       </div>
     </>
   )
-}
+} 

@@ -23,13 +23,20 @@ export default function NewAboutTioo() {
         </AnimatedComp>
       </div>
       <div className="flex items-center text-center sm:text-start justify-between flex-col sm:flex-row">
-        <div data-aos="fade-right" className=" sm:w-[55%]">
+        <div data-aos="fade-right" className=" sm:w-[48%]">
           <p className="font-semibold text-[23px] sm:text-[44px]">About Tioo</p>
-          <p className="text-[18px] sm:text-[20px] urbanist leading-[1.8rem]">
-
+          <div className="text-[18px] sm:text-[20px] urbanist leading-[1.8rem]">
             {/* Tioo is a digital bookstore that unites diverse publishers and authors, offering a vast library of interactive, AI-powered smart books that replace traditional static textbooks and e-books. Our platform provides a single destination for students and schools to access a wide range of engaging, personalized learning experiences */}
-            Tioo is a platform that makes learning from textbooks exciting and easy to understand for K-12 students and UTME candidates. We believe everyone deserves to love learning! Our app uses cool interactions and AI to make learning fun and easy. Tioo helps students who feel bored or confused with regular school textbooks to develop a love for learning!
-          </p>
+            <p className="mb-3">
+              Tioo is a platform that makes learning from textbooks exciting and easy to understand for K-12 students and UTME candidates.
+            </p>
+            <p className="mb-3">
+              We believe everyone deserves to love learning! Our app uses cool interactions and AI to make learning fun and easy.
+            </p>
+            <p className="mb-3">
+              Tioo helps students who feel bored or confused with regular school textbooks to develop a love for learning!
+            </p>
+          </div>
         </div>
         <img
           data-aos="fade-down"
