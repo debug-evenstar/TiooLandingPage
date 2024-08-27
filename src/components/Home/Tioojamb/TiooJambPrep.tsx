@@ -32,11 +32,11 @@ const TiooJAMBPrep: React.FC = () => {
   return (
     <div className="px-3 py-8 sm:py-16 sm:px-12">
       <div className="">
-        <h1 className="text-[24px] sm:text-4xl font-bold text-center text-blue-900 mb-4">
-          Tioo The Ultimate JAMB Prep Solution!
+        <h1 className="text-[24px] sm:text-4xl font-bold text-center text-gray-600 mb-4">
+          Tioo, The Ultimate UTME Prep Solution!
         </h1>
         <p className="text-center sm:w-[60%] mx-auto text urbanist text-[15px] sm:text-[20px] text-gray-600 mb-12">
-          Pass your exams with flying colours using Tioo. Here are some ways Tioo can help you pass your UTME in flying colours.
+          Pass your exams with flying colours using Tioo! Here are some ways Tioo can help you pass your UTME in flying colours.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-20 gap-y-16 gap-x-6">
