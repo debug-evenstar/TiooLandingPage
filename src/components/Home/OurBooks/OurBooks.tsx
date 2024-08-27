@@ -61,11 +61,11 @@ const SlideContainer = () => {
   return (
     <div>
       <div className='bg-[#FCEBFF] w-full h-[40px] p-1 font-[500] rounded-[5px] grid grid-cols-2 gap-x-2 items-center justify-center'>
-        <button onClick={() => { setTab('k-12'); handlePrev() }} className="bg-white w-full h-full rounded-[8px]">
+        <button onClick={() => { setTab('k-12'); handlePrev() }} className={`w-full h-full rounded-[8px] ${tab == 'k-12' && 'bg-white'} `}>
           K-12 Books
         </button>
-        <button onClick={() => setTab('exam')} className="bg-white w-full h-full rounded-[8px]">
-          Examp Prep
+        <button onClick={() => setTab('exam')} className={`w-full h-full rounded-[8px] ${tab == 'exam' && 'bg-white'}`}>
+          Exams Prep
         </button>
       </div>
       <div className="flex justify-between items-center mt-12">
@@ -87,10 +87,10 @@ const SlideContainer = () => {
               </div>
             ))}
           </Slider>
-          : 
+          :
 
           <div className="min-h-[25rem] flex items-center justify-center w-full">
-            <p>No books in this section</p>
+            <p className="text-2xl text-gray-500 px-12 py-3 rounded-full border-b shadow">Coming soon</p>
           </div>
       }
       {/* </div> */}
@@ -112,8 +112,11 @@ const OurBooks = () => {
       <div className="urbanist w-full sm:w-[80%] mb-4 mx-auto text-center">
         <h1 className="text-[24px] sm:text-[38px] quicksand font-[600] text-[#1F3D4F] mb-4">
           <span className="text-[30px]">📚✨</span>
-          Welcome to the Future of Books!<span className="text-[30px]">✨📚</span> </h1>
-        <p className="text-[20px] text-[#696984] mx-auto">We’re thrilled to introduce our revolutionary Interactive Library—where reading meets innovation! Dive into a world <br className="hidden sm:block" /> where books are more than just pages and ink; they’re dynamic, engaging experiences that come to life at your<br className="hidden sm:block" /> fingertips.</p>
+          Welcome to the Future of Books!<span className="text-[30px]">✨📚</span>
+        </h1>
+        <p className="text-[20px] text-[#696984] mx-auto">
+          Dive into a world  where books are more than just pages and ink; they’re dynamic, engaging experiences that come to life at your fingertips.
+        </p>
       </div>
       <div className="px-3 sm:px-12 mt-2">
         <SlideContainer />
