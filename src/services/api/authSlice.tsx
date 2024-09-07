@@ -2,7 +2,7 @@
 import { apiSlice } from "../apiSlice";
 
 import * as ENDPOINT from "../constants";
-import { ForgetPasswordInput, LoginInput, RequestOtp, ResetPasswordInput, SetupSchoolCustomInput, SetupSchoolInput, SetupSchoolResult, StudentLoginResult, TeacherSignup, VerifyOtp } from "../../utils/dataTypes/auth";
+import { ForgetPasswordInput, LoginInput, RequestOtp, ResetPasswordInput, SetupSchoolCustomInput, SetupSchoolInput, SetupSchoolResult, StudentLoginResult, UserSignup, TeacherSignup, VerifyOtp } from "../../utils/dataTypes/auth";
 import { BaseResult, ErrorResult } from "../../utils/dataTypes";
 
 export const authApiSlice = apiSlice.injectEndpoints({
@@ -16,14 +16,25 @@ export const authApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
 
-    registerSchool: builder.query<BaseResult | ErrorResult, TeacherSignup>({
+    // registerSchool: builder.query<BaseResult | ErrorResult, TeacherSignup>({
+    //   query: (payload) => ({
+    //     url: `${ENDPOINT.SCHOOL_REGISTER}`,
+    //     method: ENDPOINT.HTTP_METHODS.POST,
+    //     body: payload,
+    //   }),
+    //   keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
+    // }),
+
+    registerUser: builder.query<BaseResult | ErrorResult, UserSignup>({
       query: (payload) => ({
-        url: `${ENDPOINT.SCHOOL_REGISTER}`,
+        url: `${ENDPOINT.USER_REGISTER}`,
         method: ENDPOINT.HTTP_METHODS.POST,
         body: payload,
       }),
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
+
+
 
     registerParent: builder.query<BaseResult | ErrorResult, TeacherSignup>({
       query: (payload) => ({
@@ -70,6 +81,20 @@ export const authApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
 
+    getAccountTypes: builder.query<any, any>({
+      query: () => ({
+        url: `${ENDPOINT.ACCOUNT_TYPES}`,
+        method: ENDPOINT.HTTP_METHODS.GET,
+      })
+    }),
+
+    getOnboardingQuestions: builder.query<any, any>({
+      query: (id) => ({
+        url: `/onboarding/questions`,
+        method: ENDPOINT.HTTP_METHODS.GET,
+      })
+    }),
+
     forgetPassword: builder.mutation<BaseResult | ErrorResult, ForgetPasswordInput>({
       query: (payload) => ({
         url: `${ENDPOINT.FORGET_PASSWORD}`,
@@ -85,19 +110,27 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body: payload,
       }),
     }),
+
+
+
+    // Onboarding queries
+
   }),
   overrideExisting: true,
 });
 
 export const {
   useLazyLoginQuery,
-  useLazyRegisterSchoolQuery,
+  // useLazyRegisterSchoolQuery,
+  useLazyRegisterUserQuery,
   useLazyRegisterParentQuery,
   useLazyCompleteRegisterParentQuery,
   useSendOtpQuery,
   useLazySendOtpQuery,
   useLazyVerifyOtpQuery,
   useLazySetupSchoolQuery,
+  useLazyGetAccountTypesQuery,
+  useLazyGetOnboardingQuestionsQuery,
   useForgetPasswordMutation,
   useResetPasswordMutation
 } = authApiSlice;

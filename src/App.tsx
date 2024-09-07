@@ -1,118 +1,64 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignupIndex from "./pages/auth/SignupIndex";
-import SchoolSignupIndex from "./pages/auth/school";
-import LoginScreen from "./pages/auth/Login";
-import ForgetPasswordScreen from "./pages/auth/ForgetPass";
-import ResetPasswordScreen from "./pages/auth/ResetPass";
-import StudentSignup from "./pages/auth/student/Signup";
-import TeacherSignup from "./pages/auth/teacher/Signup";
-import AccountVerify from "./pages/auth/AccountVerify";
-import SchoolSignup from "./pages/auth/school/Signup";
-import FreelanceSignupScreen from "./pages/auth/freelancer/Signup";
-import FreelanceNamingTypeScreen from "./pages/auth/freelancer/NamingType";
-import ParentSignupScreen from "./pages/auth/parent/Signup";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Homes from "./pages/homes";
-import Pricing from "./pages/pricing";
-import Authors from './pages/authors';
-import Library from './pages/library';
-import LibraryDetails from "./pages/library/details";
-import CookieComponent from './components/cookie';
-import ParentCompleteSignupScreen from "./pages/auth/parent/CompleteSignup";
-import { ThreeCirclesLoading } from "./components/Ui/Loading";
-import { useGetIpQuery, useLazyGetContinentQuery } from "./services/api/routineSlice";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import Nav from "./layouts/partials/nav";
+import Home from "./pages/Home";
+import Library from "./pages/Library";
+import Pricing from "./pages/Pricing";
 
-// const Pricing = lazy(() => import('./pages/pricing'));
-// const Authors = lazy(() => import('./pages/authors'));
-// const Homes = lazy(() => import('./pages/homes'));
-// const Library = lazy(() => import('./pages/library'));
+import Authors from "./pages/Authors";
+import LandingLayout from "./layouts/landing";
+import AuthLayout from "./layouts/auth";
+import Login from "./pages/Auth/Login";
+import PasswordReset from "./pages/PasswordReset";
+import SignUp from "./pages/Auth/SignUp";
+import OTP from "./pages/Auth/OTP";
+// import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import Onboarding from "./pages/Auth/Onboarding";
+import { Zoom, ToastContainer } from 'react-toastify';
+import BookDetails from "./pages/BookDetails";
+import ScrollToTop from "./utils/scrollTop";
+import { useEffect} from "react";
+import Aos from "aos";
 
 function App() {
-  const [loadConti, setLoadConti] = useState(true)
-  const [available, setAvailable] = useState(false)
-  const {data} = useGetIpQuery()
-  const [getCon] = useLazyGetContinentQuery()
+
+
 
   useEffect(() => {
-    AOS.init({
+    Aos.init({
       offset: 50,
       duration: 1000,
     });
-    AOS.refresh();
 
-    const permitted = ["NG", "FR", "DE", "CA", "US", "GB" ]
-    // console.log("app useeffect")
+  }, []);
 
-    const getConti = async(ip:any) => {
-      getCon(ip)
-      .then((res:any) => {
-        if(res.isSuccess){
-          console.log(res.data);
-          if(permitted.includes(res.data.country_code) || !res.data.country_code){
-            localStorage.setItem('COUNTRY_CODE',res.data.country_code);
-            setLoadConti(false)
-          }else{
-            setAvailable(true)
-          }
-        }
-      })
-    }
 
-    if(data){
-      getConti(data.ip)
-    }
-  }, [data,getCon]);
   return (
-    <div>
-      {
-        available && <div className="w-full h-screen fixed grid place-content-center text-3xl">
-          We're sorry, this service is not available in your country
-        </div>
-      }
-      {
-        loadConti && <div className="w-full h-screen flex items-center justify-center">
-        <ThreeCirclesLoading size="200" color="#4f46e5" />
-      </div>
-      }
-      {
-        !loadConti &&
-        <BrowserRouter>
-        <CookieComponent />
+
+    <div className="">
+      <ToastContainer
+        transition={Zoom}
+      />
+      <Router>
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Homes />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/library" element={<Library />} />
-          <Route path="/library/details" element={<LibraryDetails />} />
-          <Route path="/authors" element={<Authors />} />
-          {/* auth routes */}
-          <Route path="/signup" element={<SignupIndex />} />
-          <Route path="/login" element={<LoginScreen />} />
-          <Route path="/school" element={<SchoolSignup />} />
-          <Route path="/school-complete" element={<SchoolSignupIndex />} />
-          <Route path="/freelancer" element={<FreelanceSignupScreen />} />
-          <Route
-            path="/freelancer-complete"
-            element={<FreelanceNamingTypeScreen />}
-          />
-          <Route path="/parent" element={<ParentSignupScreen />} />
-          <Route
-            path="/parent-complete"
-            element={<ParentCompleteSignupScreen />}
-          />
-          <Route path="/account/verify/:id" element={<AccountVerify />} />
-          <Route path="/forget" element={<ForgetPasswordScreen />} />
-          <Route
-            path="/new-password/:id/:email"
-            element={<ResetPasswordScreen />}
-          />
-          <Route path="/student/:id" element={<StudentSignup />} />
-          <Route path="/teacher/:id" element={<TeacherSignup />} />
+          <Route element={<LandingLayout />} >
+            <Route path="/" element={<Home />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/library" element={<Library />} />
+            <Route path="/book/:id" element={<BookDetails />} />
+            <Route path="/educators" element={<Authors />} />
+          </Route>
+          <Route element={<AuthLayout />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/onboarding" element={<Onboarding />} />
+            <Route path="/password-reset" element={<PasswordReset />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/verify-otp/:email" element={<OTP />} />
+          </Route>
         </Routes>
-      </BrowserRouter>
-      }
+      </Router>
     </div>
   );
 }

@@ -33,6 +33,15 @@ export interface TeacherSignup {
     password: string
 }
 
+
+export interface UserSignup {
+    first_name: string
+    last_name: string
+    email: string
+    password: string
+    password_confirmation: string
+}
+
 export interface ParentSignup {
     name: string
     email: string
@@ -50,7 +59,8 @@ export interface RequestOtp {
 }
 
 export interface VerifyOtp {
-    token: string
+    otp: string
+    email: string
 }
 
 export interface SetupSchoolInput {

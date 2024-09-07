@@ -67,7 +67,7 @@ export const routineApiSlice = apiSlice.injectEndpoints({
     }),
 
     getTioClasses: builder.query<any | ErrorResult, void>({
-      query: (param) => ({
+      query: (_: any) => ({
         url: `${ENDPOINT.GET_TIO_CLASSES}`,
         method: ENDPOINT.HTTP_METHODS.GET,
       }),
@@ -97,6 +97,19 @@ export const routineApiSlice = apiSlice.injectEndpoints({
         url: `https://api.ipify.org?format=json`,
         method: ENDPOINT.HTTP_METHODS.GET,
       }),
+      extraOptions: {
+        fetchFn: async (url: any, options: any) => {
+          options.mode = 'no-cors';
+          return fetch(url, options);
+        },
+      },
+    }),
+
+    getLibraryBooks: builder.query<any, any>({
+      query: () => ({
+        url: '/open/textbooks',
+        method: ENDPOINT.HTTP_METHODS.GET,
+      }),
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
 
@@ -122,5 +135,6 @@ export const {
   useLazyAcceptTeachMagicQuery,
   useGetTioClassesQuery,
   useGetIpQuery,
-  useLazyGetContinentQuery
+  useLazyGetContinentQuery,
+  useGetLibraryBooksQuery,
 } = routineApiSlice;

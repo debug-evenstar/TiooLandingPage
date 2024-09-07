@@ -30,6 +30,7 @@ const persistConfig = {
     storage: storage,
     whitelist: ["user"],
   };
+  
   const combinedReducer = combineReducers<typeof reducers>(reducers);
 
   export const rootReducer: Reducer<RootState> = (state, action) => {
