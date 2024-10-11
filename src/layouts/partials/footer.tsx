@@ -16,9 +16,9 @@ const socials = [
 ];
 
 const serviceLinks = [
-  { link: '/#', name: 'Smart and Interactive Textbooks and Workbooks students' },
+  { link: '/#', name: 'Smart and Interactive Tutorials, Study Guides, and Past Questions for students' },
   { link: '/#', name: 'Personalized Learning and individual assessment capabilities' },
-  { link: '/#', name: 'Digital publishing for Authors and Publishers' },
+  { link: '/#', name: 'Digital publishing for Educators and Tutors' },
 ];
  
 

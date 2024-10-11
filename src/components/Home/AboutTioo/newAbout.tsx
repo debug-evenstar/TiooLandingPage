@@ -28,11 +28,11 @@ export default function NewAboutTioo() {
           <div className="text-[18px] sm:text-[20px] urbanist leading-[1.8rem]">
             {/* Tioo is a digital bookstore that unites diverse publishers and authors, offering a vast library of interactive, AI-powered smart books that replace traditional static textbooks and e-books. Our platform provides a single destination for students and schools to access a wide range of engaging, personalized learning experiences */}
             <p className="mb-3">
-            tio is a platform that makes exams preparation exciting and easy for college admission seekers and tertiary institution students
+            Tioo is a platform that makes exams preparation exciting and easy for college admission seekers and tertiary institution students.
               {/* Tioo is a platform that makes textbook learning exciting and easy to understand for K-12 students and UTME candidates. */}
             </p>
             <p className="mb-3">
-              We believe everyone deserves to ace their exams! Our app uses cool interactions and AI to make exams prep fun, easy and highly effective.
+              We believe everyone should ace their exams! Our app uses cool interactions and AI to make exams prep fun, easy and highly effective.
             </p>
             <p className="mb-3">
               Tioo helps students who feel bored or confused with regular exam prep methods to develop a love for learning!

@@ -11,11 +11,11 @@ const FeaturedContent = () => {
           Step Into the Spotlight with Our Featured Books!
           <span className="text-[30px]">🌟📚</span>{" "}
         </h1>
-        <p className="text-[20px] text-[#696984] mx-auto">
+        {/* <p className="text-[20px] text-[#696984] mx-auto">
           Our curated collection highlights the best of what our interactive
           library has to offer. <br />
           Discover stories that not only entertain but also engage and inspire.
-        </p>
+        </p> */}
       </div>
       <div className="flex flex-col sm:flex-row  gap-x-16 mt-16 items-center">
         <div className="w-full sm:w-[36%]  bg-[#FCEBFF] flex items-center rounded-[10px] justify-center py-5">

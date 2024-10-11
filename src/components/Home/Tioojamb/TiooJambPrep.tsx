@@ -10,7 +10,7 @@ const TiooJAMBPrep: React.FC = () => {
       icon: bookIcon, // Replace with actual icon component or path
       title: "Extensive Study Resources",
       description:
-        "Access a vast collection of past UTME papers categorized by topic to refine your exam strategy and identify key areas for review. This resource helps you familiarize yourself with common question types and track your progress effectively.",
+        "Access a vast collection of tutorials and past UTME papers categorized by topic to refine your exam strategy and identify key areas for review. This resource helps you familiarize yourself with common question types and track your progress effectively.",
     },
     {
       icon: bulbIcon, // Replace with actual icon component or path
@@ -33,10 +33,10 @@ const TiooJAMBPrep: React.FC = () => {
   ];
 
   return (
-    <div className="px-3 py-8 sm:py-16 sm:px-12">
+    <div className="px-3 py-8 sm:pt-16 sm:px-12">
       <div className="">
         <h1 className="text-[24px] sm:text-4xl font-bold text-center text-gray-600 mb-4">
-          Tioo, The Ultimate UTME Prep Solution!
+          Tioo, The Ultimate JAMB Solution!
         </h1>
         <p className="text-center sm:w-[60%] mx-auto text urbanist text-[15px] sm:text-[20px] text-gray-600 mb-12">
           Pass your exams with flying colours using Tioo! Here are some ways
