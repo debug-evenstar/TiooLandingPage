@@ -6,10 +6,10 @@ export const navs = [
     name: 'Library', path: '/library'
   },
   {
-    name: 'For  Educators', path: '/educators'
+    name: 'For Tutors', path: '/educators'
   },
-  {
-    name: 'Pricing', path: '/pricing'
-  }
+  // {
+  //   name: 'Pricing', path: '/pricing'
+  // }
 ];
 

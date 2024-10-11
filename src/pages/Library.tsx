@@ -1,12 +1,23 @@
 import { books as dummybooks } from "@/contants/books";
 import PhotoRobbin from "../components/LIbrary/PhotoRobbin/photoRobbin";
 import Button from "../components/common/Buttons/button";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 
+export const BookCardSkeleton = () => {
+  return (
+    <div>
+      <Skeleton height="15rem" className="mb-3" />
+      <Skeleton className="" count={2} />
+    </div>
+  );
+}
 
 const LibraryBookCard = ({ index, image, title, author }: any) => {
   const navigate = useNavigate();
   const handleClick = (e: any) => {
-    navigate(`/book/${index + 1}`);
+    navigate('/signup');
+    // navigate(`/book/${index + 1}`);
   }
   return (
     <div onClick={handleClick} className="w-full hover:shadow-[rgba(0,0,0,0.2)_0px_0px_45px_0px] hover:scale-[1.09] duration-300 hover cursor-pointer  p-3 rounded-lg" key={index}>
@@ -64,13 +75,18 @@ const BooksComponent: FC<BooksComponentProps> = ({ books, type, isLoading }) => 
     );
     setFilteredBooks(match);
   }, [search, books]);
+
+
+  // useEffect
+
+
   return (
     <div className="w-full sm:w-[90%]">
       <h2 className="text-dark text-3xl font-[500] quicksand">
         All Books({books.length})
       </h2>
       <div className="my-3 flex items-center space-x-3">
-        <BookFilter />
+        <BookFilter categories={["JAMB Prep","K-12"]} />
         <SearchBar
           value={search}
           onChange={handleSearchChange}
@@ -91,10 +107,10 @@ const BooksComponent: FC<BooksComponentProps> = ({ books, type, isLoading }) => 
                 ))
               :
               <>
-                {/* <BookCardSkeleton />
                 <BookCardSkeleton />
                 <BookCardSkeleton />
-                <BookCardSkeleton /> */}
+                <BookCardSkeleton />
+                <BookCardSkeleton />
               </>
           }
         </div>
@@ -130,11 +146,11 @@ export default function Library() {
 
   return (
     <div className="">
-      <div className="px-3 sm:px-20 w-screen border md:pt-28 pt-5 pb-40 md:pb-28 transition-all duration-300 bg-white">
+      <div className="px-3 sm:px-20 w-screen border md:pt-28 pt-5 pb-40 md:pb-16 transition-all duration-300 bg-white">
         <div className="flex items-center flex-col sm:flex-row text-center sm:text-start outfit-font bg-white">
           <div className="w-full sm:w-[55%]">
-            <p className="font-semibold -top-4 relative text-[35px] sm:text-[40px] text-[#b902dc]">
-              Vast Collection Of Books Made Into Interactive learning with Tioo
+            <p className="font-semibold -top-4 relative text-[35px] sm:text-[40px] capitalize text-[#b902dc]">
+              Vast Collection Of Study Resources Made Into Interactive learning with Tioo
             </p>
             <Button
               link
@@ -150,7 +166,7 @@ export default function Library() {
         </div>
       </div>
 
-      <div className="my-10 bg-white px-3 sm:px-20  py-20">
+      <div className="my-10 bg-white px-3 sm:px-20 ">
         <BooksComponent books={books} />
         {/* <BookShowcase title="Available" books={books} /> */}
       </div>
