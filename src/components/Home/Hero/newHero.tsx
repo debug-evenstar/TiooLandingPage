@@ -103,10 +103,10 @@ const TypeHeader = () => {
     onInit={(typewriter) => {
       typewriter
         .start()
-        .typeString('Your <span class="text-main">one-stop shop</span> <br /> for smart textbooks')
+        .typeString('Your <span class="text-main">one-stop shop</span> <br /> for smart learning')
         .pauseFor(500)
         .deleteAll()
-        .typeString('<span class="text-main">Enhance</span> your learning <br /> with Tioo')
+        .typeString('<span class="text-main">Enhance</span> your test  and <br/> exams scores by 50%')
         .start()
     }}
   />
@@ -129,7 +129,8 @@ export default function NewHero() {
                 {/* <span className="text-main">Revolutionize</span> your <br /> learning with Tioo */}
               </div>
               <p className="text-[16px] sm:text-[23px] urbanist text-gray-600 font-[400] mt-4  ">
-                Discover thousands of interactive smart textbooks <br className="hidden sm:block" />across various subjects and exams preparations
+
+                Discover thousands of  AI Powered and interactive study <br className="hidden sm:block" />resources used for exams prep across various subjects and exams
               </p>
               <div className="py-10 sm:py-20 flex items-center justify-center sm:justify-start gap-x-4 relative">
                 <NavLink to="/signup">

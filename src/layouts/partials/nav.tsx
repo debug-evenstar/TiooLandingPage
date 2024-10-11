@@ -74,7 +74,7 @@ export default function Nav() {
         <a href="/">
           <img src={logo} className="w-[80%]" alt="" />
         </a>
-        <nav className="hidden text-[17px] lg:flex items-center outfit-font  ml-10 relative justify-between w-[40%] ">
+        <nav className="hidden text-[17px] lg:flex items-center outfit-font  relative gap-x-20 mx-auto">
           {navs.map(({ name, path }: { name: string, path: string }) => (
             <NavLink
               to={path}

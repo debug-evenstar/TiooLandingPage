@@ -1,12 +1,23 @@
 import { books as dummybooks } from "@/contants/books";
 import PhotoRobbin from "../components/LIbrary/PhotoRobbin/photoRobbin";
 import Button from "../components/common/Buttons/button";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 
+export const BookCardSkeleton = () => {
+  return (
+    <div>
+      <Skeleton height="15rem" className="mb-3" />
+      <Skeleton className="" count={2} />
+    </div>
+  );
+}
 
 const LibraryBookCard = ({ index, image, title, author }: any) => {
   const navigate = useNavigate();
   const handleClick = (e: any) => {
-    navigate(`/book/${index + 1}`);
+    navigate('/signup');
+    // navigate(`/book/${index + 1}`);
   }
   return (
     <div onClick={handleClick} className="w-full hover:shadow-[rgba(0,0,0,0.2)_0px_0px_45px_0px] hover:scale-[1.09] duration-300 hover cursor-pointer  p-3 rounded-lg" key={index}>
@@ -64,13 +75,18 @@ const BooksComponent: FC<BooksComponentProps> = ({ books, type, isLoading }) => 
     );
     setFilteredBooks(match);
   }, [search, books]);
+
+
+  // useEffect
+
+
   return (
     <div className="w-full sm:w-[90%]">
       <h2 className="text-dark text-3xl font-[500] quicksand">
         All Books({books.length})
       </h2>
       <div className="my-3 flex items-center space-x-3">
-        <BookFilter />
+        <BookFilter categories={["JAMB Prep","K-12"]} />
         <SearchBar
           value={search}
           onChange={handleSearchChange}
@@ -91,10 +107,10 @@ const BooksComponent: FC<BooksComponentProps> = ({ books, type, isLoading }) => 
                 ))
               :
               <>
-                {/* <BookCardSkeleton />
                 <BookCardSkeleton />
                 <BookCardSkeleton />
-                <BookCardSkeleton /> */}
+                <BookCardSkeleton />
+                <BookCardSkeleton />
               </>
           }
         </div>
