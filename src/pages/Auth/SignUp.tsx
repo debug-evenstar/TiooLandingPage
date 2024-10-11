@@ -1,4 +1,4 @@
-import { FC, FormEvent, useState } from "react";
+import { FC, FormEvent, useEffect, useState } from "react";
 import signupImg from "@/assets/images/signup.png";
 import startsWith from "lodash.startswith";
 import arrowRight from "@/assets/images/icons/arrow-right.svg";
@@ -14,7 +14,7 @@ import { CheckboxInput } from "../../components/Auth";
 import { SocialButton } from "../../components/Auth";
 import { useLazyRegisterUserQuery } from "@/services/api/authSlice";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { DotLoader } from "react-spinners";
 
 interface FormErrorState {
@@ -33,7 +33,7 @@ const FormArea: FC = () => {
   const [country, setCountry] = useState<any>([]);
   const [code, setCode] = useState<any>();
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState< any>({
     first_name: "",
     last_name: "",
     email: "",
@@ -41,6 +41,7 @@ const FormArea: FC = () => {
     password_confirmation: "",
     phone: "",
     country: "",
+    ref: null,
   });
 
   const [formErrors, setFormErrors] = useState<FormErrorState>({
@@ -52,6 +53,14 @@ const FormArea: FC = () => {
     country: "",
     phone: "",
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("ref"); // Get the value of the 'ref' query parameter
+    if (ref) {
+      setFormData({ ...formData, ref: ref });
+    }
+  }, []);
 
   const validated = () => {
     const errors: FormErrorState = {};

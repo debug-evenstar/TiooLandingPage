@@ -123,7 +123,8 @@ const ProcessFlow = ({ questions }: any) => {
   useEffect(() => {
     // let's us know when we have reached the end of the tree for that particular route(question);
     if (activeSelection !== null) {
-      const next = getNextQuestions();
+      // const next = getNextQuestions();
+      const next = []; // ignore the rest of the questions
       setFinished(
         next.length == 0 &&
           (index == activeQuestions.length - 1 || activeQuestions.length == 0)
@@ -156,6 +157,7 @@ const ProcessFlow = ({ questions }: any) => {
       setFinished(true);
     }
   };
+  
 
   const getNextQuestions = () => {
     const answer = answers[currentQuestion.id]?.answer;
@@ -196,7 +198,6 @@ const ProcessFlow = ({ questions }: any) => {
         account_type: answers[1].answer,
       };
 
-      console.log(payload);
       const response = await axios.post(
         `${BASE_URL}/onboarding/save-metadata`,
         payload,
