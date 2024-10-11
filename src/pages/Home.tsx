@@ -35,10 +35,10 @@ export default function Home() {
         <Hero />
       </div>
       <NewAboutTioo />
+      <TiooJAMBPrep />
       <OurBooks />
       <FeaturedContent />
-      <TiooJAMBPrep />
-      <WhyTioo />
+      {/* <WhyTioo /> */}
       <FAQ />
       <CallToAction />
     </div>

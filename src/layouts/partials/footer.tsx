@@ -64,10 +64,16 @@ export default function Footer() {
       </div>
 
       <div className="my-8 flex lg:flex-row flex-col lg:space-x-20">
-        <div className='sm:w-[35%] mb-3'>
+        <div className='sm:w-[38%] mb-3'>
           <h3 className="font-semibold outfit-font text-white text-[1.75rem]">ABOUT Tioo</h3>
           <p className="text-sm">
-            Tioo is a platform that makes learning from textbooks exciting and easy to understand for K-12 students and UTME candidates. We believe everyone deserves to love learning! Our app uses cool interactions and AI to make learning fun and easy. Tioo helps students who feel bored or confused with regular school textbooks to develop a love for learning!
+            {/* Tioo is a platform that makes learning from textbooks exciting and easy to understand for K-12 students and UTME candidates. We believe everyone deserves to love learning! Our app uses cool interactions and AI to make learning fun and easy. Tioo helps students who feel bored or confused with regular school textbooks to develop a love for learning!
+            tio is a platform that makes exams preparation exciting and easy for college admission seekers and tertiary institution students */}
+              {/* Tioo is a platform that makes textbook learning exciting and easy to understand for K-12 students and UTME candidates. */}
+              Tioo is a platform that makes exams preparation exciting and easy for college admission seekers and tertiary institution students
+              We believe everyone deserves to ace their exams! Our app uses cool interactions and AI to make exams prep fun, easy and highly effective.
+              Tioo helps students who feel bored or confused with regular exam prep methods to develop a love for learning!
+
           </p>
 
           <div className="flex items-center space-x-2 mt-10">

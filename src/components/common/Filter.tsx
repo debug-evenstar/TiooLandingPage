@@ -1,8 +1,26 @@
+import { useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
-const BookFilter = () => {
+const BookFilter = ({ categories, onFilterSelect }:any) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("Filter");
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleCategorySelect = (category: any) => {
+    setSelectedCategory(category);
+    setIsOpen(false);
+    onFilterSelect && onFilterSelect(category)
+  };
+
   return (
-    <button className="border shadow cursor-pointer rounded-[8px] sm:rounded-[22px] font-[500] px-3 py-4 border-light flex items-center sm:space-x-2 w-fit">
+    <div className="relative">
+      <button
+        onClick={toggleDropdown}
+        className="border shadow cursor-pointer rounded-[8px] sm:rounded-[22px] font-[500] px-3 py-4 border-light flex items-center sm:space-x-2 w-fit"
+      >
       <span>
         <svg
           width="20"
@@ -26,7 +44,22 @@ const BookFilter = () => {
         <span className="hidden sm:block">
           <MdOutlineKeyboardArrowDown className="text-xl" />
         </span>
-    </button>
+      </button>
+
+      {isOpen && (
+        <ul className="absolute left-0 mt-1 w-full bg-white border rounded shadow-lg">
+          {categories.map((category: any, index: number) => (
+            <li
+              key={index}
+              onClick={() => handleCategorySelect(category)}
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            >
+              {category}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 
