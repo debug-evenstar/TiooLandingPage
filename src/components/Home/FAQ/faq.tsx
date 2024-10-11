@@ -26,7 +26,7 @@ const QA = [
 
 export default function FAQ() {
   return (
-    <div className="px-3 sm:px-20 py-20">
+    <div className="px-3 sm:px-20 py-10">
       <div className="flex flex-col sm:flex-row items-center justify-between sm:space-x-10">
         <div className="sm:w-[75%] order-2" data-aos="fade-right">
           <Accordion data={QA} className="w-full"/>

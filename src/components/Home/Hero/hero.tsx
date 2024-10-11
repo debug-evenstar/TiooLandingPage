@@ -166,7 +166,7 @@ export default function Hero() {
         </div>
         <p className="capitalize outfit-font text-dark font-[500] text-center text-base sm:text-[23px] w-fit mx-auto">
           {/* Where learning meets interactivity & Fun */}
-          discover thousands of AI Powered and interactive study resources used
+          discover thousands of AI-Powered and interactive study resources used
           for exams prep accross various subjects and exams.
           {/* discover diverse interactive smart textbooks across different subjects and exam preparations */}
         </p>

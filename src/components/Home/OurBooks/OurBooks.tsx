@@ -197,7 +197,7 @@ const exams: any[] = [
 
 const OurBooks = () => {
   return (
-    <section className="mt-20 bg-[#FFF9FF] py-10 sm:py-20 px-4   ">
+    <section className=" bg-[#FFF9FF] py-10 sm:py-20 px-4   ">
       <div className="urbanist w-full sm:w-[80%] mb-4 mx-auto text-center">
         <h1 className="text-[24px] sm:text-[38px] quicksand font-[600] text-[#1F3D4F] mb-4">
           <span className="text-[30px]">📚✨</span>
@@ -205,8 +205,7 @@ const OurBooks = () => {
           <span className="text-[30px]">✨📚</span>
         </h1>
         <p className="text-[20px] text-[#696984] mx-auto">
-          Dive into a world where books are more than just pages and ink;
-          they’re dynamic, engaging experiences that come to life at your
+        Dive into a world where exam prep materials like tutorials and past questions are dynamic engaging experiences that come to life at your
           fingertips.
         </p>
       </div>
