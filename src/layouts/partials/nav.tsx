@@ -88,7 +88,7 @@ export default function Nav() {
     <>
       <SideNav {...{ navOpen, setNavOpen }} />
       <div
-        className={`h-[85.84px] flex px-3 sm:px-10 ${
+        className={`h-[85.84px] z-[1003000] flex px-3 sm:px-10 ${
           sticky
             ? "fixed top-0 left-0 w-full bg-white shadow-md z-50"
             : "relative"
