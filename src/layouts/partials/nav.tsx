@@ -2,21 +2,22 @@ import { NavLink, useLocation } from "react-router-dom";
 import Button from "@/components/common/Buttons/button";
 import logo from "@/assets/images/logo/logo.png";
 import { navs } from "@/contants/nav";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function SideNav({ navOpen, setNavOpen }: any) {
   const location = useLocation();
 
   const checkActive = (path: string) => {
-    return path == location.pathname
+    return path === location.pathname
       ? "border-main font-[500] text-main"
       : "border-white text-dark";
   };
 
   return (
     <div
-      className={`flex duration-1000 ease-in-out  ${navOpen ? "" : "translate-x-full"
-        } fixed inset-0 px-4 bg-white h-screen w-full z-[1000] flex-col items-center justify-between text-md border-b `}
+      className={`flex duration-1000 ease-in-out ${
+        navOpen ? "" : "translate-x-full"
+      } fixed inset-0 px-4 bg-white h-screen w-full z-[1000] flex-col items-center justify-between text-md border-b`}
     >
       <div className="flex py-4 items-center w-full justify-end">
         <button
@@ -26,8 +27,8 @@ function SideNav({ navOpen, setNavOpen }: any) {
           &#x2715;
         </button>
       </div>
-      <div className="w-full flex flex-col  space-y-4 ">
-        <nav className="flex flex-col mx-auto items-center outfit-font justify-between space-y-3 w-[45%] ">
+      <div className="w-full flex flex-col space-y-4">
+        <nav className="flex flex-col mx-auto items-center outfit-font justify-between space-y-3 w-[45%]">
           {navs.map(({ name, path }: any) => (
             <NavLink
               to={path}
@@ -43,39 +44,63 @@ function SideNav({ navOpen, setNavOpen }: any) {
         </nav>
         <div className="flex space-y-3 w-full flex-col">
           <NavLink to="/login">
-            <button className="px-3 w-full rounded-r-[4px] rounded-tl-[4px] h-[42px] border font-semibold text-[20px] border-main text-main ">
+            <button className="px-3 w-full rounded-r-[4px] rounded-tl-[4px] h-[42px] border font-semibold text-[20px] border-main text-main">
               Login
             </button>
           </NavLink>
           <Button className="h-[42px]">Start Learning</Button>
         </div>
       </div>
-      <div></div>
     </div>
   );
 }
 
 export default function Nav() {
   const [navOpen, setNavOpen] = useState(false);
+  const [sticky, setSticky] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const isHome = location.pathname === "/";
+
   const checkActive = (path: string) => {
-    return path == location.pathname
+    return path === location.pathname
       ? "border-main font-[500] text-main"
-      : !isHome ? "border-white" : "border-[#F6D7FC] text-dark";
+      : !isHome
+      ? "border-white"
+      : "border-[#F6D7FC] text-dark";
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
       <SideNav {...{ navOpen, setNavOpen }} />
-      <div className={`h-[85.84px] flex px-3 sm:px-10 sm:shadow-none relative justify-between items-center ${isHome && "bg-[#F6D7FC]"}`}>
+      <div
+        className={`h-[85.84px] flex px-3 sm:px-10 ${
+          sticky
+            ? "fixed top-0 left-0 w-full bg-white shadow-md z-50"
+            : "relative"
+        } justify-between items-center ${
+          isHome ? "bg-[#F6D7FC]" : ""
+        }`}
+      >
         <a href="/">
-          <img src={logo} className="w-[80%]" alt="" />
+          <img src={logo} className="w-[80%]" alt="Logo" />
         </a>
-        <nav className="hidden text-[17px] lg:flex items-center outfit-font  relative gap-x-20 mx-auto">
-          {navs.map(({ name, path }: { name: string, path: string }) => (
+        <nav className="hidden text-[17px] lg:flex items-center outfit-font relative gap-x-20 mx-auto">
+          {navs.map(({ name, path }: { name: string; path: string }) => (
             <NavLink
               to={path}
               key={path}
@@ -105,12 +130,12 @@ export default function Nav() {
         </button>
         <div className="hidden lg:flex items-center space-x-2">
           <NavLink to="/login">
-            <button className="px-7 rounded-full h-[42px] border urbanist font-[500] text-[18px] bg-white border-main text-main ">
+            <button className="px-7 rounded-full h-[42px] border urbanist font-[500] text-[18px] bg-white border-main text-main">
               Login
             </button>
           </NavLink>
           <NavLink to="/signup">
-            <button className="px-5 rounded-full h-[42px] border urbanist font-[500] text-[18px] bg-main border-main text-white ">
+            <button className="px-5 rounded-full h-[42px] border urbanist font-[500] text-[18px] bg-main border-main text-white">
               Sign Up
             </button>
           </NavLink>
