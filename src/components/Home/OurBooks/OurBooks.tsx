@@ -148,13 +148,14 @@ const ExamCard: FC<any> = ({ title, color, image, link }) => {
   const isDisabled = false;
 
   const handleClick = () => {
-    if (link !== "#") navigate(link);
+    navigate('/signup');
+    // if (link !== "#") navigate(link);
   };
 
   return (
     <div
       onClick={handleClick}
-      className="rounded-[20px] px-2 py-3 flex gap-3 w-full"
+      className="rounded-[20px] px-2 py-3 flex cursor-pointer gap-3 w-full"
       style={{
         backgroundColor: color,
         // cursor: isDisabled ? "not-allowed" : "pointer",

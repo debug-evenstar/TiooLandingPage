@@ -2,36 +2,102 @@ import Accordion from "../../common/Accordion/accordion";
 
 const QA = [
   {
-    q: "How does our pricing work?",
-    a: "Our pricing provides access to interactive, AI-powered smart books, designed to enhance learning for students in K-12 and UTME candidates.",
+    q: "What is Tioo?",
+    a: (
+      <p className="mb-4">
+        Tioo is an AI-powered exam preparation platform providing comprehensive
+        study materials, practice questions, and expert guidance for various
+        exams, including UTME, WAEC, institution-specific exams, and
+        professional certifications.
+      </p>
+    ),
   },
   {
-    q: "What if I change my mind?",
-    a: "If you change your mind, we believe everyone deserves to love learning, so we provide engaging learning experiences to help students stay excited.",
+    q: "How do I access Tioo's study materials?",
+    a: (
+      <p className="mb-4">
+        Simply create an account on our website or mobile app, choose your exam
+        type, and subscribe. You'll gain instant access to our study resources,
+        including tutorials, practice questions, personalized study plans, and
+        analytics.
+      </p>
+    ),
   },
   {
-    q: "Do you offer any discounted plans?",
-    a: "We aim to make learning accessible to everyone, so discounted plans may be available depending on the educational needs of students.",
+    q: "What types of exams does Tioo support?",
+    a: (
+      <p className="mb-4">
+        Right now Tioo only supports:
+        <ul className="list-disc list-inside ml-4">
+          <li>UTME (Unified Tertiary Matriculation Examination)</li>
+        </ul>
+        But we have plans to add other exams soon such as WAEC, NECO, localized
+        exams in tertiary institutions like UNILAG, UNIUYO, etc., and
+        professional exams like ICAN.
+      </p>
+    ),
   },
   {
-    q: "Which pricing plan is best for me?",
-    a: "The best pricing plan would depend on how much access you need to our library of interactive textbooks and AI-powered learning tools.",
+    q: "Does Tioo offer a free trial, and what does it include?",
+    a: (
+      <p className="mb-4">
+        Yes, Tioo offers a 3-day free trial for all exams. During your free
+        trial, you'll have access to:
+        <ul className="list-disc list-inside ml-4">
+          <li>Limited study materials and practice questions</li>
+          <li>Limited AI tutor responses</li>
+          <li>Online community support</li>
+        </ul>
+        To start your free trial, simply:
+        <ol className="list-decimal list-inside ml-4">
+          <li>Sign up on our website or mobile app</li>
+          <li>Choose your exam type</li>
+          <li>Select the free trial option</li>
+        </ol>
+        No payment information is required for the free trial. Upgrade to a paid
+        plan anytime to unlock full access to our comprehensive study materials.
+      </p>
+    ),
   },
   {
-    q: "How do I pay for more than one child?",
-    a: "We offer flexible options for families with multiple students, ensuring each child gets personalized learning experiences on the platform.",
+    q: "How much does Tioo cost?",
+    a: (
+      <p className="mb-4">
+        Our pricing plans vary depending on the exam type and cover until the
+        exam day.
+        <ul className="list-disc list-inside ml-4">
+          <li>
+            UTME - <s>N60,000</s> N30,000 (discounted until 31st November)
+          </li>
+        </ul>
+        So if you pay for our UTME study package, you have access to the entire
+        study resource for UTME until the day of exams next year.
+      </p>
+    ),
+  },
+  {
+    q: "What if I'm not satisfied with Tioo's study materials?",
+    a: (
+      <p className="mb-4">
+        We offer a 7-day money-back guarantee. If you're not satisfied with our
+        services, contact our support team within 7 days of subscription, and
+        we'll provide a full refund.
+      </p>
+    ),
   },
 ];
-
 
 export default function FAQ() {
   return (
     <div className="px-3 sm:px-20 py-10">
       <div className="flex flex-col sm:flex-row items-center justify-between sm:space-x-10">
         <div className="sm:w-[75%] order-2" data-aos="fade-right">
-          <Accordion data={QA} className="w-full"/>
+          <Accordion data={QA} className="w-full" />
         </div>
-        <div className="text-center order-1 sm:order-2 sm:w-[25%]" data-aos="fade-left">
+        <div
+          className="text-center order-1 sm:order-2 sm:w-[25%]"
+          data-aos="fade-left"
+        >
           <h3 className="font-[540] outfit-font text-[38px]">FAQs</h3>
           <p className="text-[20px] font-[500] sm:order-1 mb-4 sm:mb-0">
             Frequently asked questions about our pricing
