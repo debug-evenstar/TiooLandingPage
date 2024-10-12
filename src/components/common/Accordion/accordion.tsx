@@ -21,7 +21,7 @@ const AccordionItem = ({ q, a }: any) => {
 }
 
 export interface QAProps {
-  q: string, a: string
+  q: string, a: any
 }
 
 export default function Accordion({data, className }: {data: QAProps[], className: string} ) {
