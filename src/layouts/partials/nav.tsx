@@ -17,7 +17,7 @@ function SideNav({ navOpen, setNavOpen }: any) {
     <div
       className={`flex duration-1000 ease-in-out ${
         navOpen ? "" : "translate-x-full"
-      } fixed inset-0 px-4 bg-white h-screen w-full z-[1000] flex-col items-center justify-between text-md border-b`}
+      } fixed inset-0 px-4 bg-white h-screen w-full z-[2000] flex-col items-center gap-y-4 text-md border-b`}
     >
       <div className="flex py-4 items-center w-full justify-end">
         <button
@@ -27,8 +27,8 @@ function SideNav({ navOpen, setNavOpen }: any) {
           &#x2715;
         </button>
       </div>
-      <div className="w-full flex flex-col space-y-4">
-        <nav className="flex flex-col mx-auto items-center outfit-font justify-between space-y-3 w-[45%]">
+      <div className="w-full flex flex-col gap-y-7">
+        <nav className="flex flex-col mx-auto items-center outfit-font justify-between gap-y-6 w-[45%]">
           {navs.map(({ name, path }: any) => (
             <NavLink
               to={path}
@@ -88,7 +88,7 @@ export default function Nav() {
     <>
       <SideNav {...{ navOpen, setNavOpen }} />
       <div
-        className={`h-[85.84px] z-[1003000] flex px-3 sm:px-10 ${
+        className={`h-[85.84px] z-[1000] flex px-3 sm:px-10 ${
           sticky
             ? "fixed top-0 left-0 w-full bg-white shadow-md z-50"
             : "relative"

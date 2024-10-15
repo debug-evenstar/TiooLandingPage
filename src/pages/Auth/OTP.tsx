@@ -1,4 +1,5 @@
-import { FC, FormEvent, useEffect, useRef, useState } from "react";
+import { OTPInput} from "input-otp";
+import { FC, useEffect, useRef, useState } from "react";
 import loginImg from "@/assets/images/signin.png";
 
 import arrowRight from "@/assets/images/icons/arrow-right.svg";
@@ -13,107 +14,22 @@ import {
 import { toast } from "react-toastify";
 import { DotLoader } from "react-spinners";
 
-const OTPInputField = ({
-  setValues,
-  inputRefs,
-  activeIndex,
-  setActiveIndex,
-}: {
-  inputRefs: any[];
-  setValues: Function;
-  activeIndex: number;
-  setActiveIndex: Function;
-}) => {
-  const setState = () => {
-    const values = inputRefs.map((ref: any) => ref.current?.value);
-    setValues(values.join(""));
-  };
 
-  useEffect(() => {
-    if (activeIndex > inputRefs.length - 1) {
-      return;
-    }
-    if (inputRefs[activeIndex].current) {
-      inputRefs[activeIndex].current.focus();
-    }
-  }, [activeIndex]);
-
-  const handlePasteEvent = (e: any) => {
-    e.preventDefault();
-    const pastedText = e.clipboardData.getData("text");
-    const textArray = pastedText.split("");
-    inputRefs.forEach((ref, index) => {
-      if (ref.current) {
-        ref.current.value = textArray[index];
-        console.log(ref.current.value);
-      }
-    });
-
-    setState();
-
-    setActiveIndex(inputRefs.length - 1);
-  };
-
-  return (
-    <div className="flex items-center space-x-3 w-fit mx-auto">
-      {inputRefs.map((ref, index) => (
-        <OTPInput
-          key={index}
-          inputRef={ref}
-          fetchValues={setState}
-          handlePaste={handlePasteEvent}
-          setActiveIndex={setActiveIndex}
-          activeIndex={activeIndex}
-          index={index}
-        />
-      ))}
-    </div>
-  );
-};
-
-const OTPInput = ({
-  index,
-  inputRef,
-  fetchValues,
-  activeIndex,
-  setActiveIndex,
-  handlePaste,
-}: any) => {
-  const handleKeyDown = (e: any) => {
-    // if(e.key == "Control" || e.key == 'v'){
-    if (e.key == "v" && e.ctrlKey) {
-      return true;
-    }
-    e.preventDefault();
-    if (e.key == "Backspace") {
-      e.target.value = "";
-      if (index == 0) return;
-      setActiveIndex(index - 1);
-    } else {
-      const digitRegex = /^\d+$/;
-      if (!digitRegex.test(e.key)) return true;
-      if (e.target.value == "") e.target.value = e.key;
-    }
-    fetchValues();
-    if (e.target.value == "") return;
-    setActiveIndex(index != 5 ? index + 1 : index);
-  };
-
+const NewInputField = (props: any) => {
   return (
     <div>
       <input
-        data-id={index}
-        ref={inputRef}
-        maxLength={1}
-        onPaste={handlePaste}
-        onKeyDown={handleKeyDown}
+        ref={props.inputRef}
+        value={props.char ?? ""}
+        onPaste={props.handlePaste}
         className={`${
-          index != activeIndex ? "pointer-events-none" : "metallic-bong"
-        } w-12 h-12 inline-block rounded cursor-pointer outline-main text-center text-3xl font-[600] border border-main`}
+          !props.isActive ? "pointer-events-none" : "metallic-bong border-2"
+        } w-12 h-12 rounded cursor-pointer flex items-center justify-center  outline-main text-center text-3xl font-[600] border border-main`}
       />
     </div>
   );
 };
+
 
 const FormArea: FC = () => {
   const [sendOtp] = useLazySendOtpQuery();
@@ -122,7 +38,6 @@ const FormArea: FC = () => {
   const [canResend, setCanResend] = useState(true);
   const [count, setCount] = useState(60);
   const [toggleField, setToggleField] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
   const navigate = useNavigate();
   const { email } = useParams<{ email: string }>();
 
@@ -140,7 +55,7 @@ const FormArea: FC = () => {
         if (ref.current) ref.current.value = "";
       }, (index + 1) * 60);
     });
-    setActiveIndex(0);
+
     setValues("");
   };
 
@@ -148,7 +63,7 @@ const FormArea: FC = () => {
     verifyOtp({ otp: values, email: email }).then((response: any) => {
       if (response.isSuccess) {
         toast.success(response.data.message);
-        navigate('/login');
+        navigate("/login");
       } else {
         toast.error(response.error.data.message);
         clearInputs();
@@ -171,6 +86,7 @@ const FormArea: FC = () => {
     }
   }, [canResend, count]);
 
+
   const resendOTP = () => {
     const payload = {
       email: email,
@@ -185,7 +101,20 @@ const FormArea: FC = () => {
           setToggleField(!toggleField);
         }
       })
-      .catch(() => {});
+      .catch((e) => {console.log(e)});
+  };
+
+  const handlePasteEvent = (e: any) => {
+    e.preventDefault();
+    const pastedText = e.clipboardData.getData("text");
+    const textArray = pastedText.split("");
+    inputRefs.forEach((ref, index) => {
+      if (ref.current) {
+        ref.current.value = textArray[index];
+        console.log(ref.current.value);
+      }
+    });
+
   };
 
   return (
@@ -197,11 +126,23 @@ const FormArea: FC = () => {
       </p>
 
       <div>
-        <OTPInputField
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          inputRefs={inputRefs}
-          setValues={setValues}
+        <OTPInput
+          maxLength={6}
+          containerClassName="group flex items-center has-[:disabled]:opacity-30"
+          onChange={(value) => setValues(value)}
+          render={({ slots }) => (
+            <>
+              <div className="flex gap-3 mx-auto">
+                {slots.map((slot, idx) => (
+                  <NewInputField
+                    handlePaste={handlePasteEvent}
+                    key={idx}
+                    {...slot}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         />
 
         <div className="flex justify-end"></div>
@@ -215,11 +156,11 @@ const FormArea: FC = () => {
             } rounded-[20px] px-10 py-2.5 flex text-white items-center font-[600] `}
           >
             Verify and proceed
-            {
-              isLoading
-              ? <DotLoader color="white" size={12} className="w-[1.2rem] ml-2" />
-              : <img src={arrowRight} alt="" className="w-[1.2rem] ml-2" />
-            }
+            {isLoading ? (
+              <DotLoader color="white" size={12} className="w-[1.2rem] ml-2" />
+            ) : (
+              <img src={arrowRight} alt="" className="w-[1.2rem] ml-2" />
+            )}
           </button>
         </div>
 
