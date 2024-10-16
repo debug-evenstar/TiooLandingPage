@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
-import './style.css';
-import heroBgImg from "../../../assets/images/hero-bg.svg"
-import heroBgMobileImg from "../../../assets/images/hero-bg-mobile.svg"
+import React, { useEffect, useState } from "react";
+import "./style.css";
+import heroBgImg from "../../../assets/images/hero-bg.svg";
+import heroBgMobileImg from "../../../assets/images/hero-bg-mobile.svg";
 import heroPicImg from "../../../assets/images/hero-pic.png";
 import playIcon from "../../../assets/images/icons/play.svg";
 
-import Typewriter from 'typewriter-effect';
-import { NavLink } from 'react-router-dom';
-
+import Typewriter from "typewriter-effect";
+import { NavLink } from "react-router-dom";
 
 const Doodles = () => {
   return (
@@ -90,66 +89,86 @@ const Doodles = () => {
 };
 
 const TypeHeader = () => {
+  const smallScreen = window.innerWidth < 350;
 
-  // const [cursor, setCursor] = useState(true);
-  let cursor = true;
-  return <Typewriter
-    options={{
-      deleteSpeed: 4,
-      cursor: '',
-      delay: 50,
-    }}
-
-    onInit={(typewriter) => {
-      typewriter
-        .start()
-        .typeString('Your <span class="text-main">one-stop shop</span> <br /> for smart learning')
-        .pauseFor(500)
-        .deleteAll()
-        .typeString('<span class="text-main">Improve</span> your test  and <br/> exams scores by 50%')
-        .start()
-    }}
-  />
-}
-
-
+  useEffect(() => {}, []);
+  return (
+    <Typewriter
+      options={{
+        deleteSpeed: 4,
+        cursor: "",
+        delay: 50,
+      }} 
+      onInit={(typewriter) => {
+        typewriter
+          .start()
+          .typeString(
+            'Your <span class="text-main">one-stop shop</span> <br /> for smart learning'
+          )
+          .pauseFor(500)
+          .deleteAll()
+          .typeString(
+            smallScreen ? 
+            '<span class="text-main">Improve</span> your test  and  exams scores by 100%'
+            :
+            '<span class="text-main">Improve</span> your test  and <br/> exams scores by 100%'
+          )
+          .start();
+      }}
+    />
+  );
+};
 
 export default function NewHero() {
   return (
     <>
       <Doodles />
-      <div className="h-[80vh] bg-[#F6D7FC]  sm:mb-[10rem] relative ">
-        <img src={heroBgImg} alt="" className='hidden sm:block relative inset-0 w-full' />
-        <img src={heroBgMobileImg} alt="" className='block sm:hidden h-[100vh] relative inset-0 w-full' />
+      <div className="lg:h-[80vh] bg-[#F6D7FC]  sm:mb-[10rem] relative ">
+        <img
+          src={heroBgImg}
+          alt=""
+          className="hidden sm:block relative inset-0 w-full"
+        />
+        <img
+          src={heroBgMobileImg}
+          alt=""
+          className="block sm:hidden min-h-[100vh] relative inset-0 w-full"
+        />
         <div className="absolute inset-0 w-full h-full px-3 sm:px-20">
-          <div className="flex items-center justify-between flex-col md:flex-row relative">
-            <div className="order-2 md:order-1 font-[700]">
-              <div className="text-[32px] h-[8rem] lg:text-[48px] sm:leading-[4rem]">
+          <div className="flex items-center justify-between flex-col lg:flex-row relative">
+            <div className="order-2 lg:order-1 font-[700]">
+              <div className="text-[30px] h-[8rem] lg:text-[48px] sm:leading-[4rem]">
                 <TypeHeader />
-                {/* <span className="text-main">Revolutionize</span> your <br /> learning with Tioo */}
               </div>
               <p className="text-[16px] sm:text-[23px] urbanist text-gray-600 font-[400] mt-4  ">
-
-                Discover thousands of  AI-Powered and interactive study <br className="hidden sm:block" />resources used for exams prep across various exams and subjects.
+                Discover thousands of AI-Powered and interactive study{" "}
+                <br className="hidden sm:block" />
+                resources used for exams prep across various exams and subjects.
               </p>
               <div className="py-10 sm:py-10 flex items-center justify-center sm:justify-start gap-x-4 relative">
                 <NavLink to="/signup">
-                  <button className="px-8 py-4 text-[17px] lg:text-[23px] rounded-full bg-main text-white weight-[700] urbanist">Get Started</button>
+                  <button className="px-8 py-4 text-[17px] lg:text-[23px] rounded-full bg-main text-white weight-[700] urbanist">
+                    Get Started
+                  </button>
                 </NavLink>
                 <button className="flex items-center gap-x-1 text-gray-600">
-                  <div className='lg:w-[48px] lg:h-[48px] shrink p-4 flex items-center justify-center rounded-full bg-white shadow-2xl'>
-                    <img src={playIcon} alt="" className='' />
+                  <div className="lg:w-[48px] lg:h-[48px] shrink p-4 flex items-center justify-center rounded-full bg-white shadow-2xl">
+                    <img src={playIcon} alt="" className="" />
                   </div>
                   <span>Watch Demo</span>
                 </button>
               </div>
             </div>
-            <div className="order-1 md:order-2">
-              <img src={heroPicImg} alt="" className='relative w-[85%] mx-auto  md:w-[390px] lg:w-[560px] -top-0 sm:-top-14 pointer-events-none' />
+            <div className="order-1 lg:order-2">
+              <img
+                src={heroPicImg}
+                alt=""
+                className="relative w-[85%] mx-auto  md:w-[390px] lg:w-[560px] -top-0 sm:-top-14 pointer-events-none"
+              />
             </div>
           </div>
         </div>
       </div>
     </>
-  )
-} 
+  );
+}

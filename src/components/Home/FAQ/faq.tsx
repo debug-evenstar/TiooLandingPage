@@ -89,17 +89,17 @@ const QA = [
 
 export default function FAQ() {
   return (
-    <div className="px-3 sm:px-20 py-10">
-      <div className="flex flex-col sm:flex-row items-center justify-between sm:space-x-10">
-        <div className="sm:w-[75%] order-2" data-aos="fade-right">
+    <div className="px-3 lg:px-20 py-10">
+      <div className="flex flex-col lg:flex-row items-center justify-between lg:space-x-10">
+        <div className="lg:w-[75%] order-2" data-aos="fade-right">
           <Accordion data={QA} className="w-full" />
         </div>
         <div
-          className="text-center order-1 sm:order-2 sm:w-[25%]"
+          className="text-center order-1 lg:order-2 lg:w-[25%]"
           data-aos="fade-left"
         >
           <h3 className="font-[540] outfit-font text-[38px]">FAQs</h3>
-          <p className="text-[20px] font-[500] sm:order-1 mb-4 sm:mb-0">
+          <p className="text-[20px] font-[500] lg:order-1 mb-4 lg:mb-0">
             Frequently asked questions about our pricing
           </p>
         </div>

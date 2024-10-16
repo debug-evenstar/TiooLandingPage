@@ -157,7 +157,6 @@ const ProcessFlow = ({ questions }: any) => {
       setFinished(true);
     }
   };
-  
 
   const getNextQuestions = () => {
     const answer = answers[currentQuestion.id]?.answer;
@@ -231,7 +230,7 @@ const ProcessFlow = ({ questions }: any) => {
   return (
     <>
       <p></p>
-      <div className="bg-white flex flex-col justify-center pb-20">
+      <div className=" flex flex-col justify-center pb-20">
         <p className="font-[500] text-[20px] mb-6">
           {currentQuestion?.question}
         </p>
@@ -289,6 +288,12 @@ const OnboardingSetup: FC = () => {
     });
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollBy(0, 220);
+    }, 1000);
+  }, []);
+
   return (
     <div className="bg-white px-6 sm:px-16 md:px-10 lg:px-20 flex flex-col justify-between">
       <ProcessFlow questions={questions} />
@@ -301,7 +306,7 @@ export default function Onboarding() {
     <div className="grid md:grid-cols-2 h-full">
       <OnboardingSetup />
       <div className="h-full bg-[#fbf4fc] relative flex-col justify-end hidden md:flex">
-        <img src={loginImg} alt="" className="w-[80%] mx-auto" />
+        <img src={loginImg} alt="" className="w-[80%] lg:w-[70%] mx-auto" />
       </div>
     </div>
   );
