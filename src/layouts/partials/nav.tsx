@@ -28,7 +28,7 @@ function SideNav({ navOpen, setNavOpen }: any) {
         </button>
       </div>
       <div className="w-full flex flex-col gap-y-7">
-        <nav className="flex flex-col mx-auto items-center outfit-font justify-between gap-y-6 w-[45%]">
+        <nav className="flex flex-col mx-auto items-center outfit-font justify-between gap-y- w-[45%]">
           {navs.map(({ name, path }: any) => (
             <NavLink
               to={path}
