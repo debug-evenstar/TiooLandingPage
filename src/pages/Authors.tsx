@@ -30,7 +30,7 @@ const Header = () => {
         <p className="font-semibold -top-4 capitalize relative text-[30px] sm:text-[40px] text-[#b902dc]">
           {/* Gamify Your Study Resources <br className="hidden sm:block" /> For Fun
           Learning & Earnings */}
-          Monitize Your Content, <br className="hidden sm:block" />
+          Monetize Your Content, <br className="hidden sm:block" />
           Earn from your work.
         </p>
         {/* <p className="font-semibold -top-4 relative text-[30px] sm:text-[40px] text-[#b902dc]">
