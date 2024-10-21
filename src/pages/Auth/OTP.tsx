@@ -17,7 +17,7 @@ import { DotLoader } from "react-spinners";
 
 const NewInputField = (props: any) => {
   return (
-    <div>
+    <div className="relative">
       <input
         ref={props.inputRef}
         value={props.char ?? ""}
@@ -26,10 +26,17 @@ const NewInputField = (props: any) => {
           !props.isActive ? "pointer-events-none" : "metallic-bong border-2"
         } w-12 h-12 rounded cursor-pointer flex items-center justify-center  outline-main text-center text-3xl font-[600] border border-main`}
       />
+       {props.hasFakeCaret && <FakeCaret />}
     </div>
   );
 };
-
+function FakeCaret() {
+  return (
+    <div className="absolute pointer-events-none inset-0 flex items-center justify-center animate-caret-blink">
+      <div className="w-px h-8 bg-black" />
+    </div>
+  )
+}
 
 const FormArea: FC = () => {
   const [sendOtp] = useLazySendOtpQuery();
@@ -176,11 +183,11 @@ const FormArea: FC = () => {
           {!canResend && <span className="w-8 inline-block">({count}s)</span>}
         </p>
 
-        <div className="w-full border-t relative mt-8 flex justify-center">
+        {/* <div className="w-full border-t relative mt-8 flex justify-center">
           <span className="text-sm text-gray-600 inline-block border rounded-lg py-0 px-3 relative bg-white -top-3">
             Sign in with
           </span>
-        </div>
+        </div> */}
 
         <div className="mt-3 flex  flex-col lg:flex-row items-center justify-center">
           <SocialButton name="Google" image={googleImg} handler={() => null} />

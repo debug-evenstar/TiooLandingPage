@@ -138,11 +138,11 @@ const FormArea: FC = () => {
           </button>
         </div>
 
-        <div className="w-full border-t relative mt-8 flex justify-center">
+        {/* <div className="w-full border-t relative mt-8 flex justify-center">
           <span className="text-sm text-gray-600 inline-block border rounded-lg py-0 px-3 relative bg-white -top-3">
             Sign in with
           </span>
-        </div>
+        </div> */}
 
         <div className="mt-3 flex  flex-col lg:flex-row items-center justify-center">
           <SocialButton name="Google" image={googleImg} handler={() => null} />

@@ -7,11 +7,12 @@ import OldPhoneInput from "react-phone-input-2";
 import Select from "react-dropdown-select";
 
 export const SocialButton = ({ name, image, handler = () => null }: any) => {
+  // currently hidden
   return (
     <button
       onClick={handler}
       type="button"
-      className="lg:w-fit mb-3 w-full flex items-center border rounded"
+      className="lg:w-fit mb-3 w-full hidden items-center border rounded"
     >
       <img src={image} alt="" className="w-10 p-2 h-10 rounded border-r" />
       <span className="text-sm mx-auto font-[500] inline-block w-[8rem] text-center">
@@ -119,8 +120,10 @@ export const PhoneInput = ({
   value,
   label,
   name,
+  country,
   className,
 }: any) => {
+  console.log(country);
   return (
     <div className={`w-full ${className}`}>
       <label className="">{label}</label>
@@ -135,7 +138,7 @@ export const PhoneInput = ({
           }}
           placeholder={placeholder}
           containerClass="w-full"
-          country={"ng"}
+          country={country?.toLowerCase() ?? "ng"}
           value={value}
           countryCodeEditable={false}
           onChange={handleChange}

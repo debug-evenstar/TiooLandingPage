@@ -30,7 +30,7 @@ interface FormErrorState {
 
 const FormArea: FC = () => {
   const [tos, setTos] = useState(false);
-  const [country, setCountry] = useState<any>([]);
+  const [country, setCountry] = useState<any>(null);
   const [code, setCode] = useState<any>();
 
   const [formData, setFormData] = useState< any>({
@@ -123,7 +123,7 @@ const FormArea: FC = () => {
       } else {
         toast.error(response.error.data.message);
       }
-      console.log(response);
+
     });
   };
 
@@ -140,17 +140,14 @@ const FormArea: FC = () => {
   };
 
   const countryOptions = [
-    "Egypt",
-    "Ghana",
-    "Nigeria",
-    "Kenya",
-    "South Africa",
-    "United Kindom",
-    "United States",
-    "Others",
-  ]
-    .sort()
-    .map((country: string) => ({ value: country, label: country }));
+    { value: "Egypt", label: "Egypt", code: "EG" },
+    { value: "Ghana", label: "Ghana", code: "GH" },
+    { value: "Kenya", label: "Kenya", code: "KE" },
+    { value: "Nigeria", label: "Nigeria", code: "NG" },
+    { value: "South Africa", label: "South Africa", code: "ZA" },
+    { value: "United Kindom", label: "United Kindom", code: "GB" },
+    { value: "United States", label: "United States", code: "US" }
+  ];
 
   return (
     <div className="bg-white px-6 md:px-16 flex flex-col justify-center pt-5 ">
@@ -180,19 +177,22 @@ const FormArea: FC = () => {
         <div className="flex items-center flex-col sm:flex-row justify-between md:space-x-3">
           <SelectInput
             options={countryOptions}
-            values={country}
+            // values={country}
             placeholder=""
             label="Country"
             className="mb-2"
             errorMessage={formErrors.country}
-            handleChange={(value: any) =>
+            handleChange={(value: any) => {
+              setCountry(value[0].code)
               setFormData({ ...formData, country: value[0].label })
+            }
             }
           />
           <PhoneInput
             label="Phone number"
             placeholder="+2348032334874"
             className="mb-2"
+            country={country}
             value={formData.phone}
             errorMessage={formErrors?.phone}
             handleChange={(phone: string, data: any) => {
@@ -258,11 +258,11 @@ const FormArea: FC = () => {
           </button>
         </div>
 
-        <div className="w-full border-t relative mt-8 flex justify-center">
+        {/* <div className="w-full border-t relative mt-8 flex justify-center">
           <span className="text-sm text-gray-600 inline-block border rounded-lg py-0 px-3 relative bg-white -top-3">
             Sign up with
           </span>
-        </div>
+        </div> */}
 
         <div className="mt-3 flex  flex-col lg:flex-row items-center justify-center">
           <SocialButton name="Google" image={googleImg} handler={() => null} />
