@@ -20,6 +20,9 @@ import BookDetails from "./pages/BookDetails";
 import ScrollToTop from "./utils/scrollTop";
 import { useEffect} from "react";
 import Aos from "aos";
+import ForgotPassword from "./pages/Auth/ForgotPassword";
+import NewPassword from "./pages/Auth/NewPassword";
+import ResetLinkSent from "./pages/Auth/SentLink";
 
 function App() {
 
@@ -55,6 +58,9 @@ function App() {
             <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/password-reset" element={<PasswordReset />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/forgot-password" element={<ForgotPassword/>} />
+            <Route path="/forgot-password/sent" element={<ResetLinkSent/>} />
+            <Route path="/new-password/:token/:email" element={<NewPassword />} />
             <Route path="/verify-otp/:email" element={<OTP />} />
           </Route>
         </Routes>

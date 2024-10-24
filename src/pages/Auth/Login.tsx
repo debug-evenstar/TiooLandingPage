@@ -112,7 +112,7 @@ const FormArea: FC = () => {
           handleChange={handleChange}
         />
         <div className="flex justify-end">
-          <NavLink to="password-reset" className="font-[500] mt-2">
+          <NavLink to="/forgot-password" className="font-[500] mt-2">
             Forgot Password
           </NavLink>
         </div>

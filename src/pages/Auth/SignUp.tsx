@@ -139,6 +139,11 @@ const FormArea: FC = () => {
     setFormData({ ...formData, [name]: e.target.value });
   };
 
+  const handlePhoneChange = (phone: string, data: any) => {
+    setFormData({ ...formData, phone: phone });
+    setCode(data.dialCode);
+  }
+
   const countryOptions = [
     { value: "Egypt", label: "Egypt", code: "EG" },
     { value: "Ghana", label: "Ghana", code: "GH" },
@@ -190,15 +195,12 @@ const FormArea: FC = () => {
           />
           <PhoneInput
             label="Phone number"
-            placeholder="+2348032334874"
+            placeholder="+234 8032334874"
             className="mb-2"
             country={country}
             value={formData.phone}
             errorMessage={formErrors?.phone}
-            handleChange={(phone: string, data: any) => {
-              setFormData({ ...formData, phone: phone });
-              setCode(data.dialCode);
-            }}
+            handleChange={handlePhoneChange}
           />
         </div>
         <div>

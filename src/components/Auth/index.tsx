@@ -1,6 +1,5 @@
 import { MouseEvent, ReactNode, useRef, useState } from "react";
 
-import openEye from "@/assets/images/icons/open-eye.svg";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import "react-phone-input-2/lib/style.css";
 import OldPhoneInput from "react-phone-input-2";
@@ -123,25 +122,34 @@ export const PhoneInput = ({
   country,
   className,
 }: any) => {
-  console.log(country);
+
+  const [ countryState, setCountryState ] = useState<any>();
+
   return (
     <div className={`w-full ${className}`}>
       <label className="">{label}</label>
       <div className="relative mt-2">
         <OldPhoneInput
-          // className="outline-none focus:border-main mt-2 w-full px-3 py-2 border border-gray-300 rounded"
           inputProps={{
             name: name,
+            maxLength: countryState?.countryCode == "234" ? 18: 20,
+
           }}
           inputStyle={{
             width: '100%'
+          }}
+          isValid={(value: any,country: any) => {
+            setCountryState(country);
+            if(country.countryCode == "234"){
+              return value.length <= 13;
+            }
+            return true;
           }}
           placeholder={placeholder}
           containerClass="w-full"
           country={country?.toLowerCase() ?? "ng"}
           value={value}
           countryCodeEditable={false}
-          onChange={handleChange}
         />
       </div>
       <p className="text-red-500 h-4 text-sm">{errorMessage}</p>
