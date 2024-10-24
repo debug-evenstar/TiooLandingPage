@@ -122,9 +122,9 @@ export const PhoneInput = ({
   country,
   className,
 }: any) => {
+  const [countryState, setCountryState] = useState<any>();
 
-  const [ countryState, setCountryState ] = useState<any>();
-
+  const [ focused, setFocused ] = useState(false);
   return (
     <div className={`w-full ${className}`}>
       <label className="">{label}</label>
@@ -132,15 +132,16 @@ export const PhoneInput = ({
         <OldPhoneInput
           inputProps={{
             name: name,
-            maxLength: countryState?.countryCode == "234" ? 18: 20,
-
+            maxLength: countryState?.countryCode == "234" ? 18 : 20,
+            onFocus: () => setFocused(true),
+            onBlur: () => setFocused(false)
           }}
           inputStyle={{
-            width: '100%'
+            width: "100%",
           }}
-          isValid={(value: any,country: any) => {
+          isValid={(value: any, country: any) => {
             setCountryState(country);
-            if(country.countryCode == "234"){
+            if (country.countryCode == "234") {
               return value.length <= 13;
             }
             return true;
@@ -151,6 +152,7 @@ export const PhoneInput = ({
           value={value}
           countryCodeEditable={false}
         />
+        { !focused && <span className="text-zinc-400/80 pointer-events-none absolute top-[8px] text-[14px] font-[500] font-sans left-[84px]">{placeholder}</span> }
       </div>
       <p className="text-red-500 h-4 text-sm">{errorMessage}</p>
     </div>
@@ -170,7 +172,13 @@ export const SelectInput = ({
     <div className={`w-full ${className}`}>
       <label className="">{label}</label>
       <div className="relative mt-2">
-        <Select sortBy="name" options={options} className="hover:border-main outline-none ring-0 focus:border-main" values={values} onChange={handleChange} />
+        <Select
+          sortBy="name"
+          options={options}
+          className="hover:border-main outline-none ring-0 focus:border-main"
+          values={values}
+          onChange={handleChange}
+        />
       </div>
       <p className="text-red-500 h-4 text-sm">{errorMessage}</p>
     </div>
