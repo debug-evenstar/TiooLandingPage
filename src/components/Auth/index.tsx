@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode, useRef, useState } from "react";
+import { MouseEvent, ReactNode, useEffect, useRef, useState } from "react";
 
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import "react-phone-input-2/lib/style.css";
@@ -122,9 +122,16 @@ export const PhoneInput = ({
   country,
   className,
 }: any) => {
-  const [countryState, setCountryState] = useState<any>();
 
+  const [countryState, setCountryState] = useState<any>();
+  const [ hasInput, setHasInput ] = useState(false);
   const [ focused, setFocused ] = useState(false);
+
+  useEffect(() => {
+    setHasInput(value.length > countryState?.countryCode.length)
+
+  },[countryState,value])
+
   return (
     <div className={`w-full ${className}`}>
       <label className="">{label}</label>
@@ -146,13 +153,14 @@ export const PhoneInput = ({
             }
             return true;
           }}
+          onChange={handleChange}
           placeholder={placeholder}
           containerClass="w-full"
           country={country?.toLowerCase() ?? "ng"}
           value={value}
           countryCodeEditable={false}
         />
-        { !focused && <span className="text-zinc-400/80 pointer-events-none absolute top-[8px] text-[14px] font-[500] font-sans left-[84px]">{placeholder}</span> }
+        { !focused && !hasInput && <span className="text-zinc-400/80 pointer-events-none absolute top-[8px] text-[14px] font-[500] font-sans left-[84px]">{placeholder}</span> }
       </div>
       <p className="text-red-500 h-4 text-sm">{errorMessage}</p>
     </div>

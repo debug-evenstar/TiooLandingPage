@@ -50,6 +50,7 @@ const FormArea: FC = () => {
   };
 
   const [registerUser, { isLoading }] = useLazyLoginQuery();
+  
   const navigate = useNavigate();
 
   const submitFormData = () => {
