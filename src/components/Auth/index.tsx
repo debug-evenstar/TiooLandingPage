@@ -1,6 +1,5 @@
-import { MouseEvent, ReactNode, useRef, useState } from "react";
+import { MouseEvent, ReactNode, useEffect, useRef, useState } from "react";
 
-import openEye from "@/assets/images/icons/open-eye.svg";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import "react-phone-input-2/lib/style.css";
 import OldPhoneInput from "react-phone-input-2";
@@ -123,26 +122,45 @@ export const PhoneInput = ({
   country,
   className,
 }: any) => {
-  console.log(country);
+
+  const [countryState, setCountryState] = useState<any>();
+  const [ hasInput, setHasInput ] = useState(false);
+  const [ focused, setFocused ] = useState(false);
+
+  useEffect(() => {
+    setHasInput(value.length > countryState?.countryCode.length)
+
+  },[countryState,value])
+
   return (
     <div className={`w-full ${className}`}>
       <label className="">{label}</label>
       <div className="relative mt-2">
         <OldPhoneInput
-          // className="outline-none focus:border-main mt-2 w-full px-3 py-2 border border-gray-300 rounded"
           inputProps={{
             name: name,
+            maxLength: countryState?.countryCode == "234" ? 18 : 20,
+            onFocus: () => setFocused(true),
+            onBlur: () => setFocused(false)
           }}
           inputStyle={{
-            width: '100%'
+            width: "100%",
           }}
+          isValid={(value: any, country: any) => {
+            setCountryState(country);
+            if (country.countryCode == "234") {
+              return value.length <= 13;
+            }
+            return true;
+          }}
+          onChange={handleChange}
           placeholder={placeholder}
           containerClass="w-full"
           country={country?.toLowerCase() ?? "ng"}
           value={value}
           countryCodeEditable={false}
-          onChange={handleChange}
         />
+        { !focused && !hasInput && <span className="text-zinc-400/80 pointer-events-none absolute top-[8px] text-[14px] font-[500] font-sans left-[84px]">{placeholder}</span> }
       </div>
       <p className="text-red-500 h-4 text-sm">{errorMessage}</p>
     </div>
@@ -162,7 +180,13 @@ export const SelectInput = ({
     <div className={`w-full ${className}`}>
       <label className="">{label}</label>
       <div className="relative mt-2">
-        <Select sortBy="name" options={options} className="hover:border-main outline-none ring-0 focus:border-main" values={values} onChange={handleChange} />
+        <Select
+          sortBy="name"
+          options={options}
+          className="hover:border-main outline-none ring-0 focus:border-main"
+          values={values}
+          onChange={handleChange}
+        />
       </div>
       <p className="text-red-500 h-4 text-sm">{errorMessage}</p>
     </div>

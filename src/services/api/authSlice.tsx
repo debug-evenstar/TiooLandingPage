@@ -16,6 +16,15 @@ export const authApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
     }),
 
+    forgotPassword: builder.query<StudentLoginResult | ErrorResult, any>({
+      query: (payload) => ({
+        url: `${ENDPOINT.FORGET_PASSWORD}`,
+        method: ENDPOINT.HTTP_METHODS.POST,
+        body: payload,
+      }),
+      keepUnusedDataFor: ENDPOINT.CACHE_LIFETIME.DEFAULT,
+    }),
+
     // registerSchool: builder.query<BaseResult | ErrorResult, TeacherSignup>({
     //   query: (payload) => ({
     //     url: `${ENDPOINT.SCHOOL_REGISTER}`,
@@ -103,7 +112,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
       }),
     }),
 
-    resetPassword: builder.mutation<BaseResult | ErrorResult, ResetPasswordInput>({
+    resetPassword: builder.mutation<BaseResult | ErrorResult, any>({
       query: (payload) => ({
         url: `${ENDPOINT.RESET_PASSWORD}`,
         method: ENDPOINT.HTTP_METHODS.POST,
@@ -129,6 +138,7 @@ export const {
   useLazySendOtpQuery,
   useLazyVerifyOtpQuery,
   useLazySetupSchoolQuery,
+  useLazyForgotPasswordQuery,
   useLazyGetAccountTypesQuery,
   useLazyGetOnboardingQuestionsQuery,
   useForgetPasswordMutation,
