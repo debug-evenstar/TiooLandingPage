@@ -110,7 +110,12 @@ const ProcessFlow = ({ questions }: any) => {
 
   useEffect(() => {
     // get the first question when it's loaded from the server
-    setCurrentQuestion(questions[0]);
+    // temporarily remove the agent option
+    if(questions && questions.length){
+      const temp = { ...questions[0], options: questions[0].options.slice(0,1) };
+      setCurrentQuestion(temp);
+      // setCurrentQuestion(questions[0]);
+    }
   }, [questions]);
 
   useEffect(() => {
