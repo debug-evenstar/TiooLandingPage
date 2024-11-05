@@ -195,7 +195,7 @@ const FormArea: FC = () => {
           />
           <PhoneInput
             label="Phone number"
-            placeholder="8032334874"
+            placeholder="8098765432"
             className="mb-2"
             country={country}
             value={formData.phone}

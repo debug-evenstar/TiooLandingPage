@@ -1,5 +1,5 @@
 import { FC } from "react";
-import bookImg from "@/assets/images/jamb-maths.png";
+import bookImg from "@/assets/images/featured-book.jpg";
 // import bookImg from "@/assets/images/library-book-2.png";
 
 const FeaturedContent = () => {
@@ -19,7 +19,7 @@ const FeaturedContent = () => {
       </div>
       <div className="flex flex-col sm:flex-row  gap-x-16 mt-16 items-center">
         <div className="w-full sm:w-[36%]  bg-[#FCEBFF] flex items-center rounded-[10px] justify-center py-5">
-          <img src={bookImg} alt="" className="sm:w-[300px] bg-[#FCEBFF]" />
+          <img src={bookImg} alt="" className="sm:w-[300px] rounded-md bg-[#FCEBFF]" />
         </div>
         <div className="quicksand mt-5 sm:mt-0 sm:w-[64%]">
           <h2 className="text-[23px] sm:text-[30px] sm:w-[64%] font-[600] mb-4">

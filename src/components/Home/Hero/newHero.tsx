@@ -102,11 +102,11 @@ const TypeHeader = () => {
       onInit={(typewriter) => {
         typewriter
           .start()
-          .typeString(
-            'Your <span class="text-main">one-stop shop</span> <br /> for smart learning'
-          )
-          .pauseFor(500)
-          .deleteAll()
+          // .typeString(
+          //   'Your <span class="text-main">one-stop shop</span> <br /> for smart learning'
+          // )
+          // .pauseFor(500)
+          // .deleteAll()
           .typeString(
             smallScreen ? 
             '<span class="text-main">Improve</span> your test  and  exams scores by 100%'
