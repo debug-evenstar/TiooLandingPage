@@ -52,7 +52,7 @@ const QA = [
         <ol className="list-decimal list-inside ml-4">
           <li>Sign up on our website or mobile app</li>
           <li>Choose your exam type</li>
-          <li>Select the free trial option</li>
+          {/* <li>Select the free trial option</li> */}
         </ol>
         No payment information is required for the free trial. Upgrade to a paid
         plan anytime to unlock full access to our comprehensive study materials.
@@ -84,6 +84,11 @@ const QA = [
         we'll provide a full refund.
       </p>
     ),
+  },
+  {
+    q: "Does Tioo have a physical learning location?",
+
+    a: "No, Tioo is an online learning platform. Our website offers virtual interactive tutorials, practice questions, and study resources that can be accessed from anywhere at any time. This allows us to reach students across different regions and provide flexible learning options.",
   },
 ];
 
